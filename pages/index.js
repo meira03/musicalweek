@@ -7,11 +7,7 @@ function Home() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-<<<<<<< HEAD
     fetch('https://musicalweek-api.azurewebsites.net/searchTrack.php?q=' + search)
-=======
-    fetch('http://localhost:8000/searchTrack?q=' + search)
->>>>>>> acf530e400495517453528f0f93c3a67eb7782f9
       .then((res) => res.json())
       .then((dados) => {
         if(dados.tracks != undefined){
