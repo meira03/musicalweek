@@ -7,7 +7,7 @@ function Home() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('https://musicalweek.azurewebsites.net/searchTrack?q=' + search)
+    fetch('https://musicalweek-api.azurewebsites.net/searchTrack.php?q=' + search)
       .then((res) => res.json())
       .then((dados) => {
         if(dados.tracks != undefined){
@@ -24,7 +24,7 @@ function Home() {
       {!isLoading && search != "" && dados.items.map((music) => (
         <Link
           href={{
-            pathname: '/upload',
+            pathname: '/musica',
             query: { id: music.id },
           }}
         >
