@@ -68,6 +68,7 @@ const Menu = ({id}) => {
                 <Link
                   href="/salas"
                   className="text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-zinc-700 dark:hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  replace
                 >
                   Salas
                 </Link>
@@ -91,7 +92,7 @@ const Menu = ({id}) => {
                 aria-labelledby="user-menu-button"
                 tabIndex="-1"
               >
-                {id != undefined && (
+                {false && (
                     <Link
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700"
@@ -161,7 +162,7 @@ const Menu = ({id}) => {
           >
             Salas
           </Link>
-          {id != undefined && (
+          {false && (
               <Link
                 href="/perfil"
                 className="text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-zinc-700 dark:hover:text-white block rounded-md px-3 py-2 text-base font-medium"

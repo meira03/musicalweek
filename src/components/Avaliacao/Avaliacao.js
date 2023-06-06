@@ -14,6 +14,7 @@ const StarRating = ({ nota_usuario, id_musica_sala, id_usuario, media }) => {
       setHighlightedStars(nota_usuario);
       setSelectedStars(nota_usuario);
       renderRatingText(parseInt(nota_usuario));
+      document.getElementById('media_musica').classList.remove('hidden')
       setIsLocked(true);
     }
   }, [nota_usuario]);
@@ -63,7 +64,7 @@ const StarRating = ({ nota_usuario, id_musica_sala, id_usuario, media }) => {
         {[...Array(5)].map((_, index) => (
           <FaStar
             key={index}
-            className={`cursor-pointer text-7xl px-1 ${
+            className={`cursor-pointer text-5xl sm:text-7xl px-1 ${
               (index + 1 <= highlightedStars || index + 1 <= selectedStars)
                 ? 'text-blue-500'
                 : 'text-gray-300 dark:text-zinc-700'
