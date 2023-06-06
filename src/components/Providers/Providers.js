@@ -1,15 +1,10 @@
-"use client";
-
+"use client"
 import {ThemeProvider} from 'next-themes';
 
-const Providers = async ({children, locale}) => {  
-    return ( 
-        <>
+export default async function Providers(params = {}) {
+  return (
         <ThemeProvider attribute="class">
-          {children}
+            {params.children}
         </ThemeProvider>
-        </>
-     );
+    )
 }
- 
-export default Providers;
