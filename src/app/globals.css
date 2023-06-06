@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Firefox */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.woff') format('woff');
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: #eee #fff;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 .dark * {
@@ -13,7 +18,6 @@
   scrollbar-color: #444 #111;
 }
 
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 8px;
 }
@@ -40,6 +44,14 @@
   border: 3px solid #444;
 }
 
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.animate-shine {
+  animation: shine 2s linear infinite;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
