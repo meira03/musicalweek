@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 export function middleware(request) {
   if(!request.cookies.has('id')){
     if (
-        request.nextUrl.pathname.startsWith('/genero') ||
         request.nextUrl.pathname.startsWith('/musica') ||
         request.nextUrl.pathname.startsWith('/sala') ||
         request.nextUrl.pathname.startsWith('/salas')

@@ -21,10 +21,6 @@ const BarraProgresso = () => {
     case "musica":
       barra = [proressoAtivo,proresso,proresso];
       break;
-
-    case "genero":
-      barra = [proressoLigado,proressoAtivo,proresso];
-      break;
   
     default:
       barra = [proresso,proresso,proresso];
