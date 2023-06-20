@@ -6,4 +6,4 @@ export async function GET(req, res) {
             application: true,
             startTime: `/Date(${new Date().getTime()})/`,
     }, {status: 200})
-  }
+}

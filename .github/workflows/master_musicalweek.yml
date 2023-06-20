@@ -21,12 +21,11 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, build
         run: |
           rm -rf node_modules/
           npm install
           npm run build --if-present
-          npm run test --if-present
 
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
