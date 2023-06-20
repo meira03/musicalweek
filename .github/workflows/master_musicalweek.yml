@@ -33,5 +33,5 @@ jobs:
         with: 
           app-name: 'musicalweek'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EBE7C59A71AB4F29AC81D83D6454F34B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F2787EDDF14742F5B65403B02BFAE592 }}
           package: .
