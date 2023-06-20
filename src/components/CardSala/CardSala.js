@@ -7,7 +7,7 @@ const CardSala = async ({ nome, id_musica, id_sala }) => {
     const musica = await procuraMusica(id_musica);
 
     return (
-      <Link href={"/sala/" + id_sala}>
+      <Link prefetch={false} href={"/sala/" + id_sala}>
         <div className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 hover:dark:bg-zinc-700">
           <Image
             src={musica.album.images[0].url}

@@ -5,7 +5,7 @@ import { Suspense, useState } from "react";
 import Loading from "@/app/loading.js";
 import Contador from "@/components/Contador/Contador.js";
 
-const Sala = async ({ sala, id_usuario }) => {
+const Sala = ({ sala, id_usuario }) => {
   const [musicKey, setMusicKey] = useState(sala.musicas.length - 1);
 
   const updateMusicKey = (value) => {

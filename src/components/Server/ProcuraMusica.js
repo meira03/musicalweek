@@ -7,7 +7,7 @@ export default async function ProcuraMusica({ pesquisa, id_usuario }) {
   const router = useRouter();
 
   async function handleClick (id_musica) {
-    const sala = await criaSala(id_musica, id_usuario);
+    const sala = await criaSala(id_musica, id_usuario.value);
     router.push(`/sala/${sala.id}`);
   }
   if (pesquisa != "") {

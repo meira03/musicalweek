@@ -8,7 +8,6 @@ export default async function ProcuraMusicaSala({ id_musica_sala }) {
   const id_usuario = cookieStore.get('id').value;
 
   const sala = await procuraMusicaSala(id_musica_sala);
-  
   if (sala.sala != null) {
     return (
       <>
