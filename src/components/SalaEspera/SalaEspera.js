@@ -12,16 +12,13 @@ function msToMinutesSeconds(ms) {
   return formattedTime;
 }
 
-const SalaEspera = ({ musica, genero }) => {
+const SalaEspera = ({ musica }) => {
   return (
     <div className="flex justify-center items-center py-10 relative min-h-[80vh] overflow-hidden w-full">
       <div className="bg-gray-100 dark:bg-zinc-800 p-8 rounded shadow w-4/5 flex flex-col justify-center items-center">
         <h2 className="text-3xl py-10 dark:text-white">
           Aguardando outros usuários...
         </h2>
-        <div>
-          <span className="text-3xl dark:text-white">{genero.nome}</span>
-        </div>
         <div className="w-64">
           <Image
             src={musica.album.images[0].url}

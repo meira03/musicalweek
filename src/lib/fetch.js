@@ -49,26 +49,6 @@ export async function procuraMusica(id) {
   return await res.json();
 }
 
-export async function procuraGenero(id) {
-  const url = `http://localhost/musicalweek-api/getGenre.php?id_genero=${id}`;
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-
-  const res = await fetch(url, {
-    method: "GET",
-    headers: headers,
-    credentials: "include",
-  })
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.error("Erro na requisição:", error);
-    });
-
-  return await res.json();
-}
-
 export async function procuraArtista(id) {
   const auth = await autorizacao();
 
@@ -86,7 +66,7 @@ export async function procuraArtista(id) {
   return await res.json();
 }
 
-export async function criaSala(musica, genero, usuario) {
+export async function criaSala(musica, usuario) {
   const url = "https://musicalweek-api.azurewebsites.net/endpoints/insert_fila.php";
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
@@ -94,7 +74,6 @@ export async function criaSala(musica, genero, usuario) {
   const data = {
     id_usuario: usuario,
     id_musica: musica,
-    nome_genero: genero,
   };
 
   const res = await fetch(url, {
