@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.swiper-slide img{
+    width: 75%;
+    margin: auto;
+    transition: all ease-out .4s;
+}
+
+.swiper-slide-active img{
+    transform: scale(1.75);
+}
+
+.swiper-slide:not(.swiper-slide-active) img{
+    transform: scale(1);
+}
+
+.swiper-slide{
+    display: flex!important;
+}
