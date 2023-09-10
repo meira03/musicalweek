@@ -1,20 +1,35 @@
-import { NextResponse } from 'next/server';
+import Negotiator from 'negotiator'
+import { NextResponse } from 'next/server'
+import { match } from '@formatjs/intl-localematcher'
+
+let locales = ['pt', 'en']
+
+function getLocale(request) { 
+    let headers = { 'accept-language': 'pt;q=0.5' }
+    let languages = new Negotiator({ headers }).languages()
+    let locales = ['pt', 'en']
+    let defaultLocale = 'pt'
+    
+    return match(languages, locales, defaultLocale)
+ }
  
 export function middleware(request) {
-  if(!request.cookies.has('id')){
-    if (
-        request.nextUrl.pathname.startsWith('/musica') ||
-        request.nextUrl.pathname.startsWith('/sala') ||
-        request.nextUrl.pathname.startsWith('/salas')
-    ) {
-        return NextResponse.redirect(new URL('/login', request.url));
-    }
-  }else{
-    if (
-        request.nextUrl.pathname.startsWith('/cadastro') ||
-        request.nextUrl.pathname.startsWith('/login')
-    ) {
-        return NextResponse.redirect(new URL('/salas', request.url));
-    }
-  };
+  const pathname = request.nextUrl.pathname
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  )
+ 
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request)
+ 
+    return NextResponse.redirect(
+      new URL(`/${locale}/${pathname}`, request.url)
+    )
+  }
+}
+ 
+export const config = {
+  matcher: [
+    '/((?!_next).*)',
+  ],
 }
