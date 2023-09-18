@@ -48,20 +48,20 @@ export default function InputField(props) {
     <div className="mb-4">
       <label
         className="block text-gray-700 dark:text-zinc-100 text-sm font-bold mb-2"
-        htmlFor={props.type}
+        htmlFor={props.id}
       >
-        {props.type === 'email' ? 'Email' : props.type === 'password' ? 'Senha' : 'Outro'}
+        {props.id === 'email' ? 'Email' : props.id === 'password' ? 'Senha' : 'Outro'}
       </label>
       <input
-        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.type].isValid ? 'border-red-500' : ''}`}
-        id={props.type}
+        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
+        id={props.id}
         type={props.type}
-        name={props.type}
+        name={props.id}
         placeholder={props.placeholder}
-        onChange={handleChange} // Add this line to handle input changes
+        onChange={handleChange}// Add this line to handle input changes
       />
       {!validation.isValid && (
-        <p className="text-red-500 text-xs italic">{validation[props.type].message}</p>
+        <p id={props.id + "-error"} className="text-red-500 text-xs italic">{validation[props.id].message}</p>
       )}
     </div>
   );

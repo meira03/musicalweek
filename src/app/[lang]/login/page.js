@@ -1,24 +1,37 @@
 "use client";
-
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import Input from "@/components/form/Input";
 import { login } from '@/utils/forms'
+import { isValidInput } from '@/components/form/validation';
 
 export default function Login() {
-    const [message, setMessage] = useState('')
-    const router = useRouter()
+  const [message, setMessage] = useState('')
+  const router = useRouter()
 
-    async function onLogin(formData) {
-        const res = await login(formData)
-        if(res.redirect === true){
-          router.push('/search')
-        }else{
-          setMessage(res.message)
-        }
+  async function onLogin(formData) {
+
+    if (document.getElementById("email").value == "" || document.getElementById("password").value == "") {
+      if (document.getElementById("email").value == "") {
+        document.getElementById("email-error").innerHTML = "Campo Obrigatório"
+        document.getElementById("email").classList.add("border-red-500")
+      }
+      if (document.getElementById("password").value == "") {
+        document.getElementById("password-error").innerHTML = "Campo Obrigatório"
+        document.getElementById("password").classList.add("border-red-500")
+      }
+      return
     }
+
+    const res = await login(formData)
+    if (res.redirect === true) {
+      router.push('/search')
+    } else {
+      setMessage(res.message)
+    }
+  }
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
@@ -27,13 +40,13 @@ export default function Login() {
           Login
         </h1>
         <div className="text-red-500 text-center text-sm font-light h-4 my-2">
-            {message}
+          {message}
         </div>
         <form action={onLogin}>
           <div className="mb-4">
             <Input
               id="email"
-              type="email"
+              type="text"
               name="email"
               placeholder="Digite seu email"
             />
@@ -50,6 +63,7 @@ export default function Login() {
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
+            // disabled={!email || !senha}
             >
               Entrar
             </button>

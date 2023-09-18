@@ -6,7 +6,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo obrigatório.',
+        message: 'Campo Obrigatório.',
       };
     } else if (!emailPattern.test(value)) {
       return {
@@ -23,7 +23,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo obrigatório.',
+        message: 'Campo Obrigatório.',
       };
     } else if (value.length < 6) {
       return {
