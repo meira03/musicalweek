@@ -16,7 +16,7 @@ export const Menu = () => {
             <Link href='/search'>Salas</Link>
         </li>
         <li>
-            <Link href='/profile'>Perfil</Link>
+            <Link href='/login'>Login</Link>
         </li>
       </ul>
     </nav>
