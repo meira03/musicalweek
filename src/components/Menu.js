@@ -10,13 +10,13 @@ export const Menu = () => {
       <Image src={logo} className='max-h-[70%] w-auto' alt="Logo Musical Week" />
       <ul className="grid grid-cols-3 gap-4">
         <li>
-            <Link href='/'>Home</Link>
+          <Link href='/'>Home</Link>
         </li>
         <li>
-            <Link href='/search'>Salas</Link>
+          <Link href='/search'>Salas</Link>
         </li>
         <li>
-            <Link href='/profile'>Perfil</Link>
+          <Link href='/perfil'>Perfil</Link>
         </li>
       </ul>
     </nav>
