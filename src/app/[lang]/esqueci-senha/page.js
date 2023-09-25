@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { enviarEmail } from "@/utils/forms";
-import validator from "validator";
+//import validator from "validator";
 import { useRouter } from "next/navigation";
 import Input from "@/components/form/Input";
 
