@@ -72,6 +72,14 @@ export default function InputField(props) {
       setHasNumber(/\d/.test(value));
       setHasSpecialChar(/[@$!%*?&]/.test(value));
     }
+
+    // if(document.getElementById("passwordCadastro").value.length < 8 ||
+    //   !/[a-z]/.test(document.getElementById("passwordCadastro").value) ||
+    //   !/[A-Z]/.test(document.getElementById("passwordCadastro").value) ||
+    //   !/[0-9]/.test(document.getElementById("passwordCadastro").value) ||
+    //   !/[!@#$%^&*]/.test(document.getElementById("passwordCadastro").value)){
+    //     document.getElementById("passwordCadastro-error").innerHTML = passwordCadastro;
+    // }
   
     setValidation({
       completeName: completeNameValidation,
@@ -97,10 +105,26 @@ export default function InputField(props) {
 
   const handlePasswordFocus = () => {
     setIsPasswordFocused(true);
+    // if(document.getElementById("nickname-error").innerHTML == 'O nickname em questão já está em uso.'){
+    //   document.getElementById("nickname-error").innerHTML = "";
+    //   document.getElementById("nickname").classList.add("border-zinc-100");
+    // }
+    // if(document.getElementById("email-error").innerHTML == "O email em questão já está em uso."){
+    //     document.getElementById("email-error").innerHTML = "";
+    //     document.getElementById("email").classList.add("border-zinc-100");
+    // }
   };
 
   const handlePasswordBlur = () => {
     setIsPasswordFocused(false);
+      if(document.getElementById("nickname-error").innerHTML == 'O nickname em questão já está em uso.'){
+        document.getElementById("nickname-error").innerHTML = "";
+        document.getElementById("nickname").classList.add("border-zinc-100");
+      }
+      if(document.getElementById("email-error").innerHTML == "O email em questão já está em uso."){
+          document.getElementById("email-error").innerHTML = "";
+          document.getElementById("email").classList.add("border-zinc-100");
+      }
   };
 
   

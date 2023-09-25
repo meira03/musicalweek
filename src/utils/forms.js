@@ -56,10 +56,10 @@ export async function register(formData) {
       .then((result) => result.json())
       .then((res) => {
         console.log(res)
-        if (res.descricao === 'Variável(s) fora do formato' ||res.nick !== body.nick ) {
+        if (res.descricao === 'Variável(s) fora do formato' ) {
           return { message: 'Alguma das informações inseridas é inválida.' }
         }else if(res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true){
-          return { message: 'Usuário já cadastrado!' }
+          return { message: 'Já está em uso!' }
         }else if(res.descricao === 'Variável(s) já está cadastrada' && res.email === true){
           return { message: "O email em questão já está em uso." }
         }else if(res.descricao === 'Variável(s) já está cadastrada' && res.nick === true){
