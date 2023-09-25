@@ -62,19 +62,28 @@ export default function Cadastro() {
     // if (document.getElementById("email").value.length === 0){valid = false;}
     // if (!emailPattern.test(document.getElementById("email").value)){valid = false;}
 
-    // if(document.getElementById("password").value.length < 8 ||
-    //   !/[a-z]/.test(document.getElementById("password").value) ||
-    //   !/[A-Z]/.test(document.getElementById("password").value) ||
-    //   !/[0-9]/.test(document.getElementById("password").value) ||
-    //   !/[!@#$%^&*]/.test(document.getElementById("password").value)){valid = false;}
+    
 
     // if(document.getElementById("password").value != document.getElementById("passwordConfirmation").value){valid = false;}
       if(document.getElementById("passwordCadastro").value === document.getElementById("passwordConfirmation").value){
         const res = await register(formData)
         if (res.redirect === true) {
           router.push('/search')
-        } else {
-          setMessage(res.message)
+        } else  {
+          if(res.message == 'Alguma das informações inseridas é inválida.')
+            setMessage(res.message)
+          else if(res.message == 'Já está em uso!'){
+            document.getElementById("nickname-error").innerHTML = "O nickname em questão já está em uso.";
+            document.getElementById("nickname").classList.add("border-red-500");
+            document.getElementById("email-error").innerHTML = "O email em questão já está em uso.";
+            document.getElementById("email").classList.add("border-red-500");
+          } else if(res.message == "O email em questão já está em uso."){
+              document.getElementById("email-error").innerHTML = res.message;
+              document.getElementById("email").classList.add("border-red-500");
+            } else if(res.message == "O nickname em questão já está em uso."){
+              document.getElementById("nickname-error").innerHTML = res.message;
+              document.getElementById("nickname").classList.add("border-red-500");
+            }
         }
       }else {
         setMessage("Senhas não coincidem!")
