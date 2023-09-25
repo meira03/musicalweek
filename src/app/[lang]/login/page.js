@@ -72,7 +72,14 @@ export default function Login() {
           >
               Entrar com Google
           </button> */}
-
+            <div className="flex items-center flex-col">
+              <Link
+                className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                href="/esqueci-senha"
+              >
+                Esqueci minha senha
+              </Link>
+            </div>
             <div className="flex items-center flex-col">
               <Link
                 className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
