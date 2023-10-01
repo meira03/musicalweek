@@ -2,39 +2,25 @@
 
 import { useState } from "react";
 import { enviarEmail } from "@/utils/forms";
-//import validator from "validator";
 import { useRouter } from "next/navigation";
 import Input from "@/components/form/Input";
 
 export default function EsqueciSenha() {
   const router = useRouter();
 
-  // function createLabelError(element, text) {
-  //   element.classList.add("ring-red-600");
-  //   const elementeElement = document.createElement("label");
-  //   elementeElement.classList = "text-red-600 text-xs";
-  //   const elementText = document.createTextNode(text);
-  //   elementeElement.appendChild(elementText);
-  //   element.parentElement.appendChild(elementeElement);
-  //   element.addEventListener("blur", function () {
-  //     elementeElement.remove();
-  //     element.classList.remove("ring-red-600");
-  //   });
-  //   document.getElementsByTagName("button")[0].addEventListener("click", function () {
-  //     elementeElement.remove();
-  //     element.classList.remove("ring-red-600");
-  //   });
-  // }
-
   async function onRecuperate(formData) {
-    
-    const res = await enviarEmail(formData);
-
-    if (res.sucesso == true) {
-      console.log("Sucesso");
-      router.push("/esqueci-senha/espera-email");
-    } else {
-      console.log(res.descricao);
+    if (document.getElementById("emailEsqueciSenha").value == "") {
+      document.getElementById("emailEsqueciSenha-error").innerHTML = "Campo Obrigatório"
+      document.getElementById("emailEsqueciSenha").classList.add("border-red-500")
+    }
+    else {
+      const res = await enviarEmail(formData);
+      console.log(res)
+      if (res.sucesso) {
+        router.push("/esqueci-senha/espera-email/");
+      } else {
+        console.log(res.descricao);
+      }
     }
   };
 
@@ -48,10 +34,11 @@ export default function EsqueciSenha() {
           <div className="mb-4">
             <Input
               id="emailEsqueciSenha"
-              type="text"
+              type="email"
               name="emailEsqueciSenha"
               placeholder="Digite seu email"
             />
+            <p id={"emailEsqueciSenha-error"} className="text-red-500 text-xs italic"></p>
           </div>
           <div className="flex items-center justify-center">
             <button

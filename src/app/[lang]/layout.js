@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { ThemeProvider } from '@/providers'
 import { Menu } from "@/components/Menu";
+import Provider from '@/components/Provider/Provider';
 
 import { Inter } from 'next/font/google'
 
@@ -15,12 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black-0 min-h-screen`}>
+        <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Menu />
             <main>
               {children}
             </main>
           </ThemeProvider>
+        </Provider>
       </body>
     </html>
   )

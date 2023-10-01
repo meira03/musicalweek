@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useSession } from "next-auth/react";
 
 import Input from "@/components/form/Input";
-import { login } from '@/utils/forms'
-import { isValidInput } from '@/components/form/validation';
+import { login, loginGoogle } from '@/utils/forms'
+import SignInButtonGoogle from "@/components/login/SignInButtonGoogle";
+import SignInButtonSpotify from "@/components/login/SignInButtonSpotify";
 
 export default function Login() {
   const [message, setMessage] = useState('')
@@ -25,7 +27,7 @@ export default function Login() {
       return
     }
 
-    const res = await login(formData)
+    let res = await login(formData)
     if (res.redirect === true) {
       router.push('/search')
     } else {
@@ -36,10 +38,10 @@ export default function Login() {
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div className="bg-gray-100 dark:bg-zinc-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
-        <h1 className="dark:text-white text-center text-3xl font-bold mb-3 uppercase">
+        <h1 className="dark:text-white text-center text-3xl font-bold mb-6 uppercase">
           Login
         </h1>
-        <div className="text-red-500 text-center text-sm font-light h-4 my-2">
+        <div className="text-red-500 text-center text-sm font-light mb-4">
           {message}
         </div>
         <form action={onLogin}>
@@ -49,6 +51,7 @@ export default function Login() {
               type="text"
               name="email"
               placeholder="Digite seu email"
+              className="border rounded bg-white py-2 px-4 w-full"
             />
           </div>
           <div className="mb-6">
@@ -57,40 +60,36 @@ export default function Login() {
               type="password"
               name="senha"
               placeholder="Digite sua senha"
+              className="border rounded bg-white py-2 px-4 w-full"
             />
           </div>
-          <div className="flex items-center flex-col">
+          <div className="flex flex-col items-center">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
               type="submit"
-            // disabled={!email || !senha}
             >
               Entrar
             </button>
-            {/* <button
-              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-              Entrar com Google
-          </button> */}
-            <div className="flex items-center flex-col">
-              <Link
-                className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="/esqueci-senha"
-              >
-                Esqueci minha senha
-              </Link>
+            <div className="flex space-x-4">
+              <SignInButtonGoogle />
+              <SignInButtonSpotify />
             </div>
-            <div className="flex items-center flex-col">
-              <Link
-                className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="/cadastro"
-              >
-                Criar nova conta
-              </Link>
-            </div>
+            <Link
+              className="inline-block font-bold text-gm text-blue-500 hover:text-blue-800 mt-4"
+              href="/esqueci-senha"
+            >
+              Esqueci minha senha
+            </Link>
+            <Link
+              className="inline-block font-bold text-gm text-blue-500 hover:text-blue-800 mt-2"
+              href="/cadastro"
+            >
+              Criar nova conta
+            </Link>
           </div>
         </form>
       </div>
     </main>
+
   );
 }

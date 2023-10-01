@@ -5,7 +5,7 @@ import Link from "next/link";
 //import { cadastraUsuario } from "@/lib/fetch";
 
 import Input from "@/components/form/Input";
-import { register } from '@/utils/forms'; 
+import { register } from '@/utils/forms';
 
 
 export default function Cadastro() {
@@ -13,7 +13,7 @@ export default function Cadastro() {
   const [message, setMessage] = useState('');
 
   async function onRegister(formData) {
-    if (document.getElementById("passwordConfirmation").value == "" || document.getElementById("nickname").value == "" || document.getElementById("completeName").value == "" ||document.getElementById("email").value == "" || document.getElementById("passwordCadastro").value == "") {
+    if (document.getElementById("passwordConfirmation").value == "" || document.getElementById("nickname").value == "" || document.getElementById("completeName").value == "" || document.getElementById("email").value == "" || document.getElementById("passwordCadastro").value == "") {
       if (document.getElementById("completeName").value == "") {
         document.getElementById("completeName-error").innerHTML = "Campo Obrigatório"
         document.getElementById("completeName").classList.add("border-red-500")
@@ -23,7 +23,7 @@ export default function Cadastro() {
         document.getElementById("nickname").classList.add("border-red-500")
       }
 
-      if (document.getElementById("birthday").value == null) {
+      if (document.getElementById("birthday").value == '') {
         document.getElementById("birthday-error").innerHTML = "Campo Obrigatório"
         document.getElementById("birthday").classList.add("border-red-500")
       }
@@ -65,35 +65,19 @@ export default function Cadastro() {
     
 
     // if(document.getElementById("password").value != document.getElementById("passwordConfirmation").value){valid = false;}
-      if(document.getElementById("passwordCadastro").value === document.getElementById("passwordConfirmation").value){
-        const res = await register(formData)
-        if (res.redirect === true) {
-          router.push('/search')
-        } else  {
-          if(res.message == 'Alguma das informações inseridas é inválida.')
-            setMessage(res.message)
-          else if(res.message == 'Já está em uso!'){
-            document.getElementById("nickname-error").innerHTML = "O nickname em questão já está em uso.";
-            document.getElementById("nickname").classList.add("border-red-500");
-            document.getElementById("email-error").innerHTML = "O email em questão já está em uso.";
-            document.getElementById("email").classList.add("border-red-500");
-          } else if(res.message == "O email em questão já está em uso."){
-              document.getElementById("email-error").innerHTML = res.message;
-              document.getElementById("email").classList.add("border-red-500");
-            } else if(res.message == "O nickname em questão já está em uso."){
-              document.getElementById("nickname-error").innerHTML = res.message;
-              document.getElementById("nickname").classList.add("border-red-500");
-            }
-        }
-      }else {
-        setMessage("Senhas não coincidem!")
+    if (document.getElementById("passwordCadastro").value === document.getElementById("passwordConfirmation").value) {
+      const res = await register(formData)
+      if (res.redirect === true) {
+        router.push('/search')
+      } else {
+        setMessage(res.message)
       }
-    
+    } else {
+      setMessage("Senhas não coincidem!")
+    }
 
-    
   }
 
-  /////////////////////////////////////////////////////////////////////
   function createLabelError(element, text) {
     element.classList.add("ring-red-600");
     const elementeElement = document.createElement("label");
@@ -109,7 +93,7 @@ export default function Cadastro() {
       elementeElement.remove();
       element.classList.remove("ring-red-600");
     });
-  } 
+  }
   const [formData, setFormData] = useState({
     nome: "",
     nick: "",
@@ -219,13 +203,13 @@ export default function Cadastro() {
             </button>
           </div>
           <div className="flex items-center flex-col">
-              <Link
-                className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="/login"
-              >
-                Já possuo uma conta (Login)
-              </Link>
-            </div>
+            <Link
+              className="inline-block mt-10 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="/login"
+            >
+              Já possuo uma conta (Login)
+            </Link>
+          </div>
         </form>
       </div>
     </main>

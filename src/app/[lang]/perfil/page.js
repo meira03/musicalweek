@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
-  console.log(res)
+  // console.log(res)
 
   // const ros = await procuraSalas(id_user);
   // const salas = ros.salas;
