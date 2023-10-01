@@ -65,7 +65,7 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    } else if (!emailPattern.test(value)) {
+    }else if (!emailPattern.test(value)) {
       return {
         isValid: false,
         message: 'Email inválido. Certifique-se de usar um @ e um domínio válido.',
@@ -86,7 +86,7 @@ export function isValidInput(inputID, value) {
     !/[!@#$%^&*]/.test(value)){
       return {
         isValid: false,
-        message: ''      
+        message: 'Senha fraca.'      
       };
     }else{
       return {

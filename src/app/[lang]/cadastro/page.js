@@ -62,11 +62,7 @@ export default function Cadastro() {
     // if (document.getElementById("email").value.length === 0){valid = false;}
     // if (!emailPattern.test(document.getElementById("email").value)){valid = false;}
 
-    // if(document.getElementById("password").value.length < 8 ||
-    //   !/[a-z]/.test(document.getElementById("password").value) ||
-    //   !/[A-Z]/.test(document.getElementById("password").value) ||
-    //   !/[0-9]/.test(document.getElementById("password").value) ||
-    //   !/[!@#$%^&*]/.test(document.getElementById("password").value)){valid = false;}
+    
 
     // if(document.getElementById("password").value != document.getElementById("passwordConfirmation").value){valid = false;}
     if (document.getElementById("passwordCadastro").value === document.getElementById("passwordConfirmation").value) {
@@ -82,7 +78,6 @@ export default function Cadastro() {
 
   }
 
-  /////////////////////////////////////////////////////////////////////
   function createLabelError(element, text) {
     element.classList.add("ring-red-600");
     const elementeElement = document.createElement("label");
