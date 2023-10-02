@@ -1,6 +1,18 @@
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
+import Modal from 'react-modal';
+import EscolherPlano from './EscolherPlano';
+
+Modal.setAppElement(null);
 
 export default function Planos() {
+  const [planoSelecionado, setPlanoSelecionado] = useState(null);
+  const [planoSelecionadoIndex, setPlanoSelecionadoIndex] = useState(null);
+  const [cookies, setCookie] = useCookies(['plano']);
+  const [token, setToken] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const planos = [
     {
       nome: "Plano Gratuito",
@@ -31,6 +43,57 @@ export default function Planos() {
     },
   ];
 
+  const selecionarPlanoPorCookies = () => {
+    const planoSelecionadoCookie = cookies.plano;
+  
+    if (planoSelecionadoCookie !== undefined && planoSelecionadoCookie !== null) {
+      const planoIndex = planos.findIndex(plano => plano.nome === planoSelecionadoCookie);
+  
+      if (planoIndex !== -1) {
+        setPlanoSelecionadoIndex(planoIndex);
+        setPlanoSelecionado(planos[planoIndex]);
+      }
+    }
+  };  
+
+  useEffect(() => {
+    setToken(cookies.token || null);
+    selecionarPlanoPorCookies();
+  }, [cookies]);
+
+  const enviarPlano = (planoIndex) => {
+    if (planoIndex !== null) {
+      const data = { "plano": planoIndex };
+  
+      fetch('https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(responseData => {
+          console.log('JSON enviado com sucesso:', responseData);
+          
+          // Use cookieStore.set para atualizar o cookie
+          cookieStore.set('plano', planoIndex);
+        })
+        .catch(error => {
+          console.error('Erro ao enviar JSON:', error);
+        });
+
+      setCookie('plano', planos[planoIndex].nome);
+  
+      setModalIsOpen(true);
+    }
+  };
+  
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <div className="min-h-screen text-white">
       <div className="container mx-auto p-8">
@@ -40,33 +103,35 @@ export default function Planos() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {planos.map((plano, index) => (
-            <div
+            <EscolherPlano
               key={index}
-              className="p-6 border border-gray-600 rounded-lg shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300"
-            >
-              <div>
-                <h2 className="text-2xl text-white font-bold mb-4">{plano.nome}</h2>
-                <p className="text-xl text-white font-bold mb-4">{plano.preco}</p>
-                <p className="text-base font-semibold mb-2">Salas Padrões: {plano.participacaoSalasPadrao}</p>
-                <p className="text-base font-semibold mb-2">Salas de Artistas: {plano.participacaoSalasArtistas}</p>
-                {plano.criacaoSalasArtista && (
-                  <p className="text-base font-semibold mb-2">Criação de Salas de Artista: {plano.criacaoSalasArtista}</p>
-                )}
-                {plano.historicoSalas && (
-                  <p className="text-base font-semibold mb-2">Histórico: {plano.historicoSalas}</p>
-                )}
-                {plano.estatisticas && (
-                  <p className="text-base font-semibold mb-2">Estatísticas: {plano.estatisticas}</p>
-                )}
-              </div>
-              <Link href="/planos/page">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-6 py-3 mt-4">
-                  Escolher Plano
-                </button>
-              </Link>
-            </div>
+              plano={plano}
+              selecionado={index === planoSelecionado}
+              onSelect={() => setPlanoSelecionado(index)}
+              enviarPlano={() => enviarPlano(index)}
+              index={index}
+            />
           ))}
         </div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Exemplo de Modal"
+          ariaHideApp={false}
+          className="modal fixed inset-0 flex items-center justify-center z-50" // Estilo para o modal principal
+          overlayClassName="modal-overlay fixed inset-0 bg-black" // Estilo para o fundo do modal
+        >
+          <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center"> {/* Estilo para o conteúdo do modal */}
+            <h2 className="text-4xl font-semibold mb-10">Parabéns</h2> {/* Estilo para o título do modal */}
+            <p className="text-2xl mb-10">Seu plano foi atualizado com sucesso!</p> {/* Estilo para a mensagem do modal */}
+            <button
+              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl" // Estilo para o botão do modal
+              onClick={closeModal}
+            >
+              Okay
+            </button>
+          </div>
+        </Modal>
       </div>
     </div>
   );
