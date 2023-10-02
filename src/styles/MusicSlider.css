@@ -1,7 +1,6 @@
 /* === range theme and appearance === */
 input[type="range"] {
   font-size: 1.5rem;
-  width: 90%;
 }
 
 input[type="range"] {
@@ -152,4 +151,16 @@ input[type="range"]:active::-moz-range-progress {
 
 input[type="range"]:disabled::-moz-range-thumb {
   cursor: not-allowed;
+}
+
+input[type="range"]:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+}
+#avaliacao_media{
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  border-radius: 100%;
+  background: red;
+  top: -2px;
 }

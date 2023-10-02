@@ -1,36 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { insereMusica } from "@/utils/sala";
 
 export const Music = ({ track }) => {
   const router = useRouter();
 
   async function handleClick(id_musica) {
-    const url =
-      "https://musicalweek-api.azurewebsites.net/endpoints/insert_fila.php";
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json");
-
-    const data = {
-      id_usuario: 1,
-      id_musica: id_musica,
-    };
-
-    let res = await fetch(url, {
-      method: "POST",
-      headers: headers,
-      credentials: "include",
-      body: JSON.stringify(data),
-    })
-
-    if(res.ok && res.status == 200){
-      res = await res.json();
-
-      router.push(`/room/${res.id}`)
-    }else{
-      console.log("Erro")
-    }   
-
+    insereMusica(id_musica).then((res) => {
+      if(res.redirect != undefined) router.push(res.redirect)
+      else document.getElementById('search-error').innerHTML = res.error
+    });
   }
 
   return (

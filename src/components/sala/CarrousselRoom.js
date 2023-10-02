@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { MusicSlider } from "@/components/room/MusicSlider";
+import { MusicSlider } from "@/components/sala/MusicSlider";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,7 +11,6 @@ import "swiper/css/pagination";
 
 export const CarrousselRoom = ({ musics }) => {
   const [slideIndex, setSlideIndex] = useState(musics.length - 1);
-console.log(musics)
   function handleChangeSlide() {
     const key = document.getElementsByClassName('swiper-slide-active')[0].dataset.key;
 
@@ -44,7 +43,7 @@ console.log(musics)
         <h2 className="text-xl white-text">{musics[slideIndex].name}</h2>
         <span className="text-lg text-zinc-600">{musics[slideIndex].artist}</span>
       </div>
-      <MusicSlider key={slideIndex} userRating={musics[slideIndex].nota_usuario == null ? 0 : musics[slideIndex].nota_usuario}/>
+      <MusicSlider key={slideIndex} i={slideIndex} id_musica_sala={musics[slideIndex].id_musica_sala} avaliacao_media={musics[slideIndex].avaliacao_media} userRating={musics[slideIndex].nota_usuario == null ? 0 : musics[slideIndex].nota_usuario}/>
     </main>
   );
 };
