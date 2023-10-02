@@ -12,8 +12,14 @@ export default function SairFila({id_musica_sala}) {
     console.log(fila);
     if(fila.sucesso != undefined){
       window.location.href = '/salas';
-    }else{
+    }
+    
+    if(fila.id_sala != undefined){
       window.location.href = `/sala/${fila.id_sala}`;
+    }
+
+    else{
+      window.location.href = `/salas`;
     }
   }
 
