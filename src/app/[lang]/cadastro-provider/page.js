@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-import { useSession } from "next-auth/react";
 import Input from "@/components/form/Input";
-import { cadastroGoogle } from '@/utils/forms';
+import { cadastroProvider } from '@/utils/forms';
 
 
 export default function Cadastro() {
@@ -12,8 +11,15 @@ export default function Cadastro() {
   const [message, setMessage] = useState('');
 
   async function onRegister(formData) {
+    let validName = false;
     let validNick = false;
     let validBirth = false;
+
+    if (document.getElementById("completeName").value == "") {
+      document.getElementById("completeName-error").innerHTML = "Campo Obrigatório"
+      document.getElementById("completeName").classList.add("border-red-500")
+    } else
+      validName = true
 
     if (document.getElementById("nickname").value == "") {
       document.getElementById("nickname-error").innerHTML = "Campo Obrigatório"
@@ -27,8 +33,8 @@ export default function Cadastro() {
     } else
       validBirth = true
 
-    if (validNick == true && validBirth == true) {
-      const res = await cadastroGoogle(formData)
+    if (validName == true && validNick == true && validBirth == true) {
+      const res = await cadastroProvider(formData)
       if (res.redirect === true) {
         router.push('/search')
       } else {
@@ -39,23 +45,8 @@ export default function Cadastro() {
     }
   }
 
-  // function createLabelError(element, text) {
-  //   element.classList.add("ring-red-600");
-  //   const elementeElement = document.createElement("label");
-  //   elementeElement.classList = "text-red-600 text-xs";
-  //   const elementText = document.createTextNode(text);
-  //   elementeElement.appendChild(elementText);
-  //   element.parentElement.appendChild(elementeElement);
-  //   element.addEventListener("blur", function () {
-  //     elementeElement.remove();
-  //     element.classList.remove("ring-red-600");
-  //   });
-  //   document.getElementsByTagName("button")[0].addEventListener("click", function () {
-  //     elementeElement.remove();
-  //     element.classList.remove("ring-red-600");
-  //   });
-  // }
   const [formData, setFormData] = useState({
+    name: "",
     nick: "",
     data_nasc: "",
   });
@@ -67,7 +58,7 @@ export default function Cadastro() {
     });
   };
 
-    return (
+  return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
         <h1 className="dark:text-white text-center text-3xl font-bold uppercase">
@@ -77,6 +68,14 @@ export default function Cadastro() {
           {message}
         </div>
         <form action={onRegister}>
+          <div className="mb-4">
+            <Input
+              id="completeName"
+              type="text"
+              name="completeName"
+              placeholder="Digite seu nome completo..."
+            />
+          </div>
           <div className="mb-4">
             <Input
               id="nickname"

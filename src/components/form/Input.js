@@ -112,7 +112,7 @@ export default function InputField(props) {
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'Nome completo' : 
+          props.id === 'completeName' ? 'Nome Completo' : 
           props.id === 'nickname' ? 'Nome de Usuário (nickname)':
           props.id === 'birthday' ? 'Data de Nascimento' : 
           props.id === 'email' ? 'E-mail':

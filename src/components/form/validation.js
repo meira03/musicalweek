@@ -1,60 +1,60 @@
 export function isValidInput(inputID, value) {
 
-  if (inputID === 'completeName'){
+  if (inputID === 'completeName') {
     if (value.length === 0) {
       return {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    }else if(!/^\b\w{2,}\s+\w{2,}\b/.test(value)){
+    } else if (!/^\b\w{2,}\s+\w{2,}\b/.test(value)) {
       return {
         isValid: false,
-        message: 'Nome inválido.',
+        message: 'Nome completo inválido.',
       };
     }
-    else{
+    else {
       return {
         isValid: true,
         message: '',
       };
-    }    
+    }
   }
 
-  if (inputID === 'nickname'){
-    if (value.length < 3  || value.length > 16) {
-        return {
-          isValid: false,
-          message: 'O nome do usuário precisa possir ao menos 3 e no máximo 16 caracteres.',
-        };
-      }else{
-        return {
-          isValid: true,
-          message: '',
-        };
-      }
+  if (inputID === 'nickname') {
+    if (value.length < 3 || value.length > 16) {
+      return {
+        isValid: false,
+        message: 'O nome do usuário precisa possir ao menos 3 e no máximo 16 caracteres.',
+      };
+    } else {
+      return {
+        isValid: true,
+        message: '',
+      };
+    }
   }
 
-  if (inputID === 'birthday'){
+  if (inputID === 'birthday') {
     const today = new Date();
     const userBirthday = new Date(value);
     const userAge = today.getFullYear() - userBirthday.getFullYear();
-    
-    if(userAge < 18){
+
+    if (userAge < 18) {
       return {
         isValid: false,
         message: "Acesso a menores de idade não permitido.",
       };
-    }else if(userAge > 130){
-            return {
-              isValid: false,
-              message: "Data de nascimento inválida.",
-            };     
-          }else{
-            return {
-              isValid: true,
-              message: '',
-            };     
-          }
+    } else if (userAge > 130) {
+      return {
+        isValid: false,
+        message: "Data de nascimento inválida.",
+      };
+    } else {
+      return {
+        isValid: true,
+        message: '',
+      };
+    }
   }
 
   if (inputID === 'email') {
@@ -65,7 +65,7 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    }else if (!emailPattern.test(value)) {
+    } else if (!emailPattern.test(value)) {
       return {
         isValid: false,
         message: 'Email inválido. Certifique-se de usar um @ e um domínio válido.',
@@ -76,53 +76,53 @@ export function isValidInput(inputID, value) {
         message: '',
       };
     }
-  } 
-  
-  if (inputID === 'passwordCadastro') {    
-    if(value.length < 8 ||
-    !/[a-z]/.test(value) ||
-    !/[A-Z]/.test(value) ||
-    !/[0-9]/.test(value) ||
-    !/[!@#$%^&*]/.test(value)){
+  }
+
+  if (inputID === 'passwordCadastro') {
+    if (value.length < 8 ||
+      !/[a-z]/.test(value) ||
+      !/[A-Z]/.test(value) ||
+      !/[0-9]/.test(value) ||
+      !/[!@#$%^&*]/.test(value)) {
       return {
         isValid: false,
-        message: 'Senha fraca.'      
+        message: 'Senha fraca.'
       };
-    }else{
+    } else {
       return {
         isValid: true,
-        message: ''      
+        message: ''
       };
     }
   }
 
-  if (inputID === 'password') {    
-    if(value.length === 0){
+  if (inputID === 'password') {
+    if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Preencha o campo para prosseguir.'      
+        message: 'Preencha o campo para prosseguir.'
       };
-    }else{
+    } else {
       return {
         isValid: true,
-        message: ''      
+        message: ''
       };
     }
   }
 
-  if (inputID === 'passwordConfirmation') {    
+  if (inputID === 'passwordConfirmation') {
     return {
       isValid: true,
-      message: ''      
+      message: ''
     };
   }
 
-  if (inputID === 'emailEsqueciSenha') {    
+  if (inputID === 'emailEsqueciSenha') {
     return {
       isValid: true,
-      message: ''      
+      message: ''
     };
   }
-  
+
 
 }

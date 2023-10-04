@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import SpotifyProvider from 'next-auth/providers/spotify';
+
 import { loginGoogle, loginSpotify } from '@/utils/forms'
 
 export const authOption = {
@@ -38,13 +39,11 @@ export const authOption = {
       return token
     },
     async signIn(profile) {
-      console.log(profile.account.access_token)
-      console.log(profile.birthday);
       if (profile.account.provider === 'google') {
         const token = profile.account.access_token
         const res = await loginGoogle(token);
         if (res.cadastro == false) {
-          return '/cadastro-google';
+          return '/cadastro-provider';
         }
 
         if (res.token != null && res.token != '') {
@@ -55,7 +54,7 @@ export const authOption = {
         const token = profile.account.access_token
         const res = await loginSpotify(token);
         if (res.cadastro == false) {
-          return '/cadastro-spotify';
+          return '/cadastro-provider';
         }
 
         if (res.token != null && res.token != '') {
@@ -64,12 +63,7 @@ export const authOption = {
       }
       return true;
     },
-
   }
-  // ,
-  // pages: {
-  //   signIn: "/signin"
-  // }
 };
 
 const handler = NextAuth(authOption);

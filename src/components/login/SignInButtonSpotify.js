@@ -1,11 +1,7 @@
 "use client"
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn } from "next-auth/react"
 
 const SignInButtonSpotify = () => {
-  const { data: session } = useSession();
-  console.log(session)
-  // console.log(session.accessToken)
-
   return (
     <>
       <button
