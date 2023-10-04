@@ -14,7 +14,6 @@ export async function login(formData) {
     })
       .then((result) => result.json())
       .then((res) => {
-        console.log(res)
         if (res.login !== false) {
           const cookieStore = cookies();
           cookieStore.set('token', res.token)
@@ -55,12 +54,11 @@ export async function register(formData) {
     })
       .then((result) => result.json())
       .then((res) => {
-        console.log(res)
-        if (res.descricao === 'Variável(s) fora do formato' ) {
+        if (res.descricao === 'Variável(s) fora do formato') {
           return { message: 'Alguma das informações inseridas é inválida.' }
-        }else if(res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true){
+        } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true) {
           return { message: 'Já está em uso!' }
-        }else if(res.descricao === 'Variável(s) já está cadastrada' && res.email === true){
+        } else if (res.descricao === 'Variável(s) já está cadastrada' && res.email === true) {
           return { message: "O email em questão já está em uso." }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
           return { message: "O nickname em questão já está em uso." }
@@ -76,7 +74,6 @@ export async function register(formData) {
     console.log(e.toString());
     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
   }
-
 }
 
 export async function loginGoogle(token) {
@@ -84,7 +81,6 @@ export async function loginGoogle(token) {
     const body = {
       token_google: token
     }
-    // console.log("token_google enviado " + body.token_google)
 
     return fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
       method: "POST",
@@ -94,6 +90,11 @@ export async function loginGoogle(token) {
       .then((res) => {
         const cookieStore = cookies();
         cookieStore.set('token_google', body.token_google)
+        cookieStore.set('provider', 'google')
+
+        cookieStore.set('token', res.token)
+        cookieStore.set('nick', res.nick)
+        cookieStore.set('plano', res.plano)
         return res
       });
   } catch (e) {
@@ -116,6 +117,11 @@ export async function loginSpotify(token) {
       .then((res) => {
         const cookieStore = cookies();
         cookieStore.set('token_spotify', body.token_spotify)
+        cookieStore.set('provider', 'spotify')
+
+        cookieStore.set('token', res.token)
+        cookieStore.set('nick', res.nick)
+        cookieStore.set('plano', res.plano)
         return res
       });
   } catch (e) {
@@ -124,13 +130,21 @@ export async function loginSpotify(token) {
   }
 }
 
-export async function cadastroGoogle(formData) {
+export async function cadastroProvider(formData) {
   try {
     const cookieStore = cookies();
     const body = {
+      nome: formData.get("completeName"),
       nick: formData.get("nickname"),
       data_nasc: formData.get("birthday"),
-      token_google: cookieStore.get('token_google').value
+    };
+
+    //Verifica o provider para enviar o token certo
+    const provider = cookieStore.get('provider').value;
+    if (provider === 'google') {
+      body.token_google = cookieStore.get('token_google').value;
+    } else if (provider === 'spotify') {
+      body.token_spotify = cookieStore.get('token_spotify').value;
     }
 
     const today = new Date();
@@ -147,11 +161,13 @@ export async function cadastroGoogle(formData) {
     })
       .then((result) => result.json())
       .then((res) => {
-        console.log(res)
+
         if (res.descricao === 'Variável(s) fora do formato') {
           return {
             message: 'Alguma das informações inseridas é inválida.'
           }
+        } else if (res.descricao === 'Nome não enviado. ') {
+          return { message: 'Erro ao enviar o nome!' }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true) {
           return { message: 'Usuário já cadastrado!' }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.email === true) {
@@ -164,6 +180,7 @@ export async function cadastroGoogle(formData) {
           cookieStore.set('nick', res.nick)
           cookieStore.set('plano', 0)
           cookies().delete('token_google')
+          cookies().delete('provider')
 
           return { redirect: true }
         }
@@ -198,7 +215,6 @@ export async function cadastroSpotify(formData) {
     })
       .then((result) => result.json())
       .then((res) => {
-        console.log(res)
         if (res.descricao === 'Variável(s) fora do formato') {
           return {
             message: 'Alguma das informações inseridas é inválida.'
@@ -215,6 +231,7 @@ export async function cadastroSpotify(formData) {
           cookieStore.set('nick', res.nick)
           cookieStore.set('plano', 0)
           cookies().delete('token_google')
+          cookies().delete('provider')
 
           return { redirect: true }
         }

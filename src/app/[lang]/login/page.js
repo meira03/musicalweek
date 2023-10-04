@@ -2,10 +2,9 @@
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { useSession } from "next-auth/react";
 
 import Input from "@/components/form/Input";
-import { login, loginGoogle } from '@/utils/forms'
+import { login } from '@/utils/forms'
 import SignInButtonGoogle from "@/components/login/SignInButtonGoogle";
 import SignInButtonSpotify from "@/components/login/SignInButtonSpotify";
 
