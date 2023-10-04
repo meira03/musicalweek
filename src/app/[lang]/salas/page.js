@@ -7,6 +7,7 @@ import ImageSala from "@/components/salas/ImageSala";
 export default async function Page({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const usuario = await perfilUsuario();
+
   return (
     <>
       {usuario.fila.length > 0 && (
@@ -34,19 +35,19 @@ export default async function Page({ params: { lang } }) {
             {usuario.salas.map((i) => {
               return (
                 <>
-                <ImageSala
-                  id_musica={i.id_musica}
-                  id_sala={i.id_sala}
-                  nome_sala={i.nome_sala}
-                  width={"basis-[calc(50%-0.75rem)]"}
-                />
+                  <ImageSala
+                    id_musica={i.id_musica}
+                    id_sala={i.id_sala}
+                    nome_sala={i.nome_sala}
+                    width={"basis-[calc(50%-0.75rem)]"}
+                  />
                 </>
               );
             })}
           </div>
         </div>
       )}
-      {usuario.historico.salas.length > 0 && (
+      {usuario.historico.length > 0 && (
         <div className="mt-8">
           <h1 className="text-center text-xl uppercase my-2">Salas Encerradas</h1>
           <div className="flex flex-row flex-wrap justify-center mx-10 gap-3 sm:max-w-lg sm:mx-auto">
