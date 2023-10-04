@@ -7,7 +7,7 @@ import ImageSala from "@/components/salas/ImageSala";
 export default async function Page({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const usuario = await perfilUsuario();
-  console.log(usuario)
+
   return (
     <>
       {usuario.fila.length > 0 && (
