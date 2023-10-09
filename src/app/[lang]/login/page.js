@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-
 import Input from "@/components/form/Input";
 import { login } from '@/utils/forms'
 import SignInButtonGoogle from "@/components/login/SignInButtonGoogle";
@@ -27,6 +26,7 @@ export default function Login() {
     }
 
     let res = await login(formData)
+    console.log(formData)
     if (res.redirect === true) {
       router.push('/search')
     } else {
