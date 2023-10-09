@@ -28,6 +28,9 @@ export const Menu = ({ logado }) => {
               <Link className="ml-2" href='/search'>Nova Sala</Link>
             </li>
             <li>
+              <Link className="ml-2" href='/search-artista'>Nova Sala Artista</Link>
+            </li>
+            <li>
               <Link className="ml-2" href='/salas'>Salas</Link>
             </li>
             <li>
