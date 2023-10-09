@@ -55,7 +55,7 @@ export default function DeleteAccount() {
       <Modal
         isOpen={showConfirmationModal}
         onRequestClose={() => setShowConfirmationModal(false)}
-        contentLabel="Confirmação de Exclusão"
+        contentLabel="Confirmar Exclusão"
         ariaHideApp={false}
         className="modal fixed inset-0 flex items-center justify-center z-50"
         overlayClassName="modal-overlay fixed inset-0 bg-black"
