@@ -7,7 +7,7 @@ export default function SearchLayout({ children }) {
 
 
   useEffect(() => {
-    console.log("renderizeikkkkkkkkkkkkkkkkkkkk")
+    console.log("Renderizado")
   }, []);
 
   return (

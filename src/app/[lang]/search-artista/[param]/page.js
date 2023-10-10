@@ -11,10 +11,6 @@ export default async function Page({ params: { lang, param } }) {
   const dict = await getDictionary(lang);
   const searchTerm = await searchData(param);
 
-  // Suponha que você tenha um array de URLs de imagens
-  //                   
-  // ];
-
   return (
     <>
       <Container searchTerm={searchTerm}/>
