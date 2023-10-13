@@ -10,6 +10,7 @@ export async function login(formData) {
 
     return await fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/`, {
       method: "POST",
+      cache: "no-store",
       body: JSON.stringify(body),
     })
       .then((result) => result.json())
@@ -268,9 +269,6 @@ export async function enviarEmail(formData) {
   }
 }
 
-
-
-
 export async function recebeToken(codigo) {
   const url = `https://musicalweek-api.azurewebsites.net/endpoints/senha?codigo=${codigo}`;
   const headers = new Headers();
@@ -290,7 +288,6 @@ export async function recebeToken(codigo) {
 
   return await res.json();
 }
-
 
 export async function enviarNovaSenha(codigo, novaSenha) {
   const url = `https://musicalweek-api.azurewebsites.net/endpoints/senha?codigo=${codigo}`;
@@ -313,5 +310,31 @@ export async function enviarNovaSenha(codigo, novaSenha) {
       console.error("Erro na requisição:", error);
     });
 
+  return await res.json();
+}
+
+export async function AlterarSenha(senha, novaSenha) {
+  const cookieStore = cookies();
+  const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+
+  const data = {
+    senha: senha,
+    nova: novaSenha,
+  };
+
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: JSON.stringify(data)
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.error("Erro na requisição:", error);
+    });
   return await res.json();
 }
