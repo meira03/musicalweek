@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
-import EscolherPlano from './EscolherPlano';
+import { updatePlano } from '../../../utils/plano';
+import EscolherPlano from '../planos/EscolherPlano';
 
 Modal.setAppElement(null);
 
@@ -63,30 +64,21 @@ export default function Planos() {
 
   const enviarPlano = (planoIndex) => {
     if (planoIndex !== null) {
-      const data = { "plano": planoIndex };
+      const token = cookies.token || null;
   
-      fetch('https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => response.json())
-        .then(responseData => {
-          console.log('JSON enviado com sucesso:', responseData);
-          
-          // Use cookieStore.set para atualizar o cookie
-          cookieStore.set('plano', planoIndex);
-        })
-        .catch(error => {
-          console.error('Erro ao enviar JSON:', error);
-        });
+      if (!token) {
+        console.error('Token de autenticação ausente.');
+        return;
+      }
 
-      setCookie('plano', planos[planoIndex].nome);
-  
-      setModalIsOpen(true);
+      updatePlano(token, planoIndex)
+        .then((success) => {
+          if (success) {
+            console.log('Plano atualizado com sucesso');
+            setCookie('plano', planos[planoIndex].nome);
+            setModalIsOpen(true);
+          }
+        });
     }
   };
   
@@ -118,14 +110,14 @@ export default function Planos() {
           onRequestClose={closeModal}
           contentLabel="Exemplo de Modal"
           ariaHideApp={false}
-          className="modal fixed inset-0 flex items-center justify-center z-50" // Estilo para o modal principal
-          overlayClassName="modal-overlay fixed inset-0 bg-black" // Estilo para o fundo do modal
+          className="modal fixed inset-0 flex items-center justify-center z-50"
+          overlayClassName="modal-overlay fixed inset-0 bg-black" 
         >
-          <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center"> {/* Estilo para o conteúdo do modal */}
-            <h2 className="text-4xl font-semibold mb-10">Parabéns</h2> {/* Estilo para o título do modal */}
-            <p className="text-2xl mb-10">Seu plano foi atualizado com sucesso!</p> {/* Estilo para a mensagem do modal */}
+          <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
+            <h2 className="text-4xl font-semibold mb-10 text-black">Parabéns</h2>
+            <p className="text-2xl mb-10 text-black">Seu plano foi atualizado com sucesso!</p>
             <button
-              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl" // Estilo para o botão do modal
+              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl"
               onClick={closeModal}
             >
               Okay
