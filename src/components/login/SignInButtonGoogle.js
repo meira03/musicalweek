@@ -2,6 +2,10 @@
 import { signIn } from "next-auth/react";
 const SignInButtonGoogle = () => {
 
+  const { data } = useSession()
+
+  console.log(data)
+
   return (
     <>
       <button
