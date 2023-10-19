@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "cross-env NEXTAUTH_URL=https://musicalweek.azurewebsites.net node server.js",
+    "start": "node_modules/next/dist/bin/next start",
     "lint": "next lint"
   },
   "dependencies": {
