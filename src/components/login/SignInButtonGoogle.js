@@ -1,5 +1,7 @@
 "use client"
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react"
+
 const SignInButtonGoogle = () => {
 
   const { data } = useSession()
