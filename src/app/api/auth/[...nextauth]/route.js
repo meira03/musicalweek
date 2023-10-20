@@ -9,6 +9,7 @@ export const authOption = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      token_endpoint_auth_method: "none",
       authorization: {
         params: {
           prompt: "consent",
