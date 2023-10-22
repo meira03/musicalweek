@@ -3,22 +3,21 @@ import { redirect } from 'next/navigation'
 
 import { getDictionary } from "@/utils/dictionaries";
 import { getMusic } from "@/utils/spotify";
-import { pesquisaSala } from "@/utils/sala";
-import { CarrousselRoom } from "@/components/sala/CarrousselRoom";
-import { CronometroRegressivo } from "@/components/sala/CronometroRegressivo";
+import { pesquisaSalaArtista } from "@/utils/sala";
+import { CarrousselRoom } from "@/components/sala-artista/CarrousselRoom";
+import { CronometroRegressivo } from "@/components/sala-artista/CronometroRegressivo";
 import { BsArrowLeft } from "react-icons/bs";
 
 export default async function Page({ params: { lang, id } }) {
   const dict = await getDictionary(lang);
   
-  const res = await pesquisaSala(id);
+  const res = await pesquisaSalaArtista(id);
   if (!res.ok && res.status != 200) {
     redirect('/salas');
   }
   const rooms = await res.json();
   if (rooms.musicas == undefined) {
     redirect('/salas');
-    //a
   }
   const musics = await Promise.all(
     rooms.musicas.map((music) => {
