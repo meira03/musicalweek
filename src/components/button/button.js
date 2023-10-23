@@ -21,7 +21,12 @@ const Button = (props) => {
     if (res.sucesso === true) {
       console.log("sucesso é " + res.sucesso)
       router.push('/perfil')
+    } else {
+      console.log(res)
+      document.getElementById("nickname-error").innerHTML = "Username já cadastrado"
+      document.getElementById("nickname").classList.add("border-red-500")
     }
+
   };
 
   return (
