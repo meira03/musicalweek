@@ -27,13 +27,12 @@ export default async function Perfil({ params }) {
         <h1 className="text-white text-3xl font-semibold mb-4">Perfil do Usuário</h1>
         <div className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 h w-[100%] flex justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-8 p-8 items-center">
-
             <div className="col-span-1 w-50 h-50 overflow-hidden">
               <img src={res.perfil.foto} alt="Foto de Perfil" className="object-cover w-full h-full" />
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nome Cmpleto</h1>
+                <h1 className="font-semibold text-xl">Nome Completo</h1>
                 <p className="hover:text-gray-500 transition">{res.perfil.nome}</p>
               </div>
               <div className="mb-4">
@@ -53,7 +52,7 @@ export default async function Perfil({ params }) {
             </div>
             <div className="col-span-1 flex ">
               <div className="mb-4 text-white">
-                <h1 className="font-semibold text-xl">Tipo Plano</h1>
+                <h1 className="font-semibold text-xl">Plano Atual</h1>
                 <p className="hover:text-gray-500 transition">{tipoPlanoLabel}</p>
                 <br />
                 {res.perfil.plano === "0" && (
