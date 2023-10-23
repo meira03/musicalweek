@@ -20,7 +20,7 @@ export const Menu = ({ logado }) => {
       <Image src={logo} className='max-h-[70%] w-auto' alt="Logo Musical Week" priority />
       <ul className="flex">
         <li>
-          <Link href='/'>Home</Link>
+          <Link href='/home'>Home</Link>
         </li>
         {logado ?
           <>
