@@ -33,7 +33,7 @@ export default async function Perfil({ params }) {
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nome do Usuário</h1>
+                <h1 className="font-semibold text-xl">Nome Cmpleto</h1>
                 <p className="hover:text-gray-500 transition">{res.perfil.nome}</p>
               </div>
               <div className="mb-4">
@@ -43,7 +43,7 @@ export default async function Perfil({ params }) {
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nickname</h1>
+                <h1 className="font-semibold text-xl">Nome de Usuário</h1>
                 <p className="hover:text-gray-500 transition">{res.perfil.nick}</p>
               </div>
               <div className="mb-4">
