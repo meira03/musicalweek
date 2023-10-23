@@ -49,24 +49,24 @@ export default function Container({ searchTerm }) {
             {imageUrls.map((imageInfo, index) => (
                 <div key={index} className="relative">
                     <Image
-                    src={imageInfo[2]}
-                    alt={`Imagem ${index}`}
-                    width="400"
-                    height="0"
-                    className="rounded-md"
+                        src={imageInfo[2]}
+                        alt={`Imagem ${index}`}
+                        width="400"
+                        height="0"
+                        className="rounded-md"
                     />
                     <button
-                    onClick={() => handleRemoveClick(imageInfo[0])}
-                    className="bg-gray-400 text-white rounded-full w-6 h-6 flex justify-center items-center cursor-pointer absolute top-2 right-2"
+                        onClick={() => handleRemoveClick(imageInfo[0])}
+                        className="dark:bg-zinc-700 hover:bg-zinc-200 text-white rounded-full w-6 h-6 flex justify-center items-center cursor-pointer absolute top-2 right-2"
                     >
-                    X
+                    x
                     </button>
                     <div className="mt-2">
                     <span className="font-semibold dark:text-white truncate text-elipsis block">
-                    {imageInfo[1]}
+                        {imageInfo[1]}
                     </span>
                     <span className="font-semibold text-sm dark:text-zinc-300 truncate text-elipsis block">
-                    {imageInfo[3]}
+                        {imageInfo[3]}
                     </span>
                 </div>
                 </div>
@@ -74,12 +74,12 @@ export default function Container({ searchTerm }) {
             </div>
             {isMusicSelected && (
                     <div className="text-red-400 text-sm">
-                    Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.
+                        Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.
                     </div>
                 )}
             {imageUrls.length === 7 && (
                 <button  
-                    className='px-20 py-3 bg-zinc-200 rounded-md mb-10 hover:dark:bg-zinc-700 hidden'
+                    className='px-20 py-3 bg-zinc-200 rounded-md mb-10 hover:dark:bg-zinc-700'
                     onSubmit={handleSubmit()}
                 >
                     <p className='text-zinc-800'>Enviar</p>
