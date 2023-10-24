@@ -21,21 +21,13 @@ export const authOption = {
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-      token_endpoint_auth_method: "client_secret_post",
-      profile(profile) {
-        return {
-          id: profile.id,
-          name: profile.display_name,
-          email: profile.email,
-          image: profile.images?.[0]?.url
-        }
-      },
     }),
   ],
-  secret: process.env.JWT_SECRET,
+  // secret: process.env.JWT_SECRET,
   callbacks: {
     async jwt({ token, account }) {
       if (account) {
+        // console.log(account)
         token = Object.assign({}, token, { access_token: account.access_token });
       }
       return token
