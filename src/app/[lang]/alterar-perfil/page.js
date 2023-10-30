@@ -1,8 +1,3 @@
-// import { useState } from "react";
-// import { useRouter } from 'next/navigation';
-import Link from "next/link";
-import Input from "@/components/form/Input";
-import { register } from '@/utils/forms';
 import { perfilUsuario } from "@/utils/user";
 import InputField from "@/components/form/Input";
 import Button from "@/components/button/button"

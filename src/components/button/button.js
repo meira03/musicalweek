@@ -1,12 +1,6 @@
 "use client"
-import React, { useState } from 'react';
-import { register } from '@/utils/forms';
 import { alterarPerfil } from '@/utils/user';
-import { useRouter } from 'next/navigation';
-// import { AlterarPerfil } from '@/utils/user';
-
 const Button = (props) => {
-  const router = useRouter();
 
   async function handleAlterarPerfil() {
     const data = {
