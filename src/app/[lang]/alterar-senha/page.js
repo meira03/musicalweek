@@ -17,7 +17,6 @@ export default function AlteraSenha() {
       elementeElement.remove();
       element.classList.remove("ring-red-600");
     });
-    // console.log(document.getElementsByTagName("button")[1])
     document.getElementsByTagName("button")[1].addEventListener("click", function () {
       elementeElement.remove();
       element.classList.remove("ring-red-600");
@@ -225,7 +224,6 @@ export default function AlteraSenha() {
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            // disabled={!formData.senhaAtual || !formData.senha || !formData.confirmaSenha}
             >
               Alterar Senha
             </button>
