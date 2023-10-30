@@ -117,7 +117,7 @@ export default function InputField(props) {
       >
         {
           props.id === 'completeName' ? 'Nome Completo' :
-            props.id === 'nickname' ? 'Nome de Usuário (nickname)' :
+            props.id === 'nickname' ? 'Nome de Usuário' :
               props.id === 'birthday' ? 'Data de Nascimento' :
                 props.id === 'email' ? 'E-mail' :
                   props.id === 'password' ? 'Senha' :

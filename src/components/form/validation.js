@@ -26,7 +26,7 @@ export function isValidInput(inputID, value) {
     if (value.length < 3 || value.length > 16) {
       return {
         isValid: false,
-        message: 'O nome do usuário precisa possir ao menos 3 e no máximo 16 caracteres.',
+        message: 'O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.',
       };
     } else {
       return {

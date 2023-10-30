@@ -11,13 +11,17 @@ const Button = (props) => {
     };
 
     const res = await alterarPerfil(data)
-
     if (res.sucesso === true) {
-      console.log("sucesso é " + res.sucesso)
       window.location.href = '/perfil'
     } else {
-      document.getElementById("nickname-error").innerHTML = "Username já cadastrado"
-      document.getElementById("nickname").classList.add("border-red-500")
+      if (res.data_nasc === false) {
+        document.getElementById("birthday-error").innerHTML = "Data de nascimento inválida"
+        document.getElementById("birthday").classList.add("border-red-500")
+      }
+      if (res.nick === true) {
+        document.getElementById("nickname-error").innerHTML = "Nome de usuário já cadastrado"
+        document.getElementById("nickname").classList.add("border-red-500")
+      }
     }
 
   };
