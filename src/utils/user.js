@@ -18,7 +18,6 @@ export async function perfilUsuario() {
       credentials: "include",
     })
       .then((response) => {
-
         return response.json();
       })
       .then((res) => {
@@ -32,7 +31,6 @@ export async function perfilUsuario() {
   catch (e) {
     console.log(e)
   }
-
 }
 
 export async function alterarPerfil(data) {
@@ -56,6 +54,7 @@ export async function alterarPerfil(data) {
       .catch((error) => {
         console.error("Erro na requisição:", error);
       });
+
     return await res.json();
   }
   catch (e) {
@@ -73,12 +72,23 @@ export async function deleteAccount(token) {
       cache: 'no-store',
     })
       .then((response) => {
-        return response;
+        return response.json();
+      })
+      .then((res) => {
+        return res;
       })
       .catch((error) => {
         console.error("Erro na requisição:", error);
       });
-    return await res.json();
+
+    if (res.sucesso == true) {
+      cookies().delete('token')
+      cookies().delete('plano')
+      cookies().delete('nick')
+      cookies().delete('token_google')
+      cookies().delete('token_spotify')
+    }
+    return res
   } catch (error) {
     console.error('Erro ao deletar a conta', error);
   }
