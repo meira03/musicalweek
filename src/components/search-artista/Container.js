@@ -121,17 +121,9 @@ export default function Container({ searchTerm }) {
                     </div>
                 )}
             {imageUrls.length === 7 && (
-<<<<<<< HEAD
             <div className="my-4">
                 <button onClick={handleEnviarMusicas} className="bg-blue-500 text-white rounded-md px-4 py-2">
                 Enviar Músicas
-=======
-                <button  
-                    className='px-20 py-3 bg-zinc-200 rounded-md mb-10 hover:dark:bg-zinc-700'
-                    onSubmit={handleSubmit()}
-                >
-                    <p className='text-zinc-800'>Enviar</p>
->>>>>>> 3336ac60866fc0acad9866b16b01263db0d52472
                 </button>
             </div>
             )}
