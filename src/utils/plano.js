@@ -3,7 +3,8 @@
 export const updatePlano = async (token, planoIndex) => {
     try {
       const data = { "plano": planoIndex };
-  
+      console.log(data);
+      console.log(token);
       const response = await fetch('https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php', {
         method: 'PUT',
         headers: {

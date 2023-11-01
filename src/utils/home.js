@@ -8,7 +8,7 @@ export const fetchSalaData = async (cookies) => {
             headers['Authorization'] = `Bearer ${cookies.token}`;
         }
 
-        const response = await fetch(url, { method: 'GET', headers });
+        const response = await fetch(url, { method: 'GET', headers , cache: "no-store"});
 
         if (response.ok) {
             const data = await response.json();
