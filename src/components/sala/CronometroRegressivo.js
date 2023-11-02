@@ -32,5 +32,5 @@ export const CronometroRegressivo = ({ dataFutura }) => {
       return () => clearInterval(intervalID);
     }, [dataFutura]);
   
-    return <div className="text-3xl">{tempoDecorrido}</div>;
+    return tempoDecorrido;
 };

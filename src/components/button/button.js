@@ -19,7 +19,6 @@ const Button = (props) => {
     const res = await alterarPerfil(data)
 
     if (res.sucesso === true) {
-      console.log("sucesso é " + res.sucesso)
       router.push('/perfil')
     }
   };

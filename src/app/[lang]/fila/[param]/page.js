@@ -13,17 +13,27 @@ export default async function Page({ params: { lang, param } }) {
   const fila = await pesquisaFila(param);
   const musica = await getMusic(fila.id_musica);
 
+  const horas = Math.floor(fila.tempo_estimado / 3600);
+  const minutos = Math.floor((fila.tempo_estimado % 3600) / 60);
+  const segundos = fila.tempo_estimado % 60;
+
+  const horasFormatadas = horas.toString().padStart(2, "0");
+  const minutosFormatados = minutos.toString().padStart(2, "0");
+  const segundosFormatados = segundos.toString().padStart(2, "0");
+
+  const tempo_restante = `${horasFormatadas}:${minutosFormatados}:${segundosFormatados}`;
+
   return (
     <>
-      <div className="w-full bg-zinc-900 px-4 py-2 relative">
-        <div className="uppercase text-zinc-300 mb-2">Buscando Sala</div>
+      <div className="w-full border border-neon-blue-100 px-4 py-2 relative">
+        <div className="uppercase text-white mb-2">Buscando Sala</div>
         <div className="flex">
-          <CgSpinner className="text-white text-4xl animate-spin mr-2" />
+          <CgSpinner className="text-neon-blue-100 text-4xl animate-spin mr-2" />
           <div>
             <CronometroProgressivo data={fila.data_adicao_musica} />
           </div>
         </div>
-        <div className="text-sm text-zinc-200 mt-1">Estimativa: 0:00</div>
+        <div className="text-sm text-zinc-200 mt-1">Estimativa: <span>{tempo_restante}</span></div>
         <SairFila id_musica_sala={param} />
         
       </div>

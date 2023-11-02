@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: Kobold;
+    src: url('../../public/fonts/Kobold.ttf');
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('../../public/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+*{
+    font-family: Poppins;
+}
+
+.neon-text {
+    color: #fff;
+    text-shadow: hsla(173, 33%, 84%, 0.92) 0px 0px 6px, 
+    hsla(173, 33%, 84%, 0.34) 0px 0px 30px, 
+    hsla(183, 100%, 54.7%, 0.92) 0px 0px 12px, 
+    hsla(183, 100%, 54.7%, 0.92) 0px 0px 21px, 
+    hsla(183, 100%, 54.7%, 0.92) 0px 0px 34px;
+}
+
+.neon-text::placeholder {
+    color: #fff;
+}
 
 .swiper-slide img{
     width: 75%;
