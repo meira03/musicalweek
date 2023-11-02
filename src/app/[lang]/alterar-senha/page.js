@@ -11,14 +11,13 @@ export default function AlteraSenha() {
     element.classList.add("ring-red-600");
     const elementeElement = document.createElement("label");
     elementeElement.classList = "text-red-600 text-xs";
-    const elementText = document.createTextNode(text);
-    elementeElement.appendChild(elementText);
+    elementeElement.innerHTML = text;
     element.parentElement.appendChild(elementeElement);
     element.addEventListener("blur", function () {
       elementeElement.remove();
       element.classList.remove("ring-red-600");
     });
-    document.getElementsByTagName("button")[0].addEventListener("click", function () {
+    document.getElementsByTagName("button")[1].addEventListener("click", function () {
       elementeElement.remove();
       element.classList.remove("ring-red-600");
     });
@@ -57,10 +56,26 @@ export default function AlteraSenha() {
     if (name === "confirmaSenha") {
       setArePasswordsMatching(value === formData.senha);
     }
+
+    if (document.getElementById("senhaAtual").value != "" || document.getElementById("senha").value != "" != document.getElementById("confirmaSenha").value != "") {
+      if (document.getElementById("senhaAtual").value != "") {
+        document.getElementById("senhaAtual-error").innerHTML = ""
+        document.getElementById("senhaAtual").classList.remove("border-red-500")
+      }
+      if (document.getElementById("senha").value != "") {
+        document.getElementById("senha-error").innerHTML = ""
+        document.getElementById("senha").classList.remove("border-red-500")
+      }
+      if (document.getElementById("confirmaSenha").value != "") {
+        document.getElementById("confirmaSenha-error").innerHTML = ""
+        document.getElementById("confirmaSenha").classList.remove("border-red-500")
+      }
+    }
   };
 
   const handlePasswordFocus = () => {
     setIsPasswordFocused(true);
+
   };
 
   const handlePasswordBlur = () => {
@@ -85,7 +100,8 @@ export default function AlteraSenha() {
       }
     }
     else if (!hasMinLength || !hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar) {
-      createLabelError(document.getElementById("senha"), "Senha inválida");
+      createLabelError(document.getElementById("senha"), "Senha fraca");
+      document.getElementById("senha").classList.add("border-red-500")
       return;
     }
     else if (!arePasswordsMatching) {
@@ -93,16 +109,20 @@ export default function AlteraSenha() {
       return;
     }
 
-    const res = await AlterarSenha(formData.senhaAtual, formData.senha);
+    if (formData.senhaAtual && formData.senha && formData.confirmaSenha) {
+      const res = await AlterarSenha(formData.senhaAtual, formData.senha);
 
-    if (res.sucesso === true) {
-      router.push("/perfil");
-    } else {
-      if (res.descricao == "Senha errada") {
-        document.getElementById("senhaAtual-error").innerHTML = "Senha Incorreta"
-        document.getElementById("senhaAtual").classList.add("border-red-500")
+
+      if (res.sucesso === true) {
+        router.push("/perfil");
       } else {
-        setError(res.descricao);
+        if (res.descricao == "Senha errada") {
+          document.getElementById("senhaAtual-error").innerHTML = "Senha Incorreta"
+          document.getElementById("senhaAtual").classList.add("border-red-500")
+          setError("Senha Incorreta");
+        } else {
+          setError(res.descricao);
+        }
       }
     }
   };
@@ -134,7 +154,6 @@ export default function AlteraSenha() {
               name="senhaAtual"
               value={formData.senhaAtual}
               onChange={handleChange}
-              onFocus={handlePasswordFocus}
               onBlur={handlePasswordBlur}
               className="dark:text-white border border-gray-300 rounded px-3 py-2 w-full"
             />

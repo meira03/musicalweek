@@ -1,12 +1,6 @@
 "use client"
-import React, { useState } from 'react';
-import { register } from '@/utils/forms';
 import { alterarPerfil } from '@/utils/user';
-import { useRouter } from 'next/navigation';
-// import { AlterarPerfil } from '@/utils/user';
-
 const Button = (props) => {
-  const router = useRouter();
 
   async function handleAlterarPerfil() {
     const data = {
@@ -17,10 +11,19 @@ const Button = (props) => {
     };
 
     const res = await alterarPerfil(data)
-
     if (res.sucesso === true) {
-      router.push('/perfil')
+      window.location.href = '/perfil'
+    } else {
+      if (res.data_nasc === false) {
+        document.getElementById("birthday-error").innerHTML = "Data de nascimento inválida"
+        document.getElementById("birthday").classList.add("border-red-500")
+      }
+      if (res.nick === true) {
+        document.getElementById("nickname-error").innerHTML = "Nome de usuário já cadastrado"
+        document.getElementById("nickname").classList.add("border-red-500")
+      }
     }
+
   };
 
   return (

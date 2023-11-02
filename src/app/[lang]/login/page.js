@@ -9,6 +9,7 @@ import SignInButtonSpotify from "@/components/login/SignInButtonSpotify";
 
 export default function Login() {
   const [message, setMessage] = useState('')
+
   const router = useRouter()
 
   async function onLogin(formData) {

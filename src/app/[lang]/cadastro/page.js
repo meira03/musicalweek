@@ -59,9 +59,6 @@ export default function Cadastro() {
         <h1 className="dark:text-white text-center text-3xl font-bold uppercase">
           Cadastro
         </h1>
-        <div className="text-red-500 text-center text-sm font-light h-4 my-2">
-          {message}
-        </div>
         <form action={onRegister}>
           <div className="mb-4">
             <Input
