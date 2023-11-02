@@ -39,7 +39,7 @@ export const CarrousselRoom = ({ musics }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="text-center">
+      <div className="text-center max-w-full">
         <h2 className="text-xl white-text">{musics[slideIndex].name}</h2>
         <span className="text-lg text-zinc-600">{musics[slideIndex].artist}</span>
       </div>

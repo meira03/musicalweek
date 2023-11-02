@@ -27,7 +27,6 @@ export default function Login() {
     }
 
     let res = await login(formData)
-    console.log(formData)
     if (res.redirect === true) {
       router.push('/search')
     } else {

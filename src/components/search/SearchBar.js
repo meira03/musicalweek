@@ -12,11 +12,14 @@ export const SearchBar = () => {
   }
 
   return (
+    <>
     <input
-      className="bg-zinc-200 dark:bg-zinc-800 dark:text-white rounded-lg px-2 py-2 my-4"
+      className="bg-black-100 border focus-visible:outline-none border-neon-blue-100 neon-text uppercase text-white px-2 py-2 my-4 w-full"
       type="text"
-      placeholder="Digite sua busca..."
+      placeholder="O que você quer compartilhar?"
       onChange={handleChange}
     />
+    <div id="search-error" className="text-red-600 text-center"></div>
+    </>    
   );
 };

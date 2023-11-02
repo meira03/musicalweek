@@ -3,23 +3,22 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { insereMusica } from "@/utils/sala";
 
+import "@/styles/search/Music.css";
+
 export const Music = ({ track }) => {
   const router = useRouter();
 
   async function handleClick(id_musica) {
     insereMusica(id_musica).then((res) => {
-      if(res.redirect != undefined) router.push(res.redirect)
-      else document.getElementById('search-error').innerHTML = res.error
+      if (res.redirect != undefined) router.push(res.redirect);
+      else document.getElementById("search-error").innerHTML = res.error;
     });
   }
 
   return (
     <div
       key={track.id}
-      onClick={() => {
-        handleClick(track.id);
-      }}
-      className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 hover:dark:bg-zinc-700 cursor-pointer"
+      className="cursor-pointer relative rounded-sm shadow-md shadow-neon-blue-100/10 hover:shadow-neon-blue-100/20"
     >
       <Image
         src={track.album.images[0].url}
@@ -29,12 +28,19 @@ export const Music = ({ track }) => {
         sizes="100vw"
         className="h-auto w-full rounded-sm"
       />
-      <span className="font-semibold dark:text-white truncate text-elipsis block">
-        {track.name}
-      </span>
-      <span className="font-semibold text-sm dark:text-zinc-300 truncate text-elipsis block">
-        {track.artists[0].name}
-      </span>
+      <div
+        onClick={() => {
+          handleClick(track.id);
+        }}
+        className="absolute bottom-0 w-full h-full flex flex-col justify-end px-3 py-2 bg-gradient-to-t from-black-800 to-transparent to-100% bg-opacity-80"
+      >
+        <span className="font-semibold text-white truncate text-elipsis block text-center">
+          {track.name}
+        </span>
+        <span className="font-semibold sm:text-xs text-zinc-400 truncate text-elipsis block text-center">
+          {track.artists[0].name}
+        </span>
+      </div>
     </div>
   );
 };
