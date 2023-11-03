@@ -2,10 +2,14 @@ import { cookies } from 'next/headers';
 import { perfilUsuario } from '@/utils/user'
 import Link from 'next/link';
 import DeleteAccount from '@/components/deletarConta/botaoDeletarConta';
+import ModalProfile from '@/components/perfil/Modal';
+
 
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
   let tipoPlanoLabel;
+
+  //console.log(res);
 
   if (!res || !res.perfil) {
     return
@@ -27,9 +31,11 @@ export default async function Perfil({ params }) {
         <h1 className="text-white text-3xl font-semibold mb-4">Perfil do Usuário</h1>
         <div className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 h w-[100%] flex justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-8 p-8 items-center">
+            <div className="w-50 h-50 overflow-hidden flex flex-col items-center">
+              <img src={res.perfil.icon} alt="Foto de Perfil" className="object-cover w-full h-full rounded-full border-solid border-2 mb-2" />
 
-            <div className="col-span-1 w-50 h-50 overflow-hidden">
-              <img src={res.perfil.foto} alt="Foto de Perfil" className="object-cover w-full h-full" />
+              <ModalProfile perfil={res.perfil} />
+
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
