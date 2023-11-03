@@ -25,7 +25,7 @@ export async function insereMusica(id_musica) {
     .then((result) => result.json())
     .then((res) => {
       if (res.id_musica_sala != undefined) {
-        return { redirect: `/fila/${res.id_musica_sala}` };
+        return { redirect: `/salas` };
       }
       if (res.id_sala != undefined) {
         return { redirect: `/sala/${res.id_sala}` };
@@ -37,8 +37,6 @@ export async function insereMusica(id_musica) {
       }
     });
 }
-
-
 
 export async function insereMusicasArtista(idsMusicas) {
   const cookieStore = cookies();
@@ -76,8 +74,6 @@ export async function insereMusicasArtista(idsMusicas) {
       }
     });
 }
-
-
 
 export async function pesquisaFila(id_musica_sala) {
   const cookieStore = cookies();

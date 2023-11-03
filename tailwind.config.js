@@ -36,7 +36,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        'neon': ['Kobold']
+        'tech': ['Tech']
       }
     },
   },
