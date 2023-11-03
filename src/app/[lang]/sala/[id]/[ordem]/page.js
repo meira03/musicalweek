@@ -23,9 +23,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
     participantes: await pesquisaParticipantes(id),
   };
 
-  console.log(res);
   const musica = await getMusic(res.musica.musica);
-  console.log(musica.album.images[0]);
 
   return (
     <section className="grid sm:grid-cols-4 grid-cols-1 min-h-[calc(100vh-7rem)]">

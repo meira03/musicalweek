@@ -7,7 +7,6 @@ import {
   ImVolumeHigh,
 } from "react-icons/im";
 import { IoMdSkipBackward, IoMdSkipForward } from "react-icons/io";
-import "@/styles/MusicSlider.css";
 import { avaliaMusica } from "@/utils/sala";
 
 export const MusicSlider = ({

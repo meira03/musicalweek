@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: Kobold;
-    src: url('../../public/fonts/Kobold.ttf');
+    font-family: Tech;
+    src: url('../../public/fonts/Tech.ttf');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
 }
 
 *{
-    font-family: Poppins;
+    font-family: Tech;
 }
 
 .neon-text {
@@ -23,6 +23,7 @@
     hsla(183, 100%, 54.7%, 0.92) 0px 0px 12px, 
     hsla(183, 100%, 54.7%, 0.92) 0px 0px 21px, 
     hsla(183, 100%, 54.7%, 0.92) 0px 0px 34px;
+    font-family: Tech;
 }
 
 .neon-text::placeholder {
