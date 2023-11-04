@@ -62,7 +62,8 @@ export async function salasUsuario() {
       "filas" : [
           {
               "id_musica" : "7nD9nN3jord9wWcfW3Gkcm",
-              "inicio_fila" : "2023-02-11 07:13:24"
+              "id_musica_sala" : 1,
+              "inicio_fila" : "2023-11-03 23:01:59"
           }
       ],
       "salas" : [
@@ -70,41 +71,44 @@ export async function salasUsuario() {
               "id_sala" : 36,
               "id_musica" : "7nD9nN3jord9wWcfW3Gkcm",
               "ordem" : 5,
-              "tempo_restante" : "2023-02-11 07:13:24",
+              "tempo_restante" : "2023-11-04 07:13:24",
               "pontuacao" : 100
           },
           {
               "id_sala" : 36,
               "id_musica" : "7nD9nN3jord9wWcfW3Gkcm",
               "ordem" : 5,
-              "tempo_restante" : "2023-02-11 07:13:24"
+              "tempo_restante" : "2023-11-04 07:13:24"
           }
       ],
       "historico" : [
           {
+              "id_sala" : 36,
               "id_musica" : "7nD9nN3jord9wWcfW3Gkcm",
-              "data_inicio" : "2023-02-11 07:13:24"
+              "data_inicio" : "2023-11-03 07:13:24"
           }
       ],
       "salas_artista" : [
           {
-              "artista" : {
-                  "icon" : "icone1.png",
-                  "nick" : "carv.wan"
-              },
-              "id_musica" : "7nD9nN3jord9wWcfW3Gkcm"
+            "id_sala_artista" : 28,
+            "artista" : {
+                "icon" : "icone1.png",
+                "nick" : "carv.wan"
+            },
+            "id_musica" : "7nD9nN3jord9wWcfW3Gkcm"
           }
       ],
       "recomendacoes" : [
           {
-              "artista" : {
-                  "icon" : "icone1.png",
-                  "nick" : "carv.wan"
-              },
-              "id_musica" : "7nD9nN3jord9wWcfW3Gkcm"
+            "id_sala_artista" : 28,
+            "artista" : {
+                "icon" : "icone1.png",
+                "nick" : "carv.wan"
+            },
+            "id_musica" : "7nD9nN3jord9wWcfW3Gkcm"
           }
       ]
-  }
+    }
     `;
     return resJson;
   } catch (e) {
