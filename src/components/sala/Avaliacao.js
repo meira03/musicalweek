@@ -1,6 +1,8 @@
 "use client";
 import { avaliaMusica } from "@/utils/sala";
 
+import { Pontuacao } from "@/components/Pontuacao";
+
 import { useState } from "react";
 import { BsChevronCompactUp } from "react-icons/bs";
 import { FaXmark } from "react-icons/fa6";
@@ -11,16 +13,6 @@ export const Avaliacao = () => {
   const [screen, setScreen] = useState(false);
   const [value, setValue] = useState(0);
 
-  function handleInput(v) {
-    setValue(v);
-    document.getElementById("numero_avaliacao").style.textShadow = `
-    hsla(173, 33%, 84%, 0.92) 0px 0px 6px, 
-    hsla(173, 33%, 84%, 0.34) 0px 0px 30px, 
-    hsla(${v * 1.8}, 100%, 54.7%, 0.92) 0px 0px 12px, 
-    hsla(${v * 1.8}, 100%, 54.7%, 0.92) 0px 0px 21px, 
-    hsla(${v * 1.8}, 100%, 54.7%, 0.92) 0px 0px 34px
-    `;
-  }
   return (
     <>
       <div className="fixed bottom-3 left-0 w-full">
@@ -47,15 +39,8 @@ export const Avaliacao = () => {
           <div
             id="numero_avaliacao"
             className="text-9xl"
-            style={{
-              textShadow: `hsla(173, 33%, 84%, 0.92) 0px 0px 6px, 
-    hsla(173, 33%, 84%, 0.34) 0px 0px 30px, 
-    hsla(0, 100%, 54.7%, 0.92) 0px 0px 12px, 
-    hsla(0, 100%, 54.7%, 0.92) 0px 0px 21px, 
-    hsla(0, 100%, 54.7%, 0.92) 0px 0px 34px`,
-            }}
           >
-            {value}
+            <Pontuacao pontuacao={value} />
           </div>
           <div className="mx-auto relative my-10 flex w-4/5 sm:w-2/5">
             <input
@@ -64,7 +49,7 @@ export const Avaliacao = () => {
               min="0"
               max="100"
               value={value}
-              onInput={(e) => handleInput(e.target.value)}
+              onInput={(e) => setValue(e.target.value)}
               className="music-slider w-full"
             />
           </div>
