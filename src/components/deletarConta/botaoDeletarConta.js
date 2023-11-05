@@ -35,7 +35,7 @@ export default function DeleteAccount() {
   return (
     <div>
       <button
-        className={`bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2`}
+        className={`bg-red-500 hover:bg-red-600 text-white w-full py-1.5`}
         onClick={() => setShowConfirmationModal(true)}
         disabled={deleting}
       >
