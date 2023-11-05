@@ -15,7 +15,6 @@ export default function EsqueciSenha() {
     }
     else {
       const res = await enviarEmail(formData);
-      console.log(res)
       if (res.sucesso) {
         router.push("/esqueci-senha/espera-email/");
       } else {
@@ -26,9 +25,9 @@ export default function EsqueciSenha() {
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-      <div className="font-tech">
-        <h1 className="text-center text-4xl font-bold mb-6 uppercase text-neon-blue-100  neon-text">
-          ESQUECI SENHA
+      <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
+        <h1 className="dark:text-white text-center text-3xl font-bold mb-6 uppercase">
+          Esqueci Senha
         </h1>
         <form action={onRecuperate}>
           <div className="mb-4">
@@ -36,16 +35,16 @@ export default function EsqueciSenha() {
               id="emailEsqueciSenha"
               type="email"
               name="emailEsqueciSenha"
-              placeholder="DIGITE SEU E-MAIL"
+              placeholder="Digite seu email"
             />
             <p id={"emailEsqueciSenha-error"} className="text-red-500 text-xs italic"></p>
           </div>
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              RECUPERAR SENHA
+              Recuperar Senha
             </button>
           </div>
         </form>
