@@ -1,3 +1,199 @@
 {
-    "hello": "Mundo"
+    "alterar-perfil": {
+        "Alterar Perfil": "Alterar Perfil"
+    },
+    "alterar-senha": {
+        "ALTERAR SENHA": "Alterar Senha",
+        "Senha Atual": "Senha Atual",
+        "Nova Senha": "Nova Senha",
+        "Confirmar Nova Senha": "Confirmar Nova Senha",
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Senha fraca": "Senha fraca",
+        "As senhas não coincidem": "As senhas não coincidem",
+        "Senha Incorreta": "Senha Incorreta",
+        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
+        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
+        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
+        "Pelo menos um número": "Pelo menos um número",
+        "Pelo menos um caractere especial (@ $ ! % * ? & .)": "Pelo menos um caractere especial (@ $ ! % * ? & .)"
+    },
+    "cadastro": {
+        "Cadastro": "Cadastro",
+        "Digite seu nome completo...": "Digite seu nome completo...",
+        "Digite seu nome de usuário...": "Digite seu nome de usuário...",
+        "Aponte sua data de nascimento...": "Aponte sua data de nascimento...",
+        "Digite seu email...": "Digite seu email...",
+        "Digite sua senha...": "Digite sua senha...",
+        "Digite a mesma senha...": "Digite a mesma senha...",
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Senhas não coincidem!": "Senhas não coincidem!",
+        "Cadastrar": "Cadastrar",
+        "Já possuo uma conta (Login)": "Já possuo uma conta (Login)"
+    },
+    "cadastro-provider": {
+        "Cadastro": "Cadastro",
+        "Digite seu nome completo...": "Digite seu nome completo...",
+        "Digite seu nome de usuário...": "Digite seu nome de usuário...",
+        "Aponte sua data de nascimento...": "Aponte sua data de nascimento...",
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Preencha os valores corretamente!": "Preencha os valores corretamente!",
+        "Cadastrar": "Cadastrar"
+    },
+    "esqueci-senha": {
+        "Esqueci Senha": "Esqueci Senha",
+        "Digite seu email": "Digite seu email",
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Recuperar Senha": "Recuperar Senha"
+    },
+    "esqueci-senha/token": {
+        "Cadastre a nova senha": "Cadastre a nova senha",
+        "Nova Senha": "Nova Senha",
+        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
+        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
+        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
+        "Pelo menos um número": "Pelo menos um número",
+        "Pelo menos um caractere especial (@ $ ! % * ? &)": "Pelo menos um caractere especial (@ $ ! % * ? &)",
+        "Confirma Senha": "Confirma Senha",
+        "As senhas não coincidem": "As senhas não coincidem",
+        "Recuperar Senha": "Recuperar Senha",
+        "Validando token, por favor aguarde...": "Validando token, por favor aguarde..."
+    },
+    "esqueci-senha/espera-email": {
+        "Verifique o e-mail": "Verifique o e-mail",
+        "Acesse o e-mail informado para acessar o link da troca de senha.": "Acesse o e-mail informado para acessar o link da troca de senha."
+    },
+    "esqueci-senha/senha-alterada": {
+        "Senha alterada com sucesso": "Senha alterada com sucesso",
+        "Clique aqui para voltar ao login.": "Clique aqui para voltar ao login"
+    },
+    "fila": {
+        "Buscando Sala": "Buscando Sala",
+        "Estimativa": "Estimativa",
+        "Sair da Fila": "Sair da Fila"
+    },
+    "home": {
+        "Salas dos Artistas": "Salas dos Artistas",
+        "Carregando informações das salas...": "Carregando informações das salas...",
+        "Nenhuma imagem disponível para esta sala.": "Nenhuma imagem disponível para esta sala.",
+        "Nenhuma sala disponível para exibir.": "Nenhuma sala disponível para exibir.",
+        "Top 10 Músicas": "Top 10 Músicas",
+        "Carregando as informações das top 10 músicas...": "Carregando as informações das top 10 músicas..."
+    },
+    "login": {
+        "Login": "Login",
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Entrar": "Entrar",
+        "Esqueci minha senha": "Esqueci minha senha",
+        "Criar nova conta": "Criar nova conta"
+    },
+    "perfil": {
+        "Perfil do Usuário": "Perfil do Usuário",
+        "Foto de Perfil": "Foto de Perfil",
+        "Nome Completo": "Nome Completo",
+        "E-mail": "E-mail",
+        "Nome de Usuário": "Nome de Usuário",
+        "Data de Nascimento": "Data de Nascimento",
+        "Plano Atual": "Plano Atual",
+        "Histórico de Salas": "Histórico de Salas"
+    },
+    "planos": {
+        "Planos e Preços": "Planos e Preços",
+        "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.": "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.",
+        "Plano Gratuito": "Plano Gratuito",
+        "Grátis": "Grátis",
+        "2 salas simultâneas": "2 salas simultâneas",
+        "Ilimitado": "Ilimitado",
+        "Últimas 5 salas": "Últimas 5 salas",
+        "Plano Premium": "Plano Premium",
+        "R$9.90": "R$9.90",
+        "5 salas simultâneas": "5 salas simultâneas",
+        "Últimas 10 salas": "Últimas 10 salas",
+        "Plano do Artista": "Plano do Artista",
+        "R$79.90": "R$79.90",
+        "30 salas simultâneas": "30 salas simultâneas",
+        "Últimas 60 salas": "Últimas 60 salas",
+        "1 por semana": "1 por semana",
+        "Personalizadas": "Personalizadas",
+        "Parabéns": "Parabéns",
+        "Seu plano foi atualizado com sucesso!": "Seu plano foi atualizado com sucesso!",
+        "OK": "OK"
+    },
+    "planos/escolher-plano": {
+        "Plano Selecionado": "Plano Selecionado",
+        "Escolher Plano": "Escolher Plano"
+    },
+    "salas": {
+        "Procurando Usuários...": "Procurando Usuários...",
+        "Salas ativas": "Salas ativas",
+        "Salas Encerradas": "Salas Encerradas"
+    },
+    "components/button": {
+        "Alterar": "Alterar"
+    },
+    "components/deletarConta": {
+        "Deletar Conta": "Deletar Conta",
+        "Confirmar Exclusão de Conta": "Confirmar Exclusão de Conta",
+        "Tem certeza de que deseja excluir sua conta?": "Tem certeza de que deseja excluir sua conta?",
+        "Excluir": "Excluir",
+        "Cancelar": "Cancelar"
+    },
+    "components/entrarSalaArtista": {
+        "Entrar na Sala do Artista": "Entrar na Sala do Artista",
+        "Sala ID": "Sala ID",
+        "Usuário entrou na sala com sucesso!": "Usuário entrou na sala do artista com sucesso!",
+        "Erro ao entrar na sala do artista:": "Erro ao entrar na sala do artista:",
+        "Redirecionando para a página de login...": "Redirecionando para a página de login..."
+    },
+    "components/form": {
+        "Nome Completo": "Nome Completo",
+        "Nome de Usuário": "Nome de Usuário",
+        "Data de Nascimento": "Data de Nascimento",
+        "E-mail": "E-mail",
+        "Senha": "Senha",
+        "Confirmação de Senha": "Confirmação de Senha",
+        "Outro": "Outro",
+        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
+        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
+        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
+        "Pelo menos um número": "Pelo menos um número",
+        "Pelo menos um caractere especial (@ $ ! % * ? & .)": "Pelo menos um caractere especial (@ $ ! % * ? & .)",
+        "As senhas não coincidem!": "As senhas não coincidem!"
+    },
+    "components/formValidation": {
+        "Campo Obrigatório": "Campo Obrigatório",
+        "Nome completo inválido.": "Nome completo inválido.",
+        "O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.": "O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.",
+        "Acesso a menores de idade não permitido.": "Acesso a menores de idade não permitido.",
+        "Data de nascimento inválida.": "Data de nascimento inválida.",
+        "Email inválido. Certifique-se de usar um @ e um domínio válido.": "Email inválido. Certifique-se de usar um @ e um domínio válido.",
+        "Senha fraca.": "Senha fraca.",
+        "Preencha o campo para prosseguir.": "Preencha o campo para prosseguir."
+    },
+    "components/loginGoogle": {
+        "Entrar com Google": "Entrar com Google"
+    },
+    "components/loginSpotify": {
+        "Entrar com Spotify": "Entrar com Spotify"
+    },
+    "components/search": {
+        "Digite sua busca...": "Digite sua busca..."
+    },
+    "components/search-artista": {
+        "Adicione 7 músicas diferentes para prosseguir": "Adicione 7 músicas diferentes para prosseguir",
+        "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.": "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.",
+        "Enviar Músicas": "Enviar Músicas",
+        "Parabéns": "Parabéns",
+        "Sua sala foi criada com sucesso!": "Sua sala foi criada com sucesso!",
+        "OK": "OK"
+    },
+    "components/menu": {
+        "Logo Musical Week": "Logo Musical Week",
+        "Home": "Home",
+        "Nova Sala": "Nova Sala",
+        "Nova Sala Artista": "Nova Sala Artista",
+        "Salas": "Salas",
+        "Perfil": "Perfil",
+        "Sair": "Sair",
+        "Entrar": "Entrar"
+    }
 }

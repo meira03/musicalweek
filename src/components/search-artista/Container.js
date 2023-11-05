@@ -55,18 +55,19 @@ export default function Container({ searchTerm }) {
     // Função para adicionar uma música à lista
     async function handleClick(id_musica, nome_musica, nome_artista, imagem_album) {
         setIsMusicSelected(false);
-        
+    
         if (imageUrls.length >= 7) {
             // Defina um estado para indicar que as 7 músicas foram selecionadas
             setAllMusicSelected(true);
+            return; // Impede a adição de mais músicas
         }
-
+    
         // Verifica se o ID da música já existe na lista
         if (imageUrls.some((imageInfo) => imageInfo[0] === id_musica)) {
             setIsMusicSelected(true);
-            return; 
+            return; // Impede a adição de músicas duplicadas
         }
-
+    
         setImageUrls((previousState) => {
             return [...previousState, [id_musica, nome_musica, imagem_album, nome_artista]]
         });
@@ -147,14 +148,18 @@ export default function Container({ searchTerm }) {
                 contentLabel="Modal de Sucesso"
                 ariaHideApp={false}
                 className="modal fixed inset-0 flex items-center justify-center z-50"
-                overlayClassName="modal-overlay fixed inset-0 bg-black"
+                overlayClassName="modal-overlay fixed inset-0 bg-black-900"
             >
                 <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
-                    <h2 className="text-4xl font-semibold mb-10 text-black">Parabéns</h2>
-                    <p className="text-2xl mb-10 text-black">Sua sala foi criada com sucesso!</p>
+                    <h2 className="text-4xl font-semibold mb-10 text-black-900">Parabéns</h2>
+                    <p className="text-2xl mb-10 text-black-900">Sua sala foi criada com sucesso!</p>
                     <button
                         className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl"
-                        onClick={() => setModalIsOpen(false)}
+                        onClick={() => {
+                            setModalIsOpen(false);
+                            window.location.href = '/home';
+                        }
+                        }
                     >
                         OK
                     </button>
