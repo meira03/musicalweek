@@ -64,3 +64,23 @@ export async function getMusic(id_music) {
  
   return res.json()
 }
+
+export async function getRecommendations() {
+  const token = await auth();
+
+  const res = await fetch(
+    ` https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token.access_token}`,
+      },
+    }
+  );
+ 
+  if (!res.ok) {
+    throw new Error('Failed to search data')
+  }
+ 
+  return res.json()
+}

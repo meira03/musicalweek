@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
   const logado = cookieStore.get('token') != undefined;
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black-0 min-h-screen`}>
+      <body className={`${inter.className} bg-black-100 min-h-screen`}>
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Menu logado={logado} />
-            <main>
+            <main className='w-11/12 mx-auto pt-5'>
               {children}
             </main>
           </ThemeProvider>

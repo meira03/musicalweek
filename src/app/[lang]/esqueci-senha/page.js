@@ -15,7 +15,6 @@ export default function EsqueciSenha() {
     }
     else {
       const res = await enviarEmail(formData);
-      console.log(res)
       if (res.sucesso) {
         router.push("/esqueci-senha/espera-email/");
       } else {
