@@ -245,30 +245,3 @@ export async function avaliaMusica(nota, id_musica_sala) {
       return res;
     });
 }
-
-
-export async function infoSalaArtista(id_sala) {
-  const cookieStore = cookies();
-
-  const url = `http://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala}`;
-
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
-
-  return fetch(url, {
-    method: "GET",
-    headers: headers,
-    credentials: "include",
-    cache: "no-store",
-  })
-    .then((result) => result.json())
-    .then((data) => {
-      if (data.sala !== undefined) {
-        return data;
-      } else {
-        console.error("Não foi possível obter as informações da sala");
-        return { error: "Não foi possível obter as informações da sala." };
-      }
-    })
-}

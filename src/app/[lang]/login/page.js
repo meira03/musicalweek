@@ -6,6 +6,7 @@ import Input from "@/components/form/Input";
 import { login } from '@/utils/forms'
 import SignInButtonGoogle from "@/components/login/SignInButtonGoogle";
 import SignInButtonSpotify from "@/components/login/SignInButtonSpotify";
+import { isValidInput } from '@/components/form/validation';
 
 export default function Login() {
   const [message, setMessage] = useState('')
@@ -32,6 +33,8 @@ export default function Login() {
     } else {
       setMessage(res.message)
     }
+
+
   }
 
   return (
