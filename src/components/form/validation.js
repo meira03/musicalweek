@@ -1,5 +1,3 @@
-import { use } from "react";
-
 export function isValidInput(inputID, value) {
 
   if (inputID === 'completeName') {
@@ -8,7 +6,14 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    } else if (!/^\b\w{2,}\s+\w{2,}\b/.test(value)) {
+    }
+    else if (value.length > 256) {
+      return {
+        isValid: false,
+        message: 'O nome deve ter menos de 256 caracteres.',
+      };
+    }
+    else if (!/^\b\w{2,}\s+\w{2,}\b/.test(value)) {
       return {
         isValid: false,
         message: 'Nome completo inválido.',
@@ -72,7 +77,13 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Email inválido. Certifique-se de usar um @ e um domínio válido.',
       };
-    } else {
+    } else if (value.length > 256) {
+      return {
+        isValid: false,
+        message: 'O e-mail deve ter menos de 256 caracteres.',
+      };
+    }
+    else {
       return {
         isValid: true,
         message: '',
@@ -104,7 +115,14 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Preencha o campo para prosseguir.'
       };
-    } else {
+    }
+    else if (value.length > 256) {
+      return {
+        isValid: false,
+        message: 'A senha deve ter menos de 256 caracteres.',
+      };
+    }
+    else {
       return {
         isValid: true,
         message: ''
