@@ -10,6 +10,7 @@ export default function InputField(props) {
   const [hasLowercase, setHasLowercase] = useState(false);
   const [hasNumber, setHasNumber] = useState(false);
   const [hasSpecialChar, setHasSpecialChar] = useState(false);
+  const [hasMinus256Char, setHasMinus256Char] = useState(false);
 
   const [valor, setValor] = useState(props.value);
 
@@ -75,6 +76,7 @@ export default function InputField(props) {
       setHasLowercase(/[a-z]/.test(value));
       setHasNumber(/\d/.test(value));
       setHasSpecialChar(/[@$!%*?&.]/.test(value));
+      setHasMinus256Char(value.length > 256);
     }
 
     setValidation({
@@ -88,7 +90,6 @@ export default function InputField(props) {
       emailEsqueciSenha: emailEsqueciSenhaValidation,
     });
 
-    // Pass the updated value to the parent component's onChange handler
     if (props.onChange) {
       props.onChange({
         name,
@@ -106,8 +107,6 @@ export default function InputField(props) {
   const handlePasswordBlur = () => {
     setIsPasswordFocused(false);
   };
-
-
 
   return (
     <div className="mb-4">
@@ -133,7 +132,7 @@ export default function InputField(props) {
         name={props.id}
         value={valor}
         placeholder={props.placeholder}
-        onChange={handleChange}// Add this line to handle input changes
+        onChange={handleChange}
         onFocus={handlePasswordFocus}
         onBlur={handlePasswordBlur}
       />
@@ -158,9 +157,11 @@ export default function InputField(props) {
           <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
             Pelo menos um caractere especial (@ $ ! % * ? & .)
           </li>
+          <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
+            Senha com menos de 256 caracteres
+          </li>
         </ul>
       )}
-
       {
         isPasswordFocused &&
         props.id === "passwordConfirmation" &&
