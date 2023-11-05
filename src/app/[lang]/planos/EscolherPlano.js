@@ -23,9 +23,9 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
   return (
     <div
       id={`div-${index}`} 
-      className={`p-6 border border-gray-600 rounded-lg shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
+      className={`p-6 border border-gray-600  shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
       <div>
-        <h2 className="text-2xl text-white font-bold mb-4">{plano.nome}</h2>
+        <h2 className="text-2xl neon-text uppercase font-medium mb-4">{plano.nome}</h2>
         <p className="text-xl text-white font-bold mb-4">{plano.preco}</p>
         <p className="text-base font-semibold mb-2">Salas Padrões: {plano.participacaoSalasPadrao}</p>
         <p className="text-base font-semibold mb-2">Salas de Artistas: {plano.participacaoSalasArtistas}</p>
@@ -41,7 +41,7 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
       </div>
       <button
         id={`botao-${index}`}
-        className={`bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-6 py-3 mt-4`}
+        className={`bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 mt-4`}
         onClick={handleEscolherPlano}
       >
         Escolher Plano

@@ -84,12 +84,13 @@ export default function Planos() {
 
   const closeModal = () => {
     setModalIsOpen(false);
+    window.location.href = '/perfil';
   };
 
   return (
-    <div className="min-h-screen text-white">
-      <div className="container mx-auto p-8">
-        <h1 className="text-4xl font-semibold mb-6 text-center">Planos e Preços</h1>
+    <div className="flex text-white border-solid border-2 items-center min-h-screen">
+      <div className="container m-auto py-10 px-8 border-solid border-2 ">
+        <h1 className="neon-text text-4xl uppercase font-semibold mb-6 text-center">Planos e Preços</h1>
         <p className="text-lg font-semibold mb-8 text-center">
           Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.
         </p>
@@ -113,11 +114,11 @@ export default function Planos() {
           className="modal fixed inset-0 flex items-center justify-center z-50"
           overlayClassName="modal-overlay fixed inset-0 bg-black"
         >
-          <div className="bg-zinc-950 p-6 border border-gray-600 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
-            <h2 className="text-4xl font-semibold mb-10 text-black">Parabéns</h2>
-            <p className="text-2xl mb-10 text-black">Seu plano foi atualizado com sucesso!</p>
+          <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
+            <h2 className="text-4xl font-semibold mb-5 neon-text uppercase">Parabéns</h2>
+            <p className="text-2xl mb-12 ">Seu plano foi atualizado com sucesso!</p>
             <button
-              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl"
+              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 w-full text-xl"
               onClick={closeModal}
             >
               OK
