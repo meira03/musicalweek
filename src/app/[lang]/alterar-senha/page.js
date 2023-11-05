@@ -112,6 +112,7 @@ export default function AlteraSenha() {
     if (formData.senhaAtual && formData.senha && formData.confirmaSenha) {
       const res = await AlterarSenha(formData.senhaAtual, formData.senha);
 
+
       if (res.sucesso === true) {
         router.push("/perfil");
       } else {
