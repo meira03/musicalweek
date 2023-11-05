@@ -36,10 +36,10 @@ export default function Login() {
   }
 
   return (
-<main className="min-h-screen bg-zinc-950 dark:bg-zinc-950 text-white h-full flex justify-center items-center p-8">
-  <div className="bg-zinc-950 dark:bg-zinc-950 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
+<main className="min-h-screen bg-black-900 dark:bg-black-900 text-white h-full flex justify-center items-center p-8">
+  <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
     <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
-      <span class="text-shadow-lg shadow-cyan-300">LOGIN</span>
+      <span class="text-shadow-lg shadow-neon-blue-100">LOGIN</span>
     </h1>
     <div className="text-red-500 text-center text-sm font-light mb-4">
       {message}
@@ -72,7 +72,7 @@ export default function Login() {
       </div>
       <div className="flex flex-col items-center">
         <button
-          className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
+          className="bg-neon-blue-300 hover:bg-neon-blue-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
           type="submit"
         >
           ENTRAR
@@ -90,7 +90,7 @@ export default function Login() {
           NÃO TEM UMA CONTA?
         </div>
         <Link
-          className="font-bold text-gl text-cyan-500 hover:text-cyan-600 mr-16"
+          className="font-bold text-gl text-neon-blue-300 hover:text-neon-blue-400 mr-16"
           href="/cadastro"
         >
           CRIAR NOVA CONTA

@@ -125,7 +125,7 @@ export default function InputField(props) {
         }
       </label>
       <input
-        className={`text-sm shadow appearance-none border-2 rounded w-full py-2 px-3 text-zinc-300 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline bg-zinc-950 border-blue-500`}
+        className={`text-sm shadow appearance-none border-2 rounded w-full py-2 px-3 text-zinc-300 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline bg-black-900 border-neon-blue-300`}
         id={props.id}
         type={props.type}
         name={props.id}
