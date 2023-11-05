@@ -1,18 +1,21 @@
 "use server"
-export const fetchSalaData = async (cookies) => {
+import { cookies } from "next/headers";
+
+export const fetchSalaData = async () => {
     try {
         const url = 'https://musicalweek-api.azurewebsites.net/endpoints/home/index.php';
         const headers = {};
+        const cookieStore = cookies();
 
-        if (cookies && cookies.token) {
-            headers['Authorization'] = `Bearer ${cookies.token}`;
+        if (cookieStore && cookieStore.token) {
+            headers['Authorization'] = `Bearer ${cookieStore.token}`;
         }
 
         const response = await fetch(url, { method: 'GET', headers , cache: "no-store"});
 
         if (response.ok) {
             const data = await response.json();
-            if (!cookies || !cookies.token) {
+            if (!cookieStore || !cookieStore.token) {
                 // Quando não há token, ajuste os dados, se necessário
                 if (data.salas_artista && Array.isArray(data.salas_artista)) {
                     data.salas_artista = data.salas_artista.map((sala) => {

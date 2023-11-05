@@ -1,0 +1,21 @@
+.swiperArtistas .swiper-slide {
+  transition: all 0.5s ease-in-out;
+}
+.swiperArtistas .swiper-slide:not(.swiper-slide-active) {
+  transform: scale(0.75) !important;
+}
+.swiperArtistas .swiper-slide-active {
+  transform: scale(1) !important;
+}
+.swiperArtistas .swiper-slide-active img {
+  transform: scale(1) !important;
+}
+
+@media (min-width: 500px) {
+  .swiperArtistas .swiper-button-prev {
+    left: 30%!important;
+  }
+  .swiperArtistas .swiper-button-next {
+    right: 30%!important;
+  }
+}
