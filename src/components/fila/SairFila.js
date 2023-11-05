@@ -9,7 +9,6 @@ export default function SairFila({id_musica_sala}) {
   
   async function handleClick() {
     const fila = await sairFila(id_musica_sala);
-    console.log(fila);
     if(fila.sucesso != undefined){
       window.location.href = '/salas';
     }
@@ -24,6 +23,6 @@ export default function SairFila({id_musica_sala}) {
   }
 
   return (
-    <FaXmark onClick={handleClick} className="absolute right-0 top-0 px-2 py-1 cursor-pointer text-3xl text-white" />
+    <FaXmark onClick={handleClick} className="absolute right-0 top-0 px-2 py-1 cursor-pointer text-3xl text-red-600" />
   );
 };

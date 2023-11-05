@@ -22,7 +22,7 @@ function CronometroProgressivo({ data }) {
     return () => clearInterval(intervalID);
   }, [data]);
 
-  return <div className="text-3xl">{tempoDecorrido}</div>;
+  return <div className="text-3xl text-neon-blue-100">{tempoDecorrido}</div>;
 }
 
 export default CronometroProgressivo;

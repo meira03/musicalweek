@@ -70,11 +70,10 @@ export default async function Perfil({ params }) {
                   className="object-cover w-full h-full rounded-full mb-3"
                 />
               <ModalProfile perfil={res.perfil} />
-
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nome do Usuário</h1>
+                <h1 className="font-semibold text-xl">Nome Completo</h1>
                 <p className="hover:text-gray-500 transition">{res.perfil.nome}</p>
               </div>
               <div className="mb-4">
@@ -84,7 +83,7 @@ export default async function Perfil({ params }) {
             </div>
             <div className="col-span-1 text-white">
               <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nickname</h1>
+                <h1 className="font-semibold text-xl">Nome de Usuário</h1>
                 <p className="hover:text-gray-500 transition">{res.perfil.nick}</p>
               </div>
               <div className="mb-4">
@@ -94,7 +93,7 @@ export default async function Perfil({ params }) {
             </div>
             <div className="col-span-1 flex ">
               <div className="mb-4 text-white">
-                <h1 className="font-semibold text-xl">Tipo Plano</h1>
+                <h1 className="font-semibold text-xl">Plano Atual</h1>
                 <p className="hover:text-gray-500 transition">{tipoPlanoLabel}</p>
                 <br />
                 {res.perfil.plano === "0" && (
@@ -124,7 +123,7 @@ export default async function Perfil({ params }) {
               <div className="mb-4 text-white">
                 <Link href="alterar-perfil/">
                   <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
-                    Alterar Perfil
+                    Alterar Dados
                   </button>
                 </Link>
                 <br />

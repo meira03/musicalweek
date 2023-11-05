@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
 import { deleteAccount } from '@/utils/user'
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 Modal.setAppElement(null);
 
@@ -22,11 +22,11 @@ export default function DeleteAccount() {
       console.error('Token de autenticação ausente.');
       return;
     }
-    const res = await deleteAccount(token);
 
-    if (res.sucesso === true) {
-      router.push('/')
-    }
+    const res = deleteAccount(token);
+
+    router.push('/home')
+
     setDeleting(false);
     setShowConfirmationModal(false);
 
