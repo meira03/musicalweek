@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from 'next/link'
-import logo from "../../public/musicalweek-white.webp";
 import { HiMiniBars3, HiXMark} from "react-icons/hi2";
 import { AiOutlineLogout} from "react-icons/ai";
 import { useState } from "react";
@@ -23,7 +22,7 @@ export const Menu = ({ logado }) => {
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
       <div className="h-[70%] w-full flex justify-between items-center">
-        <Link className='h-full' href='/'><Image src={logo} className="h-full w-auto" alt="Logo Musical Week" priority /></Link>
+        <Link className='h-full' href='/'><Image src={"/images/musicalweek.webp"} width={400} height={300} className="h-full w-auto" alt="Logo Musical Week" priority /></Link>
         <ul className="flex">
           {logado ?
           <>
