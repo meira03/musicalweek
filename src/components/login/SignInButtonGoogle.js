@@ -4,16 +4,16 @@ import { signIn } from "next-auth/react";
 const SignInButtonGoogle = () => {
 
   return (
-    <>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="bg-black border-2 border-blue-500 hover:bg-zinc-950 text-white hover:text-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
         type="button"
         onClick={() => signIn("google")}
+        id="googleSignIn"
       >
-        Entrar com Google
+        CONTINUAR COM O GOOGLE
       </button>
-    </>
   );
 };
 
 export default SignInButtonGoogle;
+

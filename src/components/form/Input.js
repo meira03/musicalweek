@@ -59,7 +59,6 @@ export default function InputField(props) {
       message,
     });
 
-    // Validação do email ao submeter o formulário
     const completeNameValidation = isValidInput('completeName', value);
     const nicknameValidation = isValidInput('nickname', value);
     const birthdayValidation = isValidInput('birthday', value);
@@ -88,7 +87,6 @@ export default function InputField(props) {
       emailEsqueciSenha: emailEsqueciSenhaValidation,
     });
 
-    // Pass the updated value to the parent component's onChange handler
     if (props.onChange) {
       props.onChange({
         name,
@@ -112,28 +110,28 @@ export default function InputField(props) {
   return (
     <div className="mb-4">
       <label
-        className="block text-gray-700 dark:text-zinc-100 text-sm font-bold mb-2"
+        className="block text-white dark:text-zinc-400 text-xl font-bold"
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'Nome Completo' :
-            props.id === 'nickname' ? 'Nome de Usuário' :
-              props.id === 'birthday' ? 'Data de Nascimento' :
-                props.id === 'email' ? 'E-mail' :
-                  props.id === 'password' ? 'Senha' :
-                    props.id === 'passwordCadastro' ? 'Senha' :
-                      props.id === 'passwordConfirmation' ? 'Confirmação de Senha' :
-                        props.id === 'emailEsqueciSenha' ? 'E-mail' : 'Outro'
+          props.id === 'completeName' ? 'NOME COMPLETO:' :
+            props.id === 'nickname' ? 'NOME DE USUÁRIO:' :
+              props.id === 'birthday' ? 'DATA DE NASCIMENTO:' :
+                props.id === 'email' ? 'E-MAIL:' :
+                  props.id === 'password' ? 'SENHA:' :
+                    props.id === 'passwordCadastro' ? 'SENHA:' :
+                      props.id === 'passwordConfirmation' ? 'CONFIRMAÇÃO DE SENHA:' :
+                        props.id === 'emailEsqueciSenha' ? 'E-MAIL:' : 'Outro'
         }
       </label>
       <input
-        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
+        className={`text-sm shadow appearance-none border-2 rounded w-full py-2 px-3 text-zinc-300 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline bg-zinc-950 border-blue-500`}
         id={props.id}
         type={props.type}
         name={props.id}
         value={valor}
         placeholder={props.placeholder}
-        onChange={handleChange}// Add this line to handle input changes
+        onChange={handleChange}
         onFocus={handlePasswordFocus}
         onBlur={handlePasswordBlur}
       />
