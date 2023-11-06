@@ -1,3 +1,5 @@
+"use server"
+
 import Link from "next/link";
 import { redirect } from 'next/navigation'
 
@@ -7,14 +9,17 @@ import { pesquisaSalaArtista } from "@/utils/sala";
 import { CarrousselRoom } from "@/components/sala-artista/CarrousselRoom";
 import { CronometroRegressivo } from "@/components/sala-artista/CronometroRegressivo";
 import { BsArrowLeft } from "react-icons/bs";
+import { sairSalaArtista, Button } from '@/utils/sala'
 
 export default async function Page({ params: { lang, id } }) {
   const dict = await getDictionary(lang);
+
   
   const res = await pesquisaSalaArtista(id);
   if (!res.ok && res.status != 200) {
     redirect('/salas');
   }
+
   const rooms = await res.json();
   if (rooms.musicas == undefined) {
     redirect('/salas');
@@ -36,7 +41,23 @@ export default async function Page({ params: { lang, id } }) {
         return response
       });
     })
+
+    
   );
+
+    
+  function sairSala(){
+    console.log("apertou");
+    console.log("ID DA SALA: " + id);
+    
+    let res = sairSalaArtista(id);
+    console.log(res);
+
+    if(res === "sucesso"){
+      redirect('/salas');
+    }
+  } 
+
 
   return (
     <section className="py-10">
@@ -48,7 +69,10 @@ export default async function Page({ params: { lang, id } }) {
         <Link className="absolute left-4" href="/salas">
           <BsArrowLeft className="text-2xl" />
         </Link>
+        <Button id={id}/>
       </header>
+      
+      
       <CarrousselRoom musics={musics} />
     </section>
   );

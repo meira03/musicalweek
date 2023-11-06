@@ -54,78 +54,82 @@ export default function Cadastro() {
   }
 
   return (
-    <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-      <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
-        <h1 className="dark:text-white text-center text-3xl font-bold uppercase">
-          Cadastro
-        </h1>
-        <form action={onRegister}>
-          <div className="mb-4">
-            <Input
-              id="completeName"
-              type="text"
-              name="completeName"
-              placeholder="Digite seu nome completo..."
-            />
-          </div>
-          <div className="mb-4">
-            <Input
-              id="nickname"
-              type="text"
-              name="nickname"
-              placeholder="Digite seu nome de usuário..."
-            />
-          </div>
-          <div className="mb-4">
-            <Input
-              id="birthday"
-              type="date"
-              name="birthday"
-              placeholder="Aponte sua data de nascimento..."
-            />
-          </div>
-          <div className="mb-4">
-            <Input
-              id="email"
-              type="text"
-              name="email"
-              placeholder="Digite seu email..."
-            />
-          </div>
-          <div className="mb-6">
-            <Input
-              id="passwordCadastro"
-              type="password"
-              name="senha"
-              placeholder="Digite sua senha..."
-            />
-          </div>
-          <div className="mb-6">
-            <Input
-              id="passwordConfirmation"
-              type="password"
-              name="passwordConfirmation"
-              placeholder="Digite a mesma senha..."
-            />
-          </div>
-          <div className="flex items-center justify-center">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Cadastrar
-            </button>
-          </div>
-          <div className="flex items-center flex-col">
-            <Link
-              className="inline-block mt-4 align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="/login"
-            >
-              Já possuo uma conta (Login)
-            </Link>
-          </div>
-        </form>
-      </div>
-    </main>
+<main className="min-h-screen bg-black text-white h-full flex flex-col justify-center items-center p-8">
+  <h1 className="text-center text-5xl font-bold uppercase mb-8">
+    <span class="text-shadow-lg shadow-cyan-300">CADASTRE-SE</span>
+  </h1>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full mx-auto w-full">
+    <div className="mb-4">
+      <Input
+        id="completeName"
+        type="text"
+        name="completeName"
+        placeholder="DIGITE SEU NOME COMPLETO..."
+        className="text-white text-xl bg-transparent border-blue-500" 
+      />
+    </div>
+    <div className="mb-4">
+      <Input
+        id="passwordCadastro"
+        type="password"
+        name="senha"
+        placeholder="DIGITE SUA SENHA..."
+        className="text-white text-xl bg-transparent border-b border-blue-500"
+      />
+    </div>
+    <div className="mb-4">
+      <Input
+        id="passwordConfirmation"
+        type="password"
+        name="passwordConfirmation"
+        placeholder="DIGITE A MESMA SENHA..."
+        className="text-white text-xl bg-transparent border-b border-blue-500" 
+      />
+    </div>
+    <div className="mb-4">
+      <Input
+        id="email"
+        type="text"
+        name="email"
+        placeholder="DIGITE O SEU E-MAIL..."
+        className="text-white text-xl bg-transparent border-b border-blue-500" 
+      />
+    </div>
+    <div className="mb-4">
+      <Input
+        id="nickname"
+        type="text"
+        name="nickname"
+        placeholder="DIGITE SEU NOME DE USUÁRIO..."
+        className="text-white text-xl bg-transparent border-b border-blue-500"
+      />
+    </div>
+    <div className="mb-4">
+      <Input
+        id="birthday"
+        type="date"
+        name="birthday"
+        placeholder="APONTE SUA DATA DE NASCIMENTO..."
+        className="text-white text-xl bg-transparent border-b border-blue-500"
+      />
+    </div>
+    <div className="mb-4 col-span-2 flex justify-center">
+      <button
+        type="submit"
+        className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline"
+      >
+        CADASTRAR
+      </button>
+    </div>
+  </div>
+  <div className="mt-4 text-center">
+    <Link
+      className="font-bold text-sm text-white hover:text-zinc-500"
+      href="/login"
+    >
+      JÁ POSSUO UMA CONTA (LOGIN)
+    </Link>
+  </div>
+</main>
   );
 }

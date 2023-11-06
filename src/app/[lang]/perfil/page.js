@@ -13,7 +13,7 @@ export default async function Perfil({ params }) {
   if (!res || !res.perfil) {
     return
   }
-
+            
   if (res.perfil.plano === "0") {
     tipoPlanoLabel = "Gratuito";
   } else if (res.perfil.plano === "1") {
@@ -24,94 +24,85 @@ export default async function Perfil({ params }) {
     tipoPlanoLabel = "Outro";
   }
 
+  //sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5
+  //grid grid-cols-2 gap-8 p-8 border-solid border-2 mb-1
+  //px-2 sm:px-7 lg:px-8
+
   return (
-    <main className='mx-auto sm:max-w-7xl px-2 sm:px-7 lg:px-8'>
-      <div>
-        <h1 className="text-white text-3xl font-semibold mb-4">Perfil do Usuário</h1>
-        <div className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 h w-[100%] flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-8 p-8 items-center">
-            <div className="w-50 h-50 overflow-hidden flex flex-col items-center">
-              <Image
-                  src={"/icones/" + res.perfil.icon }
-                  alt={"Icone "}
-                  height={600}
-                  width={600}
-                  className="object-cover w-full h-full rounded-full mb-3"
-              />
+    <main className=''>
+      <div className='flex justify-center pt-1/4  '>
+        
+          <div className="grid grid-cols-2 w-11/12 gap-36 px-2 ">
+            <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center ">
               <ModalProfile perfil={res.perfil} />
-            </div>
-            <div className="col-span-1 text-white">
-              <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nome Completo</h1>
-                <p className="hover:text-gray-500 transition">{res.perfil.nome}</p>
+
+              <div className='justify-center'>
+                <p className="flex justify-center neon-text text-4xl uppercase font-semibold">{res.perfil.nick}</p>
+                <p className="flex justify-center ">{tipoPlanoLabel}</p>
               </div>
-              <div className="mb-4">
-                <h1 className="font-semibold text-xl">E-mail</h1>
-                <p className="hover:text-gray-500 transition" style={{ wordWrap: 'break-word' }}>{res.perfil.email}</p>
-              </div>
-            </div>
-            <div className="col-span-1 text-white">
-              <div className="mb-4">
-                <h1 className="font-semibold text-xl">Nome de Usuário</h1>
-                <p className="hover:text-gray-500 transition">{res.perfil.nick}</p>
-              </div>
-              <div className="mb-4">
-                <h1 className="font-semibold text-xl">Data de Nascimento</h1>
-                <p className="hover:text-gray-500 transition">{res.perfil.data_nasc}</p>
-              </div>
-            </div>
-            <div className="col-span-1 flex ">
-              <div className="mb-4 text-white">
-                <h1 className="font-semibold text-xl">Plano Atual</h1>
-                <p className="hover:text-gray-500 transition">{tipoPlanoLabel}</p>
-                <br />
-                {res.perfil.plano === "0" && (
+
+              {res.perfil.plano === "0" && (
                   <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
+                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
                       Quero ser Premium
                     </button>
                   </Link>
                 )}
                 {res.perfil.plano === "1" && (
                   <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
+                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
                       Ver os outros Planos
                     </button>
                   </Link>
                 )}
                 {res.perfil.plano === "2" && (
                   <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
+                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
                       Ver os outros Planos
                     </button>
                   </Link>
                 )}
-              </div>
             </div>
-            <div className="col-span-1 flex">
-              <div className="mb-4 text-white">
-                <Link href="alterar-perfil/">
-                  <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
-                    Alterar Dados
-                  </button>
-                </Link>
-                <br />
-                <br />
+            <div className='grid grid-rows-2 items-center '>
+              <div className="grid grid-row-3 gap-4 text-white ">
+                <div>
+                <p className="font-medium">NOME COMPLETO:</p>
+                  <div className='border-2 border-neon-blue-100 py-1'>
+                    <p className="hover:text-gray-500 transition">{res.perfil.nome}</p>
+                  </div>
+                </div>
+                <div>
+                <p className="font-medium">E-MAIL:</p>
+                  <div className='border-2 border-neon-blue-100 py-1'>
+                    <p className="hover:text-gray-500 transition" style={{ wordWrap: 'break-word' }}>{res.perfil.email}</p>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-medium">DATA DE NASCIMENTO:</p>
+                  <div className='border-2 border-neon-blue-100 py-1'>
+                    <p className="hover:text-gray-500 transition">{res.perfil.data_nasc}</p>
+                  </div>
+                </div>  
+              </div>
+              <div className="grid grid-row-3 gap-4 ">
+                <div>
+                  <h3 className='flex justify-center mb-1'>AÇÕES:</h3>
+                  <Link href="alterar-perfil/">
+                    <button className="bg-teal-500 w-full hover:bg-teal-600 text-white py-1.5">
+                      Alterar Dados
+                    </button>
+                  </Link>
+                </div>
                 <Link href="alterar-senha/">
-                  <button className="bg-teal-500 hover:bg-teal-600 text-white rounded-lg px-4 py-2">
+                  <button className="bg-teal-500 hover:bg-teal-600 w-full text-white py-1.5">
                     Alterar Senha
                   </button>
                 </Link>
-                <br />
-                <br />
                 <DeleteAccount></DeleteAccount>
-                <br />
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <br></br>
     </main >
   )
 }
