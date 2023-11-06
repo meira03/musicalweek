@@ -18,7 +18,7 @@ export const Avaliacao = () => {
       <div className="fixed bottom-3 left-0 w-full">
         <div
           onClick={() => setScreen(true)}
-          className="flex flex-col justify-center items-center animate-bounce cursor-pointer w-fit mx-auto"
+          className="flex flex-col justify-center items-center animate-bounce cursor-pointer w-fit mx-auto bg-gradient-to-t from-black-100 from-70% to-transparent px-2"
         >
           <BsChevronCompactUp className="text-3xl -mb-2" />
           AVALIE

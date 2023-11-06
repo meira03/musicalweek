@@ -34,7 +34,7 @@ export default function Container({ searchTerm }) {
 
     return (
         <>  
-            <div className='grid grid-cols-7 gap-7 my-5'>
+            <div className='grid grid-cols-3 sm:grid-cols-7 gap-7 my-5 w-full'>
             {imageUrls.map((imageInfo, index) => (
                 <div key={index} className="relative">
                     <Music track={imageInfo[1]} click={false} />
@@ -47,7 +47,7 @@ export default function Container({ searchTerm }) {
                 </div>
                 ))}
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 sm:grid-cols-6 gap-4 w-full">
                 {searchTerm &&
                     searchTerm.tracks.items.map((track, key) => (
                         <div
