@@ -36,7 +36,7 @@ export const Menu = ({ logado }) => {
                   <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
                 </li>
                 <li onClick={() => setSideBar(false)}>
-                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search-artista'>Nova Sala Artista</Link>
+                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
                 </li>
                 <li onClick={() => setSideBar(false)}>
                   <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>Salas</Link>

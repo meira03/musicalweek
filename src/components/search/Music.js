@@ -5,7 +5,7 @@ import { insereMusica } from "@/utils/sala";
 
 import "@/styles/search/Music.css";
 
-export const Music = ({ track }) => {
+export const Music = ({ track, click = true }) => {
   const router = useRouter();
 
   async function handleClick(id_musica) {
@@ -30,7 +30,7 @@ export const Music = ({ track }) => {
       />
       <div
         onClick={() => {
-          handleClick(track.id);
+          click && handleClick(track.id)
         }}
         className="absolute bottom-0 w-full h-full flex flex-col justify-end px-3 py-2 bg-gradient-to-t from-black-800 to-transparent to-100% bg-opacity-80"
       >

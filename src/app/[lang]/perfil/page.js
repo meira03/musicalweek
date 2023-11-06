@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
+  
   let tipoPlanoLabel;
 
   if (!res || !res.perfil) {
@@ -28,11 +29,19 @@ export default async function Perfil({ params }) {
   //px-2 sm:px-7 lg:px-8
 
   return (
-    <main className=''>
-      <div className='flex justify-center pt-1/4  '>
-        
-          <div className="grid grid-cols-2 w-11/12 gap-36 px-2 ">
-            <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center ">
+    <main className='mx-auto sm:max-w-7xl px-2 sm:px-7 lg:px-8'>
+      <div>
+        <h1 className="text-white text-3xl font-semibold mb-4">Perfil do Usuário</h1>
+        <div className="p-2 rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-800 h w-[100%] flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-8 p-8 items-center">
+            <div className="w-50 h-50 overflow-hidden flex flex-col items-center">
+              <Image
+                  src={"/icones/" + res.perfil.icon }
+                  alt={"Icone "}
+                  height={600}
+                  width={600}
+                  className="object-cover w-full h-full rounded-full mb-3"
+              />
               <ModalProfile perfil={res.perfil} />
 
               <div className='justify-center'>
@@ -102,6 +111,8 @@ export default async function Perfil({ params }) {
             </div>
           </div>
         </div>
+      </div>
+      <br></br>
     </main >
   )
 }
