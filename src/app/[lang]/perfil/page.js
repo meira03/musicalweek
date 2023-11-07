@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
+  
   let tipoPlanoLabel;
 
   if (!res || !res.perfil) {
@@ -30,7 +31,7 @@ export default async function Perfil({ params }) {
 
   return (
     <main className="h-auto lg:h-[85vh] lg:items-center lg:flex lg:justify-center">
-      <div className='justify-centerh-auto w-full'>
+      <div className='justify-center h-auto w-full'>
         
           <div className="static grid 
                             grid-cols-1 w-11/12 px-2 
@@ -106,6 +107,8 @@ export default async function Perfil({ params }) {
             </div>
           </div>
         </div>
+      </div>
+      <br></br>
     </main >
   )
 }

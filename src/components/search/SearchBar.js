@@ -1,14 +1,12 @@
 "use client";
 
 import { useRouter } from 'next/navigation'
-// import { useParams } from "next/navigation";
 
-export const SearchBar = () => {
+export const SearchBar = ({link}) => {
   const router = useRouter()
-  // const searchParams = useParams();
   
   function handleChange(event) {
-    router.replace("/search/" + event.target.value)
+    router.replace(link + event.target.value)
   }
 
   return (
@@ -19,7 +17,7 @@ export const SearchBar = () => {
       placeholder="O que você quer compartilhar?"
       onChange={handleChange}
     />
-    <div id="search-error" className="text-red-600 text-center"></div>
+    <div id="search-error" className="text-red-600 text-center mb-2"></div>
     </>    
   );
 };

@@ -9,8 +9,7 @@ export async function perfilUsuario() {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", token.value);
-    // headers.append("Authorization", "Bearer " + token);
-
+    
     const res = await fetch(url, {
       method: "GET",
       cache: "no-store",

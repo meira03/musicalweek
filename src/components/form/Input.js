@@ -60,7 +60,6 @@ export default function InputField(props) {
       message,
     });
 
-    // Validação do email ao submeter o formulário
     const completeNameValidation = isValidInput('completeName', value);
     const nicknameValidation = isValidInput('nickname', value);
     const birthdayValidation = isValidInput('birthday', value);
@@ -157,9 +156,11 @@ export default function InputField(props) {
           <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
             Pelo menos um caractere especial (@ $ ! % * ? & .)
           </li>
-          <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
-            Senha com menos de 256 caracteres
-          </li>
+          {hasMinus256Char == true && (
+            <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
+              Senha com menos de 256 caracteres
+            </li>
+          )}
         </ul>
       )}
       {
