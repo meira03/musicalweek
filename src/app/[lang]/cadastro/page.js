@@ -58,14 +58,13 @@ export default function Cadastro() {
   <h1 className="text-center text-5xl font-bold uppercase mb-8">
     CADASTRE-SE
   </h1>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full mx-auto w-full">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
     <div className="mb-4">
       <Input
         id="completeName"
         type="text"
         name="completeName"
         placeholder="DIGITE SEU NOME COMPLETO..."
-        className="text-white text-xl bg-transparent border-blue-500" 
       />
     </div>
     <div className="mb-4">
@@ -74,7 +73,6 @@ export default function Cadastro() {
         type="password"
         name="senha"
         placeholder="DIGITE SUA SENHA..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
       />
     </div>
     <div className="mb-4">
@@ -83,7 +81,6 @@ export default function Cadastro() {
         type="password"
         name="passwordConfirmation"
         placeholder="DIGITE A MESMA SENHA..."
-        className="text-white text-xl bg-transparent border-b border-blue-500" 
       />
     </div>
     <div className="mb-4">
@@ -92,7 +89,6 @@ export default function Cadastro() {
         type="text"
         name="email"
         placeholder="DIGITE O SEU E-MAIL..."
-        className="text-white text-xl bg-transparent border-b border-blue-500" 
       />
     </div>
     <div className="mb-4">
@@ -101,7 +97,6 @@ export default function Cadastro() {
         type="text"
         name="nickname"
         placeholder="DIGITE SEU NOME DE USUÁRIO..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
       />
     </div>
     <div className="mb-4">
@@ -110,13 +105,12 @@ export default function Cadastro() {
         type="date"
         name="birthday"
         placeholder="APONTE SUA DATA DE NASCIMENTO..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
       />
     </div>
     <div className="mb-4 col-span-2 flex justify-center">
       <button
         type="submit"
-        className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
+        className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full ml-96 mr-96"
       >
         CADASTRAR
       </button>
