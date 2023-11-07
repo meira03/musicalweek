@@ -26,13 +26,17 @@ export default async function Perfil({ params }) {
   //sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5
   //grid grid-cols-2 gap-8 p-8 border-solid border-2 mb-1
   //px-2 sm:px-7 lg:px-8
+  //pt-0 md:pt-5 lg:pt-20 xl:pt-8 2xl:pt-44  
 
   return (
-    <main className=''>
-      <div className='flex justify-center pt-1/4  '>
+    <main className="h-auto lg:h-[85vh] lg:items-center lg:flex lg:justify-center">
+      <div className='justify-centerh-auto w-full'>
         
-          <div className="grid grid-cols-2 w-11/12 gap-36 px-2 ">
-            <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center ">
+          <div className="static grid 
+                            grid-cols-1 w-11/12 px-2 
+                            lg:grid-cols-2 lg:w-11/12 lg:gap-[20%] lg:px-2 
+                          ">
+            <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center">
               <ModalProfile perfil={res.perfil} />
 
               <div className='justify-center'>
@@ -41,28 +45,28 @@ export default async function Perfil({ params }) {
               </div>
 
               {res.perfil.plano === "0" && (
-                  <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                      Quero ser Premium
-                    </button>
-                  </Link>
-                )}
-                {res.perfil.plano === "1" && (
-                  <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                      Ver os outros Planos
-                    </button>
-                  </Link>
-                )}
-                {res.perfil.plano === "2" && (
-                  <Link href="planos/">
-                    <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                      Ver os outros Planos
-                    </button>
-                  </Link>
-                )}
+                <Link href="planos/">
+                  <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                    Quero ser Premium
+                  </button>
+                </Link>
+              )}
+              {res.perfil.plano === "1" && (
+                <Link href="planos/">
+                  <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                    Ver os outros Planos
+                  </button>
+                </Link>
+              )}
+              {res.perfil.plano === "2" && (
+                <Link href="planos/">
+                  <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                    Ver os outros Planos
+                  </button>
+                </Link>
+              )}
             </div>
-            <div className='grid grid-rows-2 items-center '>
+            <div className='pt-10 lg:pt-0 grid grid-rows-2 items-center '>
               <div className="grid grid-row-3 gap-4 text-white ">
                 <div>
                 <p className="font-medium">NOME COMPLETO:</p>

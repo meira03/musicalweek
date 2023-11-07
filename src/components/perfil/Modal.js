@@ -51,9 +51,10 @@ export default function ModalProfile(props) {
                 <Image
                     src={"/icones/" + props.perfil.icon}
                     alt={"Icone"}
-                    height={280}
-                    width={280}
-                    className="object-cover  rounded-full hover:opacity-50 "
+                    height={0}
+                    width={0}
+                    sizes="100vw"
+                    className="object-cover rounded-full hover:opacity-50 w-full h-64 sm:h-80 xl:h-96 "
                     onMouseEnter={() => {
                         setImageHover(true);
                     }}
@@ -69,12 +70,17 @@ export default function ModalProfile(props) {
                 onRequestClose={() => setShowConfirmationModal(false)}
                 contentLabel="Escolha sua foto de perfil"
                 ariaHideApp={false}
-                className="modal fixed inset-0 flex items-center justify-center z-50"
-                overlayClassName="modal-overlay fixed inset-0 bg-black"
+                className="modal static inset-0 flex items-center justify-center z-50 "
+                overlayClassName="modal-overlay fixed inset-0 bg-black overflow-auto"
             >
-                <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg w-4/5 mx-auto flex flex-col items-center justify-center">
+                <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg w-4/5 mx-auto flex flex-col items-center justify-center align-middle">
                     <h2 className="text-2xl font-semibold mb-6 text-black">Selecione a foto desejada</h2>
-                    <div className='grid grid-cols-10 gap-3 mb-6 mx-5'>
+                    <div className='grid 
+                                        grid-cols-2 gap-3
+                                        sm:grid-cols-3 sm:gap-3
+                                        lg:grid-cols-6 lg:gap-3 lg:mb-6 lg:mx-5
+                                        xl:grid-cols-10 xl:gap-3 xl:mb-6 xl:mx-5
+                                    '>
                         {
                             profilePics.map((imageInfo, index) => (                            
                                 <div key={index} className="relative">
@@ -100,10 +106,10 @@ export default function ModalProfile(props) {
                                         <Image
                                             src={'/icones/icone' + imageInfo + ".png"}
                                             alt={imageInfo}
-
-                                            width="125"
-                                            height="0"
-                                            className=" hover:opacity-40 border-solid border-2 mb-1 border-zinc-800 "
+                                            height={0}
+                                            width={0}
+                                            sizes="100vw"
+                                            className=" hover:opacity-40 border-solid border-2 mb-1 border-zinc-800 w-full h-34 sm:h-40 md:h-52 lg:h-28 xl:h-24 2xl:h-48"
                                         />
                                     </button>
                                 </div>
