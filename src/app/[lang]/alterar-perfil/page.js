@@ -16,8 +16,8 @@ export default async function AlterarPerfil() {
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-      <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
-        <h1 className="dark:text-white text-center text-3xl font-bold uppercase">
+      <div className="bg-black-100 dark:bg-black-300 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
+        <h1 className="text-white dark:text-white text-center text-3xl font-bold uppercase">
           ALTERAR PERFIL
         </h1>
         <div className="text-red-500 text-center text-sm font-light h-4 my-2">

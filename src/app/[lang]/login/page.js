@@ -38,10 +38,10 @@ export default function Login() {
   }
 
   return (
-<main className="min-h-screen bg-black-900 dark:bg-black-900 text-white h-full flex justify-center items-center p-8">
-  <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
-    <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
-      <span class="text-shadow-lg shadow-neon-blue-100">LOGIN</span>
+<main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex justify-center items-center p-8">
+  <div className="bg-black-100 dark:bg-black-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
+    <h1 className="text-white dark:text-white text-center text-5xl font-bold mb-6 uppercase">
+      LOGIN
     </h1>
     <div className="text-red-500 text-center text-sm font-light mb-4">
       {message}
@@ -74,7 +74,7 @@ export default function Login() {
       </div>
       <div className="flex flex-col items-center">
         <button
-          className="bg-neon-blue-300 hover:bg-neon-blue-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
+          className="bg-neon-blue-300 hover:bg-neon-blue-400 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full mb-4"
           type="submit"
         >
           ENTRAR

@@ -54,9 +54,9 @@ export default function Cadastro() {
   }
 
   return (
-<main className="min-h-screen bg-black text-white h-full flex flex-col justify-center items-center p-8">
+<main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-8">
   <h1 className="text-center text-5xl font-bold uppercase mb-8">
-    <span class="text-shadow-lg shadow-cyan-300">CADASTRE-SE</span>
+    CADASTRE-SE
   </h1>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full mx-auto w-full">
     <div className="mb-4">
@@ -116,7 +116,7 @@ export default function Cadastro() {
     <div className="mb-4 col-span-2 flex justify-center">
       <button
         type="submit"
-        className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline"
+        className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
       >
         CADASTRAR
       </button>
@@ -124,7 +124,7 @@ export default function Cadastro() {
   </div>
   <div className="mt-4 text-center">
     <Link
-      className="font-bold text-sm text-white hover:text-zinc-500"
+      className="font-bold text-sm text-white hover:text-zinc-500 w-full"
       href="/login"
     >
       JÁ POSSUO UMA CONTA (LOGIN)
