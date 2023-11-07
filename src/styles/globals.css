@@ -7,11 +7,6 @@
     src: url('../../public/fonts/Tech.ttf');
 }
 
-@font-face {
-    font-family: Poppins;
-    src: url('../../public/fonts/Poppins/Poppins-Regular.ttf');
-}
-
 *{
     font-family: Tech;
 }

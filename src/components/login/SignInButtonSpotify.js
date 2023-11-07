@@ -1,20 +1,17 @@
 "use client"
-import { signIn } from "next-auth/react"
+import { signIn } from "next-auth/react";
 
 const SignInButtonSpotify = () => {
   return (
-    <>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="bg-black-900 border-2 border-neon-blue-300 text-white hover:text-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
         type="button"
         onClick={() => signIn("spotify")}
-        style={{ backgroundColor: "#1ED760" }}
+        id="spotifySignIn"
       >
-        Entrar com Spotify
+        CONTINUAR COM SPOTIFY
       </button>
-
-    </>
-  )
-}
+  );
+};
 
 export default SignInButtonSpotify;

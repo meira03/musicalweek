@@ -60,7 +60,6 @@ export default function InputField(props) {
       message,
     });
 
-    // Validação do email ao submeter o formulário
     const completeNameValidation = isValidInput('completeName', value);
     const nicknameValidation = isValidInput('nickname', value);
     const birthdayValidation = isValidInput('birthday', value);
@@ -111,22 +110,22 @@ export default function InputField(props) {
   return (
     <div className="mb-4">
       <label
-        className="block text-gray-700 dark:text-zinc-100 text-sm font-bold mb-2"
+        className="block text-gray-700 dark:text-zinc-100 text-sm font-bold mb-2 font-neon"
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'Nome Completo' :
-            props.id === 'nickname' ? 'Nome de Usuário' :
-              props.id === 'birthday' ? 'Data de Nascimento' :
-                props.id === 'email' ? 'E-mail' :
-                  props.id === 'password' ? 'Senha' :
-                    props.id === 'passwordCadastro' ? 'Senha' :
-                      props.id === 'passwordConfirmation' ? 'Confirmação de Senha' :
-                        props.id === 'emailEsqueciSenha' ? 'E-mail' : 'Outro'
+          props.id === 'completeName' ? 'Nome Completo' : 
+          props.id === 'nickname' ? 'Nome de Usuário (nickname)':
+          props.id === 'birthday' ? 'Data de Nascimento' : 
+          props.id === 'email' ? 'E-MAIL':
+          props.id === 'password' ? 'SENHA' :
+          props.id === 'passwordCadastro' ? 'SENHA' :
+          props.id === 'passwordConfirmation' ? 'CONFIRMAÇÃO DE SENHA':
+          props.id === 'emailEsqueciSenha' ? 'E-MAIL' : 'OUTRO'
         }
       </label>
       <input
-        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
+        className={`text-sm shadow appearance-none border border-neon-blue-100 w-full py-2 px-3 bg-black-100 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
         id={props.id}
         type={props.type}
         name={props.id}
@@ -141,28 +140,23 @@ export default function InputField(props) {
       )}
 
       {isPasswordFocused && props.id === "passwordCadastro" && (
-        <ul className="text-xs mt-1">
-          <li className={hasMinLength ? "text-green-500" : "text-red-500"}>
-            Mínimo de 8 caracteres
-          </li>
-          <li className={hasUppercase ? "text-green-500" : "text-red-500"}>
-            Pelo menos uma letra maiúscula
-          </li>
-          <li className={hasLowercase ? "text-green-500" : "text-red-500"}>
-            Pelo menos uma letra minúscula
-          </li>
-          <li className={hasNumber ? "text-green-500" : "text-red-500"}>
-            Pelo menos um número
-          </li>
-          <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
-            Pelo menos um caractere especial (@ $ ! % * ? & .)
-          </li>
-          {hasMinus256Char == true && (
-            <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
-              Senha com menos de 256 caracteres
-            </li>
-          )}
-        </ul>
+                  <ul className="text-xs mt-1">
+                    <li className={hasMinLength ? "text-green-500" : "text-red-500"}>
+                      Mínimo de 8 caracteres 
+                    </li>
+                    <li className={hasUppercase ? "text-green-500" : "text-red-500"}>
+                      Pelo menos uma letra maiúscula
+                    </li>
+                    <li className={hasLowercase ? "text-green-500" : "text-red-500"}>
+                      Pelo menos uma letra minúscula
+                    </li>
+                    <li className={hasNumber ? "text-green-500" : "text-red-500"}>
+                      Pelo menos um número
+                    </li>
+                    <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
+                      Pelo menos um caractere especial (@ $ ! % * ? &)
+                    </li>
+                  </ul>
       )}
       {
         isPasswordFocused &&
