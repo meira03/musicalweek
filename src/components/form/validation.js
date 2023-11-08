@@ -7,10 +7,10 @@ export function isValidInput(inputID, value) {
         message: 'Campo Obrigatório.',
       };
     }
-    else if (value.length > 256) {
+    else if (value.length > 64) {
       return {
         isValid: false,
-        message: 'O nome deve ter menos de 256 caracteres.',
+        message: 'O nome deve ter menos de 64 caracteres.',
       };
     }
     else if (!/^\b\w{2,}\s+\w{2,}\b/.test(value)) {
