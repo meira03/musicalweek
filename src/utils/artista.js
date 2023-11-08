@@ -63,3 +63,24 @@ export async function entraSalaArtista(id_sala) {
       return false;
     })
 }
+
+export async function sairSalaArtista(id_sala_artista) {
+  const cookieStore = cookies();
+  
+  const url =
+    `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala_artista}`;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+
+  return await fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    credentials: "include",
+    cache: "no-store",
+  })
+    .then((result) => result.json())
+    .then((res) => {
+      return res
+    });
+}
