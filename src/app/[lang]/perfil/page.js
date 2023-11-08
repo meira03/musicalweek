@@ -108,7 +108,6 @@ export default async function Perfil({ params }) {
           </div>
         </div>
       </div>
-      <br></br>
     </main >
   )
 }
