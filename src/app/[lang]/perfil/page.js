@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
-  console.log(res);
+  //console.log(res);
 
   let tipoPlanoLabel;
 
