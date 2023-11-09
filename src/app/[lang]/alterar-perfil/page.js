@@ -2,6 +2,10 @@ import { perfilUsuario } from "@/utils/user";
 import InputField from "@/components/form/Input";
 import Button from "@/components/button/button"
 
+export const metadata = {
+  title: 'Alterar Dados',
+}
+
 export default async function AlterarPerfil() {
 
   const res = await perfilUsuario();

@@ -9,6 +9,10 @@ import { SairFila } from "@/components/salas/SairFila";
 import Link from "next/link";
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Salas',
+}
+
 export default async function Page({ params: { lang } }) {
   const dict = await getDictionary(lang);
   const res = await salasUsuario();

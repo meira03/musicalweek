@@ -6,7 +6,14 @@ import Provider from '@/components/Provider/Provider';
 import { Inter } from 'next/font/google'
 import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+export const metadata = {
+  title: {
+    template: '%s | MusicalWeek',
+    default: 'MusicalWeek',
+  },
+  description: 'MusicalWeek a musical network app',
+}
 
 export default function RootLayout({ children }) {
   const cookieStore = cookies();

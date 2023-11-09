@@ -106,6 +106,14 @@ export async function salasUsuario() {
             },
             "id_musica" : "7nD9nN3jord9wWcfW3Gkcm"
           }
+      ],
+      "minhas_salas" : [
+        {
+          "id_sala" : 28,
+          "data_criacao" : "2023-11-03 07:13:24",
+          "id_musica" : "7nD9nN3jord9wWcfW3Gkcm",
+          "ativa" : true
+        }
       ]
     }
     `;

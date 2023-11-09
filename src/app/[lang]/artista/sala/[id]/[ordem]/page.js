@@ -17,6 +17,10 @@ import { BtnSalaArtista } from "@/components/sala/BtnSalaArtista";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Sala do Artista',
+}
+
 export default async function Page({ params: { lang, id, ordem } }) {
   const dict = await getDictionary(lang);
 
@@ -29,7 +33,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
   const res = {
     sala: JSON.parse(`{
       "sala": "Sala de Música - 9",
-      "artista": {
+      "artisto": {
             "nick": "artista_01",
             "icon": "icone22.png"
       },
@@ -44,6 +48,10 @@ export default async function Page({ params: { lang, id, ordem } }) {
       "nota_usuario": null
     }`),
   };
+
+  if(res.sala.artista == undefined){
+    redirect(`/artista/sala/${id}/resumo`)
+  }
 
   if (ordem > res.sala.ordem) {
     redirect(`/artista/sala/${id}/${res.sala.ordem}`);
