@@ -52,7 +52,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
   if(res.sala.artista == undefined){
     redirect(`/artista/sala/${id}/resumo`)
   }
-
+  
   if (ordem > res.sala.ordem) {
     redirect(`/artista/sala/${id}/${res.sala.ordem}`);
   }
