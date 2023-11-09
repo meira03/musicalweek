@@ -5,9 +5,12 @@ import DeleteAccount from '@/components/deletarConta/botaoDeletarConta';
 import ModalProfile from '@/components/perfil/Modal';
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Perfil',
+}
+
 export default async function Perfil({ params }) {
   const res = await perfilUsuario();
-  //console.log(res);
 
   let tipoPlanoLabel;
 
