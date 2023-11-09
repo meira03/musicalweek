@@ -3,10 +3,6 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { AlterarSenha } from "@/utils/forms";
 
-export const metadata = {
-  title: 'Alterar Senha',
-}
-
 export default function AlteraSenha() {
   const router = useRouter();
   const [error, setError] = useState(null);

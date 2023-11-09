@@ -5,10 +5,6 @@ import Modal from 'react-modal';
 import EscolherPlano from '../planos/EscolherPlano';
 import { updatePlano } from '@/utils/user'
 
-export const metadata = {
-  title: 'Planos',
-}
-
 Modal.setAppElement(null);
 
 export default function Planos() {
