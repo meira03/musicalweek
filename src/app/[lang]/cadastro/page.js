@@ -5,10 +5,6 @@ import Link from "next/link";
 import Input from "@/components/form/Input";
 import { register } from '@/utils/forms';
 
-export const metadata = {
-  title: 'Cadastro',
-}
-
 export default function Cadastro() {
   const router = useRouter();
   const [message, setMessage] = useState('');
