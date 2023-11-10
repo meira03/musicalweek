@@ -2,6 +2,10 @@ import { SearchBar } from "@/components/search/SearchBar";
 import { ArtistaSubmit } from "@/components/search/ArtistaSubmit";
 import { MyProvider } from "./context/context";
 
+export const metadata = {
+  title: 'Criar Sala do Artista',
+}
+
 export default function SearchLayout({ children }) {
 
   return (

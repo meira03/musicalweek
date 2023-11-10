@@ -16,6 +16,10 @@ import { Avaliacao } from "@/components/sala/Avaliacao";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Sala',
+}
+
 export default async function Page({ params: { lang, id, ordem } }) {
   const dict = await getDictionary(lang);
 

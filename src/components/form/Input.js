@@ -110,22 +110,26 @@ export default function InputField(props) {
   return (
     <div className="mb-4">
       <label
-        className="block text-white dark:text-zinc-400 text-xl font-bold"
+        className="block text-gray-700 dark:text-zinc-100 text-sm font-bold mb-2"
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'NOME COMPLETO:' :
-            props.id === 'nickname' ? 'NOME DE USUÁRIO:' :
-              props.id === 'birthday' ? 'DATA DE NASCIMENTO:' :
-                props.id === 'email' ? 'E-MAIL:' :
-                  props.id === 'password' ? 'SENHA:' :
-                    props.id === 'passwordCadastro' ? 'SENHA:' :
-                      props.id === 'passwordConfirmation' ? 'CONFIRMAÇÃO DE SENHA:' :
-                        props.id === 'emailEsqueciSenha' ? 'E-MAIL:' : 'Outro'
+          props.id === 'completeName' ? 'Nome Completo' :
+            props.id === 'nickname' ? 'Nome de Usuário' :
+              props.id === 'birthday' ? 'Data de Nascimento' :
+                props.id === 'email' ? 'E-mail' :
+                  props.id === 'password' ? 'Senha' :
+                    props.id === 'passwordCadastro' ? 'Senha' :
+                      props.id === 'passwordConfirmation' ? 'Confirmação de Senha' :
+                        props.id === 'emailEsqueciSenha' ? 'E-mail' : 'Outro'
         }
       </label>
       <input
+<<<<<<< HEAD
         className={`text-sm shadow appearance-none border-2 w-full py-2 px-3 text-zinc-300 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline bg-black-100 dark:bg-black-300 border-neon-blue-300`}
+=======
+        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
+>>>>>>> b865dee39599202403f42124014f33706eb782e0
         id={props.id}
         type={props.type}
         name={props.id}
@@ -156,9 +160,11 @@ export default function InputField(props) {
           <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
             Pelo menos um caractere especial (@ $ ! % * ? & .)
           </li>
-          <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
-            Senha com menos de 256 caracteres
-          </li>
+          {hasMinus256Char == true && (
+            <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
+              Senha com menos de 256 caracteres
+            </li>
+          )}
         </ul>
       )}
       {
