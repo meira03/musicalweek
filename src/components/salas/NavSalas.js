@@ -1,46 +1,59 @@
 "use client";
-import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export const NavSalas = ({ id_musica_sala }) => {
-  const [selected, setSelected] = useState("padrao");
-  function changeDiv(tipo_sala) {
-    setSelected(tipo_sala);
-  }
+export const NavSalas = ({ fila, artista, historico, padrao }) => {
+  const pathname = usePathname();
 
-  return (
-    <nav>
-      <ul className="flex text-neon-blue-200">
-        <li
-          id="padrao-nav"
-          onClick={() => changeDiv("padrao")}
+  let active = "padrao";
+  if (pathname.includes("fila")) active = "fila";
+  if (pathname.includes("artista")) active = "artista";
+  if (pathname.includes("historico")) active = "historico";
+
+  if (fila || artista || historico) {
+    return (
+      <nav className="flex justify-center items-center text-center mb-3">
+        <Link
           className={
-            "uppercase mr-2 cursor-pointer hover:underline" +
-            (selected == "padrao" && " underline")
+            (!fila ? "hidden " : "") +
+            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            (active == "fila" ? "underline" : "")
           }
+          href="/salas/fila"
+        >
+          Fila
+        </Link>
+        <Link
+          className={
+            (!padrao ? "hidden " : "") +
+            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            (active == "padrao" ? "underline" : "")
+          }
+          href="/salas/"
         >
           Salas
-        </li>
-        <li
-          id="artista-nav"
-          onClick={() => changeDiv("artista")}
+        </Link>
+        <Link
           className={
-            "uppercase mr-2 cursor-pointer hover:underline" +
-            (selected == "artista" && " underline")
+            (!artista ? "hidden " : "") +
+            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            (active == "artista" ? "underline" : "")
           }
+          href="/salas/artista"
         >
-          Escolhas dos artistas
-        </li>
-        <li
-          id="historico-nav"
-          onClick={() => changeDiv("historico")}
+          Escolhas dos Artistas
+        </Link>
+        <Link
           className={
-            "uppercase mr-2 cursor-pointer hover:underline" +
-            (selected == "historico" && " underline")
+            (!historico ? "hidden " : "") +
+            "text-neon-blue-200 uppercase hover:underline " +
+            (active == "historico" ? "underline" : "")
           }
+          href="/salas/historico"
         >
           Histórico
-        </li>
-      </ul>
-    </nav>
-  );
+        </Link>
+      </nav>
+    );
+  }
 };
