@@ -4,10 +4,9 @@ import { redirect } from "next/navigation";
 import { getDictionary } from "@/utils/dictionaries";
 import { getMusic } from "@/utils/spotify";
 import {
-  pesquisaSala,
-  pesquisaParticipantes,
-  pesquisaMusica,
-} from "@/utils/sala";
+  pesquisaSalaArtista,
+  pesquisaMusicaArtista
+} from "@/utils/artista";
 
 import { Pontuacao } from "@/components/Pontuacao";
 import { FormataData } from "@/components/FormataData";
@@ -24,30 +23,12 @@ export const metadata = {
 export default async function Page({ params: { lang, id, ordem } }) {
   const dict = await getDictionary(lang);
 
-  // const res = {
-  //   sala: await pesquisaSala(id),
-  //   musica: await pesquisaMusica(id, ordem),
-  //   participantes: await pesquisaParticipantes(id),
-  // };
-
   const res = {
-    sala: JSON.parse(`{
-      "sala": "Sala de Música - 9",
-      "artisto": {
-            "nick": "artista_01",
-            "icon": "icone22.png"
-      },
-      "tempo_restante": "2023-11-04 15:30:42",
-      "sala_finalizada": false,
-      "participante": false,
-      "ordem": 3
-    }`),
-    musica: JSON.parse(`{
-      "id_musica_sala": 59,
-      "musica": "2O5UcpKolgLT8l8yAvEmID",
-      "nota_usuario": null
-    }`),
+    sala: await pesquisaSalaArtista(id),
+    musica: await pesquisaMusicaArtista(id, ordem),
   };
+
+  console.log(res);
 
   if(res.sala.artista == undefined){
     redirect(`/artista/sala/${id}/resumo`)
@@ -64,7 +45,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
 
   return (
     <>
-      {res.sala.participante === true && !exibirPontuacao && <Avaliacao />}
+      {res.sala.participante === true && !exibirPontuacao && <Avaliacao id_musica_sala={res.musica.id_musica_sala} />}
       <section className="flex flex-col sm:flex-row justify-center items-center min-h-[calc(100vh-7rem)] sm:max-w-5xl sm:mx-auto sm:pb-12">
         <div className="flex flex-col justify-center items-center">
           <h1 className="uppercase neon-text text-2xl sm:text-4xl text-center sm:mb-5">
@@ -142,7 +123,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
               <BiSkipNext className="text-6xl sm:text-8xl" />
             </Link>
           </div>
-          <div className="text-center mt-5 max-w-full">
+          <div className="text-center mt-5 max-w-xs sm:max-w-md">
             <h1 className="text-xl sm:text-4xl truncate text-elipsis">
               {musica.name}
             </h1>
