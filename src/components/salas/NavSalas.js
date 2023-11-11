@@ -12,11 +12,11 @@ export const NavSalas = ({ fila, artista, historico, padrao }) => {
 
   if (fila || artista || historico) {
     return (
-      <nav className="flex justify-center items-center text-center mb-3">
+      <nav className="flex justify-center items-center text-center mb-3 text-xs sm:text-lg">
         <Link
           className={
             (!fila ? "hidden " : "") +
-            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            "mr-3 sm:mr-5 text-neon-blue-200 uppercase hover:underline " +
             (active == "fila" ? "underline" : "")
           }
           href="/salas/fila"
@@ -26,7 +26,7 @@ export const NavSalas = ({ fila, artista, historico, padrao }) => {
         <Link
           className={
             (!padrao ? "hidden " : "") +
-            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            "mr-3 sm:mr-5 text-neon-blue-200 uppercase hover:underline " +
             (active == "padrao" ? "underline" : "")
           }
           href="/salas/"
@@ -36,7 +36,7 @@ export const NavSalas = ({ fila, artista, historico, padrao }) => {
         <Link
           className={
             (!artista ? "hidden " : "") +
-            "mr-5 text-neon-blue-200 uppercase hover:underline " +
+            "mr-3 sm:mr-5 text-neon-blue-200 uppercase hover:underline " +
             (active == "artista" ? "underline" : "")
           }
           href="/salas/artista"

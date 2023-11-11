@@ -22,7 +22,7 @@ export default async function Page() {
                 <Link
                   key={key}
                   href={"/sala/" + i.id_sala + "/" + i.ordem_sala}
-                  className="w-full h-24 border border-neon-blue-100 grid grid-cols-2"
+                  className="w-full h-24 border border-neon-blue-100 grid grid-cols-4"
                 >
                   <div
                     style={{
@@ -30,22 +30,22 @@ export default async function Page() {
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
-                    className="relative border-r border-neon-blue-200"
+                    className="relative border-r border-neon-blue-200 col-span-3 sm:col-span-2"
                   >
-                    <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-3 px-4 py-2">
-                      <div className="row-span-2 text-5xl flex justify-center items-center tracking-wider">
+                    <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-3 px-1 sm:px-4 py-2">
+                      <div className="row-span-2 text-2xl sm:text-5xl flex justify-center items-center tracking-wider">
                         {i.ordem_sala}/7
                       </div>
                       <div className="flex flex-col justify-start col-span-2 text-right leading-none">
-                        <h2 className="text-lg truncate text-elipsis">
+                        <h2 className="text-sm sm:text-lg truncate text-elipsis">
                           {musica.name}
                         </h2>
-                        <h3 className="text-sm text-gray-200 truncate text-elipsis">
+                        <h3 className="text-xs sm:text-sm text-gray-200 truncate text-elipsis">
                           {musica.artists[0].name}
                         </h3>
                       </div>
                       <div className="flex flex-col justify-end col-span-2 text-right leading-none">
-                        <span className="text-sm">
+                        <span className="text-xs sm:text-sm">
                           PRÓXIMA EM:{" "}
                           <FormataData
                             dataTransformar={i.tempo_restante}
@@ -56,9 +56,9 @@ export default async function Page() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex justify-evenly items-center">
-                    <span className="text-2xl uppercase">Pontuação:</span>
-                    <span className="text-6xl">
+                  <div className="flex flex-col sm:flex-row justify-evenly items-center sm:col-span-2">
+                    <span className="hidden sm:block sm:text-2xl uppercase">Pontuação:</span>
+                    <span className="text-4xl sm:text-6xl">
                       <Pontuacao pontuacao={i.pontuacao} />
                     </span>
                   </div>
@@ -76,20 +76,20 @@ export default async function Page() {
                     backgroundSize: "cover",
                   }}
                 >
-                  <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-4 px-4 py-2">
-                    <div className="text-5xl flex justify-center items-center tracking-wider">
+                  <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-4 gap-2 px-4 py-2">
+                    <div className="text-3xl sm:text-5xl flex justify-center items-center tracking-wider">
                       {i.ordem_sala}/7
                     </div>
                     <div className="flex flex-col justify-center col-span-2 text-center">
-                      <h2 className="text-3xl truncate text-elipsis">
+                      <h2 className="text-lg sm:text-3xl truncate text-elipsis">
                         {musica.name}
                       </h2>
-                      <h3 className="text-lg text-gray-200 truncate text-elipsis">
+                      <h3 className="text-sm sm:text-lg text-gray-200 truncate text-elipsis">
                         {musica.artists[0].name}
                       </h3>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                      <span className="text-5xl uppercase">
+                      <span className="text-xl sm:text-5xl uppercase">
                         <FormataData
                           dataTransformar={i.tempo_restante}
                           progressivo={false}
