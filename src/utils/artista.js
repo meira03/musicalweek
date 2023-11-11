@@ -89,3 +89,31 @@ export async function pesquisaSalaArtista(id_sala) {
       }
     })
 }
+
+export async function pesquisaMusicaArtista(id_sala, ordem) {
+  const cookieStore = cookies();
+  
+  const url =
+    `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/musica/index.php?id_sala=${id_sala}&posicao=${ordem}`;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+
+  return await fetch(url, {
+    method: "GET",
+    headers: headers,
+    credentials: "include",
+    cache: "no-store",
+  })
+    .then((result) => {
+      if(!result.ok || result.status != 200){
+        redirect('/salas')
+      }
+      return result.json();
+    }).then((res) => {
+      if(res.id_sala === false){
+        redirect('/salas')
+      }
+      return res
+    })
+}

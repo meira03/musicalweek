@@ -9,10 +9,21 @@ import { FaXmark } from "react-icons/fa6";
 
 import "@/styles/slider.css";
 
-export const Avaliacao = () => {
+export const Avaliacao = ({ id_musica_sala }) => {
   const [screen, setScreen] = useState(false);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
+  async function handleClick(nota) {
+    const res = await avaliaMusica(nota, id_musica_sala);
+
+    console.log(res)
+
+    if(res.sucesso === true){
+      window.location.reload()
+    }else{
+      window.location.href = "/salas"
+    }
+  }
   return (
     <>
       <div className="fixed bottom-3 left-0 w-full">
@@ -46,7 +57,7 @@ export const Avaliacao = () => {
             <input
               type="range"
               id="music-slider"
-              min="0"
+              min="1"
               max="100"
               value={value}
               onInput={(e) => setValue(e.target.value)}
