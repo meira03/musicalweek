@@ -54,76 +54,76 @@ export default function Cadastro() {
   }
 
   return (
-<main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-8">
-  <h1 className="text-center text-5xl font-bold uppercase mb-8">
-    CADASTRE-SE
-  </h1>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
-    <div className="mb-4">
-      <Input
-        id="completeName"
-        type="text"
-        name="completeName"
-        placeholder="DIGITE SEU NOME COMPLETO..."
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="passwordCadastro"
-        type="password"
-        name="senha"
-        placeholder="DIGITE SUA SENHA..."
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="passwordConfirmation"
-        type="password"
-        name="passwordConfirmation"
-        placeholder="DIGITE A MESMA SENHA..."
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="email"
-        type="text"
-        name="email"
-        placeholder="DIGITE O SEU E-MAIL..."
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="nickname"
-        type="text"
-        name="nickname"
-        placeholder="DIGITE SEU NOME DE USUÁRIO..."
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="birthday"
-        type="date"
-        name="birthday"
-        placeholder="APONTE SUA DATA DE NASCIMENTO..."
-      />
-    </div>
-    <div className="mb-4 col-span-2 flex justify-center">
-      <button
-        type="submit"
-        className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full ml-96 mr-96"
-      >
-        CADASTRAR
-      </button>
-    </div>
-  </div>
-  <div className="mt-4 text-center">
-    <Link
-      className="font-bold text-sm text-white hover:text-zinc-500 w-full"
-      href="/login"
-    >
-      JÁ POSSUO UMA CONTA (LOGIN)
-    </Link>
-  </div>
-</main>
+    <main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-8">
+      <h1 className="text-center text-5xl font-bold uppercase mb-8">
+        CADASTRE-SE
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="completeName"
+            type="text"
+            name="completeName"
+            placeholder="DIGITE SEU NOME COMPLETO..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="passwordCadastro"
+            type="password"
+            name="senha"
+            placeholder="DIGITE SUA SENHA..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="passwordConfirmation"
+            type="password"
+            name="passwordConfirmation"
+            placeholder="DIGITE A MESMA SENHA..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="DIGITE O SEU E-MAIL..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="nickname"
+            type="text"
+            name="nickname"
+            placeholder="DIGITE SEU NOME DE USUÁRIO..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-1">
+          <Input
+            id="birthday"
+            type="date"
+            name="birthday"
+            placeholder="APONTE SUA DATA DE NASCIMENTO..."
+          />
+        </div>
+        <div className="mb-4 sm:col-span-2 flex justify-center mx-4 sm:mx-auto sm:max-w-sm">
+        <button
+          type="submit"
+          className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
+        >
+          CADASTRAR
+        </button>
+      </div>
+      </div>
+      <div className="mt-4 text-center">
+        <Link
+          className="font-bold text-sm text-white hover:text-zinc-500 w-full"
+          href="/login"
+        >
+          JÁ POSSUO UMA CONTA (LOGIN)
+        </Link>
+      </div>
+    </main>
   );
 }

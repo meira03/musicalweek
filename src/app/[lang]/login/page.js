@@ -87,12 +87,12 @@ export default function Login() {
         </Link>
       </div>
       <div className="mb-4 mt-4 border-t border-white"></div>
-      <div className="flex flex-row items-center justify-between">
-        <div className="font-bold text-gl text-white ml-16">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-between">
+        <div className="font-bold text-gl text-white sm:ml-16 mb-4 sm:mb-0">
           NÃO TEM UMA CONTA?
         </div>
         <Link
-          className="font-bold text-gl text-neon-blue-300 hover:text-neon-blue-400 mr-16"
+          className="font-bold text-gl text-neon-blue-300 hover:text-neon-blue-400 sm:mr-16"
           href="/cadastro"
         >
           CRIAR NOVA CONTA
