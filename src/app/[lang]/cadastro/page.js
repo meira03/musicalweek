@@ -55,7 +55,7 @@ export default function Cadastro() {
 
   return (
     <main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-8">
-      <h1 className="text-center text-5xl font-bold uppercase mb-8">
+      <h1 className="flex justify-center neon-text text-6xl uppercase font-semibold mb-8">
         CADASTRE-SE
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">

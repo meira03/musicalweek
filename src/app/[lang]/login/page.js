@@ -38,17 +38,10 @@ export default function Login() {
   }
 
   return (
-<<<<<<< HEAD
-<main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex justify-center items-center p-8">
-  <div className="bg-black-100 dark:bg-black-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
-    <h1 className="text-white dark:text-white text-center text-5xl font-bold mb-6 uppercase">
-      LOGIN
-=======
 <main className="min-h-screen bg-black-900 dark:bg-black-900 text-white h-full flex justify-center items-center p-8">
   <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
     <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
-      <span className="text-shadow-lg shadow-neon-blue-100">LOGIN</span>
->>>>>>> 9588a8e5621a4a371a1f53fe2492123170e76251
+      <span className="flex justify-center neon-text text-6xl uppercase font-semibold mb-4">LOGIN</span>
     </h1>
     <div className="text-red-500 text-center text-sm font-light mb-4">
       {message}
