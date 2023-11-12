@@ -1,85 +1,88 @@
 import { pesquisaSalaArtista } from "@/utils/artista";
 import { getMusic } from "@/utils/spotify";
+import { ArtistaMusicaResumo } from "@/components/sala/ArtistaMusicaResumo";
+import { ArtistaTopMusicaResumo } from "../../../../../../components/sala/ArtistaTopMusicaResumo";
 
 export const metadata = {
-  title: 'Sala do Artista',
-}
+  title: "Sala do Artista",
+};
 
 export default async function Page({ params: { lang, id } }) {
   const res = await pesquisaSalaArtista(id);
 
-  const musicaDia = res.musicas
+  let musicaDia = res.musicas
     .slice()
     .reverse()
     .find((musica) => musica.exibida === true);
 
-  const proxMusica = res.musicas
+  let proxMusica = res.musicas
     .slice()
     .find((musica) => musica.exibida === false);
 
-  const melhorPontuacao = res.musicas.reduce((ultima, musica) => {
+  let melhorPontuacao = res.musicas.reduce((ultima, musica) => {
     return musica.nota_calculada > ultima ? musica : ultima;
   }, -Infinity);
 
-  const maisAvaliado = res.musicas.reduce((ultima, musica) => {
+  let maisAvaliado = res.musicas.reduce((ultima, musica) => {
     return musica.avaliacoes > ultima ? musica : ultima;
   }, -Infinity);
 
+  if(maisAvaliado.avaliacoes == '0'){
+    maisAvaliado = undefined;
+  }
+
+  if(melhorPontuacao.nota_calculada == null){
+    melhorPontuacao = undefined;
+  }
+
+  musicaDia != undefined
+    ? (musicaDia.musica = await getMusic(musicaDia.id_musica))
+    : null;
+  proxMusica != undefined
+    ? (proxMusica.musica = await getMusic(proxMusica.id_musica))
+    : null;
+  melhorPontuacao != undefined
+    ? (melhorPontuacao.musica = await getMusic(melhorPontuacao.id_musica))
+    : null;
+  maisAvaliado != undefined
+    ? (maisAvaliado.musica = await getMusic(maisAvaliado.id_musica))
+    : null;
+
   return (
-    <main className="mx-auto px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-      <div className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h1 className="neon-text text-center text-5xl font-bold mb-6 uppercase">
-          ESTATÍSTICAS - {res ? res.sala : "Carregando..."}
-        </h1>
-        <div className="grid grid-cols-3">
-          <div className="col-span-2 grid grid-cols-2"></div>
-          <div className="grid grid-cols-1 gap-4">
-            {res.musicas.map(async (i, key) => {
-              const musica = await getMusic(i.id_musica);
-              const partes = res.data_criacao.split(" ");
-              const data = partes[0];
-              const [ano, mes, dia] = data.split("-");
+    <main className="mx-auto px-2 sm:px-6 lg:px-8 min-h-[80vh] max-w-7xl">
+      <h1 className="neon-text text-center text-xl sm:text-5xl font-bold mb-6 uppercase">
+        RESUMO <br className="sm:hidden"/> {res ? res.sala : "Carregando..."}
+      </h1>
+      <div className="flex flex-col sm:flex-row items-start justify-center">
+        <div className="sm:w-2/5 grid grid-cols-2 grid-rows-2 gap-7 mb-10 sm:mb-0 sm:mr-32">
+          <ArtistaTopMusicaResumo tipo={"atual"} musica={musicaDia} />
+          <ArtistaTopMusicaResumo tipo={"prox"} musica={proxMusica} />
+          <ArtistaTopMusicaResumo tipo={"pontuacao"} musica={melhorPontuacao} />
+          <ArtistaTopMusicaResumo tipo={"avaliada"} musica={maisAvaliado} />
+        </div>
+        <div className="sm:w-1/3 grid grid-cols-1 gap-4">
+          {res.musicas.map((i, key) => {
+            const partes = res.data_criacao.split(" ");
+            const data = partes[0];
+            const [ano, mes, dia] = data.split("-");
 
-              const dataOriginal = new Date(ano, mes - 1, dia);
-              dataOriginal.setDate(dataOriginal.getDate() + key);
+            const dataOriginal = new Date(ano, mes - 1, dia);
+            dataOriginal.setDate(dataOriginal.getDate() + key);
 
-              const diaNovo = dataOriginal.getDate();
-              const mesNovo = dataOriginal.getMonth() + 1;
+            const diaNovo = dataOriginal.getDate();
+            const mesNovo = dataOriginal.getMonth() + 1;
 
-              const musicDate = `${diaNovo}/${mesNovo}`;
-              return (
-                <div
-                  className="border border-neon-blue-200 relative"
-                  style={{
-                    backgroundImage: `url(${musica.album.images[0].url})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                >
-                  <div
-                    className="bg-black-900 bg-opacity-70 grid grid-cols-3"
-                    style={{
-                      backdropFilter: !i.exibida ? "grayscale(1)" : "",
-                    }}
-                  >
-                    <div className="text-center flex justify-center items-center pl-8">
-                      <span className="text-white text-3xl tracking-widest">
-                        {musicDate}
-                      </span>
-                    </div>
-                    <div className="col-span-2 py-2 pr-3">
-                      <h3 className="max-w-full text-right truncate text-elipsis">
-                        {musica.name}
-                      </h3>
-                      <h4 className="max-w-full text-right text-xs truncate text-elipsis text-zinc-400">
-                        {musica.artists[0].name}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+            const musicDate = `${diaNovo.toString().padStart(2, "0")}/${mesNovo
+              .toString()
+              .padStart(2, "0")}`;
+            return (
+              <ArtistaMusicaResumo
+                key={key}
+                musica={i}
+                data_criacao={musicDate}
+              />
+            );
+          })}
         </div>
       </div>
     </main>
