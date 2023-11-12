@@ -6,8 +6,7 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    }
-    else if (value.length > 64) {
+    } else if (value.length > 64) {
       return {
         isValid: false,
         message: 'O nome deve ter menos de 64 caracteres.',
@@ -28,7 +27,12 @@ export function isValidInput(inputID, value) {
   }
 
   if (inputID === 'nickname') {
-    if (value.length < 3 || value.length > 16) {
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    } else if (value.length < 3 || value.length > 16) {
       return {
         isValid: false,
         message: 'O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.',
@@ -45,7 +49,12 @@ export function isValidInput(inputID, value) {
     const today = new Date();
     const userBirthday = new Date(value);
     const userAge = today.getFullYear() - userBirthday.getFullYear();
-    if (userAge < 18 && userAge > 0) {
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    } else if (userAge < 18 && userAge > 0) {
       return {
         isValid: false,
         message: "Acesso a menores de idade não permitido.",
@@ -92,7 +101,37 @@ export function isValidInput(inputID, value) {
   }
 
   if (inputID === 'passwordCadastro') {
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    }
     if (value.length < 8 ||
+      !/[a-z]/.test(value) ||
+      !/[A-Z]/.test(value) ||
+      !/[0-9]/.test(value) ||
+      !/[!@#$%^&.*]/.test(value)) {
+      return {
+        isValid: false,
+        message: 'Senha fraca.'
+      };
+    } else {
+      return {
+        isValid: true,
+        message: ''
+      };
+    }
+  }
+
+  if (inputID === 'passwordAtual') {
+    console.log(value.length)
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    } else if (value.length < 8 ||
       !/[a-z]/.test(value) ||
       !/[A-Z]/.test(value) ||
       !/[0-9]/.test(value) ||
@@ -113,7 +152,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Preencha o campo para prosseguir.'
+        message: 'Campo Obrigatório.',
       };
     }
     else if (value.length > 256) {
@@ -131,17 +170,33 @@ export function isValidInput(inputID, value) {
   }
 
   if (inputID === 'passwordConfirmation') {
-    return {
-      isValid: true,
-      message: ''
-    };
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    }
+    else {
+      return {
+        isValid: true,
+        message: ''
+      };
+    }
   }
 
   if (inputID === 'emailEsqueciSenha') {
-    return {
-      isValid: true,
-      message: ''
-    };
+    if (value.length === 0) {
+      return {
+        isValid: false,
+        message: 'Campo Obrigatório.',
+      };
+    }
+    else {
+      return {
+        isValid: true,
+        message: ''
+      };
+    }
   }
 
 
