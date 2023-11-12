@@ -120,7 +120,7 @@ const TopCarrossel = () => {
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 max-w-5xl mx-auto mt-10">
                 <div className="flex flex-col justify-center items-center mb-10 sm:mb-0 sm:w-3/4">
-                  <div className="border border-neon-blue-200 flex justify-center items-center">
+                  <div className="border border-neon-blue-200 relative">
                     <Image
                       src={list[0].album.images[0].url}
                       alt={list[0].name}
@@ -128,6 +128,9 @@ const TopCarrossel = () => {
                       height={600}
                       className="p-2"
                     />
+                    <span className="neon-text text-4xl tracking-widest absolute bottom-0 left-0 right-0 p-2">
+                      {key + 1}º
+                    </span>
                   </div>
                   <h3 className="max-w-full text-center text-xl sm:text-2xl truncate text-elipsis">
                     {list[0].name}
