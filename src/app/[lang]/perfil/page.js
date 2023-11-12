@@ -75,20 +75,20 @@ export default async function Perfil({ params }) {
               <div>
                 <p className="font-medium">NOME COMPLETO:</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition">{res.nome}</p>
+                  <p className="hover:text-gray-500 transition ml-2">{res.nome}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">E-MAIL:</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition" style={{ wordWrap: 'break-word' }}>{res.email}</p>
+                  <p className="hover:text-gray-500 transition ml-2" style={{ wordWrap: 'break-word' }}>{res.email}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">DATA DE NASCIMENTO:</p>
 
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition">{res.data_nasc}</p>
+                  <p className="hover:text-gray-500 transition ml-2">{res.data_nasc}</p>
                 </div>
               </div>
 

@@ -128,8 +128,7 @@ export default function AlteraSenha() {
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-
-      <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
+      <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-4 sm:p-8 rounded shadow w-full sm:w-4/5 md:w-1/2">
         <h1 className="dark:text-white text-center text-3xl font-bold mb-6 uppercase">
           ALTERAR SENHA
         </h1>
