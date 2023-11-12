@@ -128,7 +128,7 @@ const TopCarrossel = () => {
                       height={600}
                       className="p-2"
                     />
-                    <span className="neon-text text-4xl tracking-widest absolute bottom-0 left-0 right-0 p-2">
+                    <span className="neon-text text-4xl tracking-widest absolute bottom-0 left-2 right-0 p-3">
                       {key + 1}º
                     </span>
                   </div>
