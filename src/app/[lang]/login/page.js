@@ -38,8 +38,8 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen bg-black-900 dark:bg-black-900 text-white h-full flex justify-center items-center p-8">
-      <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full sm:w-4/5 lg:w-1/2">
+    <main className="min-h-screen bg-black-900 dark:bg-black-900 text-white flex justify-center items-center p-4 md:p-8">
+      <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full sm:w-4/5 lg:w-3/4 xl:w-1/2">
         <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
           <span className="flex justify-center neon-text text-6xl uppercase font-semibold mb-4">LOGIN</span>
         </h1>
