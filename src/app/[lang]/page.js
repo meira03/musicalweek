@@ -6,6 +6,7 @@ import { getDictionary } from "@/utils/dictionaries";
 import ComoParticiparCarrossel from "@/components/home/ComoParticiparCarrossel";
 import ArtistasCarrossel from "@/components/home/ArtistasCarrossel";
 import TopCarrossel from "@/components/home/TopCarrossel";
+import ParticipeAgora from "@/components/home/ParticipeAgora";
 
 export default async function Page({ params: { lang } }) {
   const dict = await getDictionary(lang);
@@ -17,6 +18,9 @@ export default async function Page({ params: { lang } }) {
           <h1 className="neon-text text-4xl sm:text-5xl text-center">COMO PARTICIPAR</h1>
           <ComoParticiparCarrossel />
         </div>
+      </section>
+      <section>
+        <ParticipeAgora></ParticipeAgora>
       </section>
       <section className="my-9">
         <h1 className="neon-text text-4xl sm:text-6xl text-center mb-9">
