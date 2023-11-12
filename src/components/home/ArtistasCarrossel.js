@@ -50,7 +50,7 @@ const ArtistasCarrossel = ({ salas_artista }) => {
             }
           }}
           spaceBetween={30}
-          onSlideChange={(swiper) => {setIndex(swiper.activeIndex)}}
+          onSlideChange={(swiper) => { setIndex(swiper.activeIndex) }}
           centeredSlides={true}
           navigation={true}
           modules={[Navigation]}
@@ -58,9 +58,9 @@ const ArtistasCarrossel = ({ salas_artista }) => {
         >
           {salaData.map((i, key) => (
             <SwiperSlide key={key} className="flex justify-center items-center">
-              <Link 
-              href={`/artista/sala/${i.id_sala}/7`}
-              className="w-64 h-64 sm:w-80 sm:h-80 border border-neon-blue-200 flex justify-center items-center">
+              <Link
+                href={`/artista/sala/${i.id_sala}/7`}
+                className="w-64 h-64 sm:w-80 sm:h-80 border border-neon-blue-200 flex justify-center items-center">
                 <Image
                   src={i.img_musica}
                   alt={i.musica}

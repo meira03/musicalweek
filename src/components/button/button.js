@@ -29,7 +29,7 @@ const Button = (props) => {
   return (
     <>
       <button
-        className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
         onClick={handleAlterarPerfil}
         type='button'
       >
