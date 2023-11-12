@@ -129,7 +129,7 @@ const TopCarrossel = () => {
                       className="p-2"
                     />
                     <span className="neon-text text-4xl tracking-widest absolute bottom-0 left-2 right-0 p-3">
-                      {key + 1}º
+                      {1}º
                     </span>
                   </div>
                   <h3 className="max-w-full text-center text-xl sm:text-2xl truncate text-elipsis">
