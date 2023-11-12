@@ -31,15 +31,15 @@ export default async function Page() {
                 className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-2 px-4 py-2"
               >
                 <div className="flex flex-col justify-center">
-                  <h2 className="text-3xl truncate text-elipsis">
+                  <h2 className="text-xl sm:text-3xl truncate text-elipsis">
                     {musica.name}
                   </h2>
-                  <h3 className="text-lg text-gray-200 truncate text-elipsis">
+                  <h3 className="text-sm sm:text-lg text-gray-200 truncate text-elipsis">
                     {musica.artists[0].name}
                   </h3>
                 </div>
                 <div className="flex flex-col justify-center items-end">
-                  <span className="text-4xl">
+                  <span className="text-lg sm:text-4xl">
                     <FormataData
                       dataTransformar={i.data_criacao}
                       progressivo={false}
