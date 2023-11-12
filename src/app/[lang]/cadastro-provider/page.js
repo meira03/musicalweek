@@ -59,7 +59,7 @@ export default function Cadastro() {
   };
 
   return (
-    <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
+    <main className="mx-auto sm:max-w-7xl px-4 sm:px-6 lg:px-8 min-h-[80vh] flex flex-col justify-center items-center">
       <div className="bg-gray-100 dark:bg-zinc-800 max-w-md p-8 rounded shadow w-4/5 sm:w-1/2">
         <h1 className="dark:text-white text-center text-3xl font-bold uppercase">
           Cadastro
