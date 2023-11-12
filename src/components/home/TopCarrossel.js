@@ -98,20 +98,21 @@ const TopCarrossel = () => {
           let list;
           switch (key) {
             case 0:
-              title = "";
-              list = topMusicas;
-              break;
-
-            case 1:
               title = " DA SEMANA";
               list = mesMusicas;
               break;
 
-            case 2:
+            case 1:
               title = " DO MÊS";
               list = semanaMusicas;
               break;
+          
+            case 2:
+              title = "";
+              list = topMusicas;
+              break;
           }
+            
           console.log(list);
           return (
             <SwiperSlide className="h-full w-full flex flex-col justify-center items-center px-6 sm:px-12">
@@ -120,7 +121,7 @@ const TopCarrossel = () => {
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 max-w-5xl mx-auto mt-10">
                 <div className="flex flex-col justify-center items-center mb-10 sm:mb-0 sm:w-3/4">
-                  <div className="border border-neon-blue-200 flex justify-center items-center">
+                  <div className="border border-neon-blue-200 flex justify-center items-center relative">
                     <Image
                       src={list[0].album.images[0].url}
                       alt={list[0].name}
@@ -128,6 +129,9 @@ const TopCarrossel = () => {
                       height={600}
                       className="p-2"
                     />
+                    <span className="absolute bottom-2 left-4 neon-text text-5xl tracking-widest">
+                      1º
+                    </span>
                   </div>
                   <h3 className="max-w-full text-center text-xl sm:text-2xl truncate text-elipsis">
                     {list[0].name}

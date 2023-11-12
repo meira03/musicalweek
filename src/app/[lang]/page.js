@@ -12,17 +12,9 @@ export default async function Page({ params: { lang } }) {
   const data = await fetchSalaData();
   return (
     <>
-      <section className="grid grid-cols-1 sm:grid-cols-2 min-h-[75vh] pb-20">
-        <div className="flex justify-center items-center">
-          <Image
-            src={"/images/musicalweek.webp"}
-            alt="MusicalWeek Logo"
-            width={600}
-            height={500}
-          />
-        </div>
+      <section className="pb-3">
         <div className="pt-10">
-          <h1 className="neon-text text-5xl text-center">COMO PARTICIPAR</h1>
+          <h1 className="neon-text text-4xl sm:text-5xl text-center">COMO PARTICIPAR</h1>
           <ComoParticiparCarrossel />
         </div>
       </section>
