@@ -27,12 +27,7 @@ export default async function Perfil({ params }) {
   } else {
     tipoPlanoLabel = "Outro";
   }
-
-  //sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5
-  //grid grid-cols-2 gap-8 p-8 border-solid border-2 mb-1
-  //px-2 sm:px-7 lg:px-8
-  //pt-0 md:pt-5 lg:pt-20 xl:pt-8 2xl:pt-44  
-
+  
   return (
 
     <main className="h-auto lg:h-[85vh] lg:items-center lg:flex lg:justify-center">
