@@ -25,11 +25,10 @@ export default function DeleteAccount() {
 
     const res = deleteAccount(token);
 
-    router.push('/home')
+    router.push('/')
 
     setDeleting(false);
     setShowConfirmationModal(false);
-
   };
 
   return (
@@ -50,8 +49,8 @@ export default function DeleteAccount() {
         className="modal fixed inset-0 flex items-center justify-center z-50"
         overlayClassName="modal-overlay fixed inset-0 bg-black"
       >
-        <div className="bg-zinc-950 p-6 border border-gray-600 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-semibold mb-6 text-black">Confirma a Exclusão da Conta?</h2>
+        <div className="bg-zinc-950 p-4 md:p-6 border border-gray-600 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/2 mx-auto flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-semibold mb-6 text-black ">Confirma a Exclusão da Conta?</h2>
           <p className="text-xl mb-6 text-black">Tem certeza de que deseja excluir sua conta?</p>
           <div className="flex space-x-4">
             <button
