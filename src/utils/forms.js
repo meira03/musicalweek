@@ -242,13 +242,14 @@ export async function recebeToken(codigo) {
   return await res.json();
 }
 
-export async function enviarNovaSenha(codigo, novaSenha) {
-  const url = `https://musicalweek-api.azurewebsites.net/endpoints/senha?codigo=${codigo}`;
+export async function enviarNovaSenha(codigo, formData) {
+  const url = `https://musicalweek-api.azurewebsites.net/endpoints/senha/index.php`;
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
 
   const data = {
-    novaSenha: novaSenha,
+    codigo: codigo,
+    senha: formData.get("passwordCadastro"),
   };
 
   const res = await fetch(url, {
@@ -266,7 +267,8 @@ export async function enviarNovaSenha(codigo, novaSenha) {
   return await res.json();
 }
 
-export async function AlterarSenha(senha, novaSenha) {
+
+export async function AlterarSenha(formData) {
   const cookieStore = cookies();
   const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`;
   const headers = new Headers();
@@ -274,8 +276,8 @@ export async function AlterarSenha(senha, novaSenha) {
   headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
 
   const data = {
-    senha: senha,
-    nova: novaSenha,
+    senha: formData.get("passwordAtual"),
+    nova: formData.get("passwordCadastro"),
   };
 
   const res = await fetch(url, {
