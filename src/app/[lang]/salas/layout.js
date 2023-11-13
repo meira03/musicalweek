@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 
-import { getDictionary } from "@/utils/dictionaries";
 import { salasUsuario } from "@/utils/user";
 import { getMusic } from "@/utils/spotify";
 

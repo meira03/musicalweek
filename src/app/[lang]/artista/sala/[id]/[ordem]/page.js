@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { getDictionary } from "@/utils/dictionaries";
 import { getMusic } from "@/utils/spotify";
 import {
   pesquisaSalaArtista,
@@ -15,20 +14,19 @@ import { BtnSalaArtista } from "@/components/sala/BtnSalaArtista";
 
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import Image from "next/image";
+import { FaSpotify } from "react-icons/fa6";
 
 export const metadata = {
   title: 'Sala do Artista',
 }
 
 export default async function Page({ params: { lang, id, ordem } }) {
-  const dict = await getDictionary(lang);
 
   const res = {
     sala: await pesquisaSalaArtista(id),
     musica: await pesquisaMusicaArtista(id, ordem),
   };
 
-  console.log(res);
 
   if(res.sala.artista == undefined){
     redirect(`/artista/sala/${id}/resumo`)
@@ -52,13 +50,13 @@ export default async function Page({ params: { lang, id, ordem } }) {
             ESCOLHAS DE <br />
             {res.sala.artista.nick}
           </h1>
-          <Image
-            src={"/icones/" + res.sala.artista.icon}
-            alt={"Icone " + res.sala.artista.nick}
-            height={300}
-            width={300}
-            className="rounded-full w-4/5 border border-neon-blue-200 row-span-2 my-2 mx-auto"
-          />
+            <Image
+              src={"/icones/" + res.sala.artista.icon}
+              alt={"Icone " + res.sala.artista.nick}
+              height={300}
+              width={300}
+              className="rounded-full w-4/5 border border-neon-blue-200 row-span-2 my-2 mx-auto"
+            />
           <div className="mt-3">
             <BtnSalaArtista participante={res.sala.participante} id_sala={id} />
           </div>
@@ -100,6 +98,12 @@ export default async function Page({ params: { lang, id, ordem } }) {
                 src={musica.album.images[0].url}
                 alt={musica.name}
               />
+              <Link
+                href={musica.external_urls.spotify}
+                >
+                <FaSpotify className="absolute text-3xl top-2 right-2 text-green-500 cursor-pointer"/> 
+              </Link>
+
               <div
                 className={
                   "absolute w-full h-full top-0 left-0 bg-black-100 bg-opacity-70 flex flex-col items-center justify-center " +
