@@ -44,7 +44,7 @@ export const Menu = ({ logado }) => {
                   <li onClick={() => setSideBar(false)}>
                     <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
                   </li>
-                  {plano === "Plano%20do%20Artista" && (
+                  {plano === "2" && (
                     <li onClick={() => setSideBar(false)}>
                       <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
                     </li>
