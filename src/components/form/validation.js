@@ -54,7 +54,7 @@ export function isValidInput(inputID, value) {
         isValid: false,
         message: 'Campo Obrigatório.',
       };
-    } else if (userAge < 18 && userAge > 0) {
+    } else if (userAge < 18 && userAge >= 0) {
       return {
         isValid: false,
         message: "Acesso a menores de idade não permitido.",

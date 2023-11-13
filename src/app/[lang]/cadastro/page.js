@@ -54,8 +54,8 @@ export default function Cadastro() {
   }
 
   return (
-    <main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-4 md:p-8 max-w-screen-md mx-auto">
-      <h1 className="text-center neon-text text-4xl sm:text-5xl md:text-6xl uppercase font-semibold mb-8">
+    <main className="min-h-screen h-full flex flex-col justify-center items-center p-4 md:p-8 max-w-screen-md mx-auto">
+      <h1 className="text-neon-blue-200 text-center neon-text text-4xl sm:text-5xl md:text-6xl uppercase font-semibold mb-8">
         CADASTRE-SE
       </h1>
       <form action={onRegister} className="w-full max-w-2xl">
