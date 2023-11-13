@@ -3,11 +3,13 @@ import Image from "next/image";
 import Link from 'next/link'
 import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { perfilUsuario } from '../utils/user';
 
 export const Menu = ({ logado }) => {
   const [sideBar, setSideBar] = useState(false);
   const [plano, setPlano] = useState("");
+  const menuRef = useRef(null);
 
   const logout = () => {
     document.cookie.split(";").forEach((cookie) => {
@@ -20,17 +22,45 @@ export const Menu = ({ logado }) => {
   };
 
   useEffect(() => {
-    const planoDoCookie = document.cookie.split('; ')
-      .find(row => row.startsWith('plano='))
-      ?.split('=')[1];
+    const fetchData = async () => {
+      try {
+        const perfil = await perfilUsuario();
 
-    console.log('Plano do cookie:', planoDoCookie);
-    setPlano(planoDoCookie || "");
+        const planoDoPerfil = perfil?.plano;
+
+        console.log('Plano do perfil:', planoDoPerfil);
+
+        setPlano(planoDoPerfil || "");
+
+      } catch (error) {
+        console.error('Erro ao obter o perfil do usuário:', error);
+      }
+    };
+
+    fetchData();
+
+    const handleScroll = () => {
+      setSideBar(false);
+    };
+
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setSideBar(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
-      <div className="h-[70%] w-full flex justify-between items-center">
+      <div className="h-[70%] w-full flex justify-between items-center" ref={menuRef}>
         <Link className='h-full' href='/'><Image src={"/images/musicalweek.webp"} width={400} height={300} className="h-full w-auto" alt="Logo Musical Week" priority /></Link>
         <ul className="flex">
           {logado ?
