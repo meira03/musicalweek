@@ -14,10 +14,10 @@ export default async function Perfil({ params }) {
 
   let tipoPlanoLabel;
 
-  // if (!res || !res) {
-  //   return
-  // }
-            
+  if (!res || !res) {
+    return
+  }
+
   if (res.plano === "0") {
     tipoPlanoLabel = "Gratuito";
   } else if (res.plano === "1") {
@@ -27,12 +27,7 @@ export default async function Perfil({ params }) {
   } else {
     tipoPlanoLabel = "Outro";
   }
-
-  //sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5
-  //grid grid-cols-2 gap-8 p-8 border-solid border-2 mb-1
-  //px-2 sm:px-7 lg:px-8
-  //pt-0 md:pt-5 lg:pt-20 xl:pt-8 2xl:pt-44  
-
+  
   return (
 
     <main className="h-auto lg:h-[85vh] lg:items-center lg:flex lg:justify-center">
@@ -73,24 +68,24 @@ export default async function Perfil({ params }) {
           <div className='pt-10 lg:pt-0 grid grid-rows-2 items-center '>
             <div className="grid grid-row-3 gap-4 text-white ">
               <div>
-              <p className="font-medium">NOME COMPLETO:</p>
+                <p className="font-medium">NOME COMPLETO:</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition">{res.nome}</p>
+                  <p className="hover:text-gray-500 transition ml-2">{res.nome}</p>
                 </div>
               </div>
               <div>
-              <p className="font-medium">E-MAIL:</p>
+                <p className="font-medium">E-MAIL:</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition" style={{ wordWrap: 'break-word' }}>{res.email}</p>
+                  <p className="hover:text-gray-500 transition ml-2" style={{ wordWrap: 'break-word' }}>{res.email}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">DATA DE NASCIMENTO:</p>
 
                 <div className='border-2 border-neon-blue-100 py-1'>
-                  <p className="hover:text-gray-500 transition">{res.data_nasc}</p>
+                  <p className="hover:text-gray-500 transition ml-2">{res.data_nasc}</p>
                 </div>
-              </div>  
+              </div>
 
             </div>
             <div className="grid grid-row-3 gap-4 ">

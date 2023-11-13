@@ -28,11 +28,13 @@ export async function insereMusica(id_musica) {
         return { redirect: `/salas` };
       }
       if (res.id_sala != undefined) {
-        return { redirect: `/sala/${res.id_sala}` };
+        return {
+          redirect: `/sala/${res.id_sala}/1`
+        };
       } if (res.limite != undefined) {
         return { error: "Limite de salas ativas atingido." };
       }
-      else{
+      else {
         return { redirect: '/' };
       }
     });
@@ -98,7 +100,7 @@ export async function pesquisaFila(id_musica_sala) {
 
 export async function sairFila(id_musica_sala) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/index.php?id_musica_sala=${id_musica_sala}`;
   const headers = new Headers();
@@ -119,7 +121,7 @@ export async function sairFila(id_musica_sala) {
 
 export async function sairSalaArtista(id_sala_artista) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala_artista}`;
   const headers = new Headers();
@@ -140,7 +142,7 @@ export async function sairSalaArtista(id_sala_artista) {
 
 export async function pesquisaSala(id_sala) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/index.php?id_sala=${id_sala}`;
   const headers = new Headers();
@@ -154,12 +156,12 @@ export async function pesquisaSala(id_sala) {
     cache: "no-store",
   })
     .then((result) => {
-      if(!result.ok || result.status != 200){
+      if (!result.ok || result.status != 200) {
         redirect('/salas')
       }
       return result.json();
     }).then((res) => {
-      if(res.id_sala === false){
+      if (res.id_sala === false) {
         redirect('/salas')
       }
       return res
@@ -168,7 +170,7 @@ export async function pesquisaSala(id_sala) {
 
 export async function pesquisaMusica(id_sala, ordem) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/musica/index.php?id_sala=${id_sala}&posicao=${ordem}`;
   const headers = new Headers();
@@ -182,12 +184,12 @@ export async function pesquisaMusica(id_sala, ordem) {
     cache: "no-store",
   })
     .then((result) => {
-      if(!result.ok || result.status != 200){
+      if (!result.ok || result.status != 200) {
         redirect('/salas')
       }
       return result.json();
     }).then((res) => {
-      if(res.id_sala === false){
+      if (res.id_sala === false) {
         redirect('/salas')
       }
       return res
@@ -196,7 +198,7 @@ export async function pesquisaMusica(id_sala, ordem) {
 
 export async function pesquisaParticipantes(id_sala) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/participantes/index.php?id_sala=${id_sala}`;
   const headers = new Headers();
@@ -210,12 +212,12 @@ export async function pesquisaParticipantes(id_sala) {
     cache: "no-store",
   })
     .then((result) => {
-      if(!result.ok || result.status != 200){
+      if (!result.ok || result.status != 200) {
         redirect('/salas')
       }
       return result.json();
     }).then((res) => {
-      if(res.id_sala === false){
+      if (res.id_sala === false) {
         redirect('/salas')
       }
       return res
@@ -224,7 +226,7 @@ export async function pesquisaParticipantes(id_sala) {
 
 export async function pesquisaSalaArtista(id_sala) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala}`;
   const headers = new Headers();
@@ -237,7 +239,7 @@ export async function pesquisaSalaArtista(id_sala) {
     credentials: "include",
     cache: "no-store",
   })
-    .then((result) => {return result})
+    .then((result) => { return result })
 }
 
 export async function avaliaMusica(nota, id_musica_sala) {

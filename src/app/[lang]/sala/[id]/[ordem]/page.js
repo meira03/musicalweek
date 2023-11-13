@@ -23,78 +23,80 @@ export const metadata = {
 export default async function Page({ params: { lang, id, ordem } }) {
   const dict = await getDictionary(lang);
 
-  // const res = {
-  //   sala: await pesquisaSala(id),
-  //   musica: await pesquisaMusica(id, ordem),
-  //   participantes: await pesquisaParticipantes(id),
-  // };
-
   const res = {
-    sala: JSON.parse(`{
-    "sala": "Sala de Música - 9",
-    "tempo_restante": "2023-11-04 15:30:42",
-    "sala_finalizada": false,
-    "ordem": 3
-  }`),
-    participantes: JSON.parse(`[
-    {
-      "nick": "mariasantos",
-      "icon": "icone2.png"
-    },
-    {
-      "nick": "pedroalmeida",
-      "icon": "icone0.png"
-    },
-    {
-      "nick": "anapereira",
-      "icon": "icone4.png"
-    },
-    {
-      "nick": "lucasrocha",
-      "icon": "icone5.png"
-    },
-    {
-      "nick": "camilaoliveira",
-      "icon": "icone6.png"
-    },
-    {
-      "nick": "rafaelpereira",
-      "icon": "icone7.png"
-    }
-  ]`),
-    musica: JSON.parse(`{
-    "id_musica_sala": 59,
-    "musica": "2O5UcpKolgLT8l8yAvEmID",
-    "pontuacao": 100,
-    "nota_usuario": 12,
-    "avaliacoes": [
-      {
-        "nick": "mariasantos",
-        "nota": 27
-      },
-      {
-        "nick": "pedroalmeida",
-        "nota": 20
-      },
-      {
-        "nick": "anapereira",
-        "nota": 39
-      },
-      {
-        "nick": "lucasrocha",
-        "nota": 83
-      },
-      {
-        "nick": "camilaoliveira",
-        "nota": 79
-      },
-      {
-        "nick": "rafaelpereira",
-        "nota": null
-      }
-    ]
-  }`),
+    sala: await pesquisaSala(id),
+    musica: await pesquisaMusica(id, ordem),
+    participantes: await pesquisaParticipantes(id),
   };
+
+  console.log(res)
+
+  // const res = {
+  //   sala: JSON.parse(`{
+  //   "sala": "Sala de Música - 9",
+  //   "tempo_restante": "2023-11-04 15:30:42",
+  //   "sala_finalizada": false,
+  //   "ordem": 3
+  // }`),
+  //   participantes: JSON.parse(`[
+  //   {
+  //     "nick": "mariasantos",
+  //     "icon": "icone2.png"
+  //   },
+  //   {
+  //     "nick": "pedroalmeida",
+  //     "icon": "icone0.png"
+  //   },
+  //   {
+  //     "nick": "anapereira",
+  //     "icon": "icone4.png"
+  //   },
+  //   {
+  //     "nick": "lucasrocha",
+  //     "icon": "icone5.png"
+  //   },
+  //   {
+  //     "nick": "camilaoliveira",
+  //     "icon": "icone6.png"
+  //   },
+  //   {
+  //     "nick": "rafaelpereira",
+  //     "icon": "icone7.png"
+  //   }
+  // ]`),
+  //   musica: JSON.parse(`{
+  //   "id_musica_sala": 59,
+  //   "musica": "2O5UcpKolgLT8l8yAvEmID",
+  //   "pontuacao": 100,
+  //   "nota_usuario": 12,
+  //   "avaliacoes": [
+  //     {
+  //       "nick": "mariasantos",
+  //       "nota": 27
+  //     },
+  //     {
+  //       "nick": "pedroalmeida",
+  //       "nota": 20
+  //     },
+  //     {
+  //       "nick": "anapereira",
+  //       "nota": 39
+  //     },
+  //     {
+  //       "nick": "lucasrocha",
+  //       "nota": 83
+  //     },
+  //     {
+  //       "nick": "camilaoliveira",
+  //       "nota": 79
+  //     },
+  //     {
+  //       "nick": "rafaelpereira",
+  //       "nota": null
+  //     }
+  //   ]
+  // }`),
+  // };
 
   if(ordem > res.sala.ordem){
     redirect(`/sala/${id}/${res.sala.ordem}`)
@@ -102,17 +104,16 @@ export default async function Page({ params: { lang, id, ordem } }) {
   
   const exibirPontuacao = (res.musica.nota_usuario != null || res.sala.sala_finalizada == true);
   const musica = await getMusic(res.musica.musica);
-  console.log(exibirPontuacao)
 
   return (
     <section className="grid sm:grid-cols-4 grid-cols-1 min-h-[calc(100vh-7rem)]">
-      {(!exibirPontuacao) && <Avaliacao />}
+      {(!exibirPontuacao) && <Avaliacao id_musica_sala={res.musica.id_musica_sala} />}
 
       <div className="hidden sm:flex flex-col justify-center">
         {res.participantes.map((participante, key) => {
           if (key < 3) {
             return (
-              <div className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
+              <div key={key} className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
                 <Image
                   src={"/icones/" + participante.icon}
                   alt={"Icone " + participante.nick}
@@ -201,7 +202,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
         {res.participantes.map((participante, key) => {
           if (key >= 3) {
             return (
-              <div className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
+              <div key={key} className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
                 <Image
                   src={"/icones/" + participante.icon}
                   alt={"Icone " + participante.nick}
@@ -230,7 +231,7 @@ export default async function Page({ params: { lang, id, ordem } }) {
       </div>
       <div className="sm:hidden flex flex-col mt-5">
         {res.participantes.map((participante, key) => (
-          <div className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
+          <div key={key} className="w-full border border-neon-blue-100 my-2 h-28 grid grid-cols-3 p-2">
             <Image
               src={"/icones/" + participante.icon}
               alt={"Icone " + participante.nick}

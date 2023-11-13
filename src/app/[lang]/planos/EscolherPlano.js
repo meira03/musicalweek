@@ -19,11 +19,11 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
     onSelect();
     enviarPlano(index); // Use a propriedade 'index' passada
   };
-  
+
   return (
     <div
-      id={`div-${index}`} 
-      className={`p-6 border border-gray-600  shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
+      id={`div-${index}`}
+      className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
       <div>
         <h2 className="text-2xl neon-text uppercase font-medium mb-4">{plano.nome}</h2>
         <p className="text-xl text-white font-bold mb-4">{plano.preco}</p>

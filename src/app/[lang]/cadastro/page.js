@@ -9,6 +9,7 @@ export default function Cadastro() {
   const router = useRouter();
   const [message, setMessage] = useState('');
 
+
   async function onRegister(formData) {
     if (document.getElementById("passwordConfirmation").value == "" || document.getElementById("nickname").value == "" || document.getElementById("completeName").value == "" || document.getElementById("email").value == "" || document.getElementById("passwordCadastro").value == "") {
       if (document.getElementById("completeName").value == "") {
@@ -39,7 +40,6 @@ export default function Cadastro() {
       }
       return
     }
-
     if (document.getElementById("passwordCadastro").value === document.getElementById("passwordConfirmation").value) {
       const res = await register(formData)
       if (res.redirect === true) {
@@ -54,82 +54,77 @@ export default function Cadastro() {
   }
 
   return (
-<main className="min-h-screen bg-black text-white h-full flex flex-col justify-center items-center p-8">
-  <h1 className="text-center text-5xl font-bold uppercase mb-8">
-    <span class="text-shadow-lg shadow-cyan-300">CADASTRE-SE</span>
-  </h1>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full mx-auto w-full">
-    <div className="mb-4">
-      <Input
-        id="completeName"
-        type="text"
-        name="completeName"
-        placeholder="DIGITE SEU NOME COMPLETO..."
-        className="text-white text-xl bg-transparent border-blue-500" 
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="passwordCadastro"
-        type="password"
-        name="senha"
-        placeholder="DIGITE SUA SENHA..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="passwordConfirmation"
-        type="password"
-        name="passwordConfirmation"
-        placeholder="DIGITE A MESMA SENHA..."
-        className="text-white text-xl bg-transparent border-b border-blue-500" 
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="email"
-        type="text"
-        name="email"
-        placeholder="DIGITE O SEU E-MAIL..."
-        className="text-white text-xl bg-transparent border-b border-blue-500" 
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="nickname"
-        type="text"
-        name="nickname"
-        placeholder="DIGITE SEU NOME DE USUÁRIO..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
-      />
-    </div>
-    <div className="mb-4">
-      <Input
-        id="birthday"
-        type="date"
-        name="birthday"
-        placeholder="APONTE SUA DATA DE NASCIMENTO..."
-        className="text-white text-xl bg-transparent border-b border-blue-500"
-      />
-    </div>
-    <div className="mb-4 col-span-2 flex justify-center">
-      <button
-        type="submit"
-        className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline"
-      >
-        CADASTRAR
-      </button>
-    </div>
-  </div>
-  <div className="mt-4 text-center">
-    <Link
-      className="font-bold text-sm text-white hover:text-zinc-500"
-      href="/login"
-    >
-      JÁ POSSUO UMA CONTA (LOGIN)
-    </Link>
-  </div>
-</main>
+    <main className="min-h-screen bg-black-100 dark:bg-black-300 text-white h-full flex flex-col justify-center items-center p-4 md:p-8 max-w-screen-md mx-auto">
+      <h1 className="text-center neon-text text-4xl sm:text-5xl md:text-6xl uppercase font-semibold mb-8">
+        CADASTRE-SE
+      </h1>
+      <form action={onRegister} className="w-full max-w-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="completeName"
+              type="text"
+              name="completeName"
+              placeholder="DIGITE SEU NOME COMPLETO"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="nickname"
+              type="text"
+              name="nickname"
+              placeholder="DIGITE SEU NOME DE USUÁRIO"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="email"
+              type="text"
+              name="email"
+              placeholder="DIGITE O SEU E-MAIL"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="birthday"
+              type="date"
+              name="birthday"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="passwordCadastro"
+              type="password"
+              name="senha"
+              placeholder="DIGITE SUA SENHA"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-1">
+            <Input
+              id="passwordConfirmation"
+              type="password"
+              name="passwordConfirmation"
+              placeholder="CONFIRME SUA SENHA"
+            />
+          </div>
+          <div className="mb-4 sm:col-span-2 flex justify-center mx-4 sm:mx-auto sm:max-w-sm">
+            <button
+              type="submit"
+              className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
+            >
+              CADASTRAR
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 text-center">
+          <Link
+            className="font-bold text-sm text-white hover:text-zinc-500 w-full"
+            href="/login"
+          >
+            JÁ POSSUO UMA CONTA (LOGIN)
+          </Link>
+        </div>
+      </form>
+    </main>
   );
 }

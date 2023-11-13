@@ -27,9 +27,9 @@ export default function AlteraSenha() {
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
-
       <div>
         <h1 className="text-center text-4xl font-bold mb-6 uppercase text-neon-blue-200  neon-text">
+
           ALTERAR SENHA
         </h1>
         {error && (

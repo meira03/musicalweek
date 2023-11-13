@@ -38,68 +38,68 @@ export default function Login() {
   }
 
   return (
-<main className="min-h-screen bg-black-900 dark:bg-black-900 text-white h-full flex justify-center items-center p-8">
-  <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-4/5 sm:w-1/2">
-    <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
-      <span class="text-shadow-lg shadow-neon-blue-100">LOGIN</span>
-    </h1>
-    <div className="text-red-500 text-center text-sm font-light mb-4">
-      {message}
-    </div>
-    <div className="mb-4">
-      <SignInButtonGoogle />
-    </div>
-    <div className="mb-4">
-      <SignInButtonSpotify />
-    </div>
-    <div className="mb-4 border-t border-white"></div>
-    <form action={onLogin}>
-      <div className="mb-4">
-        <Input
-          id="email"
-          type="text"
-          name="email"
-          placeholder="DIGITE SEU E-MAIL..."
-          className="bg-black text-white py-2 px-4 w-full"
-        />
-      </div>
-      <div className="mb-6">
-        <Input
-          id="password"
-          type="password"
-          name="senha"
-          placeholder="DIGITE SUA SENHA..."
-          className="bg-black text-white py-2 px-4 w-full"
-        />
-      </div>
-      <div className="flex flex-col items-center">
-        <button
-          className="bg-neon-blue-300 hover:bg-neon-blue-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4"
-          type="submit"
-        >
-          ENTRAR
-        </button>
-        <Link
-          className="inline-block font-bold text-gl text-white hover:text-gray-400"
-          href="/esqueci-senha"
-        >
-          ESQUECI MINHA SENHA
-        </Link>
-      </div>
-      <div className="mb-4 mt-4 border-t border-white"></div>
-      <div className="flex flex-row items-center justify-between">
-        <div className="font-bold text-gl text-white ml-16">
-          NÃO TEM UMA CONTA?
+    <main className="min-h-screen bg-black-900 dark:bg-black-900 text-white flex justify-center items-center p-4 md:p-8">
+      <div className="bg-black-900 dark:bg-black-900 shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full sm:w-4/5 lg:w-3/4 xl:w-1/2">
+        <h1 className="dark:text-white text-center text-5xl font-bold mb-6 uppercase">
+          <span className="flex justify-center neon-text text-6xl uppercase font-semibold mb-4">LOGIN</span>
+        </h1>
+        <div className="text-red-500 text-center text-sm font-light mb-4">
+          {message}
         </div>
-        <Link
-          className="font-bold text-gl text-neon-blue-300 hover:text-neon-blue-400 mr-16"
-          href="/cadastro"
-        >
-          CRIAR NOVA CONTA
-        </Link>
+        <div className="mb-4">
+          <SignInButtonGoogle />
+        </div>
+        <div className="mb-4">
+          <SignInButtonSpotify />
+        </div>
+        <div className="mb-4 border-t border-white"></div>
+        <form action={onLogin}>
+          <div className="mb-4">
+            <Input
+              id="email"
+              type="text"
+              name="email"
+              placeholder="DIGITE SEU E-MAIL..."
+              className="bg-black text-white py-2 px-4 w-full"
+            />
+          </div>
+          <div className="mb-6">
+            <Input
+              id="password"
+              type="password"
+              name="senha"
+              placeholder="DIGITE SUA SENHA..."
+              className="bg-black text-white py-2 px-4 w-full"
+            />
+          </div>
+          <div className="flex flex-col items-center">
+            <button
+              className="bg-neon-blue-300 hover:bg-neon-blue-400 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full mb-4"
+              type="submit"
+            >
+              ENTRAR
+            </button>
+            <Link
+              className="inline-block font-bold text-gl text-white hover:text-gray-400"
+              href="/esqueci-senha"
+            >
+              ESQUECI MINHA SENHA
+            </Link>
+          </div>
+          <div className="mb-4 mt-4 border-t border-white"></div>
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between">
+            <div className="font-bold text-gl text-white sm:ml-16 mb-4 sm:mb-0">
+              NÃO TEM UMA CONTA?
+            </div>
+            <Link
+              className="font-bold text-gl text-neon-blue-300 hover:text-neon-blue-400 sm:mr-16"
+              href="/cadastro"
+            >
+              CRIAR NOVA CONTA
+            </Link>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-</main>
+    </main>
   );
 }
