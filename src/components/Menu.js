@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from 'next/link'
-import { HiMiniBars3, HiXMark} from "react-icons/hi2";
-import { AiOutlineLogout} from "react-icons/ai";
-import { useState } from "react";
+import { HiMiniBars3, HiXMark } from "react-icons/hi2";
+import { AiOutlineLogout } from "react-icons/ai";
+import { useState, useEffect } from "react";
 
 export const Menu = ({ logado }) => {
-  
   const [sideBar, setSideBar] = useState(false);
+  const [plano, setPlano] = useState("");
 
   const logout = () => {
     document.cookie.split(";").forEach((cookie) => {
@@ -19,37 +19,48 @@ export const Menu = ({ logado }) => {
     window.location.href = '/login';
   };
 
+  useEffect(() => {
+    const planoDoCookie = document.cookie.split('; ')
+      .find(row => row.startsWith('plano='))
+      ?.split('=')[1];
+
+    console.log('Plano do cookie:', planoDoCookie);
+    setPlano(planoDoCookie || "");
+  }, []);
+
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
       <div className="h-[70%] w-full flex justify-between items-center">
         <Link className='h-full' href='/'><Image src={"/images/musicalweek.webp"} width={400} height={300} className="h-full w-auto" alt="Logo Musical Week" priority /></Link>
         <ul className="flex">
           {logado ?
-          <>
-            <li className="cursor-pointer text-neon-blue-100" onClick={() => setSideBar(!sideBar)}>
-              <HiMiniBars3 className={sideBar && "hidden"} />
-              <HiXMark className={!sideBar && "hidden"} />
-            </li>
-            <div id="sidebar" className={(!sideBar && "hidden") + " fixed top-14 right-0 w-full z-50"}>
-              <ul className="w-11/12 mx-auto bg-black-100 bg-opacity-90 h-[calc(100%_-_3.5rem)] relative text-center">
-                <li onClick={() => setSideBar(false)}>
-                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
-                </li>
-                <li onClick={() => setSideBar(false)}>
-                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
-                </li>
-                <li onClick={() => setSideBar(false)}>
-                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>Salas</Link>
-                </li>
-                <li onClick={() => setSideBar(false)}>
-                  <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/perfil'>Perfil</Link>
-                </li>
-                <li onClick={() => setSideBar(false)}>
-                  <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full" onClick={logout}>Sair</button>
-                </li>
-              </ul>
-            </div>
-          </>
+            <>
+              <li className="cursor-pointer text-neon-blue-100" onClick={() => setSideBar(!sideBar)}>
+                <HiMiniBars3 className={sideBar && "hidden"} />
+                <HiXMark className={!sideBar && "hidden"} />
+              </li>
+              <div id="sidebar" className={(!sideBar && "hidden") + " fixed top-14 right-0 w-full z-50"}>
+                <ul className="w-11/12 mx-auto bg-black-100 bg-opacity-90 h-[calc(100%_-_3.5rem)] relative text-center">
+                  <li onClick={() => setSideBar(false)}>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
+                  </li>
+                  {plano === "Plano%20do%20Artista" && (
+                    <li onClick={() => setSideBar(false)}>
+                      <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
+                    </li>
+                  )}
+                  <li onClick={() => setSideBar(false)}>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>Salas</Link>
+                  </li>
+                  <li onClick={() => setSideBar(false)}>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/perfil'>Perfil</Link>
+                  </li>
+                  <li onClick={() => setSideBar(false)}>
+                    <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full" onClick={logout}>Sair</button>
+                  </li>
+                </ul>
+              </div>
+            </>
             :
             <li>
               <Link className="ml-2" href='/login'>Entrar</Link>
@@ -57,7 +68,6 @@ export const Menu = ({ logado }) => {
           }
         </ul>
       </div>
-      
     </nav>
   );
 };
