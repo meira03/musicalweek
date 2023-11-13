@@ -26,7 +26,7 @@ export default function Planos() {
     },
     {
       nome: "Plano Premium",
-      preco: "R$9.90",
+      preco: "R$7.90",
       participacaoSalasPadrao: "5 salas simultâneas",
       participacaoSalasArtistas: "Ilimitado",
       historicoSalas: "Últimas 10 salas",
