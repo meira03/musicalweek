@@ -17,6 +17,7 @@ export async function auth() {
   });
  
   if (!res.ok) {
+    console.log(res.status);
     throw new Error('Failed to auth Spotify API')
   }
  
@@ -38,6 +39,7 @@ export async function searchData(param) {
  
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
+    console.log(res.status);
     throw new Error('Failed to search data')
   }
  
@@ -59,6 +61,7 @@ export async function getMusic(id_music) {
  
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
+    console.log(res.status);
     throw new Error('Failed to search data')
   }
  
@@ -79,6 +82,7 @@ export async function getRecommendations() {
   );
  
   if (!res.ok) {
+    console.log(res.status);
     throw new Error('Failed to search data')
   }
  

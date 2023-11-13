@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { getDictionary } from "@/utils/dictionaries";
 import { getMusic } from "@/utils/spotify";
 import {
   pesquisaSala,
@@ -14,6 +13,7 @@ import { FormataData } from "@/components/FormataData";
 import { Avaliacao } from "@/components/sala/Avaliacao";
 
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
+import { FaSpotify } from "react-icons/fa6";
 import Image from "next/image";
 
 export const metadata = {
@@ -21,84 +21,19 @@ export const metadata = {
 }
 
 export default async function Page({ params: { lang, id, ordem } }) {
-  const dict = await getDictionary(lang);
-
   const res = {
     sala: await pesquisaSala(id),
     musica: await pesquisaMusica(id, ordem),
     participantes: await pesquisaParticipantes(id),
   };
 
-  console.log(res)
+  if(res.sala.descricao != null){
+    redirect('/salas')
+  }
 
-  // const res = {
-  //   sala: JSON.parse(`{
-  //   "sala": "Sala de Música - 9",
-  //   "tempo_restante": "2023-11-04 15:30:42",
-  //   "sala_finalizada": false,
-  //   "ordem": 3
-  // }`),
-  //   participantes: JSON.parse(`[
-  //   {
-  //     "nick": "mariasantos",
-  //     "icon": "icone2.png"
-  //   },
-  //   {
-  //     "nick": "pedroalmeida",
-  //     "icon": "icone0.png"
-  //   },
-  //   {
-  //     "nick": "anapereira",
-  //     "icon": "icone4.png"
-  //   },
-  //   {
-  //     "nick": "lucasrocha",
-  //     "icon": "icone5.png"
-  //   },
-  //   {
-  //     "nick": "camilaoliveira",
-  //     "icon": "icone6.png"
-  //   },
-  //   {
-  //     "nick": "rafaelpereira",
-  //     "icon": "icone7.png"
-  //   }
-  // ]`),
-  //   musica: JSON.parse(`{
-  //   "id_musica_sala": 59,
-  //   "musica": "2O5UcpKolgLT8l8yAvEmID",
-  //   "pontuacao": 100,
-  //   "nota_usuario": 12,
-  //   "avaliacoes": [
-  //     {
-  //       "nick": "mariasantos",
-  //       "nota": 27
-  //     },
-  //     {
-  //       "nick": "pedroalmeida",
-  //       "nota": 20
-  //     },
-  //     {
-  //       "nick": "anapereira",
-  //       "nota": 39
-  //     },
-  //     {
-  //       "nick": "lucasrocha",
-  //       "nota": 83
-  //     },
-  //     {
-  //       "nick": "camilaoliveira",
-  //       "nota": 79
-  //     },
-  //     {
-  //       "nick": "rafaelpereira",
-  //       "nota": null
-  //     }
-  //   ]
-  // }`),
-  // };
+  console.log(res.sala)
 
-  if(ordem > res.sala.ordem){
+  if(ordem > res.sala.ordem && res.sala.ordem != null){
     redirect(`/sala/${id}/${res.sala.ordem}`)
   }
   
@@ -168,6 +103,12 @@ export default async function Page({ params: { lang, id, ordem } }) {
               src={musica.album.images[0].url}
               alt={musica.name}
             />
+            <Link
+                href={musica.external_urls.spotify}
+                className="absolute top-2 right-2 z-50"
+                >
+                <FaSpotify className=" text-3xl text-green-500 cursor-pointer"/> 
+            </Link>
             <div
               className={
                 "absolute w-full h-full top-0 left-0 bg-black-100 bg-opacity-70 flex flex-col items-center justify-center " +
@@ -179,11 +120,11 @@ export default async function Page({ params: { lang, id, ordem } }) {
             </div>
           </div>
           <Link
-            className={ordem < res.sala.ordem ? "" : "invisible"}
+            className={(ordem < res.sala.ordem || res.sala.sala_finalizada === true) ? "" : "invisible"}
             href={
               ordem < 7
                 ? `/sala/${id}/${parseInt(ordem) + 1}`
-                : `/sala/${id}/${ordem}`
+                : `/sala/${id}/final`
             }
           >
             <BiSkipNext className="text-6xl sm:text-8xl" />

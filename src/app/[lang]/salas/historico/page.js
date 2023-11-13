@@ -9,13 +9,15 @@ export default async function Page() {
   const salas = await salasUsuario();
   const historico = salas.historico;
 
+  console.log(historico)
+
   return (
     <>
       {historico.map(async (i, key) => {
           const musica = await getMusic(i.id_musica);
           return (
             <Link
-              href={"/sala/" + i.id_sala + "/1"}
+              href={"/sala/" + i.id_sala + "/7"}
               key={key}
               className="w-full h-24 relative border border-neon-blue-100"
               style={{

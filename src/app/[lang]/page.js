@@ -1,14 +1,10 @@
-import Image from "next/image";
-
 import { fetchSalaData } from "@/utils/home";
-import { getDictionary } from "@/utils/dictionaries";
 
 import ComoParticiparCarrossel from "@/components/home/ComoParticiparCarrossel";
 import ArtistasCarrossel from "@/components/home/ArtistasCarrossel";
 import TopCarrossel from "@/components/home/TopCarrossel";
 
 export default async function Page({ params: { lang } }) {
-  const dict = await getDictionary(lang);
   const data = await fetchSalaData();
   return (
     <>
