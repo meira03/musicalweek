@@ -23,8 +23,8 @@ const TopCarrossel = (props) => {
   const [isLoading2, setLoading2] = useState(true);
 
   const top_musicas = props.data.top_musicas
-  
-  // console.log(top_musicas)
+
+  console.log(top_musicas)
   // const top_musicas = JSON.parse(`
   // [
   //   [
@@ -71,21 +71,21 @@ const TopCarrossel = (props) => {
     if (isLoading1) {
       const promisses = top_musicas[1].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setSemanaMusicas(musica);
+        setMesMusicas(musica);
         setLoading1(false);
       });
     }
-  }, [semanaMusicas]);
+  }, [mesMusicas]);
 
   useEffect(() => {
     if (isLoading2) {
       const promisses = top_musicas[2].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setMesMusicas(musica);
+        setSemanaMusicas(musica);
         setLoading2(false);
       });
     }
-  }, [mesMusicas]);
+  }, [semanaMusicas]);
 
   if (isLoading || isLoading1 || isLoading2) {
     return <>Carregando...</>;
@@ -101,20 +101,19 @@ const TopCarrossel = (props) => {
           let list;
           switch (key) {
             case 0:
-              title = "";
+              title = " DA SEMANA";
               list = topMusicas;
               break;
-
             case 1:
-              title = " DA SEMANA";
+              title = " DO MÊS";
               list = mesMusicas;
               break;
-
             case 2:
-              title = " DO MÊS";
+              title = "";
               list = semanaMusicas;
               break;
           }
+          console.log(list);
           return (
             <SwiperSlide className="h-full w-full flex flex-col justify-center items-center px-6 sm:px-12">
               <h1 className="mt-10 neon-text text-3xl sm:text-5xl text-center">
@@ -183,5 +182,4 @@ const TopCarrossel = (props) => {
     );
   }
 };
-
 export default TopCarrossel;
