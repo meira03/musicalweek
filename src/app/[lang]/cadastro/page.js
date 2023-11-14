@@ -58,6 +58,9 @@ export default function Cadastro() {
       <h1 className="text-neon-blue-200 text-center neon-text text-4xl sm:text-5xl md:text-6xl uppercase font-semibold mb-8">
         CADASTRE-SE
       </h1>
+      <div className="text-red-500 text-center text-sm font-light h-4 my-2">
+        {message}
+      </div>
       <form action={onRegister} className="w-full max-w-2xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
           <div className="mb-4 sm:col-span-1">
@@ -110,7 +113,7 @@ export default function Cadastro() {
           <div className="mb-4 sm:col-span-2 flex justify-center mx-4 sm:mx-auto sm:max-w-sm">
             <button
               type="submit"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white dark:text-white font-bold py-2 px-8 focus:outline-none focus:shadow-outline w-full"
+              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full mb-4"
             >
               CADASTRAR
             </button>
@@ -118,7 +121,7 @@ export default function Cadastro() {
         </div>
         <div className="mt-4 text-center">
           <Link
-            className="font-bold text-sm text-white hover:text-zinc-500 w-full"
+            className="font-bold text-sm text-white hover:text-neon-blue-200 w-full"
             href="/login"
           >
             JÁ POSSUO UMA CONTA (LOGIN)

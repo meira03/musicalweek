@@ -78,7 +78,7 @@ export default function Login() {
               ENTRAR
             </button>
             <Link
-              className="inline-block font-bold text-gl text-white hover:text-gray-400"
+              className="inline-block font-bold text-gl text-white hover:text-neon-blue-200"
               href="/esqueci-senha"
             >
               ESQUECI MINHA SENHA
@@ -90,7 +90,7 @@ export default function Login() {
               NÃO TEM UMA CONTA?
             </div>
             <Link
-              className="font-bold text-gl text-neon-blue-200 hover:text-neon-blue-300 sm:mr-16"
+              className="font-bold text-gl text-white hover:text-neon-blue-200 sm:mr-16"
               href="/cadastro"
             >
               CRIAR NOVA CONTA

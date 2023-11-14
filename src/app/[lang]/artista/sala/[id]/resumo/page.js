@@ -95,15 +95,3 @@ export default async function Page({ params: { lang, id } }) {
     </main>
   );
 }
-
-// {res.musicas.map((musica, index) => (
-//     <div
-//       key={musica.id_musica}
-//       className="mb-4 relative p-4 bg-gray-100 dark:bg-zinc-800 shadow-md rounded"
-//     >
-//       <p>ID da Música: {musica.id_musica ? musica.id_musica.trim() : 'N/A'}</p>
-//       <p>Nota Calculada: {musica.nota_calculada || 'N/A'}</p>
-//       <p>Avaliações: {musica.avaliacoes == undefined ? 0 : musica.avaliacoes}</p>
-//       {/* <p>Exibida: {musica.exibida ? 'Sim' : 'Não'}</p> */}
-//     </div>
-//   ))}

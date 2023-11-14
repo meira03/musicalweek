@@ -1,199 +1,285 @@
 {
-    "alterar-perfil": {
-        "Alterar Perfil": "Alterar Perfil"
+    "alterar_perfil": {
+	    "alterar_dados": "Alterar Dados",
+        "alterar_perfil": "Alterar Perfil"
     },
-    "alterar-senha": {
-        "ALTERAR SENHA": "Alterar Senha",
-        "Senha Atual": "Senha Atual",
-        "Nova Senha": "Nova Senha",
-        "Confirmar Nova Senha": "Confirmar Nova Senha",
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Senha fraca": "Senha fraca",
-        "As senhas não coincidem": "As senhas não coincidem",
-        "Senha Incorreta": "Senha Incorreta",
-        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
-        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
-        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
-        "Pelo menos um número": "Pelo menos um número",
-        "Pelo menos um caractere especial (@ $ ! % * ? & .)": "Pelo menos um caractere especial (@ $ ! % * ? & .)"
+    "alterar_senha": {
+        "senha_incorreta": "Senha Incorreta",
+        "senha_atual_incorreta": "Senha Atual Incorreta",
+        "alterar_senha": "Alterar Senha",
+        "digite_senha_atual": "Digite a Senha Atual",
+        "digite_nova_senha": "Digite a Nova Senha",
+        "confirme_nova_senha": "Confirme a Nova Senha"
+    },
+    "artista_sala_ordem": {
+        "sala_artista": "Sala do Artista",
+        "escolhas": "Escolhas de",
+        "pontuacao": "Pontuação:",
+        "fim_da_sala": "Fim da sala em",
+        "proxima_musica:": "Próxima música em:"
+    },
+    "artista_sala_resumo": {
+        "sala_artista": "Sala do Artista",
+        "resumo": "Resumo"
+    },
+    "artista_search": {
+        "criar_sala_artista": "Criar Sala do Artista",
+        "criacao_sala_artista": "Criação da sala do Artista",
+        "adicione_7_musicas": "Adicione 7 músicas para criar sua sala!"
     },
     "cadastro": {
-        "Cadastro": "Cadastro",
-        "Digite seu nome completo...": "Digite seu nome completo...",
-        "Digite seu nome de usuário...": "Digite seu nome de usuário...",
-        "Aponte sua data de nascimento...": "Aponte sua data de nascimento...",
-        "Digite seu email...": "Digite seu email...",
-        "Digite sua senha...": "Digite sua senha...",
-        "Digite a mesma senha...": "Digite a mesma senha...",
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Senhas não coincidem!": "Senhas não coincidem!",
-        "Cadastrar": "Cadastrar",
-        "Já possuo uma conta (Login)": "Já possuo uma conta (Login)"
+        "campo_obrigatorio": "Campo Obrigatório",
+        "senhas_nao_coincidem": "Senhas não coincidem!",
+        "cadastre_se": "Cadastre-se",
+        "nome_completo": "Digite seu nome completo",
+        "nome_de_usuario": "Digite seu nome de usuário",
+        "email": "Digite o seu email",
+        "senha": "Digite sua senha",
+        "confirme_senha": "Confirme sua senha",
+        "cadastrar": "Cadastrar",
+        "login": "Já possuo uma conta (Login)"
     },
-    "cadastro-provider": {
-        "Cadastro": "Cadastro",
-        "Digite seu nome completo...": "Digite seu nome completo...",
-        "Digite seu nome de usuário...": "Digite seu nome de usuário...",
-        "Aponte sua data de nascimento...": "Aponte sua data de nascimento...",
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Preencha os valores corretamente!": "Preencha os valores corretamente!",
-        "Cadastrar": "Cadastrar"
+    "cadastro_provider": {
+        "campo_obrigatorio": "Campo Obrigatório",
+        "preencha_valores": "Preencha os valores corretamente!",
+        "cadastro": "Cadastro",
+        "nome_completo": "Digite seu nome completo...",
+        "nome_de_usuario": "Digite seu nome de usuário...",
+        "data_de_nascimento": "Aponte sua data de nascimento...",
+        "cadastrar": "Cadastrar"
     },
-    "esqueci-senha": {
-        "Esqueci Senha": "Esqueci Senha",
-        "Digite seu email": "Digite seu email",
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Recuperar Senha": "Recuperar Senha"
+    "confirma_email": {
+        "confirmacao_email": "Confirmação de E-mail",
+        "email_confirmado": "Seu email foi confirmado com sucesso!",
+        "pagina_inicial": "Ir para a página inicial"
     },
-    "esqueci-senha/token": {
-        "Cadastre a nova senha": "Cadastre a nova senha",
-        "Nova Senha": "Nova Senha",
-        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
-        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
-        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
-        "Pelo menos um número": "Pelo menos um número",
-        "Pelo menos um caractere especial (@ $ ! % * ? &)": "Pelo menos um caractere especial (@ $ ! % * ? &)",
-        "Confirma Senha": "Confirma Senha",
-        "As senhas não coincidem": "As senhas não coincidem",
-        "Recuperar Senha": "Recuperar Senha",
-        "Validando token, por favor aguarde...": "Validando token, por favor aguarde..."
+    "esqueci_senha_token": {
+        "cadastre_nova_senha": "Cadastre sua nova senha",
+        "digite_nova_senha": "Digite a nova senha",
+        "confirme_nova_senha": "Confirme a nova senha",
+        "recuperar_senha": "Recuperar Senha",
+        "validando_token_aguarde": "Validando token, por favor aguarde..."
     },
-    "esqueci-senha/espera-email": {
-        "Verifique o e-mail": "Verifique o e-mail",
-        "Acesse o e-mail informado para acessar o link da troca de senha.": "Acesse o e-mail informado para acessar o link da troca de senha."
+    "espera_email": {
+        "email_enviado": "E-mail enviado",
+        "troca_senha": "Acesse o e-mail informado para o link da troca de senha."
     },
-    "esqueci-senha/senha-alterada": {
-        "Senha alterada com sucesso": "Senha alterada com sucesso",
-        "Clique aqui para voltar ao login.": "Clique aqui para voltar ao login"
+    "senha_alterada": {
+        "senha_alterada": "Senha Alterada",
+        "voltar_login": "Voltar ao login"
     },
-    "fila": {
-        "Buscando Sala": "Buscando Sala",
-        "Estimativa": "Estimativa",
-        "Sair da Fila": "Sair da Fila"
-    },
-    "home": {
-        "Salas dos Artistas": "Salas dos Artistas",
-        "Carregando informações das salas...": "Carregando informações das salas...",
-        "Nenhuma imagem disponível para esta sala.": "Nenhuma imagem disponível para esta sala.",
-        "Nenhuma sala disponível para exibir.": "Nenhuma sala disponível para exibir.",
-        "Top 10 Músicas": "Top 10 Músicas",
-        "Carregando as informações das top 10 músicas...": "Carregando as informações das top 10 músicas..."
+    "esqueci_senha": {
+        "campo_obrigatorio": "Campo Obrigatório",
+        "esqueci_senha": "Esqueci Senha",
+        "digite_email": "Digite seu email",
+        "recuperar_senha": "Recuperar Senha"
     },
     "login": {
-        "Login": "Login",
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Entrar": "Entrar",
-        "Esqueci minha senha": "Esqueci minha senha",
-        "Criar nova conta": "Criar nova conta"
+        "campo_obrigatorio": "Campo Obrigatório",
+        "login": "Login",
+        "digite_email": "Digite seu e-mail...",
+        "digite_senha": "Digite sua senha...",
+        "entrar": "Entrar",
+        "esqueci_senha": "Esqueci minha senha",
+        "sem_conta": "Não tem uma conta?",
+        "criar_nova_conta": "Criar nova conta"
     },
     "perfil": {
-        "Perfil do Usuário": "Perfil do Usuário",
-        "Foto de Perfil": "Foto de Perfil",
-        "Nome Completo": "Nome Completo",
-        "E-mail": "E-mail",
-        "Nome de Usuário": "Nome de Usuário",
-        "Data de Nascimento": "Data de Nascimento",
-        "Plano Atual": "Plano Atual",
-        "Histórico de Salas": "Histórico de Salas"
+        "quero_ser_premium": "Quero ser Premium",
+        "ver_outros_planos": "Ver os outros Planos",
+        "nome_completo": "Nome Completo",
+        "email": "E-mail",
+        "nome_de_usuario": "Nome de Usuário",
+        "data_de_nascimento": "Data de Nascimento",
+        "acoes": "Ações",
+        "alterar_dados": "Alterar Dados",
+        "alterar_senha": "Alterar Senha"
+    },
+    "planos_escolher": {
+        "salas_padroes": "Salas Padrões:",
+        "salas_artistas": "Salas de Artistas:",
+        "criacao_salas_artista": "Criação de Salas de Artista:",
+        "historico": "Histórico",
+        "estatisticas": "Estatísticas",
+        "plano_selecionado": "Plano Selecionado",
+        "escolher_plano": "Escolher Plano"
     },
     "planos": {
-        "Planos e Preços": "Planos e Preços",
-        "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.": "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.",
-        "Plano Gratuito": "Plano Gratuito",
-        "Grátis": "Grátis",
-        "2 salas simultâneas": "2 salas simultâneas",
-        "Ilimitado": "Ilimitado",
-        "Últimas 5 salas": "Últimas 5 salas",
-        "Plano Premium": "Plano Premium",
-        "R$9.90": "R$9.90",
-        "5 salas simultâneas": "5 salas simultâneas",
-        "Últimas 10 salas": "Últimas 10 salas",
-        "Plano do Artista": "Plano do Artista",
-        "R$79.90": "R$79.90",
-        "30 salas simultâneas": "30 salas simultâneas",
-        "Últimas 60 salas": "Últimas 60 salas",
-        "1 por semana": "1 por semana",
-        "Personalizadas": "Personalizadas",
-        "Parabéns": "Parabéns",
-        "Seu plano foi atualizado com sucesso!": "Seu plano foi atualizado com sucesso!",
-        "OK": "OK"
+        "plano_gratuito": "Plano Gratuito.",
+        "gratis": "Grátis.",
+        "limite_2_salas": "Limite de 2 salas.",
+        "ilimitado": "Ilimitado.",
+        "limite_5_salas": "Limite de 5 salas.",
+        "plano_premium": "Plano Premium.",
+        "limite_10_salas": "Limite de 10 salas.",
+        "plano_artista": "Plano do Artista.",
+        "limite_30_salas": "Limite de 30 salas.",
+        "limite_60_salas": "Limite de 60 salas.",
+        "limite_1_sala_ativa": "Limite de 1 sala ativa.",
+        "personalizadas": "Personalizadas.",
+        "escolha_plano": "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.",
+        "parabens": "Parabéns",
+        "plano_atualizado": "Seu plano foi atualizado com sucesso!",
+        "ok": "OK"
     },
-    "planos/escolher-plano": {
-        "Plano Selecionado": "Plano Selecionado",
-        "Escolher Plano": "Escolher Plano"
+    "sala_id_ordem": {
+        "fim_sala": "Fim da sala em:",
+        "proxima_musica": "Próxima música em:",
+        "pontuacao": "Pontuação",
+        "nota": "nota"
+    },
+    "sala_id_final": {
+        "sala_artista": "Sala do Artista",
+        "fim_sala": "Fim da Sala",
+        "pontuacao": "Pontuação",
+        "nota_sala": "Nota da sala"
+    },
+    "salas_fila": {
+        "procurando_usuarios": "Procurando usuários"
+    },
+    "salas_layout": {
+        "recomendacoes": "Recomendações"
     },
     "salas": {
-        "Procurando Usuários...": "Procurando Usuários...",
-        "Salas ativas": "Salas ativas",
-        "Salas Encerradas": "Salas Encerradas"
+        "proxima_em": "Próxima em:",
+        "pontuacao": "Pontuação:"
     },
-    "components/button": {
-        "Alterar": "Alterar"
+    "home": {
+        "como_participar": "Como participar",
+        "salas_artistas": "Salas dos artistas"
     },
-    "components/deletarConta": {
-        "Deletar Conta": "Deletar Conta",
-        "Confirmar Exclusão de Conta": "Confirmar Exclusão de Conta",
-        "Tem certeza de que deseja excluir sua conta?": "Tem certeza de que deseja excluir sua conta?",
-        "Excluir": "Excluir",
-        "Cancelar": "Cancelar"
+    "components_button": {
+        "data_nascimento_invalida": "Data de nascimento inválida",
+        "nome_usuario_cadastrado": "Nome de usuário já cadastrado",
+        "alterar": "Alterar"
     },
-    "components/entrarSalaArtista": {
-        "Entrar na Sala do Artista": "Entrar na Sala do Artista",
-        "Sala ID": "Sala ID",
-        "Usuário entrou na sala com sucesso!": "Usuário entrou na sala do artista com sucesso!",
-        "Erro ao entrar na sala do artista:": "Erro ao entrar na sala do artista:",
-        "Redirecionando para a página de login...": "Redirecionando para a página de login..."
+    "components_deleta_conta": {
+        "deletar_conta": "Deletar Conta",
+        "confirmar_exclusao": "Confirmar a exclusão da conta?",
+        "mensagem_excluir_conta": "Tem certeza de que deseja excluir sua conta?",
+        "excluir": "Excluir",
+        "cancelar": "Cancelar"
     },
-    "components/form": {
-        "Nome Completo": "Nome Completo",
-        "Nome de Usuário": "Nome de Usuário",
-        "Data de Nascimento": "Data de Nascimento",
-        "E-mail": "E-mail",
-        "Senha": "Senha",
-        "Confirmação de Senha": "Confirmação de Senha",
-        "Outro": "Outro",
-        "Mínimo de 8 caracteres": "Mínimo de 8 caracteres",
-        "Pelo menos uma letra maiúscula": "Pelo menos uma letra maiúscula",
-        "Pelo menos uma letra minúscula": "Pelo menos uma letra minúscula",
-        "Pelo menos um número": "Pelo menos um número",
-        "Pelo menos um caractere especial (@ $ ! % * ? & .)": "Pelo menos um caractere especial (@ $ ! % * ? & .)",
-        "As senhas não coincidem!": "As senhas não coincidem!"
+    "components_entra_sala_artista": {
+        "entrar_sala_artista": "Entrar na sala do artista"
     },
-    "components/formValidation": {
-        "Campo Obrigatório": "Campo Obrigatório",
-        "Nome completo inválido.": "Nome completo inválido.",
-        "O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.": "O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.",
-        "Acesso a menores de idade não permitido.": "Acesso a menores de idade não permitido.",
-        "Data de nascimento inválida.": "Data de nascimento inválida.",
-        "Email inválido. Certifique-se de usar um @ e um domínio válido.": "Email inválido. Certifique-se de usar um @ e um domínio válido.",
-        "Senha fraca.": "Senha fraca.",
-        "Preencha o campo para prosseguir.": "Preencha o campo para prosseguir."
+    "components_form_input": {
+        "nome_completo": "Nome Completo",
+        "nome_usuario": "Nome de Usuário",
+        "data_nascimento": "Data de Nascimento",
+        "email": "E-mail",
+        "senha": "Senha",
+        "confirmacao_senha": "Confirmação de Senha",
+        "outro": "Outro",
+        "minimo_8_caracteres": "Mínimo de 8 caracteres",
+        "uma_letra_maiuscula": "Pelo menos uma letra maiúscula",
+        "uma_letra_minuscula": "Pelo menos uma letra minúscula",
+        "um_numero": "Pelo menos um número",
+        "um_caractere_especial": "Pelo menos um caractere especial (@ $ ! % * ? & .)",
+        "menos_256_caracteres": "Senha com menos de 256 caracteres",
+        "senhas_nao_coincidem": "As senhas não coincidem!"
     },
-    "components/loginGoogle": {
-        "Entrar com Google": "Entrar com Google"
+    "components_form_validation": {
+        "campo_obrigatorio": "Campo Obrigatório",
+        "nome_menos_64": "O nome deve ter menos de 64 caracteres.",
+        "nome_invalido": "Nome completo inválido.",
+        "usuario_entre_3_16": "O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.",
+        "acesso_menores_nao_permitido": "Acesso a menores de idade não permitido.",
+        "data_nascimento_invalida": "Data de nascimento inválida.",
+        "email_invalido": "Email inválido. Certifique-se de usar um @ e um domínio válido.",
+        "email_menos_256_caracteres": "O e-mail deve ter menos de 256 caracteres",
+        "senha_fraca": "Senha fraca."
     },
-    "components/loginSpotify": {
-        "Entrar com Spotify": "Entrar com Spotify"
+    "components_home_artistas_carrossel": {
+        "carregando": "Carregando...",
+        "escolhas_de": "escolhas de"
     },
-    "components/search": {
-        "Digite sua busca...": "Digite sua busca..."
+    "components_home_como_participar": {
+        "passo_1": "Passo 1",
+        "escolha_musica": "Escolha uma música",
+        "para_participar": "para participar",
+        "de_sala": "de uma sala",
+        "passo_2": "Passo 2",
+        "aguarde_outros": "Aguarde outros",
+        "usuarios_entrarem": "usuários entrarem",
+        "na_sala": "na sala",
+        "passo_3": "Passo 3",
+        "ouca_e_avalie": "ouça e avalie",
+        "as_musicas": "as músicas",
+        "diariamente": "diariamente"
     },
-    "components/search-artista": {
-        "Adicione 7 músicas diferentes para prosseguir": "Adicione 7 músicas diferentes para prosseguir",
-        "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.": "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.",
-        "Enviar Músicas": "Enviar Músicas",
-        "Parabéns": "Parabéns",
-        "Sua sala foi criada com sucesso!": "Sua sala foi criada com sucesso!",
-        "OK": "OK"
+    "components_home_participe": {
+        "participe": "Participe agora!"
     },
-    "components/menu": {
-        "Logo Musical Week": "Logo Musical Week",
-        "Home": "Home",
-        "Nova Sala": "Nova Sala",
-        "Nova Sala Artista": "Nova Sala Artista",
-        "Salas": "Salas",
-        "Perfil": "Perfil",
-        "Sair": "Sair",
-        "Entrar": "Entrar"
+    "components_home_top": {
+        "carregando": "Carregando...",
+        "da_semana": "Da semana",
+        "do_mes": "Do mês",
+        "top_musicas": "Top músicas"
+    },
+    "components_login_google": {
+        "continuar_google": "Continuar com Google"
+    },
+    "components_login_spotify": {
+        "continuar_spotify": "Continuar com Spotify"
+    },
+    "components_perfil": {
+        "editar_icone": "Editar ícone",
+        "selecionar_foto": "Selecione a foto desejada",
+        "cancelar": "Cancelar"
+    },
+    "components_sala_musica_resumo": {
+        "carregando": "Carregando...",
+        "erro": "Ocorreu um erro:",
+        "pontuacao": "Pontuação",
+        "avaliacoes": "Avaliações"
+    },
+    "components_sala_artista_musica_resumo": {
+        "musica_atual": "Música Atual",
+        "proxima_musica": "Próxima Música",
+        "melhor_pontuacao": "Melhor Pontuação",
+        "mais_avaliada": "Mais Avaliada"
+    },
+    "components_sala_avaliacao": {
+        "avalie": "Avalie",
+        "avaliar": "Avaliar"
+    },
+    "components_botao_sala_artista": {
+        "participar_sala": "Participar da sala",
+        "sair_sala": "Sair da sala"
+    },
+    "components_sala_artista": {
+        "remover_sala": "Remova a sala da sua lista"
+    },
+    "components_salas_navegacao": {
+        "fila": "Fila",
+        "salas": "Salas", 
+        "escolhas_dos_artistas": "Escolhas dos Artistas",
+        "historico": "Histórico"
+    },
+    "components_artista_submit": {
+        "resumo_sala": "Resumo da sala",
+        "iniciar_sala": "Iniciar a sala",
+        "comecar_sala": "Começar a sala"
+    },
+    "components_search": {
+        "mensagem_compartilhar": "O que você quer compartilhar?"
+    },
+    "components_search_artista": {
+        "adicione_7_musicas": "Adicione 7 músicas diferentes para prosseguir",
+        "erro_inserir_musica": "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.",
+        "enviar_musicas": "Enviar Músicas",
+        "parabens": "Parabéns",
+        "sala_criada": "Sua sala foi criada com sucesso!",
+        "ok": "OK"
+    },
+    "components_menu": {
+        "logo_musical_week": "Logo Musical Week",
+        "nova_sala": "Nova Sala",
+        "nova_sala_artista": "Nova Sala Artista",
+        "salas": "Salas",
+        "perfil": "Perfil",
+        "sair": "Sair",
+        "entrar": "Entrar"
     }
 }
