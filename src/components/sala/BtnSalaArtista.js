@@ -1,15 +1,16 @@
 "use client";
-import { entraSalaArtista } from "@/utils/artista";
+import { entraSalaArtista, sairSalaArtista } from "@/utils/artista";
 
 export const BtnSalaArtista = ({ participante, id_sala }) => {
 
     function entrarSala() {
         const res = entraSalaArtista(id_sala);
-        res ? window.location.reload : console.log("Erro interno no servidor");
+        res ? window.location.reload(true) : console.log("Erro interno no servidor");
     }
 
     function sairSala() {
-        console.log("código Meira")
+        res = sairSalaArtista(id_sala);
+        res ? window.location.reload(true) : console.log("Erro");
     }
 
   return (
