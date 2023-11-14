@@ -24,8 +24,9 @@ export async function insereMusica(id_musica) {
   })
     .then((result) => result.json())
     .then((res) => {
+      console.log(res)
       if (res.id_musica_sala != undefined) {
-        return { redirect: `/salas` };
+        return { redirect: `/salas/fila` };
       }
       if (res.id_sala != undefined) {
         return {
@@ -149,7 +150,7 @@ export async function pesquisaSala(id_sala) {
 
 export async function pesquisaSalaFinal(id_sala) {
   const cookieStore = cookies();
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/final/index.php?id_sala=${id_sala}`;
   const headers = new Headers();
@@ -163,12 +164,12 @@ export async function pesquisaSalaFinal(id_sala) {
     cache: "no-store",
   })
     .then((result) => {
-      if(!result.ok || result.status != 200){
+      if (!result.ok || result.status != 200) {
         redirect('/salas')
       }
       return result.json();
     }).then((res) => {
-      if(res.id_sala === false){
+      if (res.id_sala === false) {
         redirect('/salas')
       }
       return res

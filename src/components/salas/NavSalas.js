@@ -2,15 +2,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export const NavSalas = ({ fila, artista, historico, padrao }) => {
+export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => {
   const pathname = usePathname();
 
   let active = "padrao";
   if (pathname.includes("fila")) active = "fila";
   if (pathname.includes("artista")) active = "artista";
   if (pathname.includes("historico")) active = "historico";
+  if (pathname.includes("minhas_salas")) active = "minhas_salas";
 
-  if (fila || artista || historico) {
+  if (fila || padrao || artista ||
+    historico || minhas_salas) {
     return (
       <nav className="flex justify-center items-center text-center mb-3 text-xs sm:text-lg">
         <Link
@@ -42,6 +44,16 @@ export const NavSalas = ({ fila, artista, historico, padrao }) => {
           href="/salas/artista"
         >
           Escolhas dos Artistas
+        </Link>
+        <Link
+          className={
+            (!minhas_salas ? "hidden " : "") +
+            "mr-3 sm:mr-5 text-neon-blue-200 uppercase hover:underline " +
+            (active == "minhas_salas" ? "underline" : "")
+          }
+          href="/salas/minhas_salas"
+        >
+          Minhas Salas
         </Link>
         <Link
           className={

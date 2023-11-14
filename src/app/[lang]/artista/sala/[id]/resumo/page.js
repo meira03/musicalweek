@@ -10,6 +10,8 @@ export const metadata = {
 export default async function Page({ params: { lang, id } }) {
   const res = await pesquisaSalaArtista(id);
 
+  console.log(res)
+
   let musicaDia = res.musicas
     .slice()
     .reverse()
@@ -27,11 +29,11 @@ export default async function Page({ params: { lang, id } }) {
     return musica.avaliacoes > ultima ? musica : ultima;
   }, -Infinity);
 
-  if(maisAvaliado.avaliacoes == '0'){
+  if (maisAvaliado.avaliacoes == '0') {
     maisAvaliado = undefined;
   }
 
-  if(melhorPontuacao.nota_calculada == null){
+  if (melhorPontuacao.nota_calculada == null) {
     melhorPontuacao = undefined;
   }
 
@@ -51,8 +53,13 @@ export default async function Page({ params: { lang, id } }) {
   return (
     <main className="mx-auto px-2 sm:px-6 lg:px-8 min-h-[80vh] max-w-7xl">
       <h1 className="neon-text text-center text-xl sm:text-5xl font-bold mb-6 uppercase">
-        RESUMO <br className="sm:hidden"/> {res ? res.sala : "Carregando..."}
+        RESUMO <br className="sm:hidden" /> {res ? res.sala : "Carregando..."}
       </h1>
+      <div className="border border-neon-blue-200 p-2 relative inline-block text-center mx-auto border-b mb-4">
+        Quantidade de Usuários: {res ? res.usuarios : "Carregando..."}
+      </div>
+
+
       <div className="flex flex-col sm:flex-row items-start justify-center">
         <div className="sm:w-2/5 grid grid-cols-2 grid-rows-2 gap-7 mb-10 sm:mb-0 sm:mr-32">
           <ArtistaTopMusicaResumo tipo={"atual"} musica={musicaDia} />
