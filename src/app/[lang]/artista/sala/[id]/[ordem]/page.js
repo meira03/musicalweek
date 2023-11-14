@@ -28,10 +28,10 @@ export default async function Page({ params: { lang, id, ordem } }) {
   };
 
 
-  if(res.sala.artista == undefined){
+  if (res.sala.artista == undefined) {
     redirect(`/artista/sala/${id}/resumo`)
   }
-  
+
   if (ordem > res.sala.ordem) {
     redirect(`/artista/sala/${id}/${res.sala.ordem}`);
   }
@@ -50,13 +50,13 @@ export default async function Page({ params: { lang, id, ordem } }) {
             ESCOLHAS DE <br />
             {res.sala.artista.nick}
           </h1>
-            <Image
-              src={"/icones/" + res.sala.artista.icon}
-              alt={"Icone " + res.sala.artista.nick}
-              height={300}
-              width={300}
-              className="rounded-full w-4/5 border border-neon-blue-200 row-span-2 my-2 mx-auto"
-            />
+          <Image
+            src={"/icones/" + res.sala.artista.icon}
+            alt={"Icone " + res.sala.artista.nick}
+            height={300}
+            width={300}
+            className="rounded-full w-4/5 border border-neon-blue-200 row-span-2 my-2 mx-auto"
+          />
           <div className="mt-3">
             <BtnSalaArtista participante={res.sala.participante} id_sala={id} />
           </div>
@@ -100,8 +100,9 @@ export default async function Page({ params: { lang, id, ordem } }) {
               />
               <Link
                 href={musica.external_urls.spotify}
-                >
-                <FaSpotify className="absolute text-3xl top-2 right-2 text-green-500 cursor-pointer"/> 
+                target="_blank"
+              >
+                <FaSpotify className="absolute text-3xl top-2 right-2 text-green-500 cursor-pointer" />
               </Link>
 
               <div
