@@ -39,8 +39,9 @@ export async function register(formData) {
         }
       });
   } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
+     console.log(e.toString());
+     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() 
+    };
   }
 }
 

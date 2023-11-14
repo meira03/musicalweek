@@ -10,6 +10,8 @@ export const metadata = {
 export default async function Page({ params: {  id } }) {
   const res = await pesquisaSalaArtista(id);
 
+  console.log(res)
+
   let musicaDia = res.musicas
     .slice()
     .reverse()
@@ -27,11 +29,11 @@ export default async function Page({ params: {  id } }) {
     return musica.avaliacoes > ultima ? musica : ultima;
   }, -Infinity);
 
-  if(maisAvaliado.avaliacoes == '0'){
+  if (maisAvaliado.avaliacoes == '0') {
     maisAvaliado = undefined;
   }
 
-  if(melhorPontuacao.nota_calculada == null){
+  if (melhorPontuacao.nota_calculada == null) {
     melhorPontuacao = undefined;
   }
 
@@ -51,8 +53,13 @@ export default async function Page({ params: {  id } }) {
   return (
     <main className="mx-auto px-2 sm:px-6 lg:px-8 min-h-[80vh] max-w-7xl">
       <h1 className="neon-text text-center text-xl sm:text-5xl font-bold mb-6 uppercase">
-        RESUMO <br className="sm:hidden"/> {res ? res.sala : "Carregando..."}
+        RESUMO <br className="sm:hidden" /> {res ? res.sala : "Carregando..."}
       </h1>
+      <div className="border border-neon-blue-200 p-2 relative inline-block text-center mx-auto border-b mb-4">
+        Quantidade de Usuários: {res ? res.usuarios : "Carregando..."}
+      </div>
+
+
       <div className="flex flex-col sm:flex-row items-start justify-center">
         <div className="sm:w-2/5 grid grid-cols-2 grid-rows-2 gap-7 mb-10 sm:mb-0 sm:mr-32">
           <ArtistaTopMusicaResumo tipo={"atual"} musica={musicaDia} />
@@ -88,15 +95,3 @@ export default async function Page({ params: {  id } }) {
     </main>
   );
 }
-
-// {res.musicas.map((musica, index) => (
-//     <div
-//       key={musica.id_musica}
-//       className="mb-4 relative p-4 bg-gray-100 dark:bg-zinc-800 shadow-md rounded"
-//     >
-//       <p>ID da Música: {musica.id_musica ? musica.id_musica.trim() : 'N/A'}</p>
-//       <p>Nota Calculada: {musica.nota_calculada || 'N/A'}</p>
-//       <p>Avaliações: {musica.avaliacoes == undefined ? 0 : musica.avaliacoes}</p>
-//       {/* <p>Exibida: {musica.exibida ? 'Sim' : 'Não'}</p> */}
-//     </div>
-//   ))}

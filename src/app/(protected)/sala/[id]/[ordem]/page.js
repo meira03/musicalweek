@@ -27,16 +27,16 @@ export default async function Page({ params: {  id, ordem } }) {
     participantes: await pesquisaParticipantes(id),
   };
 
-  if(res.sala.descricao != null){
+  if (res.sala.descricao != null) {
+    console.log(res)
     redirect('/salas')
+
   }
 
-  console.log(res.sala)
-
-  if(ordem > res.sala.ordem && res.sala.ordem != null){
+  if (ordem > res.sala.ordem && res.sala.ordem != null) {
     redirect(`/sala/${id}/${res.sala.ordem}`)
   }
-  
+
   const exibirPontuacao = (res.musica.nota_usuario != null || res.sala.sala_finalizada == true);
   const musica = await getMusic(res.musica.musica);
 
@@ -78,12 +78,12 @@ export default async function Page({ params: {  id, ordem } }) {
       <div className="col-span-2 flex flex-col justify-center items-center">
         <div className="text-neon-blue-100">
           {!res.sala.sala_finalizada && (
-          <>
-            {res.sala.ordem == 7 ? "FIM DA SALA EM: " : "PRÓXIMA MÚSICA EM: "}
-            <FormataData dataTransformar={res.sala.tempo_restante} progressivo={false} formato="hh:mm:ss" />
-          </>
+            <>
+              {res.sala.ordem == 7 ? "FIM DA SALA EM: " : "PRÓXIMA MÚSICA EM: "}
+              <FormataData dataTransformar={res.sala.tempo_restante} progressivo={false} formato="hh:mm:ss" />
+            </>
           )}
-          
+
         </div>
         <div className="text-zinc-500 text-center text-xl my-2">{ordem}/7</div>
         <div className="flex items-center w-full">
@@ -104,10 +104,11 @@ export default async function Page({ params: {  id, ordem } }) {
               alt={musica.name}
             />
             <Link
-                href={musica.external_urls.spotify}
-                className="absolute top-2 right-2 z-50"
-                >
-                <FaSpotify className=" text-3xl text-green-500 cursor-pointer"/> 
+              href={musica.external_urls.spotify}
+              className="absolute top-2 right-2 z-50"
+              target="_blank"
+            >
+              <FaSpotify className=" text-3xl text-green-500 cursor-pointer" />
             </Link>
             <div
               className={

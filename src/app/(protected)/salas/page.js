@@ -12,8 +12,10 @@ export default async function Page() {
   console.log(salas)
   return<></>
   const padrao = salas.salas;
-  
-  if(padrao.length > 0){
+
+  console.log(salas)
+
+  if (padrao.length > 0) {
     return (
       <>
         {padrao.length > 0 &&
@@ -47,14 +49,21 @@ export default async function Page() {
                         </h3>
                       </div>
                       <div className="flex flex-col justify-end col-span-2 text-right leading-none">
-                        <span className="text-xs sm:text-sm">
-                          PRÓXIMA EM:{" "}
-                          <FormataData
-                            dataTransformar={i.tempo_restante}
-                            progressivo={false}
-                            formato="hh:mm:ss"
-                          />
-                        </span>
+                        {i.sala_finalizada === false && (
+                          <span className="text-xs sm:text-sm">
+                            PRÓXIMA EM:{" "}
+                            <FormataData
+                              dataTransformar={i.tempo_restante}
+                              progressivo={false}
+                              formato="hh:mm:ss"
+                            />
+                          </span>
+                        )}
+                        {i.sala_finalizada === true && (
+                          <span className="text-xs sm:text-sm inline-block neon-text text-white p-2 rounded center">
+                            VEJA OS RESULTADOS
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -106,5 +115,8 @@ export default async function Page() {
           })}
       </>
     );
+  }
+  else if (salas.filas.length > 0) {
+    redirect('/salas/fila')
   }
 }

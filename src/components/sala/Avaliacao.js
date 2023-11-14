@@ -16,11 +16,9 @@ export const Avaliacao = ({ id_musica_sala }) => {
   async function handleClick(nota) {
     const res = await avaliaMusica(nota, id_musica_sala);
 
-    console.log(res)
-
-    if(res.sucesso === true){
+    if (res.sucesso === true) {
       window.location.reload()
-    }else{
+    } else {
       window.location.href = "/salas"
     }
   }

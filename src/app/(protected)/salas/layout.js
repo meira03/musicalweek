@@ -16,10 +16,10 @@ export default async function SalasLayout({ children }) {
   const salas = await salasUsuario();
 
   const recomendacoes = salas.recomendacoes;
-
+  
   return (
     <div className="py-10 mx-3 sm:mx-auto sm:max-w-4xl">
-      <NavSalas padrao={salas.salas.length > 0} artista={salas.salas_artista.length > 0} fila={salas.filas.length > 0} historico={salas.historico.length > 0} />
+      <NavSalas padrao={salas.salas.length > 0} artista={salas.salas_artista.length > 0} fila={salas.filas.length > 0} historico={salas.historico.length > 0} minhas_salas={salas.minhas_salas.length > 0} />
       <div className="grid grid-cols-1 gap-5">{children}</div>
       {recomendacoes.length > 1 && (
         <>

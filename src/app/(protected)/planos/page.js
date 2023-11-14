@@ -17,31 +17,31 @@ export default function Planos() {
 
   const planos = [
     {
-      nome: "Plano Gratuito",
-      preco: "Grátis",
-      participacaoSalasPadrao: "2 salas simultâneas",
-      participacaoSalasArtistas: "Ilimitado",
-      historicoSalas: "Últimas 5 salas",
+      nome: "Plano Gratuito.",
+      preco: "Grátis.",
+      participacaoSalasPadrao: "Limite de 2 salas.",
+      participacaoSalasArtistas: "Ilimitado.",
+      historicoSalas: "Limite de 5 salas.",
       criacaoSalasArtista: "",
       estatisticas: "",
     },
     {
-      nome: "Plano Premium",
-      preco: "R$7.90",
-      participacaoSalasPadrao: "5 salas simultâneas",
-      participacaoSalasArtistas: "Ilimitado",
-      historicoSalas: "Últimas 10 salas",
+      nome: "Plano Premium.",
+      preco: "R$7.90.",
+      participacaoSalasPadrao: "Limite de 5 salas.",
+      participacaoSalasArtistas: "Ilimitado.",
+      historicoSalas: "Limite de 10 salas.",
       criacaoSalasArtista: "",
       estatisticas: "",
     },
     {
-      nome: "Plano do Artista",
-      preco: "R$79.90",
-      participacaoSalasPadrao: "30 salas simultâneas",
-      participacaoSalasArtistas: "Ilimitado",
-      historicoSalas: "Últimas 60 salas",
-      criacaoSalasArtista: "1 por semana",
-      estatisticas: "Personalizadas",
+      nome: "Plano do Artista.",
+      preco: "R$79.90.",
+      participacaoSalasPadrao: "Limite de 30 salas.",
+      participacaoSalasArtistas: "Ilimitado.",
+      historicoSalas: "Limite de 60 salas.",
+      criacaoSalasArtista: "Limite de 1 sala ativa.",
+      estatisticas: "Personalizadas.",
     },
   ];
 
@@ -89,7 +89,7 @@ export default function Planos() {
   };
 
   return (
-    <div className="flex text-white border-solid border-2 items-center min-h-screen">
+    <div className="flex text-white items-center min-h-screen">
       <div className="container m-auto py-10 px-8">
         <h1 className="neon-text text-4xl uppercase font-semibold mb-6 text-center">Planos e Preços</h1>
         <p className="text-lg font-semibold mb-8 text-center">
