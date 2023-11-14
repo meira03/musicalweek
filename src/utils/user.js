@@ -1,14 +1,15 @@
 "use server";
-import { cookies } from "next/headers";
+import { getServerSession } from "next-auth";
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
 
 export async function perfilUsuario() {
   try {
-    const cookieStore = cookies();
-    const token = cookieStore.get("token");
+    const session = await getServerSession(authOption)
+    const token = session.token;
     const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-    headers.append("Authorization", token.value);
+    headers.append("Authorization", "Bearer " + token);
     
     const res = await fetch(url, {
       method: "GET",
@@ -33,12 +34,12 @@ export async function perfilUsuario() {
 
 export async function salasUsuario() {
   try {
-    const cookieStore = cookies();
-    const token = cookieStore.get("token");
+    const session = await getServerSession(authOption)
+    const token = session.token;
     const url = `https://musicalweek-api.azurewebsites.net/endpoints/salas/`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-    headers.append("Authorization", token.value);
+    headers.append("Authorization", "Bearer " + token);
 
     const res = await fetch(url, {
       method: "GET",
@@ -64,11 +65,11 @@ export async function salasUsuario() {
 
 export async function alterarPerfil(data) {
   try {
-    const cookieStore = cookies();
+    const session = await getServerSession(authOption)
     const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-    headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+    headers.append("Authorization", "Bearer " + session.token);
 
     const res = await fetch(url, {
       method: "PUT",
@@ -92,12 +93,13 @@ export async function alterarPerfil(data) {
 
 export async function deleteAccount(token) {
   try {
+    const session = await getServerSession(authOption)
     const res = await fetch(
       "https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php",
       {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${session.token}`,
         },
         cache: "no-store",
       }
@@ -113,11 +115,7 @@ export async function deleteAccount(token) {
       });
 
     if (res.sucesso == true) {
-      cookies().delete("token");
-      cookies().delete("plano");
-      cookies().delete("nick");
-      cookies().delete("token_google");
-      cookies().delete("token_spotify");
+      
     }
     return res;
   } catch (error) {

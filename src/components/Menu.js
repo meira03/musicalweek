@@ -3,22 +3,21 @@ import Image from "next/image";
 import Link from 'next/link'
 import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
+import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { perfilUsuario } from '../utils/user';
 
-export const Menu = ({ logado }) => {
+export const Menu = ({ logado, plano }) => {
   const [sideBar, setSideBar] = useState(false);
   const [plano, setPlano] = useState("");
   const menuRef = useRef(null);
 
-  const logout = () => {
-    document.cookie.split(";").forEach((cookie) => {
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-    });
+  const logout = async () => {
+    await signOut({
+      redirect: false
+    })
 
-    window.location.href = '/login';
+    window.location.href = "/"  
   };
 
   useEffect(() => {
@@ -74,7 +73,7 @@ export const Menu = ({ logado }) => {
                   <li onClick={() => setSideBar(false)}>
                     <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
                   </li>
-                  {plano === "2" && (
+                  {plano == 2 && (
                     <li onClick={() => setSideBar(false)}>
                       <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
                     </li>

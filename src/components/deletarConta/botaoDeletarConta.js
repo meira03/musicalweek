@@ -1,20 +1,20 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
 import { deleteAccount } from '@/utils/user'
-import { redirect, useRouter } from 'next/navigation';
+import { getSession } from 'next-auth/react';
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
+import { signOut } from "next-auth/react";
 
 Modal.setAppElement(null);
 
 export default function DeleteAccount() {
   const [deleting, setDeleting] = useState(false);
-  const [cookies, setCookie] = useCookies(['token']);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const router = useRouter();
 
   async function handleDeleteAccount() {
     setDeleting(true);
+    const cookies = await getSession(authOption)
 
     const token = cookies.token || null;
 
@@ -23,12 +23,12 @@ export default function DeleteAccount() {
       return;
     }
 
-    const res = deleteAccount(token);
+    await signOut({
+      redirect: false
+    })
 
-    router.push('/')
+    window.location.href = "/"  
 
-    setDeleting(false);
-    setShowConfirmationModal(false);
   };
 
   return (

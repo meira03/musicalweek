@@ -1,21 +1,22 @@
 "use server"
-import { cookies } from "next/headers";
+import { getServerSession } from "next-auth";
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
 
 export const fetchSalaData = async () => {
-    try {
+  const session = await getServerSession(authOption)
+  try {
         const url = 'https://musicalweek-api.azurewebsites.net/endpoints/home/index.php';
         const headers = {};
-        const cookieStore = cookies();
 
-        if (cookieStore && cookieStore.token) {
-            headers['Authorization'] = `Bearer ${cookieStore.token}`;
+        if (session) {
+            headers['Authorization'] = `Bearer ${session.token}`;
         }
 
         const response = await fetch(url, { method: 'GET', headers , cache: "no-store"});
 
         if (response.ok) {
             const data = await response.json();
-            if (!cookieStore || !cookieStore.token) {
+            if (!session) {
                 // Quando não há token, ajuste os dados, se necessário
                 if (data.salas_artista && Array.isArray(data.salas_artista)) {
                     data.salas_artista = data.salas_artista.map((sala) => {
@@ -34,4 +35,3 @@ export const fetchSalaData = async () => {
         return null;
     }
 };
-

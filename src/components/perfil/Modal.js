@@ -1,7 +1,6 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
 import { alterarPerfil } from '@/utils/user';
 
@@ -22,7 +21,7 @@ async function handleClick(data) {
 Modal.setAppElement(null);
 
 export default function ModalProfile(props) {
-    const [cookies, setCookie] = useCookies(['token']);
+    
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [imageHover, setImageHover] = useState(false);
     const [profilePics, setProfilePics] = useState([
