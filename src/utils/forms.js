@@ -1,35 +1,6 @@
 "use server";
-import { cookies } from 'next/headers'
-
-export async function login(formData) {
-  try {
-    const body = {
-      email: formData.get("email"),
-      senha: formData.get("password"),
-    };
-
-    return await fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/`, {
-      method: "POST",
-      cache: "no-store",
-      body: JSON.stringify(body),
-    })
-      .then((result) => result.json())
-      .then((res) => {
-        if (res.login !== false) {
-          const cookieStore = cookies();
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', res.plano)
-          return { redirect: true }
-        } else {
-          return { message: res.descricao }
-        }
-      });
-  } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
-  }
-}
+import { getServerSession } from "next-auth";
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
 
 export async function register(formData) {
   try {
@@ -64,10 +35,6 @@ export async function register(formData) {
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
           return { message: "O nickname em questão já está em uso." }
         } else {
-          const cookieStore = cookies();
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', 0)
           return { redirect: true }
         }
       });
@@ -77,125 +44,125 @@ export async function register(formData) {
   }
 }
 
-export async function loginGoogle(token) {
-  try {
-    const body = {
-      token_google: token
-    }
+// export async function loginGoogle(token) {
+//   try {
+//     const body = {
+//       token_google: token
+//     }
 
-    return fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
-      method: "POST",
-      body: JSON.stringify(body),
-    })
-      .then((result) => result.json())
-      .then((res) => {
-        const cookieStore = cookies();
-        cookieStore.set('token_google', body.token_google)
-        cookieStore.set('provider', 'google')
+//     return fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
+//       method: "POST",
+//       body: JSON.stringify(body),
+//     })
+//       .then((result) => result.json())
+//       .then((res) => {
+//         const cookieStore = cookies();
+//         cookieStore.set('token_google', body.token_google)
+//         cookieStore.set('provider', 'google')
 
-        if (res.cadastro != false) {
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', res.plano)
-        }
-        return res
-      });
-  } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
-  }
-}
+//         if (res.cadastro != false) {
+//           cookieStore.set('token', res.token)
+//           cookieStore.set('nick', res.nick)
+//           cookieStore.set('plano', res.plano)
+//         }
+//         return res
+//       });
+//   } catch (e) {
+//     console.log(e.toString());
+//     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
+//   }
+// }
 
-export async function loginSpotify(token) {
-  try {
-    const body = {
-      token_spotify: token
-    }
+// export async function loginSpotify(token) {
+//   try {
+//     const body = {
+//       token_spotify: token
+//     }
 
-    return fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
-      method: "POST",
-      body: JSON.stringify(body),
-    })
-      .then((result) => result.json())
-      .then((res) => {
-        const cookieStore = cookies();
-        cookieStore.set('token_spotify', body.token_spotify)
-        cookieStore.set('provider', 'spotify')
+//     return fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
+//       method: "POST",
+//       body: JSON.stringify(body),
+//     })
+//       .then((result) => result.json())
+//       .then((res) => {
+//         const cookieStore = cookies();
+//         cookieStore.set('token_spotify', body.token_spotify)
+//         cookieStore.set('provider', 'spotify')
 
-        if (res.cadastro != false) {
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', res.plano)
-        }
-        return res
-      });
-  } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
-  }
-}
+//         if (res.cadastro != false) {
+//           cookieStore.set('token', res.token)
+//           cookieStore.set('nick', res.nick)
+//           cookieStore.set('plano', res.plano)
+//         }
+//         return res
+//       });
+//   } catch (e) {
+//     console.log(e.toString());
+//     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
+//   }
+// }
 
-export async function cadastroProvider(formData) {
-  try {
-    const cookieStore = cookies();
-    const body = {
-      nome: formData.get("completeName"),
-      nick: formData.get("nickname"),
-      data_nasc: formData.get("birthday"),
-    };
+// export async function cadastroProvider(formData) {
+//   try {
+//     const cookieStore = cookies();
+//     const body = {
+//       nome: formData.get("completeName"),
+//       nick: formData.get("nickname"),
+//       data_nasc: formData.get("birthday"),
+//     };
 
-    //Verifica o provider para enviar o token certo
-    const provider = cookieStore.get('provider').value;
-    if (provider === 'google') {
-      body.token_google = cookieStore.get('token_google').value;
-    } else if (provider === 'spotify') {
-      body.token_spotify = cookieStore.get('token_spotify').value;
-    }
+//     //Verifica o provider para enviar o token certo
+//     const provider = cookieStore.get('provider').value;
+//     if (provider === 'google') {
+//       body.token_google = cookieStore.get('token_google').value;
+//     } else if (provider === 'spotify') {
+//       body.token_spotify = cookieStore.get('token_spotify').value;
+//     }
 
-    const today = new Date();
-    const userBirthday = new Date(body.data_nasc);
-    const userAge = today.getFullYear() - userBirthday.getFullYear();
-    let validAge = true;
-    if (userAge <= 0) { validAge == false; }
-    if (userAge < 18) { validAge == false; }
-    if (userAge > 130) { validAge == false; }
+//     const today = new Date();
+//     const userBirthday = new Date(body.data_nasc);
+//     const userAge = today.getFullYear() - userBirthday.getFullYear();
+//     let validAge = true;
+//     if (userAge <= 0) { validAge == false; }
+//     if (userAge < 18) { validAge == false; }
+//     if (userAge > 130) { validAge == false; }
 
-    return await fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
-      method: "POST",
-      body: JSON.stringify(body),
-    })
-      .then((result) => result.json())
-      .then((res) => {
+//     return await fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
+//       method: "POST",
+//       body: JSON.stringify(body),
+//     })
+//       .then((result) => result.json())
+//       .then((res) => {
 
-        if (res.descricao === 'Variável(s) fora do formato') {
-          return {
-            message: 'Alguma das informações inseridas é inválida.'
-          }
-        } else if (res.descricao === 'Nome não enviado. ') {
-          return { message: 'Erro ao enviar o nome!' }
-        } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true) {
-          return { message: 'Usuário já cadastrado!' }
-        } else if (res.descricao === 'Variável(s) já está cadastrada' && res.email === true) {
-          return { message: "O email em questão já está em uso." }
-        } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
-          return { message: "O nickname em questão já está em uso." }
-        } else {
-          const cookieStore = cookies();
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', 0)
-          cookies().delete('token_google')
-          cookies().delete('provider')
+//         if (res.descricao === 'Variável(s) fora do formato') {
+//           return {
+//             message: 'Alguma das informações inseridas é inválida.'
+//           }
+//         } else if (res.descricao === 'Nome não enviado. ') {
+//           return { message: 'Erro ao enviar o nome!' }
+//         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true) {
+//           return { message: 'Usuário já cadastrado!' }
+//         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.email === true) {
+//           return { message: "O email em questão já está em uso." }
+//         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
+//           return { message: "O nickname em questão já está em uso." }
+//         } else {
+//           const cookieStore = cookies();
+//           cookieStore.set('token', res.token)
+//           cookieStore.set('nick', res.nick)
+//           cookieStore.set('plano', 0)
+//           cookies().delete('token_google')
+//           cookies().delete('provider')
 
-          return { redirect: true }
-        }
-      });
-  } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
-  }
+//           return { redirect: true }
+//         }
+//       });
+//   } catch (e) {
+//     console.log(e.toString());
+//     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
+//   }
 
-}
+// }
 
 export async function enviarEmail(formData) {
   const body = {
@@ -267,13 +234,12 @@ export async function enviarNovaSenha(codigo, formData) {
   return await res.json();
 }
 
-
 export async function AlterarSenha(formData) {
-  const cookieStore = cookies();
+  const session = await getServerSession(authOption)
   const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`;
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
-  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+  headers.append("Authorization", "Bearer " + session.token);
 
   const data = {
     senha: formData.get("passwordAtual"),

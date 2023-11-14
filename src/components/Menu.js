@@ -3,30 +3,19 @@ import Image from "next/image";
 import Link from 'next/link'
 import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { signOut } from "next-auth/react";
 
-export const Menu = ({ logado }) => {
+export const Menu = ({ logado, plano }) => {
   const [sideBar, setSideBar] = useState(false);
-  const [plano, setPlano] = useState("");
 
-  const logout = () => {
-    document.cookie.split(";").forEach((cookie) => {
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-    });
+  const logout = async () => {
+    await signOut({
+      redirect: false
+    })
 
-    window.location.href = '/login';
+    window.location.href = "/"  
   };
-
-  useEffect(() => {
-    const planoDoCookie = document.cookie.split('; ')
-      .find(row => row.startsWith('plano='))
-      ?.split('=')[1];
-
-    console.log('Plano do cookie:', planoDoCookie);
-    setPlano(planoDoCookie || "");
-  }, []);
 
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
@@ -44,7 +33,7 @@ export const Menu = ({ logado }) => {
                   <li onClick={() => setSideBar(false)}>
                     <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
                   </li>
-                  {plano === "Plano%20do%20Artista" && (
+                  {plano == 2 && (
                     <li onClick={() => setSideBar(false)}>
                       <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
                     </li>

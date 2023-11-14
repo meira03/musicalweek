@@ -1,7 +1,7 @@
 "use client";
-import { useState, useContext, useCookies } from 'react';
+import { useState, useContext } from 'react';
 import { Music } from "@/components/search/Music";
-import myContext from '@/app/[lang]/artista/search/context/context';
+import myContext from '@/app/(protected)/artista/search/context/context';
 import Modal from 'react-modal';
 import { FaXmark } from 'react-icons/fa6';
 
