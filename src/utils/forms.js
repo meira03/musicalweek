@@ -72,8 +72,9 @@ export async function register(formData) {
         }
       });
   } catch (e) {
-    console.log(e.toString());
-    return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() };
+     console.log(e.toString());
+     return { message: "Ocorreu um erro, tente novamente mais tarde.", error: e.toString() 
+    };
   }
 }
 
@@ -144,7 +145,7 @@ export async function cadastroProvider(formData) {
       data_nasc: formData.get("birthday"),
     };
 
-    //Verifica o provider para enviar o token certo
+
     const provider = cookieStore.get('provider').value;
     if (provider === 'google') {
       body.token_google = cookieStore.get('token_google').value;

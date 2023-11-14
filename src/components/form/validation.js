@@ -125,7 +125,6 @@ export function isValidInput(inputID, value) {
   }
 
   if (inputID === 'passwordAtual') {
-    console.log(value.length)
     if (value.length === 0) {
       return {
         isValid: false,
