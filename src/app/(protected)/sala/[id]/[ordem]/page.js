@@ -96,6 +96,7 @@ export default async function Page({ params: {  id, ordem } }) {
             <BiSkipPrevious className="text-6xl sm:text-8xl" />
           </Link>
           <div className="relative w-full">
+            
             <Image
               width={600}
               height={600}
@@ -110,6 +111,7 @@ export default async function Page({ params: {  id, ordem } }) {
             >
               <FaSpotify className=" text-3xl text-green-500 cursor-pointer" />
             </Link>
+            <span className={(exibirPontuacao ? "block" : "hidden") + " uppercase absolute top-2 left-2 z-40"}>Sua nota: <Pontuacao pontuacao={res.musica.nota_usuario} /></span>
             <div
               className={
                 "absolute w-full h-full top-0 left-0 bg-black-100 bg-opacity-70 flex flex-col items-center justify-center " +

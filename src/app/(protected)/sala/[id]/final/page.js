@@ -9,6 +9,7 @@ export const metadata = {
 
 export default async function Page({ params: {  id } }) {
   let res = await pesquisaSalaFinal(id);
+
   for (let i = 0; i < res.musicas.length; i++) {
     res.musicas[i].musica = await getMusic(res.musicas[i].musica);
   }

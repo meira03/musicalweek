@@ -5,7 +5,7 @@ import { authOption } from "@/app/api/auth/[...nextauth]/route";
 export async function perfilUsuario() {
   try {
     const session = await getServerSession(authOption)
-    const token = session.token;
+    const token = session?.token;
     const url = `https://musicalweek-api.azurewebsites.net/endpoints/usuario/`;
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
