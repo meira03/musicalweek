@@ -17,7 +17,7 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
 
   const handleEscolherPlano = () => {
     onSelect();
-    enviarPlano(index); // Use a propriedade 'index' passada
+    enviarPlano(index);
   };
 
   return (
