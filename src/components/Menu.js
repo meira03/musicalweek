@@ -9,7 +9,6 @@ import { perfilUsuario } from '../utils/user';
 
 export const Menu = ({ logado, plano }) => {
   const [sideBar, setSideBar] = useState(false);
-  const [plano, setPlano] = useState("");
   const menuRef = useRef(null);
 
   const logout = async () => {
