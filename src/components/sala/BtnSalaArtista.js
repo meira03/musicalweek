@@ -9,7 +9,7 @@ export const BtnSalaArtista = ({ participante, id_sala }) => {
     }
 
     function sairSala() {
-        res = sairSalaArtista(id_sala);
+        const res = sairSalaArtista(id_sala);
         res ? window.location.reload(true) : console.log("Erro");
     }
 
