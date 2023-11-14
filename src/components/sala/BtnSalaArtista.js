@@ -3,15 +3,15 @@ import { entraSalaArtista, sairSalaArtista } from "@/utils/artista";
 
 export const BtnSalaArtista = ({ participante, id_sala }) => {
 
-    function entrarSala() {
-        const res = entraSalaArtista(id_sala);
-        res ? window.location.reload(true) : console.log("Erro interno no servidor");
-    }
+  async function entrarSala() {
+      const res = await entraSalaArtista(id_sala);
+      res.descricao ? console.log(res) : window.location.reload();
+  }
 
-    function sairSala() {
-      const res_sai = sairSalaArtista(id_sala);
-      res_sai ? window.location.reload(true) : console.log("Erro");
-    }
+  async function sairSala() {
+      const res = await sairSalaArtista(id_sala);
+      res.descricao ? console.log(res) : window.location.reload();
+  }
 
   return (
     <>

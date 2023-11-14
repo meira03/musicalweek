@@ -4,9 +4,11 @@ import myContext from "@/app/(protected)/artista/search/context/context";
 import { Music } from "@/components/search/Music";
 
 import { criaSala } from "@/utils/artista";
+import { useRouter } from "next/navigation";
 
 export const ArtistaSubmit = () => {
   const { imageUrls } = useContext(myContext);
+  const router = useRouter()
 
   async function handleClick() {
     const musicasSelecionadas = imageUrls.map((imageInfo) => imageInfo[0]);
@@ -15,7 +17,10 @@ export const ArtistaSubmit = () => {
     if(res != undefined){
       document.getElementById("search-error").innerHTML = res;
       document.getElementById("modal-confirma").classList.add("hidden")
+      return false
     }
+    router.replace(`/artista/sala/${res.id_sala}/resumo`)
+    
   }
 
   function openModal() {
