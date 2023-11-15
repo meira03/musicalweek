@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const TopCarrossel = () => {
+const TopCarrossel = ({ dict }) => {
   const [index, setIndex] = useState(0);
   const [topMusicas, setTopMusicas] = useState([]);
   const [semanaMusicas, setSemanaMusicas] = useState([]);
@@ -98,25 +98,25 @@ const TopCarrossel = () => {
           let list;
           switch (key) {
             case 0:
-              title = "";
+              title = dict.top;
               list = topMusicas;
               break;
 
             case 1:
-              title = " DA SEMANA";
+              title = dict.top_semana;
               list = mesMusicas;
               break;
 
             case 2:
-              title = " DO MÊS";
+              title = dict.top_mes;
               list = semanaMusicas;
               break;
           }
-          console.log(list);
+
           return (
             <SwiperSlide className="h-full w-full flex flex-col justify-center items-center px-6 sm:px-12">
-              <h1 className="mt-10 neon-text text-3xl sm:text-5xl text-center">
-                TOP MÚSICAS{title}
+              <h1 className="mt-10 neon-text text-3xl sm:text-5xl text-center uppercase">
+                {title}
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 max-w-5xl mx-auto mt-10">
                 <div className="flex flex-col justify-center items-center mb-10 sm:mb-0 sm:w-3/4">

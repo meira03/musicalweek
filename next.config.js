@@ -9,8 +9,8 @@ const nextConfig = {
           pathname: './**',
         },
       ],
-    }
-    ,async headers() {
+    },
+    async headers() {
       return [
         {
           source: '/(.*)',
