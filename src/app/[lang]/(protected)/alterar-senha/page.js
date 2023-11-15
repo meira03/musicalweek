@@ -15,8 +15,8 @@ export default async function AlteraSenha() {
       router.push("/perfil");
     } else {
       if (res.descricao == "Senha errada") {
-        document.getElementById("senhaAtual-error").innerHTML = "Senha Incorreta"
-        document.getElementById("senhaAtual").classList.add("border-red-500")
+        document.getElementById("passwordAtual-error").innerHTML = "Senha Incorreta"
+        document.getElementById("passwordAtual").classList.add("border-red-500")
         setError("Senha Atual Incorreta");
       } else {
         setError(res.descricao);
@@ -28,7 +28,6 @@ export default async function AlteraSenha() {
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div>
         <h1 className="text-center text-4xl font-bold mb-6 uppercase text-neon-blue-200  neon-text">
-
           ALTERAR SENHA
         </h1>
         {error && (
@@ -38,14 +37,13 @@ export default async function AlteraSenha() {
         )}
 
         <form action={handleSubmit}>
-        <div className="mb-4">
+          <div className="mb-4">
             <Input
               id="passwordAtual"
               type="password"
               name="passwordAtual"
               placeholder="DIGITE A SENHA ATUAL"
             />
-            <p id={"passwordConfirmation-error"} className="text-red-500 text-xs"></p>
           </div>     
           <div className="mb-4">
             <Input

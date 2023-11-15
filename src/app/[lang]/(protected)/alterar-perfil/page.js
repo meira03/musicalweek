@@ -17,8 +17,11 @@ export default async function AlterarPerfil({ params: { lang } }) {
   function formatDateForState(dateString) {
     if (!dateString) return '';
     const [day, month, year] = dateString.split('/');
-    return `${year}-${day}-${month}`;
+    const formattedMonth = month.padStart(2, '0');
+    const formattedDay = day.padStart(2, '0');
+    return `${year}-${formattedMonth}-${formattedDay}`;
   }
+  
 
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">

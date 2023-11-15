@@ -45,21 +45,21 @@ export default async function Perfil({ params: { lang } }) {
 
             {res.plano === "0" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   {dict.quero_ser_premium}
                 </button>
               </Link>
             )}
             {res.plano === "1" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   {dict.ver_outros_planos}
                 </button>
               </Link>
             )}
             {res.plano === "2" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   {dict.ver_outros_planos}
                 </button>
               </Link>
@@ -69,20 +69,20 @@ export default async function Perfil({ params: { lang } }) {
             <div className="grid grid-row-3 gap-4 text-white ">
               <div>
                 <p className="font-medium">{dict.nome_completo}</p>
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.nome}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">{dict.email}</p>
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2" style={{ wordWrap: 'break-word' }}>{res.email}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">{dict.nome_de_usuario}</p>
 
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.data_nasc}</p>
                 </div>
               </div>
@@ -93,15 +93,15 @@ export default async function Perfil({ params: { lang } }) {
               <div>
                 <h3 className='flex justify-center mb-1'>{dict.acoes}</h3>
                 <Link href="alterar-perfil/">
-                  <button className="bg-teal-500 w-full hover:bg-teal-600 text-white py-1.5">
+                  <button className="bg-neon-blue-200 hover:bg-neon-blue-300 w-full  text-white py-1.5">
                     {dict.alterar_dados}
                   </button>
                 </Link>
               </div>
 
               <Link href="alterar-senha/">
-                <button className="bg-teal-500 hover:bg-teal-600 w-full text-white py-1.5">
-                  {dict.alterar_senha}
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 w-full text-white py-1.5">
+                {dict.alterar_senha}
                 </button>
               </Link>
 
