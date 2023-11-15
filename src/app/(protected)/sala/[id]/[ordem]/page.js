@@ -65,7 +65,7 @@ export default async function Page({ params: { id, ordem } }) {
                 </span>
                 {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
                   <>
-                    <span className="flex justify-center items-center text-lg">nota:</span>
+                    <span className="flex justify-center items-center text-lg">Nota:</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
                   </>
                 )}
@@ -163,7 +163,7 @@ export default async function Page({ params: { id, ordem } }) {
                 </span>
                 {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
                   <>
-                    <span className="flex justify-center items-center text-lg">nota:</span>
+                    <span className="flex justify-center items-center text-lg">Nota:</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
                   </>
                 )}
@@ -192,7 +192,7 @@ export default async function Page({ params: { id, ordem } }) {
             </span>
             {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
               <>
-                <span className="flex justify-center items-center text-lg">nota:</span>
+                <span className="flex justify-center items-center text-lg">Nota:</span>
                 <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
               </>
             )}
