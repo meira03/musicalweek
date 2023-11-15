@@ -7,7 +7,7 @@ import SignInButtonSpotify from "@/components/login/SignInButtonSpotify";
 import { signIn } from "next-auth/react";
 
 export default function Login() {
-  const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('')
 
   async function handleSubmit(e) {
     e.preventDefault();
