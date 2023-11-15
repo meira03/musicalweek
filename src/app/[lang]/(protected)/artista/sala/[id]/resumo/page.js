@@ -1,7 +1,7 @@
 import { pesquisaSalaArtista } from "@/utils/artista";
 import { getMusic } from "@/utils/spotify";
 import { ArtistaMusicaResumo } from "@/components/sala/ArtistaMusicaResumo";
-import { ArtistaTopMusicaResumo } from "../../../../../../components/sala/ArtistaTopMusicaResumo";
+import { ArtistaTopMusicaResumo } from "@/components/sala/ArtistaTopMusicaResumo";
 
 export const metadata = {
   title: "Sala do Artista",

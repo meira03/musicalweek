@@ -5,7 +5,7 @@ import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
-import { perfilUsuario } from '../utils/user';
+import { perfilUsuario } from '@/utils/user';
 
 export const Menu = ({ logado, plano }) => {
   const [sideBar, setSideBar] = useState(false);
