@@ -6,7 +6,6 @@ import { authOption } from "@/app/api/auth/[...nextauth]/route";
 const BotaoEntrarSalaArtista = ({ salaId }) => {
     const cookies = getSession(authOption);
     const handleEntrarSala = async () => {
-        console.log('Sala ID:', salaId);
 
         if (cookies.token) {
             const url = 'https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php';
@@ -37,7 +36,6 @@ const BotaoEntrarSalaArtista = ({ salaId }) => {
             window.location.reload();
         } else {
             window.location.href = '/login';
-            console.log('Redirecionando para a página de login...');
         }
     };
 

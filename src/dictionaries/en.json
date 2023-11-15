@@ -1,4 +1,25 @@
 {
+    "home": {
+        "como_participar_titulo": "How to Participate",
+        "como_participar": {
+            "passo_1": "Step 1",
+            "passo_1_texto": "Choose a song to participate in a room",
+            "passo_2": "Step 2",
+            "passo_2_texto": "Wait for other users to enter the room",
+            "passo_3": "Step 3",
+            "passo_3_texto": "Listen to and evaluate songs daily"
+        },
+        "participe": "Participate Now!",
+        "salas_artistas_titulo": "Rooms of the Artists",
+        "salas_artistas": {
+            "escolhas": "Choices of"
+        },
+        "top": {
+            "top": "TOP Songs",
+            "top_mes": "TOP Songs of the Month",
+            "top_semana": "TOP Songs of the Week"
+        }
+    },    
     "alterar_perfil": {
         "alterar_dados": "Change Data",
         "alterar_perfil": "Change Profile"
@@ -20,7 +41,8 @@
     },
     "artista_sala_resumo": {
         "sala_artista": "Artist's Room",
-        "resumo": "Summary"
+        "resumo": "Summary",
+        "quant_usuarios": "Number of users:"
     },
     "artista_search": {
         "criar_sala_artista": "Create Artist's Room",
@@ -105,24 +127,24 @@
         "escolher_plano": "Choose Plan"
     },
     "planos": {
-        "plano_gratuito": "Free Plan.",
-        "gratis": "Free.",
-        "limite_2_salas": "Limit of 2 rooms.",
-        "ilimitado": "Unlimited.",
-        "limite_5_salas": "Limit of 5 rooms.",
-        "plano_premium": "Premium Plan.",
-        "limite_10_salas": "Limit of 10 rooms.",
-        "plano_artista": "Artist's Plan.",
-        "limite_30_salas": "Limit of 30 rooms.",
-        "limite_60_salas": "Limit of 60 rooms.",
-        "limite_1_sala_ativa": "Limit of 1 active room.",
-        "personalizadas": "Customized.",
-        "escolha_plano": "Choose the plan that best suits your needs and enjoy the full benefits of our application with paid plans. Discover a universe of music in one place.",
-        "parabens": "Congratulations",
-        "plano_atualizado": "Your plan has been successfully updated!",
-        "ok": "OK"
-    },
+        "planos_precos": "Plans and Pricing",
+        "plano_gratuito": "Free Plan",
+        "gratis": "Free",
+        "limite_2_salas": "Standard Rooms: Limit of 2 rooms",
+        "ilimitado": "Artist Rooms: Unlimited",
+        "limite_5_salas": "History: Limit of 5 rooms",
+        "plano_premium": "Premium Plan",
+        "limite_5_salas_sp": "Standard Rooms: Limit of 5 rooms",
+        "limite_10_salas": "History: Limit of 10 rooms",
+        "plano_artista": "Artist Plan",
+        "limite_30_salas": "Standard Rooms: Limit of 30 rooms",
+        "limite_60_salas": "History: Limit of 60 rooms",
+        "limite_1_sala_ativa": "Artist Room Creation: Limit of 1 active room",
+        "personalizadas": "Statistics: Customized",
+        "escolha_plano": "Choose the plan that best suits your needs and enjoy the full benefits of our application with our paid plans. Discover a universe of music all in one place."
+    },    
     "sala_id_ordem": {
+        "sala": "Room",
         "fim_sala": "End of the room in:",
         "proxima_musica": "Next song in:",
         "pontuacao": "Score",
@@ -142,11 +164,8 @@
     },
     "salas": {
         "proxima_em": "Next in:",
+        "veja_resultados": "SEE THE RESULTS",
         "pontuacao": "Score"
-    },
-    "home": {
-        "como_participar": "How to participate",
-        "salas_artistas": "Artist's rooms"
     },
     "components_button": {
         "data_nascimento_invalida": "Invalid date of birth",

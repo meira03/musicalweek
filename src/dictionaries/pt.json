@@ -1,4 +1,25 @@
 {
+    "home": {
+        "como_participar_titulo": "Como participar",
+        "como_participar" : {
+            "passo_1": "Passo 1",
+            "passo_1_texto": "Escolha uma música para participar de uma sala",
+            "passo_2": "Passo 2",
+            "passo_2_texto": "Aguarde outros usuários entrarem na sala",
+            "passo_3": "Passo 3",
+            "passo_3_texto": "Ouça e avalie as músicas diariamente"
+        },
+        "participe": "Participe Agora!",
+        "salas_artistas_titulo": "Salas dos artistas",
+        "salas_artistas": {
+            "escolhas": "Escolhas de"
+        },
+        "top": {
+            "top": "TOP músicas",
+            "top_mes": "TOP músicas do mês",
+            "top_semana": "TOP músicas da semana"
+        }
+    },
     "alterar_perfil": {
 	    "alterar_dados": "Alterar Dados",
         "alterar_perfil": "Alterar Perfil"
@@ -20,7 +41,8 @@
     },
     "artista_sala_resumo": {
         "sala_artista": "Sala do Artista",
-        "resumo": "Resumo"
+        "resumo": "Resumo",
+        "quant_usuarios": "Quantidade de usuários:"
     },
     "artista_search": {
         "criar_sala_artista": "Criar Sala do Artista",
@@ -105,24 +127,24 @@
         "escolher_plano": "Escolher Plano"
     },
     "planos": {
+        "planos_precos": "Planos e Preços",
         "plano_gratuito": "Plano Gratuito.",
         "gratis": "Grátis.",
-        "limite_2_salas": "Limite de 2 salas.",
-        "ilimitado": "Ilimitado.",
-        "limite_5_salas": "Limite de 5 salas.",
+        "limite_2_salas": "Salas Padrões: Limite de 2 salas.",
+        "ilimitado": " Salas de Artistas: Ilimitado.",
+        "limite_5_salas": "Histórico: Limite de 5 salas.",
         "plano_premium": "Plano Premium.",
-        "limite_10_salas": "Limite de 10 salas.",
+        "limite_5_salas_sp": "Salas Padrões: Limite de 5 salas",
+        "limite_10_salas": "Histórico: Limite de 10 salas.",
         "plano_artista": "Plano do Artista.",
-        "limite_30_salas": "Limite de 30 salas.",
-        "limite_60_salas": "Limite de 60 salas.",
-        "limite_1_sala_ativa": "Limite de 1 sala ativa.",
-        "personalizadas": "Personalizadas.",
-        "escolha_plano": "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.",
-        "parabens": "Parabéns",
-        "plano_atualizado": "Seu plano foi atualizado com sucesso!",
-        "ok": "OK"
+        "limite_30_salas": "Salas Padrões: Limite de 30 salas.",
+        "limite_60_salas": "Histórico: Limite de 60 salas.",
+        "limite_1_sala_ativa": "Criação de Salas de Artista: Limite de 1 sala ativa.",
+        "personalizadas": "Estatísticas: Personalizadas.",
+        "escolha_plano": "Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar."
     },
     "sala_id_ordem": {
+        "sala": "Sala",
         "fim_sala": "Fim da sala em:",
         "proxima_musica": "Próxima música em:",
         "pontuacao": "Pontuação",
@@ -142,11 +164,8 @@
     },
     "salas": {
         "proxima_em": "Próxima em:",
+        "veja_resultados": "VEJA OS RESULTADOS",
         "pontuacao": "Pontuação:"
-    },
-    "home": {
-        "como_participar": "Como participar",
-        "salas_artistas": "Salas dos artistas"
     },
     "components_button": {
         "data_nascimento_invalida": "Data de nascimento inválida",

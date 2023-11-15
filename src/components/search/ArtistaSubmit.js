@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import myContext from "@/app/(protected)/artista/search/context/context";
+import myContext from "@/app/[lang]/(protected)/artista/search/context/context";
 import { Music } from "@/components/search/Music";
 
 import { criaSala } from "@/utils/artista";

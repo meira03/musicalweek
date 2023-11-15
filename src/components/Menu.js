@@ -1,14 +1,16 @@
 "use client";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from 'next/link';
 import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
-import { perfilUsuario } from '../utils/user';
+import { perfilUsuario } from '@/utils/user';
 
-export const Menu = ({ logado, plano }) => {
+export const Menu = ({ logado, plano: propPlano }) => {
   const [sideBar, setSideBar] = useState(false);
+  const [plano, setPlano] = useState("");
+
   const menuRef = useRef(null);
 
   const logout = async () => {
@@ -23,7 +25,6 @@ export const Menu = ({ logado, plano }) => {
     const fetchData = async () => {
       try {
         const perfil = await perfilUsuario();
-
         const planoDoPerfil = perfil?.plano;
 
         console.log('Plano do perfil:', planoDoPerfil);
@@ -55,7 +56,7 @@ export const Menu = ({ logado, plano }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
       <div className="h-[70%] w-full flex justify-between items-center" ref={menuRef}>

@@ -123,14 +123,18 @@ export async function deleteAccount(token) {
   }
 }
 
-export async function updatePlano(token, planoIndex) {
+export async function updatePlano(planoIndex) {
   try {
+    const session = await getServerSession(authOption)
+    const token = session.token;
+
     const data = { plano: planoIndex };
 
     const res = await fetch(
       "https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php",
       {
         method: "PUT",
+        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -150,3 +154,34 @@ export async function updatePlano(token, planoIndex) {
     return false; // Indica erro
   }
 }
+
+export async function alterarIcone(imageInfo) {
+  try {
+    const session = await getServerSession(authOption)
+    const data = {icon: "icone" + imageInfo + ".png"};
+
+    const res = await fetch(
+      "https://musicalweek-api.azurewebsites.net/endpoints/usuario/icone/index.php",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + session.token,
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        console.error("Erro na requisição:", error);
+      });
+    return await res.json();
+  } catch (error) {
+    console.error("Erro ao atualizar o plano", error);
+    return false; // Indica erro
+  }
+}
+
+
