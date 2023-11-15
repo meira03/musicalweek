@@ -1,15 +1,16 @@
 "use client";
 import React from 'react';
+import { getSession } from 'next-auth/react';
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
 
-const BotaoEntrarSalaArtista = ({ salaId, cookies }) => {
+const BotaoEntrarSalaArtista = ({ salaId }) => {
+    const cookies = getSession(authOption);
     const handleEntrarSala = async () => {
         console.log('Sala ID:', salaId);
 
         if (cookies.token) {
             const url = 'https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php';
             const data = { "id_sala": salaId };
-
-            console.log(cookies.token);
             try {
                 const response = await fetch(url, {
                     method: 'POST',

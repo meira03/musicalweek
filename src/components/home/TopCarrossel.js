@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const TopCarrossel = () => {
+const TopCarrossel = (props) => {
   const [index, setIndex] = useState(0);
   const [topMusicas, setTopMusicas] = useState([]);
   const [semanaMusicas, setSemanaMusicas] = useState([]);
@@ -22,37 +22,40 @@ const TopCarrossel = () => {
   const [isLoading1, setLoading1] = useState(true);
   const [isLoading2, setLoading2] = useState(true);
 
-  const top_musicas = JSON.parse(`
-  [
-    [
-      "4tCtwWceOPWzenK2HAIJSb",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ],
-    [
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ],
-    [
-      "6ocbgoVGwYJhOv1GgI9NsF",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ]
-  ]
-  `);
+  const top_musicas = props.data.top_musicas
+
+  console.log(top_musicas)
+  // const top_musicas = JSON.parse(`
+  // [
+  //   [
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ],
+  //   [
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ],
+  //   [
+  //     "6ocbgoVGwYJhOv1GgI9NsF",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ]
+  // ]
+  // `);
 
   useEffect(() => {
     if (isLoading) {
@@ -68,21 +71,21 @@ const TopCarrossel = () => {
     if (isLoading1) {
       const promisses = top_musicas[1].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setSemanaMusicas(musica);
+        setMesMusicas(musica);
         setLoading1(false);
       });
     }
-  }, [semanaMusicas]);
+  }, [mesMusicas]);
 
   useEffect(() => {
     if (isLoading2) {
       const promisses = top_musicas[2].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setMesMusicas(musica);
+        setSemanaMusicas(musica);
         setLoading2(false);
       });
     }
-  }, [mesMusicas]);
+  }, [semanaMusicas]);
 
   if (isLoading || isLoading1 || isLoading2) {
     return <>Carregando...</>;
@@ -98,17 +101,15 @@ const TopCarrossel = () => {
           let list;
           switch (key) {
             case 0:
-              title = "";
+              title = " DA SEMANA";
               list = topMusicas;
               break;
-
             case 1:
-              title = " DA SEMANA";
+              title = " DO MÊS";
               list = mesMusicas;
               break;
-
             case 2:
-              title = " DO MÊS";
+              title = "";
               list = semanaMusicas;
               break;
           }
@@ -120,7 +121,7 @@ const TopCarrossel = () => {
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 max-w-5xl mx-auto mt-10">
                 <div className="flex flex-col justify-center items-center mb-10 sm:mb-0 sm:w-3/4">
-                  <div className="border border-neon-blue-200 flex justify-center items-center">
+                  <div className="border border-neon-blue-200 relative">
                     <Image
                       src={list[0].album.images[0].url}
                       alt={list[0].name}
@@ -128,6 +129,9 @@ const TopCarrossel = () => {
                       height={600}
                       className="p-2"
                     />
+                    <span className="neon-text text-4xl tracking-widest absolute bottom-0 left-2 right-0 p-3">
+                      {1}º
+                    </span>
                   </div>
                   <h3 className="max-w-full text-center text-xl sm:text-2xl truncate text-elipsis">
                     {list[0].name}
@@ -178,5 +182,4 @@ const TopCarrossel = () => {
     );
   }
 };
-
 export default TopCarrossel;

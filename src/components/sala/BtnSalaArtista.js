@@ -3,15 +3,17 @@ import { entraSalaArtista, sairSalaArtista } from "@/utils/artista";
 
 export const BtnSalaArtista = ({ participante, id_sala }) => {
 
-    function entrarSala() {
-        const res = entraSalaArtista(id_sala);
-        res ? window.location.reload : console.log("Erro interno no servidor");
-    }
+  async function entrarSala() {
+    const res = await entraSalaArtista(id_sala);
 
-    function sairSala(id_musica_sala) {
-      console.log("código Meira");
-      sairSalaArtista(id_musica_sala);
-    }
+    res.descricao ? console.log(res) : window.location.reload();
+  }
+
+  async function sairSala() {
+    const res = await sairSalaArtista(id_sala);
+  
+    res.descricao ? console.log(res) : window.location.href = '/salas/';
+  }
 
   return (
     <>

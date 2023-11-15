@@ -9,7 +9,7 @@ export const SairFila = ({ id_musica_sala }) => {
   }
 
   return (
-    <div onClick={handleClick} className="absolute -right-16 top-8 text-red-700 hover:text-red-600 text-4xl cursor-pointer">
+    <div onClick={handleClick} className="absolute right-1 top-0 bg-neon-blue-200 sm:bg-transparent z-50 rounded-b sm:-right-16 sm:top-8 text-red-700 hover:text-red-600 sm:text-4xl cursor-pointer">
         <FaXmark />
     </div>
   );

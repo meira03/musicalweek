@@ -1,15 +1,28 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
-import { alterarPerfil } from '@/utils/user';
+import { alterarIcone, alterarPerfil } from '@/utils/user';
 
+
+async function handleClick(imageInfo) {
+    console.log("IMAGEINFO:" + imageInfo);
+    //const token = session.token || null;
+
+    const res = await alterarIcone(imageInfo);
+    console.log(res.sucesso);
+    window.location.href = '/perfil';
+    //     if (res.sucesso === true){ 
+    //         window.location.href = '/perfil'
+    //         setShowConfirmationModal(false);
+    //     }
+    //     //else document.getElementById('search-error').innerHTML = res.error
+}
 
 Modal.setAppElement(null);
 
 export default function ModalProfile(props) {
-    const [cookies, setCookie] = useCookies(['token']);
+    
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [imageHover, setImageHover] = useState(false);
     const [profilePics, setProfilePics] = useState([
@@ -73,8 +86,9 @@ export default function ModalProfile(props) {
                 className="modal static inset-0 flex items-center justify-center z-50 m-auto "
                 overlayClassName="modal-overlay absolute inset-0 bg-black overflow-auto"
             >
-                <div className='absolute top-0 left-0 h-screen w-screen flex justify-center items-center'>
-                    <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg w-4/5 mx-auto flex flex-col items-center justify-center align-middle">
+                <div className='h-screen left-0 right-0 top-0 flex absolute justify-center items-center'>
+
+                    <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg px-5 mx-auto flex flex-col items-center justify-center align-middle">
                         <h2 className="text-2xl font-semibold mb-6 text-black">Selecione a foto desejada</h2>
                         <div className='grid 
                                             grid-cols-2 gap-3
@@ -95,13 +109,17 @@ export default function ModalProfile(props) {
                                                     
                                                 ].join('-');                                        
 
+                                                // const data = {
+                                                //     nome: props.perfil.nome,
+                                                //     nick: props.perfil.nick,
+                                                //     data_nasc: date,
+                                                //     icon: "icone" + imageInfo + ".png"
+                                                // };
                                                 const data = {
-                                                    nome: props.perfil.nome,
-                                                    nick: props.perfil.nick,
-                                                    data_nasc: date,
                                                     icon: "icone" + imageInfo + ".png"
                                                 };
-                                                handleClick(data);
+                                                
+                                                handleClick(imageInfo);
                                             }}
                                         >
                                             <Image
@@ -110,7 +128,7 @@ export default function ModalProfile(props) {
                                                 height={0}
                                                 width={0}
                                                 sizes="100vw"
-                                                className=" hover:opacity-40 border-solid border-2 mb-1 border-zinc-800 w-auto h-34 sm:h-40 md:h-52 lg:h-28 xl:h-24 "
+                                                className=" hover:opacity-40 border-solid border-2 mb-1 border-zinc-800 w-full h-34 sm:h-40 md:h-52 lg:h-28 xl:h-24 2xl:h-48"
                                             />
                                         </button>
                                     </div>
@@ -124,7 +142,6 @@ export default function ModalProfile(props) {
                             Cancelar
                         </button>
                     </div>
-
                 </div>
             </Modal>
         </div>

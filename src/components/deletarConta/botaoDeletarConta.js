@@ -1,20 +1,20 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
 import { deleteAccount } from '@/utils/user'
-import { redirect, useRouter } from 'next/navigation';
+import { getSession } from 'next-auth/react';
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
+import { signOut } from "next-auth/react";
 
 Modal.setAppElement(null);
 
 export default function DeleteAccount() {
   const [deleting, setDeleting] = useState(false);
-  const [cookies, setCookie] = useCookies(['token']);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const router = useRouter();
 
   async function handleDeleteAccount() {
     setDeleting(true);
+    const cookies = await getSession(authOption)
 
     const token = cookies.token || null;
 
@@ -23,12 +23,11 @@ export default function DeleteAccount() {
       return;
     }
 
-    const res = deleteAccount(token);
+    await signOut({
+      redirect: false
+    })
 
-    router.push('/home')
-
-    setDeleting(false);
-    setShowConfirmationModal(false);
+    window.location.href = "/"  
 
   };
 
@@ -50,8 +49,8 @@ export default function DeleteAccount() {
         className="modal fixed inset-0 flex items-center justify-center z-50"
         overlayClassName="modal-overlay fixed inset-0 bg-black"
       >
-        <div className="bg-zinc-950 p-6 border border-gray-600 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-semibold mb-6 text-black">Confirma a Exclusão da Conta?</h2>
+        <div className="bg-zinc-950 p-4 md:p-6 border border-gray-600 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/2 mx-auto flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-semibold mb-6 text-black ">Confirma a Exclusão da Conta?</h2>
           <p className="text-xl mb-6 text-black">Tem certeza de que deseja excluir sua conta?</p>
           <div className="flex space-x-4">
             <button

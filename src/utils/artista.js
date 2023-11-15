@@ -1,15 +1,16 @@
 "use server";
-import { cookies } from "next/headers";
+import { getServerSession } from "next-auth";
+import { authOption } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
-export async function criaSala(musicasSelecionadas) {
-  const cookieStore = cookies();
 
+export async function criaSala(musicasSelecionadas) {
+  const session = await getServerSession(authOption)
   const url =
     "https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php";
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
-  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+  headers.append("Authorization", "Bearer " + session.token);
 
   const data = {
     musicas: musicasSelecionadas,
@@ -36,13 +37,13 @@ export async function criaSala(musicasSelecionadas) {
 }
 
 export async function entraSalaArtista(id_sala) {
-  const cookieStore = cookies();
-
+  const session = await getServerSession(authOption)
+  
   const url =
     "https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php";
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
-  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+  headers.append("Authorization", "Bearer " + session.token);
 
   const data = {
     id_sala: id_sala,
@@ -64,14 +65,77 @@ export async function entraSalaArtista(id_sala) {
     })
 }
 
+<<<<<<< HEAD
 export async function sairSalaArtista(id_sala_artista) {
   const cookieStore = cookies();
+=======
+export async function pesquisaSalaArtista(id_sala) {
+  const session = await getServerSession(authOption)
+
+  const url = `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala}`;
+
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + session.token);
+
+  return fetch(url, {
+    method: "GET",
+    headers: headers,
+    credentials: "include",
+    cache: "no-store",
+  })
+    .then((result) => result.json())
+    .then((data) => {
+      if (data.sala !== undefined) {
+        return data;
+      } else {
+        console.error("Não foi possível obter as informações da sala");
+        return { error: "Não foi possível obter as informações da sala." };
+      }
+    })
+}
+
+export async function pesquisaMusicaArtista(id_sala, ordem) {
+  const session = await getServerSession(authOption)
+
+  const url =
+    `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/musica/index.php?id_sala=${id_sala}&posicao=${ordem}`;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + session.token);
+
+  return await fetch(url, {
+    method: "GET",
+    headers: headers,
+    credentials: "include",
+    cache: "no-store",
+  })
+    .then((result) => {
+      if(!result.ok || result.status != 200){
+        redirect('/salas')
+      }
+      return result.json();
+    }).then((res) => {
+      if(res.id_sala === false){
+        redirect('/salas')
+      }
+      return res
+    })
+}
+
+export async function sairSalaArtista(id_sala_artista) {
+  const session = await getServerSession(authOption)
+>>>>>>> master
   
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala_artista}`;
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
+<<<<<<< HEAD
   headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
+=======
+  headers.append("Authorization", "Bearer " + session.token);
+>>>>>>> master
 
   return await fetch(url, {
     method: "DELETE",
@@ -83,4 +147,8 @@ export async function sairSalaArtista(id_sala_artista) {
     .then((res) => {
       return res
     });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

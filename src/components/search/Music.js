@@ -10,7 +10,7 @@ export const Music = ({ track, click = true }) => {
 
   async function handleClick(id_musica) {
     insereMusica(id_musica).then((res) => {
-      if (res.redirect != undefined) router.push(res.redirect);
+      if (res.redirect != undefined) window.location.href = (res.redirect);
       else document.getElementById("search-error").innerHTML = res.error;
     });
   }

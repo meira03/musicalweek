@@ -1,21 +1,26 @@
 "use client";
 import { useContext } from "react";
-import myContext from "@/app/[lang]/artista/search/context/context";
+import myContext from "@/app/(protected)/artista/search/context/context";
 import { Music } from "@/components/search/Music";
 
 import { criaSala } from "@/utils/artista";
+import { useRouter } from "next/navigation";
 
 export const ArtistaSubmit = () => {
   const { imageUrls } = useContext(myContext);
+  const router = useRouter()
 
   async function handleClick() {
     const musicasSelecionadas = imageUrls.map((imageInfo) => imageInfo[0]);
 
     const res = await criaSala(musicasSelecionadas);
-    if(res != undefined){
+    if (res != undefined) {
       document.getElementById("search-error").innerHTML = res;
       document.getElementById("modal-confirma").classList.add("hidden")
+      return false
     }
+    router.replace(`/artista/sala/${res.id_sala}/resumo`)
+
   }
 
   function openModal() {
@@ -58,7 +63,7 @@ export const ArtistaSubmit = () => {
             })}
           </div>
           <button onClick={handleClick} className="uppercase text-xl text-white mt-4 px-2 py-2 text-center bg-neon-blue-200">
-            Inciar a Sala
+            Iniciar Sala
           </button>
         </div>
       </div>

@@ -43,6 +43,10 @@ export default function InputField(props) {
       isValid: true,
       message: '',
     },
+    passwordAtual: {
+      isValid: true,
+      message: '',
+    },
     emailEsqueciSenha: {
       isValid: true,
       message: '',
@@ -66,6 +70,7 @@ export default function InputField(props) {
     const emailValidation = isValidInput('email', value);
     const passwordValidation = isValidInput('password', value);
     const passwordCadastroValidation = isValidInput('passwordCadastro', value);
+    const passwordAtualValidation = isValidInput('passwordAtual', value);
     const passwordConfirmationValidation = isValidInput('passwordConfirmation', value);
     const emailEsqueciSenhaValidation = isValidInput('emailEsqueciSenha', value);
 
@@ -85,6 +90,7 @@ export default function InputField(props) {
       email: emailValidation,
       password: passwordValidation,
       passwordCadastro: passwordCadastroValidation,
+      passwordAtual: passwordAtualValidation,
       passwordConfirmation: passwordConfirmationValidation,
       emailEsqueciSenha: emailEsqueciSenhaValidation,
     });
@@ -114,18 +120,19 @@ export default function InputField(props) {
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'Nome Completo' :
-            props.id === 'nickname' ? 'Nome de Usuário' :
-              props.id === 'birthday' ? 'Data de Nascimento' :
-                props.id === 'email' ? 'E-mail' :
-                  props.id === 'password' ? 'Senha' :
-                    props.id === 'passwordCadastro' ? 'Senha' :
-                      props.id === 'passwordConfirmation' ? 'Confirmação de Senha' :
-                        props.id === 'emailEsqueciSenha' ? 'E-mail' : 'Outro'
+          props.id === 'completeName' ? 'NOME COMPLETO' :
+            props.id === 'nickname' ? 'NOME DE USUÁRIO' :
+              props.id === 'birthday' ? 'DATA DE NASCIMENTO' :
+                props.id === 'email' ? 'E-MAIL' :
+                  props.id === 'password' ? 'SENHA' :
+                    props.id === 'passwordCadastro' ? 'SENHA' :
+                      props.id === 'passwordAtual' ? 'SENHA ATUAL' :
+                        props.id === 'passwordConfirmation' ? 'CONFIRMAÇÃO DE SENHA' :
+                          props.id === 'emailEsqueciSenha' ? 'E-MAIL' : 'OUTRO'
         }
       </label>
       <input
-        className={`text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
+        className={`text-sm shadow appearance-none border border-neon-blue-200 w-full py-2 px-3 bg-black-100 text-gray-700 dark:text-zinc-100 leading-tight focus:outline-none focus:shadow-outline ${!validation[props.id].isValid ? 'border-red-500' : ''}`}
         id={props.id}
         type={props.type}
         name={props.id}
