@@ -23,7 +23,7 @@ export default async function Page({ params: { lang } }) {
         <ParticipeAgora dict={dict.participe} ></ParticipeAgora>
       </section>
       <section className="my-9">
-        <h1 className="neon-text text-4xl sm:text-6xl text-center mb-9 uppercase">
+        <h1 className="neon-text text-4xl sm:text-5xl text-center mb-9 uppercase">
           {dict.salas_artistas_titulo}
         </h1>
         <ArtistasCarrossel salas_artista={data.salas_artista} dict={dict.salas_artistas} />
