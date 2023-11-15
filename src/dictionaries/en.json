@@ -1,4 +1,25 @@
 {
+    "home": {
+        "como_participar_titulo": "How to Participate",
+        "como_participar": {
+            "passo_1": "Step 1",
+            "passo_1_texto": "Choose a song to participate in a room",
+            "passo_2": "Step 2",
+            "passo_2_texto": "Wait for other users to enter the room",
+            "passo_3": "Step 3",
+            "passo_3_texto": "Listen to and evaluate songs daily"
+        },
+        "participe": "Participate Now!",
+        "salas_artistas_titulo": "Rooms of the Artists",
+        "salas_artistas": {
+            "escolhas": "Choices of"
+        },
+        "top": {
+            "top": "TOP Songs",
+            "top_mes": "TOP Songs of the Month",
+            "top_semana": "TOP Songs of the Week"
+        }
+    },    
     "alterar_perfil": {
         "alterar_dados": "Change Data",
         "alterar_perfil": "Change Profile"
@@ -143,10 +164,6 @@
     "salas": {
         "proxima_em": "Next in:",
         "pontuacao": "Score"
-    },
-    "home": {
-        "como_participar": "How to participate",
-        "salas_artistas": "Artist's rooms"
     },
     "components_button": {
         "data_nascimento_invalida": "Invalid date of birth",
