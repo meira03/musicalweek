@@ -65,10 +65,6 @@ export async function entraSalaArtista(id_sala) {
     })
 }
 
-<<<<<<< HEAD
-export async function sairSalaArtista(id_sala_artista) {
-  const cookieStore = cookies();
-=======
 export async function pesquisaSalaArtista(id_sala) {
   const session = await getServerSession(authOption)
 
@@ -125,17 +121,12 @@ export async function pesquisaMusicaArtista(id_sala, ordem) {
 
 export async function sairSalaArtista(id_sala_artista) {
   const session = await getServerSession(authOption)
->>>>>>> master
   
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala_artista}`;
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
-<<<<<<< HEAD
-  headers.append("Authorization", "Bearer " + cookieStore.get("token").value);
-=======
   headers.append("Authorization", "Bearer " + session.token);
->>>>>>> master
 
   return await fetch(url, {
     method: "DELETE",
@@ -147,8 +138,4 @@ export async function sairSalaArtista(id_sala_artista) {
     .then((res) => {
       return res
     });
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
