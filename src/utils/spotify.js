@@ -17,7 +17,7 @@ export async function auth() {
   });
 
   if (!res.ok) {
-    throw new Error('Failed to auth Spotify API')
+    console.log('Failed to auth Spotify API')
   }
 
   return res.json()
@@ -37,8 +37,9 @@ export async function searchData(param) {
   );
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to search data')
+    console.log(await res.json())
+    console.log('Spotify Error')
+    return {}
   }
 
   return res.json()
@@ -60,7 +61,9 @@ export async function getMusic(id_music) {
   // console.log("retorno do res.ok " + res.ok);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to search data')
+    console.log(await res.json())
+    console.log('Spotify Error')
+    return {}
   }
 
   return res.json()
@@ -80,7 +83,9 @@ export async function getRecommendations() {
   );
 
   if (!res.ok) {
-    throw new Error('Failed to search data')
+    console.log(await res.json())
+    console.log('Spotify Error')
+    return {}
   }
 
   return res.json()
