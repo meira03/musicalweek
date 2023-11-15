@@ -15,12 +15,16 @@ import { Avaliacao } from "@/components/sala/Avaliacao";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { FaSpotify } from "react-icons/fa6";
 import Image from "next/image";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: 'Sala',
+  title: '{dict.sala}',
 }
 
-export default async function Page({ params: { id, ordem } }) {
+export default async function Page({ params: { id, ordem, lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.sala_id_ordem;
+
   const res = {
     sala: await pesquisaSala(id),
     musica: await pesquisaMusica(id, ordem),
@@ -78,7 +82,7 @@ export default async function Page({ params: { id, ordem } }) {
         <div className="text-neon-blue-100">
           {!res.sala.sala_finalizada && (
             <>
-              {res.sala.ordem == 7 ? "FIM DA SALA EM: " : "PRÓXIMA MÚSICA EM: "}
+              {res.sala.ordem == 7 ? "{dict.fim_sala}" : "{dict.proxima_musica}"}
               <FormataData dataTransformar={res.sala.tempo_restante} progressivo={false} formato="hh:mm:ss" />
             </>
           )}
@@ -117,7 +121,7 @@ export default async function Page({ params: { id, ordem } }) {
                 (exibirPontuacao ? "block" : "hidden")
               }
             >
-              <span className="sm:text-2xl uppercase">Pontuação:</span>
+              <span className="sm:text-2xl uppercase">{dict.pontuacao}</span>
               <span className="text-5xl sm:text-9xl"><Pontuacao pontuacao={res.musica.pontuacao} /></span>
             </div>
           </div>
@@ -163,7 +167,7 @@ export default async function Page({ params: { id, ordem } }) {
                 </span>
                 {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
                   <>
-                    <span className="flex justify-center items-center text-lg">nota:</span>
+                    <span className="flex justify-center items-center text-lg">{dict.nota}</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
                   </>
                 )}

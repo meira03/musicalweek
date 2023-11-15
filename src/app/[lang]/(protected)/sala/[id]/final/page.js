@@ -2,12 +2,16 @@ import { pesquisaSalaFinal } from "@/utils/sala";
 import { getMusic } from "@/utils/spotify";
 import Image from "next/image";
 import { Pontuacao } from "@/components/Pontuacao";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: "Sala do Artista",
+  title: "{dict.sala_artista}",
 };
 
-export default async function Page({ params: {  id } }) {
+export default async function Page({ params: {  id, lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.sala_id_final;
+
   let res = await pesquisaSalaFinal(id);
 
   for (let i = 0; i < res.musicas.length; i++) {
@@ -17,7 +21,7 @@ export default async function Page({ params: {  id } }) {
   return (
     <main className="max-w-7xl mx-auto">
       <h1 className="neon-text uppercase text-3xl sm:text-5xl text-center mb-14">
-        Fim da Sala
+      {dict.fim_sala}
       </h1>
       <div className="grid grid-cols-1 mx-10 sm:mx-auto sm:grid-cols-3">
         <div className="relative bottom-0 right-0 justify-self-end self-end hidden sm:block">
@@ -30,7 +34,7 @@ export default async function Page({ params: {  id } }) {
               className="mb-5"
             />
             <div className="bg-black-0 bg-opacity-50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-              <span className="uppercase white-text text-lg">Pontuação:</span>
+              <span className="uppercase white-text text-lg">{dict.pontuacao}</span>
               <span className="text-8xl">
                 <Pontuacao pontuacao={res.musicas[1].pontuacao} />
               </span>
@@ -73,7 +77,7 @@ export default async function Page({ params: {  id } }) {
               height={300}
             />
             <div className="bg-black-0 bg-opacity-50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-              <span className="uppercase white-text text-lg">Pontuação:</span>
+              <span className="uppercase white-text text-lg">{dict.pontuacao}</span>
               <span className="text-8xl">
                 <Pontuacao pontuacao={res.musicas[0].pontuacao} />
               </span>
@@ -109,7 +113,7 @@ export default async function Page({ params: {  id } }) {
               className="mb-5"
             />
             <div className="bg-black-0 bg-opacity-50 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-              <span className="uppercase white-text text-lg">Pontuação:</span>
+              <span className="uppercase white-text text-lg">{dict.pontuacao}</span>
               <span className="text-8xl">
                 <Pontuacao pontuacao={res.musicas[2].pontuacao} />
               </span>
@@ -138,7 +142,7 @@ export default async function Page({ params: {  id } }) {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 py-20 sm:gap-20">
         <div className="flex flex-col items-center justify-start sm:justify-center mb-20 sm:mb-0">
-          <span className="uppercase text-white text-lg">NOTA DA SALA:</span>
+          <span className="uppercase text-white text-lg">{dict.nota_sala}</span>
           <h2 className="text-9xl">
             <Pontuacao pontuacao={res.nota_sala} />
           </h2>

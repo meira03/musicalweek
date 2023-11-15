@@ -15,12 +15,15 @@ import { BtnSalaArtista } from "@/components/sala/BtnSalaArtista";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import Image from "next/image";
 import { FaSpotify } from "react-icons/fa6";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
   title: 'Sala do Artista',
 }
 
-export default async function Page({ params: { id, ordem } }) {
+export default async function Page({ params: { id, ordem, lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.artista_sala_ordem;
 
   const res = {
     sala: await pesquisaSalaArtista(id),
@@ -46,7 +49,7 @@ export default async function Page({ params: { id, ordem } }) {
       <section className="flex flex-col sm:flex-row justify-center items-center min-h-[calc(100vh-7rem)] sm:max-w-5xl sm:mx-auto sm:pb-12">
         <div className="flex flex-col justify-center items-center">
           <h1 className="uppercase neon-text text-2xl sm:text-4xl text-center sm:mb-5">
-            ESCOLHAS DE <br />
+          {dict.escolhas} <br />
             {res.sala.artista.nick}
           </h1>
           <Image
@@ -110,7 +113,7 @@ export default async function Page({ params: { id, ordem } }) {
                   (res.musica.nota_usuario != null ? "block" : "hidden")
                 }
               >
-                <span className="sm:text-2xl uppercase">Pontuação:</span>
+                <span className="sm:text-2xl uppercase">{dict.pontuacao}</span>
                 <span className="text-5xl sm:text-9xl">
                   <Pontuacao pontuacao={res.musica.nota_usuario} />
                 </span>
@@ -139,8 +142,8 @@ export default async function Page({ params: { id, ordem } }) {
             {!res.sala.sala_finalizada && (
               <>
                 {res.sala.ordem == 7
-                  ? "FIM DA SALA EM: "
-                  : "PRÓXIMA MÚSICA EM: "}
+                  ? "{dict.fim_da_sala} "
+                  : "{dict.proxima_musica} "}
                 <FormataData
                   dataTransformar={res.sala.tempo_restante}
                   progressivo={false}

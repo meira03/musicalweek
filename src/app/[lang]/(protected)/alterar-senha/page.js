@@ -4,8 +4,7 @@ import { useRouter } from 'next/navigation';
 import { AlterarSenha } from "@/utils/forms";
 import Input from "@/components/form/Input";
 
-
-export default function AlteraSenha() {
+export default async function AlteraSenha() {
   const router = useRouter();
   const [error, setError] = useState(null);
 

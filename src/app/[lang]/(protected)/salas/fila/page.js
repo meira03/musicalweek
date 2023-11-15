@@ -3,8 +3,12 @@ import { salasUsuario } from "@/utils/user";
 
 import { FormataData } from "@/components/FormataData";
 import { SairFila } from "@/components/salas/SairFila";
+import { getDictionary } from "@/utils/dictionaries";
 
-export default async function Page() {
+export default async function Page({ params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.salas_fila;
+
   const salas = await salasUsuario();
   const filas = salas.filas;
 
@@ -34,7 +38,7 @@ export default async function Page() {
               </div>
               <div className="flex flex-col justify-center items-center">
                 <span className="text-sm text-center sm:text-xl uppercase font-tech">
-                  Procurando usuários:
+                {dict.procurando_usuarios}
                 </span>
                 <span className="text-lg sm:text-2xl uppercase font-tech">
                   <FormataData
