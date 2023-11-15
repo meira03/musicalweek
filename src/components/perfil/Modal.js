@@ -11,31 +11,31 @@ async function handleClick(imageInfo) {
 
     const res = await alterarIcone(imageInfo);
     console.log(res.sucesso);
-        if (res.sucesso === true){ 
-            window.location.href = '/perfil'
-            setShowConfirmationModal(false);
-        }
-        //else document.getElementById('search-error').innerHTML = res.error
+    if (res.sucesso === true) {
+        window.location.href = '/perfil'
+        setShowConfirmationModal(false);
+    }
+    //else document.getElementById('search-error').innerHTML = res.error
 }
 
 Modal.setAppElement(null);
 
 export default function ModalProfile(props) {
-    
+
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [imageHover, setImageHover] = useState(false);
     const [profilePics, setProfilePics] = useState([
-        0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
     ]);
 
-    function onHover(){
+    function onHover() {
         setImageHover(true);
     }
 
     // async function handleClick(data) {
     //     const propertyNames = Object.values(data);
     //     //console.log("URLL:" + propertyNames);
-    
+
     //     const res = await alterarPerfil(data);
     //     console.log(res);
     //         if (res.sucesso === true){ 
@@ -49,15 +49,15 @@ export default function ModalProfile(props) {
 
     //console.log(props.perfil);
     return (
-        <div>
+        <div className="flex items-center justify-center">
             <button
                 onClick={() => {
                     setShowConfirmationModal(true);
                 }}
-                
+
                 className='relative flex items-center justify-center text-white'
             >
-                {imageHover && 
+                {imageHover &&
                     <p className='absolute mb-1 hover:text-white'>Editar ícone</p>
                 }
                 <Image
@@ -66,17 +66,19 @@ export default function ModalProfile(props) {
                     height={0}
                     width={0}
                     sizes="100vw"
-                    className="object-cover rounded-full hover:opacity-50 w-auto h-64 sm:h-80 xl:h-48 "
+                    className="object-cover rounded-full hover:opacity-50 mx-auto w-40 h-40 sm:w-60 sm:h-60 xl:w-80 xl:h-80"
+
+
                     onMouseEnter={() => {
                         setImageHover(true);
                     }}
                     onMouseLeave={() => {
                         setImageHover(false);
                     }}
-                    //onMouseOver={onHover()}
+                //onMouseOver={onHover()}
                 />
             </button>
-    
+
             <Modal
                 isOpen={showConfirmationModal}
                 onRequestClose={() => setShowConfirmationModal(false)}
@@ -96,7 +98,7 @@ export default function ModalProfile(props) {
                                             xl:grid-cols-10 xl:gap-3 xl:mb-6 xl:mx-5
                                         '>
                             {
-                                profilePics.map((imageInfo, index) => (                            
+                                profilePics.map((imageInfo, index) => (
                                     <div key={index} className="relative">
                                         <button
                                             onClick={() => {
@@ -105,8 +107,8 @@ export default function ModalProfile(props) {
                                                     d.getFullYear(),
                                                     ('0' + d.getDate()).slice(-2),
                                                     ('0' + (d.getMonth() + 1)).slice(-2)
-                                                    
-                                                ].join('-');                                        
+
+                                                ].join('-');
 
                                                 // const data = {
                                                 //     nome: props.perfil.nome,
@@ -117,7 +119,7 @@ export default function ModalProfile(props) {
                                                 const data = {
                                                     icon: "icone" + imageInfo + ".png"
                                                 };
-                                                
+
                                                 handleClick(imageInfo);
                                             }}
                                         >
@@ -131,8 +133,8 @@ export default function ModalProfile(props) {
                                             />
                                         </button>
                                     </div>
-                            ))}
-                            
+                                ))}
+
                         </div>
                         <button
                             className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6"

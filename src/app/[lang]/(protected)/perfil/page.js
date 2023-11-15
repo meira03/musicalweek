@@ -30,18 +30,15 @@ export default async function Perfil({ params: { lang } }) {
   } else {
     tipoPlanoLabel = "Outro";
   }
-  
+
   return (
 
     <main className="h-auto lg:h-[85vh] lg:items-center lg:flex lg:justify-center">
-      <div className='justify-center h-auto w-full'>
-        <div className="static grid
-                          grid-cols-1 w-11/12 px-2 
-                          lg:grid-cols-2 lg:w-11/12 lg:gap-[20%] lg:px-2 
-                        ">
+      <div className="w-full lg:w-11/12 px-2">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 lg:gap-[20%] lg:px-2">
           <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center">
             <ModalProfile perfil={res} />
-            <div className='justify-center'>
+            <div className="justify-center">
               <p className="flex justify-center neon-text text-4xl uppercase font-semibold">{res.nick}</p>
               <p className="flex justify-center ">{tipoPlanoLabel}</p>
             </div>
@@ -49,7 +46,7 @@ export default async function Perfil({ params: { lang } }) {
             {res.plano === "0" && (
               <Link href="planos/">
                 <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                 {dict.quero_ser_premium}
+                  {dict.quero_ser_premium}
                 </button>
               </Link>
             )}
