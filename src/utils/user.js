@@ -123,14 +123,18 @@ export async function deleteAccount(token) {
   }
 }
 
-export async function updatePlano(token, planoIndex) {
+export async function updatePlano(planoIndex) {
   try {
+    const session = await getServerSession(authOption)
+    const token = session.token;
+
     const data = { plano: planoIndex };
 
     const res = await fetch(
       "https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php",
       {
         method: "PUT",
+        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

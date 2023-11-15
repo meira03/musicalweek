@@ -18,44 +18,7 @@ export const Menu = ({ logado, plano }) => {
 
     window.location.href = "/"  
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const perfil = await perfilUsuario();
-
-        const planoDoPerfil = perfil?.plano;
-
-        console.log('Plano do perfil:', planoDoPerfil);
-
-        setPlano(planoDoPerfil || "");
-
-      } catch (error) {
-        console.error('Erro ao obter o perfil do usuário:', error);
-      }
-    };
-
-    fetchData();
-
-    const handleScroll = () => {
-      setSideBar(false);
-    };
-
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setSideBar(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
+  
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
       <div className="h-[70%] w-full flex justify-between items-center" ref={menuRef}>
