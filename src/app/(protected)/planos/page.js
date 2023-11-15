@@ -91,7 +91,7 @@ export default function Planos() {
   return (
     <div className="flex text-white items-center min-h-screen">
       <div className="container m-auto py-10 px-8">
-        <h1 className="neon-text text-4xl uppercase font-semibold mb-6 text-center">Planos e Preços</h1>
+        <h1 className="neon-text text-neon-blue-200 text-4xl uppercase font-semibold mb-6 text-center">Planos e Preços</h1>
         <p className="text-lg font-semibold mb-8 text-center">
           Escolha o plano que melhor atenda à sua necessidade e aproveite por completo os benefícios da nossa aplicação com os planos pagos. Descubra um universo de músicas em um só lugar.
         </p>
@@ -119,7 +119,7 @@ export default function Planos() {
             <h2 className="text-4xl font-semibold mb-5 neon-text uppercase">Parabéns</h2>
             <p className="text-2xl mb-12 ">Seu plano foi atualizado com sucesso!</p>
             <button
-              className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 w-full text-xl"
+              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-xbold py-3 w-full text-xl"
               onClick={closeModal}
             >
               OK

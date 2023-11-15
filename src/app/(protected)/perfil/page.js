@@ -44,21 +44,21 @@ export default async function Perfil({ params }) {
 
             {res.plano === "0" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   Quero ser Premium
                 </button>
               </Link>
             )}
             {res.plano === "1" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   Ver os outros Planos
                 </button>
               </Link>
             )}
             {res.plano === "2" && (
               <Link href="planos/">
-                <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white w-full py-2">
                   Ver os outros Planos
                 </button>
               </Link>
@@ -68,20 +68,20 @@ export default async function Perfil({ params }) {
             <div className="grid grid-row-3 gap-4 text-white ">
               <div>
                 <p className="font-medium">NOME COMPLETO:</p>
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.nome}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">E-MAIL:</p>
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2" style={{ wordWrap: 'break-word' }}>{res.email}</p>
                 </div>
               </div>
               <div>
                 <p className="font-medium">DATA DE NASCIMENTO:</p>
 
-                <div className='border-2 border-neon-blue-100 py-1'>
+                <div className='border-2 border-neon-blue-200 hover:border-neon-blue-300 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.data_nasc}</p>
                 </div>
               </div>
@@ -92,14 +92,14 @@ export default async function Perfil({ params }) {
               <div>
                 <h3 className='flex justify-center mb-1'>AÇÕES:</h3>
                 <Link href="alterar-perfil/">
-                  <button className="bg-teal-500 w-full hover:bg-teal-600 text-white py-1.5">
+                  <button className="bg-neon-blue-200 hover:bg-neon-blue-300 w-full  text-white py-1.5">
                     Alterar Dados
                   </button>
                 </Link>
               </div>
 
               <Link href="alterar-senha/">
-                <button className="bg-teal-500 hover:bg-teal-600 w-full text-white py-1.5">
+                <button className="bg-neon-blue-200 hover:bg-neon-blue-300 w-full text-white py-1.5">
                   Alterar Senha
                 </button>
               </Link>

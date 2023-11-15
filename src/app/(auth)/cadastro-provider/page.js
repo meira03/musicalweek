@@ -61,7 +61,7 @@ export default function Cadastro() {
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div>
-        <h1 className="text-neon-blue-200 neon-text text-center text-3xl font-bold uppercase">
+        <h1 className="text-neon-blue-200 neon-text text-center text-4xl font-bold uppercase">
           Cadastro
         </h1>
         <div className="text-red-500 text-center text-sm font-light h-4 my-2">
@@ -95,7 +95,7 @@ export default function Cadastro() {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full mb-4"
             >
               Cadastrar
             </button>

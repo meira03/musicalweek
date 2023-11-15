@@ -12,7 +12,7 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
     if (botao && div) {
       const botaoSelecionado = index === planoSelecionadoIndex || plano.nome === session.plano;
       botao.textContent = botaoSelecionado ? 'Plano Selecionado' : 'Escolher Plano';
-      div.classList.toggle('bg-gray-700', botaoSelecionado);
+      div.classList.toggle('bg-gray-600', botaoSelecionado);
     }
   }, [planoSelecionadoIndex, session.plano, index]);
 
@@ -24,7 +24,7 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
   return (
     <div
       id={`div-${index}`}
-      className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
+      className={`p-6 border border-neon-blue-200 hover:border-neon-blue-300 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}>
       <div>
         <h2 className="text-2xl neon-text uppercase font-medium mb-4">{plano.nome}</h2>
         <p className="text-xl text-white font-bold mb-4">{plano.preco}</p>
@@ -42,7 +42,7 @@ export default function EscolherPlano({ plano, selecionado, onSelect, enviarPlan
       </div>
       <button
         id={`botao-${index}`}
-        className={`bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 mt-4`}
+        className={`bg-neon-blue-200 hover:bg-neon-blue-300 text-white px-6 py-3 mt-4`}
         onClick={handleEscolherPlano}
       >
         Escolher Plano
