@@ -18,16 +18,19 @@ export default function DeleteAccount() {
 
     const token = cookies.token || null;
 
+    const res = deleteAccount(cookies.token);
+
     if (!token) {
       console.error('Token de autenticação ausente.');
       return;
     }
 
+
     await signOut({
       redirect: false
     })
 
-    window.location.href = "/"  
+    window.location.href = "/"
 
   };
 
