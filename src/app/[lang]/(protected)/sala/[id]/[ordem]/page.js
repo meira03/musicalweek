@@ -18,7 +18,7 @@ import Image from "next/image";
 import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: '{dict.sala}',
+  title: 'Sala',
 }
 
 export default async function Page({ params: { id, ordem, lang } }) {
