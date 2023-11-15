@@ -7,7 +7,7 @@ export const metadata = {
   title: "Sala do Artista",
 };
 
-export default async function Page({ params: {  id } }) {
+export default async function Page({ params: { id } }) {
   let res = await pesquisaSalaFinal(id);
 
   for (let i = 0; i < res.musicas.length; i++) {
@@ -154,25 +154,25 @@ export default async function Page({ params: {  id } }) {
                 backgroundSize: "cover",
               }}
             >
-                <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-5 sm:gap-5 px-4 py-2">
-                    <div className="flex items-center justify-center text-4xl sm:text-6xl h-full">
-                        <Pontuacao pontuacao={i.pontuacao} />
-                    </div>
-                    <div className="col-span-2 flex flex-col sm:flex-row items-center justify-start">
-                        <Image
-                        src={"/icones/" + i.icone}
-                        alt={"Icone " + i.usuario_dono}
-                        width={200}
-                        height={200}
-                        className="rounded-full h-14 sm:h-20 w-auto"
-                        />
-                        <span className="uppercase white-text text-xs sm:text-lg sm:ml-5 truncate max-w-full">{i.usuario_dono}</span>
-                    </div>
-                    <div className="col-span-2 flex flex-col text-right justify-center items-end">
-                        <span className="text-lg sm:text-3xl max-w-full truncate">{i.musica.name}</span>
-                        <span className="text-sm sm:text-lg max-w-full truncate">{i.musica.artists[0].name}</span>
-                    </div>
+              <div className="top-0 left-0 w-full h-full absolute bg-black-700 bg-opacity-60 grid grid-cols-5 sm:gap-5 px-4 py-2">
+                <div className="flex items-center justify-center text-4xl sm:text-6xl h-full">
+                  <Pontuacao pontuacao={i.pontuacao} />
                 </div>
+                <div className="col-span-2 flex flex-col sm:flex-row items-center justify-start">
+                  <Image
+                    src={"/icones/" + i.icone}
+                    alt={"Icone " + i.usuario_dono}
+                    width={200}
+                    height={200}
+                    className="rounded-full h-14 sm:h-20 w-auto"
+                  />
+                  <span className="uppercase white-text text-xs sm:text-lg sm:ml-5 truncate max-w-full">{i.usuario_dono}</span>
+                </div>
+                <div className="col-span-2 flex flex-col text-right justify-center items-end">
+                  <span className="text-lg sm:text-3xl max-w-full truncate">{i.musica.name}</span>
+                  <span className="text-sm sm:text-lg max-w-full truncate">{i.musica.artists[0].name}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
