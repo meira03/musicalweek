@@ -33,10 +33,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
 
   if (res.sala.descricao != null) {
     redirect('/salas')
-
   }
 
-  if (ordem > res.sala.ordem && res.sala.ordem != null) {
+  if (res.sala.sala_finalizada == true) {
+    redirect(`/sala/${id}/final`)
+  }
+  else if (ordem > res.sala.ordem && res.sala.ordem != null) {
     redirect(`/sala/${id}/${res.sala.ordem}`)
   }
 
@@ -62,14 +64,14 @@ export default async function Page({ params: { id, ordem, lang } }) {
                 <span
                   className={
                     "text-xl col-span-2 flex items-center justify-center text-center" +
-                    ((!exibirPontuacao || res.musica.avaliacoes[key].nota == null) && " row-span-2")
+                    ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
                   }
                 >
                   {participante.nick}
                 </span>
-                {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
+                {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
                   <>
-                    <span className="flex justify-center items-center text-lg">nota:</span>
+                    <span className="flex justify-center items-center text-lg">Nota:</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
                   </>
                 )}
@@ -160,12 +162,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
                 <span
                   className={
                     "text-xl col-span-2 flex items-center justify-center text-center" +
-                    ((!exibirPontuacao || res.musica.avaliacoes[key].nota == null) && " row-span-2")
+                    ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
                   }
                 >
                   {participante.nick}
                 </span>
-                {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
+                {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
                   <>
                     <span className="flex justify-center items-center text-lg">{dict.nota}</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
@@ -189,20 +191,20 @@ export default async function Page({ params: { id, ordem, lang } }) {
             <span
               className={
                 "text-xl col-span-2 flex items-center justify-center text-center" +
-                ((!exibirPontuacao || res.musica.avaliacoes[key].nota == null) && " row-span-2")
+                ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
               }
             >
               {participante.nick}
             </span>
-            {(exibirPontuacao && res.musica.avaliacoes[key].nota != null) && (
+            {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
               <>
-                <span className="flex justify-center items-center text-lg">nota:</span>
+                <span className="flex justify-center items-center text-lg">Nota:</span>
                 <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
               </>
             )}
           </div>
         ))}
       </div>
-    </section>
+    </section >
   );
 }

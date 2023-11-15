@@ -15,6 +15,8 @@ export default async function Page({ params: { lang } }) {
   const salas = await salasUsuario();
   const padrao = salas.salas;
 
+  console.log(salas)
+
   if (padrao.length > 0) {
     return (
       <>
@@ -25,7 +27,11 @@ export default async function Page({ params: { lang } }) {
               return (
                 <Link
                   key={key}
-                  href={"/sala/" + i.id_sala + "/" + i.ordem_sala}
+                  href={
+                    i.sala_finalizada === true
+                      ? `/sala/${i.id_sala}/final`
+                      : `/sala/${i.id_sala}/${i.ordem_sala}`
+                  }
                   className="w-full h-24 border border-neon-blue-100 grid grid-cols-4"
                 >
                   <div
