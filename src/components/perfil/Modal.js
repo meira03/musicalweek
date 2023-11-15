@@ -11,12 +11,11 @@ async function handleClick(imageInfo) {
 
     const res = await alterarIcone(imageInfo);
     console.log(res.sucesso);
-    window.location.href = '/perfil';
-    //     if (res.sucesso === true){ 
-    //         window.location.href = '/perfil'
-    //         setShowConfirmationModal(false);
-    //     }
-    //     //else document.getElementById('search-error').innerHTML = res.error
+        if (res.sucesso === true){ 
+            window.location.href = '/perfil'
+            setShowConfirmationModal(false);
+        }
+        //else document.getElementById('search-error').innerHTML = res.error
 }
 
 Modal.setAppElement(null);
@@ -33,18 +32,18 @@ export default function ModalProfile(props) {
         setImageHover(true);
     }
 
-    async function handleClick(data) {
-        const propertyNames = Object.values(data);
-        //console.log("URLL:" + propertyNames);
+    // async function handleClick(data) {
+    //     const propertyNames = Object.values(data);
+    //     //console.log("URLL:" + propertyNames);
     
-        const res = await alterarPerfil(data);
-        console.log(res);
-            if (res.sucesso === true){ 
-                window.location.href = '/perfil'
-                setShowConfirmationModal(false);
-            }
-            //else document.getElementById('search-error').innerHTML = res.error
-    }
+    //     const res = await alterarPerfil(data);
+    //     console.log(res);
+    //         if (res.sucesso === true){ 
+    //             window.location.href = '/perfil'
+    //             setShowConfirmationModal(false);
+    //         }
+    //         //else document.getElementById('search-error').innerHTML = res.error
+    // }
 
     //console.log(profilePics);
 
