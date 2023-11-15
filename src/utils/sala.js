@@ -151,7 +151,7 @@ export async function pesquisaSala(id_sala) {
 
 export async function pesquisaSalaFinal(id_sala) {
   const session = await getServerSession(authOption)
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/final/index.php?id_sala=${id_sala}`;
   const headers = new Headers();
