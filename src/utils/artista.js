@@ -26,7 +26,7 @@ export async function criaSala(musicasSelecionadas) {
     .then((result) => result.json())
     .then((res) => {
       if (res.id_sala != undefined) {
-        redirect(`/artista/sala/${res.id_sala}`);
+        redirect(`/artista/sala/${res.id_sala}/resumo`);
       }
       if (res.descricao != undefined) {
         return res.descricao;
@@ -38,7 +38,7 @@ export async function criaSala(musicasSelecionadas) {
 
 export async function entraSalaArtista(id_sala) {
   const session = await getServerSession(authOption)
-  
+
   const url =
     "https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php";
   const headers = new Headers();
@@ -57,8 +57,7 @@ export async function entraSalaArtista(id_sala) {
     cache: "no-store",
   })
     .then((result) => {
-      console.log(result.status)
-      if(result.status != 500){
+      if (result.status != 500) {
         return true;
       }
       return false;
@@ -107,12 +106,12 @@ export async function pesquisaMusicaArtista(id_sala, ordem) {
     cache: "no-store",
   })
     .then((result) => {
-      if(!result.ok || result.status != 200){
+      if (!result.ok || result.status != 200) {
         redirect('/salas')
       }
       return result.json();
     }).then((res) => {
-      if(res.id_sala === false){
+      if (res.id_sala === false) {
         redirect('/salas')
       }
       return res
@@ -121,7 +120,7 @@ export async function pesquisaMusicaArtista(id_sala, ordem) {
 
 export async function sairSalaArtista(id_sala_artista) {
   const session = await getServerSession(authOption)
-  
+
   const url =
     `https://musicalweek-api.azurewebsites.net/endpoints/sala/artista/index.php?id_sala=${id_sala_artista}`;
   const headers = new Headers();

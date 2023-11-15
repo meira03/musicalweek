@@ -20,7 +20,7 @@ export const metadata = {
   title: 'Sala',
 }
 
-export default async function Page({ params: {  id, ordem } }) {
+export default async function Page({ params: { id, ordem } }) {
   const res = {
     sala: await pesquisaSala(id),
     musica: await pesquisaMusica(id, ordem),
@@ -28,7 +28,6 @@ export default async function Page({ params: {  id, ordem } }) {
   };
 
   if (res.sala.descricao != null) {
-    console.log(res)
     redirect('/salas')
 
   }
@@ -96,7 +95,7 @@ export default async function Page({ params: {  id, ordem } }) {
             <BiSkipPrevious className="text-6xl sm:text-8xl" />
           </Link>
           <div className="relative w-full">
-            
+
             <Image
               width={600}
               height={600}

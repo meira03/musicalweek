@@ -29,7 +29,7 @@ export default async function Page({ params: { lang } }) {
         <ArtistasCarrossel salas_artista={data.salas_artista} dict={dict.salas_artistas} />
       </section>
       <section className="my-9 sm:max-w-7xl sm:mx-auto">
-        <TopCarrossel dict={dict.top} />
+        <TopCarrossel data={data} dict={dict.top} />
       </section>
     </>
   );

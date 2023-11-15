@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const TopCarrossel = ({ dict }) => {
+const TopCarrossel = ({ dict, data }) => {
   const [index, setIndex] = useState(0);
   const [topMusicas, setTopMusicas] = useState([]);
   const [semanaMusicas, setSemanaMusicas] = useState([]);
@@ -22,37 +22,39 @@ const TopCarrossel = ({ dict }) => {
   const [isLoading1, setLoading1] = useState(true);
   const [isLoading2, setLoading2] = useState(true);
 
-  const top_musicas = JSON.parse(`
-  [
-    [
-      "4tCtwWceOPWzenK2HAIJSb",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ],
-    [
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ],
-    [
-      "6ocbgoVGwYJhOv1GgI9NsF",
-      "4l0Mvzj72xxOpRrp6h8nHi",
-      "3KkXRkHbMCARz0aVfEt68P",
-      "7qEHsqek33rTcFNT9PFqLf",
-      "4tCtwWceOPWzenK2HAIJSb",
-      "7qiZfU4dY1lWllzX7mPBI3",
-      "6ocbgoVGwYJhOv1GgI9NsF"
-    ]
-  ]
-  `);
+  const top_musicas = data.top_musicas
+
+  // const top_musicas = JSON.parse(`
+  // [
+  //   [
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ],
+  //   [
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ],
+  //   [
+  //     "6ocbgoVGwYJhOv1GgI9NsF",
+  //     "4l0Mvzj72xxOpRrp6h8nHi",
+  //     "3KkXRkHbMCARz0aVfEt68P",
+  //     "7qEHsqek33rTcFNT9PFqLf",
+  //     "4tCtwWceOPWzenK2HAIJSb",
+  //     "7qiZfU4dY1lWllzX7mPBI3",
+  //     "6ocbgoVGwYJhOv1GgI9NsF"
+  //   ]
+  // ]
+  // `);
 
   useEffect(() => {
     if (isLoading) {
@@ -68,21 +70,21 @@ const TopCarrossel = ({ dict }) => {
     if (isLoading1) {
       const promisses = top_musicas[1].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setSemanaMusicas(musica);
+        setMesMusicas(musica);
         setLoading1(false);
       });
     }
-  }, [semanaMusicas]);
+  }, [mesMusicas]);
 
   useEffect(() => {
     if (isLoading2) {
       const promisses = top_musicas[2].map((musica) => getMusic(musica));
       Promise.all(promisses).then((musica) => {
-        setMesMusicas(musica);
+        setSemanaMusicas(musica);
         setLoading2(false);
       });
     }
-  }, [mesMusicas]);
+  }, [semanaMusicas]);
 
   if (isLoading || isLoading1 || isLoading2) {
     return <>Carregando...</>;
@@ -101,12 +103,10 @@ const TopCarrossel = ({ dict }) => {
               title = dict.top;
               list = topMusicas;
               break;
-
             case 1:
               title = dict.top_semana;
               list = mesMusicas;
               break;
-
             case 2:
               title = dict.top_mes;
               list = semanaMusicas;
@@ -181,5 +181,4 @@ const TopCarrossel = ({ dict }) => {
     );
   }
 };
-
 export default TopCarrossel;

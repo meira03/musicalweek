@@ -10,8 +10,6 @@ export const metadata = {
 export default async function Page({ params: {  id } }) {
   const res = await pesquisaSalaArtista(id);
 
-  console.log(res)
-
   let musicaDia = res.musicas
     .slice()
     .reverse()

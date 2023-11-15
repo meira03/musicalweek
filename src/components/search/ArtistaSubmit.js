@@ -14,13 +14,13 @@ export const ArtistaSubmit = () => {
     const musicasSelecionadas = imageUrls.map((imageInfo) => imageInfo[0]);
 
     const res = await criaSala(musicasSelecionadas);
-    if(res != undefined){
+    if (res != undefined) {
       document.getElementById("search-error").innerHTML = res;
       document.getElementById("modal-confirma").classList.add("hidden")
       return false
     }
     router.replace(`/artista/sala/${res.id_sala}/resumo`)
-    
+
   }
 
   function openModal() {
@@ -63,7 +63,7 @@ export const ArtistaSubmit = () => {
             })}
           </div>
           <button onClick={handleClick} className="uppercase text-xl text-white mt-4 px-2 py-2 text-center bg-neon-blue-200">
-            Inciar a Sala
+            Iniciar Sala
           </button>
         </div>
       </div>

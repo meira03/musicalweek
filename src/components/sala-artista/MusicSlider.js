@@ -17,7 +17,6 @@ export const MusicSlider = ({
 }) => {
   const [value, setValue] = useState(0);
 
-  console.log(avaliacao_media);
   useEffect(() => {
     setValue(userRating);
   }, [i]);
@@ -25,10 +24,8 @@ export const MusicSlider = ({
   async function handleSend(e) {
     if (!e.target.disabled) {
       e.target.disabled = true;
-      console.log(id_musica_sala);
       const avaliacao = await avaliaMusica(value, id_musica_sala);
 
-      console.log(avaliacao);
       if (avaliacao.sucesso) {
         document.getElementById(
           "avaliacao_media"
@@ -61,7 +58,7 @@ export const MusicSlider = ({
           disabled={userRating != 0 ? true : false}
         />
         <div
-          style={{left: `calc(${avaliacao_media}% - 7px)`}}
+          style={{ left: `calc(${avaliacao_media}% - 7px)` }}
           id="avaliacao_media"
           className={userRating == 0 && "hidden left-0"}
         ></div>

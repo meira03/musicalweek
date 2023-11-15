@@ -9,8 +9,6 @@ import { redirect } from "next/navigation";
 
 export default async function Page() {
   const salas = await salasUsuario();
-  console.log(salas)
-  return<></>
   const padrao = salas.salas;
 
   console.log(salas)
@@ -118,5 +116,11 @@ export default async function Page() {
   }
   else if (salas.filas.length > 0) {
     redirect('/salas/fila')
+  }
+  else if (salas.minhas_salas.length > 0) {
+    redirect('/salas/minhas_salas')
+  }
+  else if (salas.salas_artista.length > 0) {
+    redirect('/salas/artista')
   }
 }
