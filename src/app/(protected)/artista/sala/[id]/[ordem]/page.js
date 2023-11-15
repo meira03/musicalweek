@@ -20,13 +20,12 @@ export const metadata = {
   title: 'Sala do Artista',
 }
 
-export default async function Page({ params: {  id, ordem } }) {
+export default async function Page({ params: { id, ordem } }) {
 
   const res = {
     sala: await pesquisaSalaArtista(id),
     musica: await pesquisaMusicaArtista(id, ordem),
   };
-
 
   if (res.sala.artista == undefined) {
     redirect(`/artista/sala/${id}/resumo`)
