@@ -1,12 +1,16 @@
 import { perfilUsuario } from "@/utils/user";
 import InputField from "@/components/form/Input";
-import Button from "@/components/button/button"
+import Button from "@/components/button/button";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: 'Alterar Dados',
+  title: 'ALTERAR DADOS',
 }
 
-export default async function AlterarPerfil() {
+export default async function AlterarPerfil({ params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.alterar_perfil;
+
   const res = await perfilUsuario();
   const initialBirthdayValue = res ? formatDateForState(res.data_nasc) : '';
 
@@ -20,7 +24,7 @@ export default async function AlterarPerfil() {
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div>
         <h1 className="text-neon-blue-200 neon-text text-center text-3xl font-bold uppercase">
-          ALTERAR PERFIL
+          {dict.alterar_perfil}
         </h1>
         <div className="text-red-500 text-center text-sm font-light h-4 my-2">
         </div>

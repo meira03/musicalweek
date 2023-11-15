@@ -6,8 +6,12 @@ import { FormataData } from "@/components/FormataData";
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getDictionary } from "@/utils/dictionaries";
 
-export default async function Page() {
+export default async function Page({ params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.salas;
+
   const salas = await salasUsuario();
   const padrao = salas.salas;
 
@@ -53,7 +57,7 @@ export default async function Page() {
                       <div className="flex flex-col justify-end col-span-2 text-right leading-none">
                         {i.sala_finalizada === false && (
                           <span className="text-xs sm:text-sm">
-                            PRÓXIMA EM:{" "}
+                            {dict.proxima_em}{" "}
                             <FormataData
                               dataTransformar={i.tempo_restante}
                               progressivo={false}
@@ -63,14 +67,14 @@ export default async function Page() {
                         )}
                         {i.sala_finalizada === true && (
                           <span className="text-xs sm:text-sm inline-block neon-text text-white p-2 rounded center">
-                            VEJA OS RESULTADOS
+                            {dict.veja_resultados}
                           </span>
                         )}
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row justify-evenly items-center sm:col-span-2">
-                    <span className="hidden sm:block sm:text-2xl uppercase">Pontuação:</span>
+                    <span className="hidden sm:block sm:text-2xl uppercase">{dict.pontuacao}</span>
                     <span className="text-4xl sm:text-6xl">
                       <Pontuacao pontuacao={i.pontuacao} />
                     </span>

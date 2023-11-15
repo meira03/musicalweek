@@ -3,12 +3,16 @@ import Link from 'next/link';
 import DeleteAccount from '@/components/deletarConta/botaoDeletarConta';
 import ModalProfile from '@/components/perfil/Modal';
 import Image from "next/image";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
   title: 'Perfil',
 }
 
-export default async function Perfil({ params }) {
+export default async function Perfil({ params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.perfil;
+
   const res = await perfilUsuario();
 
   let tipoPlanoLabel;
@@ -45,21 +49,21 @@ export default async function Perfil({ params }) {
             {res.plano === "0" && (
               <Link href="planos/">
                 <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                  Quero ser Premium
+                 {dict.quero_ser_premium}
                 </button>
               </Link>
             )}
             {res.plano === "1" && (
               <Link href="planos/">
                 <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                  Ver os outros Planos
+                  {dict.ver_outros_planos}
                 </button>
               </Link>
             )}
             {res.plano === "2" && (
               <Link href="planos/">
                 <button className="bg-teal-500 hover:bg-teal-600 text-white w-full py-2">
-                  Ver os outros Planos
+                  {dict.ver_outros_planos}
                 </button>
               </Link>
             )}
@@ -67,19 +71,19 @@ export default async function Perfil({ params }) {
           <div className='pt-10 lg:pt-0 grid grid-rows-2 items-center '>
             <div className="grid grid-row-3 gap-4 text-white ">
               <div>
-                <p className="font-medium">NOME COMPLETO:</p>
+                <p className="font-medium">{dict.nome_completo}</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.nome}</p>
                 </div>
               </div>
               <div>
-                <p className="font-medium">E-MAIL:</p>
+                <p className="font-medium">{dict.email}</p>
                 <div className='border-2 border-neon-blue-100 py-1'>
                   <p className="hover:text-gray-500 transition ml-2" style={{ wordWrap: 'break-word' }}>{res.email}</p>
                 </div>
               </div>
               <div>
-                <p className="font-medium">DATA DE NASCIMENTO:</p>
+                <p className="font-medium">{dict.nome_de_usuario}</p>
 
                 <div className='border-2 border-neon-blue-100 py-1'>
                   <p className="hover:text-gray-500 transition ml-2">{res.data_nasc}</p>
@@ -90,17 +94,17 @@ export default async function Perfil({ params }) {
             <div className="grid grid-row-3 gap-4 ">
 
               <div>
-                <h3 className='flex justify-center mb-1'>AÇÕES:</h3>
+                <h3 className='flex justify-center mb-1'>{dict.acoes}</h3>
                 <Link href="alterar-perfil/">
                   <button className="bg-teal-500 w-full hover:bg-teal-600 text-white py-1.5">
-                    Alterar Dados
+                    {dict.alterar_dados}
                   </button>
                 </Link>
               </div>
 
               <Link href="alterar-senha/">
                 <button className="bg-teal-500 hover:bg-teal-600 w-full text-white py-1.5">
-                  Alterar Senha
+                  {dict.alterar_senha}
                 </button>
               </Link>
 
