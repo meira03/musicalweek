@@ -9,8 +9,6 @@ export default async function Page() {
   const salas = await salasUsuario();
   const minhas_salas = salas.minhas_salas;
 
-  // console.log(minhas_salas)
-
   return (
     <>
       {minhas_salas.map(async (i, key) => {

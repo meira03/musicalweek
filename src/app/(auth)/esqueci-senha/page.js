@@ -15,7 +15,7 @@ export default function EsqueciSenha() {
       document.getElementById("emailEsqueciSenha").classList.add("border-red-500");
     } else {
       const res = await enviarEmail(formData);
-      console.log(res);
+
       if (res.sucesso) {
         router.push("/esqueci-senha/espera-email/");
       } else {
