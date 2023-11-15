@@ -4,13 +4,15 @@ import { entraSalaArtista, sairSalaArtista } from "@/utils/artista";
 export const BtnSalaArtista = ({ participante, id_sala }) => {
 
   async function entrarSala() {
-      const res = await entraSalaArtista(id_sala);
-      res.descricao ? console.log(res) : window.location.reload();
+    const res = await entraSalaArtista(id_sala);
+
+    res.descricao ? console.log(res) : window.location.reload();
   }
 
   async function sairSala() {
-      const res = await sairSalaArtista(id_sala);
-      res.descricao ? console.log(res) : window.location.reload();
+    const res = await sairSalaArtista(id_sala);
+  
+    res.descricao ? console.log(res) : window.location.href = '/salas/';
   }
 
   return (
