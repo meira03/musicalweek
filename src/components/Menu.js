@@ -1,14 +1,16 @@
 "use client";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from 'next/link';
 import { HiMiniBars3, HiXMark } from "react-icons/hi2";
 import { AiOutlineLogout } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { perfilUsuario } from '@/utils/user';
 
-export const Menu = ({ logado, plano }) => {
+export const Menu = ({ logado, plano: propPlano }) => {
   const [sideBar, setSideBar] = useState(false);
+  const [plano, setPlano] = useState("");
+
   const menuRef = useRef(null);
 
   const logout = async () => {
@@ -18,6 +20,42 @@ export const Menu = ({ logado, plano }) => {
 
     window.location.href = "/"  
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const perfil = await perfilUsuario();
+        const planoDoPerfil = perfil?.plano;
+
+        console.log('Plano do perfil:', planoDoPerfil);
+
+        setPlano(planoDoPerfil || "");
+
+      } catch (error) {
+        console.error('Erro ao obter o perfil do usuário:', error);
+      }
+    };
+
+    fetchData();
+
+    const handleScroll = () => {
+      setSideBar(false);
+    };
+
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setSideBar(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">

@@ -13,7 +13,7 @@ export const metadata = {
   title: "Salas",
 };
 
-export default async function SalasLayout({ children, lang }) {
+export default async function SalasLayout({ children, params: { lang } }) {
   let dict = await getDictionary(lang);
   dict = dict.home;
   
