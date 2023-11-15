@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Criar Sala do Artista',
 }
 
-export default async function SearchLayout({ children, lang }) {
+export default async function SearchLayout({ children, params: { lang } }) {
   let dict = await getDictionary(lang);
   dict = dict.artista_search;
 
