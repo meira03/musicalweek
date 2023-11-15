@@ -22,7 +22,7 @@ export const BtnSalaArtista = ({ participante, id_sala }) => {
           Participar da Sala
         </button>
       ) : (
-        <button onClick={sairSala} className="px-3 py-2 bg-red-600 white-text">
+        <button onClick={sairSala(id_sala)} className="px-3 py-2 bg-red-600 white-text">
           Sair da Sala
         </button>
       )}
