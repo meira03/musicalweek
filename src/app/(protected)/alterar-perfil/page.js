@@ -9,7 +9,7 @@ export const metadata = {
 export default async function AlterarPerfil() {
   const res = await perfilUsuario();
   const initialBirthdayValue = res ? formatDateForState(res.data_nasc) : '';
-  console.log(initialBirthdayValue)
+
   function formatDateForState(dateString) {
     if (!dateString) return '';
     const [day, month, year] = dateString.split('/');

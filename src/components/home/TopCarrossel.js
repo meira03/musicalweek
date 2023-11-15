@@ -24,7 +24,6 @@ const TopCarrossel = (props) => {
 
   const top_musicas = props.data.top_musicas
 
-  console.log(top_musicas)
   // const top_musicas = JSON.parse(`
   // [
   //   [
@@ -113,7 +112,7 @@ const TopCarrossel = (props) => {
               list = semanaMusicas;
               break;
           }
-          console.log(list);
+          // console.log(list);
           return (
             <SwiperSlide className="h-full w-full flex flex-col justify-center items-center px-6 sm:px-12">
               <h1 className="mt-10 neon-text text-3xl sm:text-5xl text-center">

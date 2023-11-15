@@ -75,7 +75,6 @@ export default function Planos() {
       updatePlano(token, planoIndex)
         .then((success) => {
           if (success) {
-            console.log('Plano atualizado com sucesso');
             setCookie('plano', planos[planoIndex].nome);
             setModalIsOpen(true);
           }

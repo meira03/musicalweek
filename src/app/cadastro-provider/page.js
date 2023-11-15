@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import Input from "@/components/form/Input";
 import { cadastroProvider } from '@/utils/forms';
+import { signIn } from "next-auth/react";
 
 
 export default function Cadastro() {
@@ -35,8 +36,16 @@ export default function Cadastro() {
 
     if (validName == true && validNick == true && validBirth == true) {
       const res = await cadastroProvider(formData)
-      if (res.redirect === true) {
-        router.push('/search')
+
+      const a = 'silva.gabriel3@aluno.ifsp.edu.br'
+
+      if (a != null) {
+        await signIn('credentials', {
+          email: a,
+          senha: null,
+          redirect: false
+        })
+        window.location.href = '/salas'
       } else {
         setMessage(res.message)
       }

@@ -7,7 +7,7 @@ import ParticipeAgora from "@/components/home/ParticipeAgora";
 
 export default async function Page() {
   const data = await fetchSalaData();
-  // console.log(data)
+
   return (
     <>
       <section className="pb-3">
@@ -20,7 +20,7 @@ export default async function Page() {
         <ParticipeAgora></ParticipeAgora>
       </section>
       <section className="my-9">
-        <h1 className="neon-text text-4xl sm:text-6xl text-center mb-9">
+        <h1 className="neon-text text-4xl sm:text-5xl text-center mb-9">
           SALAS DOS ARTISTAS
         </h1>
         <ArtistasCarrossel salas_artista={data.salas_artista} />
@@ -30,5 +30,4 @@ export default async function Page() {
       </section>
     </>
   );
-  return <h1>{dict.hello}</h1>;
 }
