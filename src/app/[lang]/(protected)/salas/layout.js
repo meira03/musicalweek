@@ -7,12 +7,16 @@ import { NavSalas } from "@/components/salas/NavSalas";
 
 import Link from "next/link";
 import Image from "next/image";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
   title: "Salas",
 };
 
-export default async function SalasLayout({ children }) {
+export default async function SalasLayout({ children, lang }) {
+  let dict = await getDictionary(lang);
+  dict = dict.home;
+  
   const salas = await salasUsuario();
 
   const recomendacoes = salas.recomendacoes;
@@ -23,7 +27,7 @@ export default async function SalasLayout({ children }) {
       <div className="grid grid-cols-1 gap-5">{children}</div>
       {recomendacoes.length > 1 && (
         <>
-          <h1 className="text-2xl sm:text-4xl text-center mt-12">RECOMENDAÇÕES:</h1>
+          <h1 className="text-2xl sm:text-4xl text-center mt-12">{dict.recomendacoes}</h1>
           <div className="grid grid-cols-1 gap-5">
             <></>
             {recomendacoes.map(async (i, key) => {

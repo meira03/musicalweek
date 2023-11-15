@@ -2,8 +2,12 @@ import { updatePlano } from "@/utils/user";
 import { authOption } from "@/app/api/auth/[...nextauth]/route";
 import EscolherPlano from "./EscolherPlano";
 import { getServerSession } from "next-auth";
+import { getDictionary } from "@/utils/dictionaries";
 
-export default async function Planos() {
+export default async function Planos({ params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.planos;
+  
   const session = await getServerSession(authOption);
 
   async function handleClick(plano) {
@@ -15,12 +19,10 @@ export default async function Planos() {
     <div className="flex text-white items-center min-h-screen">
       <div className="container m-auto py-10 px-8">
         <h1 className="neon-text text-4xl uppercase font-semibold mb-6 text-center">
-          Planos e Preços
+          {dict.planos_precos}
         </h1>
         <p className="text-lg font-semibold mb-8 text-center">
-          Escolha o plano que melhor atenda à sua necessidade e aproveite por
-          completo os benefícios da nossa aplicação com os planos pagos.
-          Descubra um universo de músicas em um só lugar.
+          {dict.escolha_plano}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
@@ -28,17 +30,17 @@ export default async function Planos() {
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">
-                PLANO GRATUITO
+                {dict.plano_gratuito}
               </h2>
-              <p className="text-xl text-white font-bold mb-4">Grátis</p>
+              <p className="text-xl text-white font-bold mb-4">{dict.gratis}</p>
               <p className="text-base font-semibold mb-2">
-                Salas Padrões: Limite de 2 salas
+                {dict.limite_2_salas}
               </p>
               <p className="text-base font-semibold mb-2">
-                Salas de Artistas: Ilimitado
+                {dict.ilimitado}
               </p>
               <p className="text-base font-semibold mb-2">
-                Histórico: Limite de 5 salas
+                {dict.limite_5_salas}
               </p>
             </div>
             <EscolherPlano plano={0} active={session.plano == '0'} handleClick={handleClick} />
@@ -48,17 +50,17 @@ export default async function Planos() {
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">
-                PLANO PREMIUM
+                {dict.plano_premium}
               </h2>
               <p className="text-xl text-white font-bold mb-4">R$7.90</p>
               <p className="text-base font-semibold mb-2">
-                Salas Padrões: Limite de 5 salas
+                {dict.limite_5_salas_sp}
               </p>
               <p className="text-base font-semibold mb-2">
-                Salas de Artistas: Ilimitado
+                {dict.ilimitado}
               </p>
               <p className="text-base font-semibold mb-2">
-                Histórico: Limite de 10 salas
+                {dict.limite_10_salas}
               </p>
             </div>
             <EscolherPlano plano={1} active={session.plano == '1'} handleClick={handleClick} />
@@ -70,23 +72,23 @@ export default async function Planos() {
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">
-                PLANO DO ARTISTA
+                {dict.plano_artista}
               </h2>
               <p className="text-xl text-white font-bold mb-4">R$79.90</p>
               <p className="text-base font-semibold mb-2">
-                Salas Padrões: Limite de 30 salas
+                {dict.limite_30_salas}
               </p>
               <p className="text-base font-semibold mb-2">
-                Salas de Artistas: Ilimitado
+                {dict.ilimitado}
               </p>
               <p className="text-base font-semibold mb-2">
-                Criação de Salas de Artista: Limite de 1 sala ativa
+                {dict.limite_1_sala_ativa}
               </p>
               <p className="text-base font-semibold mb-2">
-                Histórico: Limite de 60 salas
+                {dict.limite_60_salas}
               </p>
               <p className="text-base font-semibold mb-2">
-                Estatísticas: Personalizadas
+                {dict.personalizadas}
               </p>
             </div>
             <EscolherPlano plano={2} active={session.plano == '2'} handleClick={handleClick} />

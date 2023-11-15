@@ -2,12 +2,16 @@ import { pesquisaSalaArtista } from "@/utils/artista";
 import { getMusic } from "@/utils/spotify";
 import { ArtistaMusicaResumo } from "@/components/sala/ArtistaMusicaResumo";
 import { ArtistaTopMusicaResumo } from "@/components/sala/ArtistaTopMusicaResumo";
+import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
   title: "Sala do Artista",
 };
 
-export default async function Page({ params: {  id } }) {
+export default async function Page({ params: {  id, lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.artista_sala_resumo;
+
   const res = await pesquisaSalaArtista(id);
 
   let musicaDia = res.musicas
@@ -51,10 +55,10 @@ export default async function Page({ params: {  id } }) {
   return (
     <main className="mx-auto px-2 sm:px-6 lg:px-8 min-h-[80vh] max-w-7xl">
       <h1 className="neon-text text-center text-xl sm:text-5xl font-bold mb-6 uppercase">
-        RESUMO <br className="sm:hidden" /> {res ? res.sala : "Carregando..."}
+        {dict.resumo} <br className="sm:hidden" /> {res ? res.sala : "Carregando..."}
       </h1>
       <div className="border border-neon-blue-200 p-2 relative inline-block text-center mx-auto border-b mb-4">
-        Quantidade de Usuários: {res ? res.usuarios : "Carregando..."}
+        {dict.quant_usuarios} {res ? res.usuarios : "Carregando..."}
       </div>
 
 
