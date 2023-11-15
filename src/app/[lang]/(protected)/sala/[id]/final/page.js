@@ -1,7 +1,7 @@
 import { pesquisaSalaFinal } from "@/utils/sala";
 import { getMusic } from "@/utils/spotify";
 import Image from "next/image";
-import { Pontuacao } from "../../../../../components/Pontuacao";
+import { Pontuacao } from "@/components/Pontuacao";
 
 export const metadata = {
   title: "Sala do Artista",

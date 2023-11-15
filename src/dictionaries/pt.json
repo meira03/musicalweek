@@ -1,4 +1,25 @@
 {
+    "home": {
+        "como_participar_titulo": "Como participar",
+        "como_participar" : {
+            "passo_1": "Passo 1",
+            "passo_1_texto": "Escolha uma música para participar de uma sala",
+            "passo_2": "Passo 2",
+            "passo_2_texto": "Aguarde outros usuários entrarem na sala",
+            "passo_3": "Passo 3",
+            "passo_3_texto": "Ouça e avalie as músicas diariamente"
+        },
+        "participe": "Participe Agora!",
+        "salas_artistas_titulo": "Salas dos artistas",
+        "salas_artistas": {
+            "escolhas": "Escolhas de"
+        },
+        "top": {
+            "top": "TOP músicas",
+            "top_mes": "TOP músicas do mês",
+            "top_semana": "TOP músicas da semana"
+        }
+    },
     "alterar_perfil": {
 	    "alterar_dados": "Alterar Dados",
         "alterar_perfil": "Alterar Perfil"
@@ -143,10 +164,6 @@
     "salas": {
         "proxima_em": "Próxima em:",
         "pontuacao": "Pontuação:"
-    },
-    "home": {
-        "como_participar": "Como participar",
-        "salas_artistas": "Salas dos artistas"
     },
     "components_button": {
         "data_nascimento_invalida": "Data de nascimento inválida",

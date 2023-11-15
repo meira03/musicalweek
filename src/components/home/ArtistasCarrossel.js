@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const ArtistasCarrossel = ({ salas_artista }) => {
+const ArtistasCarrossel = ({ salas_artista, dict }) => {
   const [index, setIndex] = useState(0);
   const [salaData, setSalaData] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -72,11 +72,10 @@ const ArtistasCarrossel = ({ salas_artista }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <h2 className="text-3xl uppercase text-center mt-4 mb-10">escolhas de {salaData[index].nick}</h2>
+        <h2 className="text-3xl uppercase text-center mt-4 mb-10">{dict.escolhas} {salaData[index].nick}</h2>
       </>
     );
   }
-  return <></>
 };
 
 export default ArtistasCarrossel;
