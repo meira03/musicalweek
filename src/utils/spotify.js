@@ -7,9 +7,7 @@ export async function auth() {
 
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
-    next: {
-      revalidate: 3600
-    },
+    cache: "no-store",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
