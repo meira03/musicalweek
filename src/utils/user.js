@@ -91,7 +91,7 @@ export async function alterarPerfil(data) {
   }
 }
 
-export async function deleteAccount(token) {
+export async function deleteAccount() {
   try {
     const session = await getServerSession(authOption)
     const res = await fetch(

@@ -8,7 +8,8 @@ export const metadata = {
   title: "Sala do Artista",
 };
 
-export default async function Page({ params:   id,  lang }) {
+
+export default async function Page({ params: { id, lang } }) {
   let dict = await getDictionary(lang);
   dict = dict.artista_sala_resumo;
 
