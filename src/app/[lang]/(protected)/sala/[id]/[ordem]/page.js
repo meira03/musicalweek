@@ -18,7 +18,7 @@ import Image from "next/image";
 import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: '{dict.sala}',
+  title: 'Sala',
 }
 
 export default async function Page({ params: { id, ordem, lang } }) {
@@ -31,13 +31,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
     participantes: await pesquisaParticipantes(id),
   };
 
+  console.log(res)
+
   if (res.sala.descricao != null) {
     redirect('/salas')
   }
 
-  if (res.sala.sala_finalizada == true) {
-    redirect(`/sala/${id}/final`)
-  }
   else if (ordem > res.sala.ordem && res.sala.ordem != null) {
     redirect(`/sala/${id}/${res.sala.ordem}`)
   }
@@ -64,12 +63,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
                 <span
                   className={
                     "text-xl col-span-2 flex items-center justify-center text-center" +
-                    ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
+                    ((!exibirPontuacao || res.musica.avaliacoes[key].nota == 0) && " row-span-2")
                   }
                 >
                   {participante.nick}
                 </span>
-                {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
+                {(exibirPontuacao && res.musica.avaliacoes[key].nota != 0) && (
                   <>
                     <span className="flex justify-center items-center text-lg">Nota:</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
@@ -84,7 +83,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
         <div className="text-neon-blue-100">
           {!res.sala.sala_finalizada && (
             <>
-              {res.sala.ordem == 7 ? "{dict.fim_sala}" : "{dict.proxima_musica}"}
+              {res.sala.ordem == 7 ? dict.fim_sala : dict.proxima_musica}
               <FormataData dataTransformar={res.sala.tempo_restante} progressivo={false} formato="hh:mm:ss" />
             </>
           )}
@@ -162,12 +161,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
                 <span
                   className={
                     "text-xl col-span-2 flex items-center justify-center text-center" +
-                    ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
+                    ((!exibirPontuacao || res.musica.avaliacoes[key].nota == 0) && " row-span-2")
                   }
                 >
                   {participante.nick}
                 </span>
-                {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
+                {(exibirPontuacao && res.musica.avaliacoes[key].nota != 0) && (
                   <>
                     <span className="flex justify-center items-center text-lg">{dict.nota}</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
@@ -191,14 +190,14 @@ export default async function Page({ params: { id, ordem, lang } }) {
             <span
               className={
                 "text-xl col-span-2 flex items-center justify-center text-center" +
-                ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
+                ((!exibirPontuacao || res.musica.avaliacoes[key].nota == 0) && " row-span-2")
               }
             >
               {participante.nick}
             </span>
-            {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
+            {(exibirPontuacao && res.musica.avaliacoes[key].nota != 0) && (
               <>
-                <span className="flex justify-center items-center text-lg">Nota:</span>
+                <span className="flex justify-center items-center text-lg">dict.nota</span>
                 <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
               </>
             )}

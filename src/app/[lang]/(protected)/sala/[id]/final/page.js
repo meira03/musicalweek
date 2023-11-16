@@ -5,7 +5,7 @@ import { Pontuacao } from "@/components/Pontuacao";
 import { getDictionary } from "@/utils/dictionaries";
 
 export const metadata = {
-  title: "{dict.sala_artista}",
+  title: "Sala do Artista",
 };
 
 export default async function Page({ params: {  id, lang } }) {

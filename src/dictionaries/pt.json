@@ -1,7 +1,7 @@
 {
     "home": {
         "como_participar_titulo": "Como participar",
-        "como_participar" : {
+        "como_participar": {
             "passo_1": "Passo 1",
             "passo_1_texto": "Escolha uma música para participar de uma sala",
             "passo_2": "Passo 2",
@@ -21,7 +21,7 @@
         }
     },
     "alterar_perfil": {
-	    "alterar_dados": "Alterar Dados",
+        "alterar_dados": "Alterar Dados",
         "alterar_perfil": "Alterar Perfil"
     },
     "alterar_senha": {
@@ -272,7 +272,7 @@
     },
     "components_salas_navegacao": {
         "fila": "Fila",
-        "salas": "Salas", 
+        "salas": "Salas",
         "escolhas_dos_artistas": "Escolhas dos Artistas",
         "historico": "Histórico"
     },

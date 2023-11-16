@@ -15,8 +15,6 @@ export default async function Page({ params: { lang } }) {
   const salas = await salasUsuario();
   const padrao = salas.salas;
 
-  console.log(salas)
-
   if (padrao.length > 0) {
     return (
       <>

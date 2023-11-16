@@ -105,19 +105,14 @@ export async function loginSpotify(token) {
 
 export async function cadastroProvider(formData) {
   try {
-    const cookieStore = cookies();
+    const session = await getServerSession(authOption);
     const body = {
+      token_google: session.token,
       nome: formData.get("completeName"),
       nick: formData.get("nickname"),
       data_nasc: formData.get("birthday"),
     };
 
-    const provider = cookieStore.get('provider').value;
-    if (provider === 'google') {
-      body.token_google = cookieStore.get('token_google').value;
-    } else if (provider === 'spotify') {
-      body.token_spotify = cookieStore.get('token_spotify').value;
-    }
 
     const today = new Date();
     const userBirthday = new Date(body.data_nasc);
@@ -133,7 +128,7 @@ export async function cadastroProvider(formData) {
     })
       .then((result) => result.json())
       .then((res) => {
-
+        console.log(res.descricao)
         if (res.descricao === 'Variável(s) fora do formato') {
           return {
             message: 'Alguma das informações inseridas é inválida.'
@@ -147,13 +142,6 @@ export async function cadastroProvider(formData) {
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
           return { message: "O nickname em questão já está em uso." }
         } else {
-          const cookieStore = cookies();
-          cookieStore.set('token', res.token)
-          cookieStore.set('nick', res.nick)
-          cookieStore.set('plano', 0)
-          cookies().delete('token_google')
-          cookies().delete('provider')
-
           return { redirect: true }
         }
       });
