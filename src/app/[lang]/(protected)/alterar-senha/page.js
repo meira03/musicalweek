@@ -11,7 +11,7 @@ export default function AlteraSenha() {
 
   const handleSubmit = async (formData) => {
     const res = await AlterarSenha(formData);
-    console.log(res);
+
     if (res.sucesso) {
       router.push("/perfil");
     } else {
