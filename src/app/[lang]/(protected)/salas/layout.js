@@ -18,6 +18,7 @@ export default async function SalasLayout({ children, params: { lang } }) {
   dict = dict.home;
   
   const salas = await salasUsuario();
+  
 
   const recomendacoes = salas.recomendacoes;
   
@@ -27,7 +28,7 @@ export default async function SalasLayout({ children, params: { lang } }) {
       <div className="grid grid-cols-1 gap-5">{children}</div>
       {recomendacoes.length > 1 && (
         <>
-          <h1 className="text-2xl sm:text-4xl text-center mt-12">{dict.recomendacoes}</h1>
+          <h1 className="text-2xl sm:text-4xl text-center mt-12">RECOMENDAÇÕES</h1>
           <div className="grid grid-cols-1 gap-5">
             <></>
             {recomendacoes.map(async (i, key) => {

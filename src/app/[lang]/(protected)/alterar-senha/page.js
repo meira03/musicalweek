@@ -4,13 +4,14 @@ import { useRouter } from 'next/navigation';
 import { AlterarSenha } from "@/utils/forms";
 import Input from "@/components/form/Input";
 
-export default async function AlteraSenha() {
+
+export default function AlteraSenha() {
   const router = useRouter();
   const [error, setError] = useState(null);
 
   const handleSubmit = async (formData) => {
     const res = await AlterarSenha(formData);
-    
+    console.log(res);
     if (res.sucesso) {
       router.push("/perfil");
     } else {
@@ -28,6 +29,7 @@ export default async function AlteraSenha() {
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div>
         <h1 className="text-center text-4xl font-bold mb-6 uppercase text-neon-blue-200  neon-text">
+
           ALTERAR SENHA
         </h1>
         {error && (
@@ -44,7 +46,8 @@ export default async function AlteraSenha() {
               name="passwordAtual"
               placeholder="DIGITE A SENHA ATUAL"
             />
-          </div>     
+            <p id={"passwordConfirmation-error"} className="text-red-500 text-xs"></p>
+          </div>
           <div className="mb-4">
             <Input
               id="passwordCadastro"
