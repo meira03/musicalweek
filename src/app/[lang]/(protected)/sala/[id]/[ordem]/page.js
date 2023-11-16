@@ -64,12 +64,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
                 <span
                   className={
                     "text-xl col-span-2 flex items-center justify-center text-center" +
-                    ((!exibirPontuacao || res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota == 0) && " row-span-2")
+                    ((!exibirPontuacao || res.musica.avaliacoes[key].nota == 0) && " row-span-2")
                   }
                 >
                   {participante.nick}
                 </span>
-                {(exibirPontuacao && res.musica.avaliacoes[key] && res.musica.avaliacoes[key].nota != 0) && (
+                {(exibirPontuacao && res.musica.avaliacoes[key].nota != 0) && (
                   <>
                     <span className="flex justify-center items-center text-lg">Nota:</span>
                     <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
