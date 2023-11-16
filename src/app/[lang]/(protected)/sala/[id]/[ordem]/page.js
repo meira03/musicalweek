@@ -197,7 +197,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
             </span>
             {(exibirPontuacao && res.musica.avaliacoes[key].nota != 0) && (
               <>
-                <span className="flex justify-center items-center text-lg">Nota:</span>
+                <span className="flex justify-center items-center text-lg">dict.nota</span>
                 <div className="flex justify-center items-center text-4xl sm:text-5xl"><Pontuacao pontuacao={res.musica.avaliacoes[key].nota} /></div>
               </>
             )}
