@@ -3,16 +3,18 @@ import { authOption } from "@/app/api/auth/[...nextauth]/route";
 import EscolherPlano from "./EscolherPlano";
 import { getServerSession } from "next-auth";
 import { getDictionary } from "@/utils/dictionaries";
+import { redirect } from "next/navigation";
 
 export default async function Planos({ params: { lang } }) {
   let dict = await getDictionary(lang);
   dict = dict.planos;
-  
+
   const session = await getServerSession(authOption);
 
   async function handleClick(plano) {
     'use server'
     const res = await updatePlano(plano);
+    redirect('/perfil')
   }
 
   return (
@@ -65,8 +67,8 @@ export default async function Planos({ params: { lang } }) {
               </p>
             </div>
             <EscolherPlano plano={1} active={session.plano == '1'} handleClick={handleClick} />
-            
-            
+
+
           </div>
           <div
             className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300 ${session.plano == '2' ? 'bg-gray-800' : ''}`}
