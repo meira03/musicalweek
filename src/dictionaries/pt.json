@@ -118,12 +118,7 @@
         "alterar_senha": "Alterar Senha"
     },
     "planos_escolher": {
-        "salas_padroes": "Salas Padrões:",
-        "salas_artistas": "Salas de Artistas:",
-        "criacao_salas_artista": "Criação de Salas de Artista:",
-        "historico": "Histórico",
-        "estatisticas": "Estatísticas",
-        "plano_selecionado": "Plano Selecionado",
+        "plano_selecionado": "Plano Atual",
         "escolher_plano": "Escolher Plano"
     },
     "planos": {
@@ -188,6 +183,7 @@
         "data_nascimento": "Data de Nascimento",
         "email": "E-mail",
         "senha": "Senha",
+        "senha_atual": "Senha Atual",
         "confirmacao_senha": "Confirmação de Senha",
         "outro": "Outro",
         "minimo_8_caracteres": "Mínimo de 8 caracteres",
@@ -207,6 +203,7 @@
         "data_nascimento_invalida": "Data de nascimento inválida.",
         "email_invalido": "Email inválido. Certifique-se de usar um @ e um domínio válido.",
         "email_menos_256_caracteres": "O e-mail deve ter menos de 256 caracteres",
+        "menos_256_caracteres": "Senha com menos de 256 caracteres",
         "senha_fraca": "Senha fraca."
     },
     "components_home_artistas_carrossel": {
@@ -274,6 +271,7 @@
         "fila": "Fila",
         "salas": "Salas", 
         "escolhas_dos_artistas": "Escolhas dos Artistas",
+        "minhas_salas": "Minhas Salas",
         "historico": "Histórico"
     },
     "components_artista_submit": {
@@ -285,7 +283,7 @@
         "mensagem_compartilhar": "O que você quer compartilhar?"
     },
     "components_search_artista": {
-        "adicione_7_musicas": "Adicione 7 músicas diferentes para prosseguir",
+        "adicione_7_musicas": "Você só pode inserir 7 músicas em uma sala",
         "erro_inserir_musica": "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra.",
         "enviar_musicas": "Enviar Músicas",
         "parabens": "Parabéns",

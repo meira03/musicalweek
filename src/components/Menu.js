@@ -7,7 +7,7 @@ import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { perfilUsuario } from '@/utils/user';
 
-export const Menu = ({ logado, plano: propPlano }) => {
+export const Menu = ({ logado, plano: propPlano, dict }) => {
   const [sideBar, setSideBar] = useState(false);
   const [plano, setPlano] = useState("");
 
@@ -60,7 +60,7 @@ export const Menu = ({ logado, plano: propPlano }) => {
   return (
     <nav className="h-14 w-11/12 mx-auto relative flex justify-between items-center px-2 sm:px-6 border-b border-neon-blue-100">
       <div className="h-[70%] w-full flex justify-between items-center" ref={menuRef}>
-        <Link className='h-full' href='/'><Image src={"/images/musicalweek.webp"} width={400} height={300} className="h-full w-auto" alt="Logo Musical Week" priority /></Link>
+        <Link className='h-full' href='/'><Image src={"/images/musicalweek.webp"} width={400} height={300} className="h-full w-auto" alt={dict.logo_musical_week} priority /></Link>
         <ul className="flex">
           {logado ?
             <>
@@ -71,28 +71,28 @@ export const Menu = ({ logado, plano: propPlano }) => {
               <div id="sidebar" className={(!sideBar && "hidden") + " fixed top-14 right-0 w-full z-50"}>
                 <ul className="w-11/12 mx-auto bg-black-100 bg-opacity-90 h-[calc(100%_-_3.5rem)] relative text-center">
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>Nova Sala</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>{dict.nova_sala}</Link>
                   </li>
                   {plano == 2 && (
                     <li onClick={() => setSideBar(false)}>
-                      <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>Nova Sala Artista</Link>
+                      <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>{dict.nova_sala_artista}</Link>
                     </li>
                   )}
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>Salas</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>{dict.salas}</Link>
                   </li>
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/perfil'>Perfil</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/perfil'>{dict.perfil}</Link>
                   </li>
                   <li onClick={() => setSideBar(false)}>
-                    <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full" onClick={logout}>Sair</button>
+                    <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full" onClick={logout}>{dict.sair}</button>
                   </li>
                 </ul>
               </div>
             </>
             :
             <li>
-              <Link className="ml-2" href='/login'>Entrar</Link>
+              <Link className="ml-2" href='/login'>{dict.entrar}</Link>
             </li>
           }
         </ul>

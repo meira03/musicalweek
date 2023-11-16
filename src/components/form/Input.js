@@ -120,15 +120,15 @@ export default function InputField(props) {
         htmlFor={props.id}
       >
         {
-          props.id === 'completeName' ? 'NOME COMPLETO' :
-            props.id === 'nickname' ? 'NOME DE USUÁRIO' :
-              props.id === 'birthday' ? 'DATA DE NASCIMENTO' :
-                props.id === 'email' ? 'E-MAIL' :
-                  props.id === 'password' ? 'SENHA' :
-                    props.id === 'passwordCadastro' ? 'SENHA' :
-                      props.id === 'passwordAtual' ? 'SENHA ATUAL' :
-                        props.id === 'passwordConfirmation' ? 'CONFIRMAÇÃO DE SENHA' :
-                          props.id === 'emailEsqueciSenha' ? 'E-MAIL' : 'OUTRO'
+          props.id === 'completeName' ? props.dict.nome_completo :
+            props.id === 'nickname' ? props.dict.nome_usuario :
+              props.id === 'birthday' ? props.dict.data_nascimento :
+                props.id === 'email' ? props.dict.email :
+                  props.id === 'password' ? props.dict.senha :
+                    props.id === 'passwordCadastro' ? props.dict.senha :
+                      props.id === 'passwordAtual' ? props.dict.senha_atual :
+                        props.id === 'passwordConfirmation' ? props.dict.confirmacao_senha :
+                          props.id === 'emailEsqueciSenha' ? props.dict.email : props.dict.outro
         }
       </label>
       <input
@@ -149,23 +149,23 @@ export default function InputField(props) {
       {isPasswordFocused && props.id === "passwordCadastro" && (
         <ul className="text-xs mt-1">
           <li className={hasMinLength ? "text-green-500" : "text-red-500"}>
-            Mínimo de 8 caracteres
+          {props.dict.minimo_8_caracteres}
           </li>
           <li className={hasUppercase ? "text-green-500" : "text-red-500"}>
-            Pelo menos uma letra maiúscula
+          {props.dict.uma_letra_maiuscula}
           </li>
           <li className={hasLowercase ? "text-green-500" : "text-red-500"}>
-            Pelo menos uma letra minúscula
+          {props.dict.uma_letra_minuscula}
           </li>
           <li className={hasNumber ? "text-green-500" : "text-red-500"}>
-            Pelo menos um número
+          {props.dict.um_numero}
           </li>
           <li className={hasSpecialChar ? "text-green-500" : "text-red-500"}>
-            Pelo menos um caractere especial (@ $ ! % * ? & .)
+          {props.dict.um_caractere_especial}
           </li>
           {hasMinus256Char == true && (
             <li className={hasMinus256Char ? "text-red-500" : "text-green-500"}>
-              Senha com menos de 256 caracteres
+              {props.dict.menos_256_caracteres}
             </li>
           )}
         </ul>
@@ -174,7 +174,7 @@ export default function InputField(props) {
         isPasswordFocused &&
         props.id === "passwordConfirmation" &&
         document.getElementById("passwordCadastro").value != document.getElementById("passwordConfirmation").value && (
-          <p id={props.id + "-error"} className="text-red-500 text-xs italic">As senhas não coincidem!</p>
+          <p id={props.id + "-error"} className="text-red-500 text-xs italic">{props.dict.senhas_nao_coincidem}</p>
         )
       }
 

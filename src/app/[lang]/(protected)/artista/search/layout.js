@@ -16,8 +16,8 @@ export default async function SearchLayout({ children, params: { lang } }) {
       <h1 className="text-2xl sm:text-4xl neon-text uppercase text-center">{dict.criacao_sala_artista}</h1>
       <h3 className="text-xs sm:text-xl uppercase mt-4 text-center">{dict.adicione_7_musicas}</h3>
       <MyProvider>
-        <SearchBar link="/artista/search/" />
-        <ArtistaSubmit />
+        <SearchBar link="/artista/search/" dict={dict.components_search_artista}/>
+        <ArtistaSubmit dict={dict.components_artista_submit}/>
         {children}
       </MyProvider>
     </div>

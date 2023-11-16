@@ -9,7 +9,7 @@ import { FaXmark } from "react-icons/fa6";
 
 import "@/styles/slider.css";
 
-export const Avaliacao = ({ id_musica_sala }) => {
+export const Avaliacao = ({ id_musica_sala, dict }) => {
   const [screen, setScreen] = useState(false);
   const [value, setValue] = useState(1);
 
@@ -30,7 +30,7 @@ export const Avaliacao = ({ id_musica_sala }) => {
           className="flex flex-col justify-center items-center animate-bounce cursor-pointer w-fit mx-auto bg-gradient-to-t from-black-100 from-70% to-transparent px-2"
         >
           <BsChevronCompactUp className="text-3xl -mb-2" />
-          AVALIE
+          {dict.avalie}
         </div>
       </div>
       <div
@@ -66,7 +66,7 @@ export const Avaliacao = ({ id_musica_sala }) => {
             className="bg-neon-blue-300 text-white uppercase font-bold px-4 py-2"
             onClick={() => handleClick(value)}
           >
-            Avaliar
+            {dict.avaliar}
           </button>
         </div>
       </div>

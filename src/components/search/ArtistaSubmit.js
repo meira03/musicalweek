@@ -6,7 +6,7 @@ import { Music } from "@/components/search/Music";
 import { criaSala } from "@/utils/artista";
 import { useRouter } from "next/navigation";
 
-export const ArtistaSubmit = () => {
+export const ArtistaSubmit = ({dict}) => {
   const { imageUrls } = useContext(myContext);
   const router = useRouter()
 
@@ -40,7 +40,7 @@ export const ArtistaSubmit = () => {
           className="absolute top-0 left-0 z-40 bg-black-900 bg-opacity-70 w-full h-full"
         ></div>
         <div className="bg-black-900 border border-neon-blue-300 w-fit max-w-5xl flex flex-col justify-center items-center z-50 pb-10 pt-20 overflow-y-auto max-h-screen">
-          <h1 className="neon-text text-3xl my-3">RESUMO DA SALA</h1>
+          <h1 className="neon-text text-3xl my-3">{dict.resumo_sala}</h1>
           <div id="musicas-artista" className="flex flex-wrap justify-center w-4/5 ">
             {imageUrls.map((i, key) => {
               const currentDate = new Date();
@@ -63,7 +63,7 @@ export const ArtistaSubmit = () => {
             })}
           </div>
           <button onClick={handleClick} className="uppercase text-xl text-white mt-4 px-2 py-2 text-center bg-neon-blue-200">
-            Iniciar Sala
+            {dict.iniciar_sala}
           </button>
         </div>
       </div>
@@ -76,7 +76,7 @@ export const ArtistaSubmit = () => {
             : "bg-zinc-700 opacity-60")
         }
       >
-        Começar Sala
+        {dict.comecar_sala}
       </button>
     </>
   );

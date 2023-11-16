@@ -1,6 +1,6 @@
 "use client"
 import { alterarPerfil } from '@/utils/user';
-const Button = (props) => {
+const Button = (props, {dict}) => {
 
   async function handleAlterarPerfil() {
     const data = {
@@ -15,11 +15,11 @@ const Button = (props) => {
       window.location.href = '/perfil'
     } else {
       if (res.data_nasc === false) {
-        document.getElementById("birthday-error").innerHTML = "Data de nascimento inválida"
+        document.getElementById("birthday-error").innerHTML = dict.data_nascimento_invalida
         document.getElementById("birthday").classList.add("border-red-500")
       }
       if (res.nick === true) {
-        document.getElementById("nickname-error").innerHTML = "Nome de usuário já cadastrado"
+        document.getElementById("nickname-error").innerHTML = dict.nome_usuario_cadastrado
         document.getElementById("nickname").classList.add("border-red-500")
       }
     }
@@ -33,7 +33,7 @@ const Button = (props) => {
         onClick={handleAlterarPerfil}
         type='button'
       >
-        Alterar
+        {dict.alterar}
       </button>
     </>
   );

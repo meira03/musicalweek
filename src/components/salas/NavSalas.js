@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => {
+export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas, dict }) => {
   const pathname = usePathname();
 
   let active = "padrao";
@@ -23,7 +23,7 @@ export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => 
           }
           href="/salas/fila"
         >
-          Fila
+          {dict.fila}
         </Link>
         <Link
           className={
@@ -33,7 +33,7 @@ export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => 
           }
           href="/salas/"
         >
-          Salas
+          {dict.salas}
         </Link>
         <Link
           className={
@@ -43,7 +43,7 @@ export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => 
           }
           href="/salas/artista"
         >
-          Escolhas dos Artistas
+          {dict.escolhas_dos_artistas}
         </Link>
         <Link
           className={
@@ -53,7 +53,7 @@ export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => 
           }
           href="/salas/minhas_salas"
         >
-          Minhas Salas
+          {dict.minhas_salas}
         </Link>
         <Link
           className={
@@ -63,7 +63,7 @@ export const NavSalas = ({ fila, artista, historico, padrao, minhas_salas }) => 
           }
           href="/salas/historico"
         >
-          Histórico
+          {dict.historico}
         </Link>
       </nav>
     );

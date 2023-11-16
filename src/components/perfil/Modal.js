@@ -4,10 +4,8 @@ import Image from 'next/image';
 import Modal from 'react-modal';
 import { alterarIcone, alterarPerfil } from '@/utils/user';
 
-
 async function handleClick(imageInfo) {
     console.log("IMAGEINFO:" + imageInfo);
-    //const token = session.token || null;
 
     const res = await alterarIcone(imageInfo);
     console.log(res.sucesso);
@@ -15,12 +13,11 @@ async function handleClick(imageInfo) {
             window.location.href = '/perfil'
             setShowConfirmationModal(false);
         }
-        //else document.getElementById('search-error').innerHTML = res.error
 }
 
 Modal.setAppElement(null);
 
-export default function ModalProfile(props) {
+export default function ModalProfile(props, {dict}) {
     
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [imageHover, setImageHover] = useState(false);
@@ -32,22 +29,6 @@ export default function ModalProfile(props) {
         setImageHover(true);
     }
 
-    // async function handleClick(data) {
-    //     const propertyNames = Object.values(data);
-    //     //console.log("URLL:" + propertyNames);
-    
-    //     const res = await alterarPerfil(data);
-    //     console.log(res);
-    //         if (res.sucesso === true){ 
-    //             window.location.href = '/perfil'
-    //             setShowConfirmationModal(false);
-    //         }
-    //         //else document.getElementById('search-error').innerHTML = res.error
-    // }
-
-    //console.log(profilePics);
-
-    //console.log(props.perfil);
     return (
         <div>
             <button
@@ -58,7 +39,7 @@ export default function ModalProfile(props) {
                 className='relative flex items-center justify-center text-white'
             >
                 {imageHover && 
-                    <p className='absolute mb-1 hover:text-white'>Editar ícone</p>
+                    <p className='absolute mb-1 hover:text-white'>dict.editar_icone</p>
                 }
                 <Image
                     src={"/icones/" + props.perfil.icon}
@@ -73,7 +54,6 @@ export default function ModalProfile(props) {
                     onMouseLeave={() => {
                         setImageHover(false);
                     }}
-                    //onMouseOver={onHover()}
                 />
             </button>
     
@@ -88,7 +68,7 @@ export default function ModalProfile(props) {
                 <div className='h-screen left-0 right-0 top-0 flex absolute justify-center items-center'>
 
                     <div className="bg-zinc-950 p-6 border border-gray-600 shadow-lg px-5 mx-auto flex flex-col items-center justify-center align-middle">
-                        <h2 className="text-2xl font-semibold mb-6 text-black">Selecione a foto desejada</h2>
+                        <h2 className="text-2xl font-semibold mb-6 text-black">dict.selecionar_foto</h2>
                         <div className='grid 
                                             grid-cols-2 gap-3
                                             sm:grid-cols-3 sm:gap-3
@@ -108,12 +88,6 @@ export default function ModalProfile(props) {
                                                     
                                                 ].join('-');                                        
 
-                                                // const data = {
-                                                //     nome: props.perfil.nome,
-                                                //     nick: props.perfil.nick,
-                                                //     data_nasc: date,
-                                                //     icon: "icone" + imageInfo + ".png"
-                                                // };
                                                 const data = {
                                                     icon: "icone" + imageInfo + ".png"
                                                 };
@@ -138,7 +112,7 @@ export default function ModalProfile(props) {
                             className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6"
                             onClick={() => setShowConfirmationModal(false)}
                         >
-                            Cancelar
+                            dict.cancelar
                         </button>
                     </div>
                 </div>

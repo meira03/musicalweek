@@ -8,7 +8,7 @@ export default async function Page({ params: {  param } }) {
 
   return (
     <>
-      <Container searchTerm={searchTerm}/>
+      <Container searchTerm={searchTerm} dict={dict.components_search}/>
     </>
   );
 }

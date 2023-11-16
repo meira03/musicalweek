@@ -1,21 +1,25 @@
-export function isValidInput(inputID, value) {
+import { getDictionary } from "@/utils/dictionaries";
+
+export async function isValidInput(inputID, value, { params: { lang } }) {
+  let dict = await getDictionary(lang);
+  dict = dict.components_form_validation;
 
   if (inputID === 'completeName') {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     } else if (value.length > 64) {
       return {
         isValid: false,
-        message: 'O nome deve ter menos de 64 caracteres.',
+        message: dict.nome_menos_64,
       };
     }
     else if (!/^\b\w{2,}\s+\w{2,}\b/.test(value)) {
       return {
         isValid: false,
-        message: 'Nome completo inválido.',
+        message: dict.nome_invalido,
       };
     }
     else {
@@ -30,12 +34,12 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     } else if (value.length < 3 || value.length > 16) {
       return {
         isValid: false,
-        message: 'O nome do usuário precisa possuir ao menos 3 e no máximo 16 caracteres.',
+        message: dict.usuario_entre_3_16,
       };
     } else {
       return {
@@ -52,17 +56,17 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     } else if (userAge < 18 && userAge >= 0) {
       return {
         isValid: false,
-        message: "Acesso a menores de idade não permitido.",
+        message: dict.acesso_menores_nao_permitido,
       };
     } else if (userAge > 130 || userAge < 0) {
       return {
         isValid: false,
-        message: "Data de nascimento inválida.",
+        message: dict.data_nascimento_invalida,
       };
     }
     else {
@@ -79,17 +83,17 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     } else if (!emailPattern.test(value)) {
       return {
         isValid: false,
-        message: 'Email inválido. Certifique-se de usar um @ e um domínio válido.',
+        message: dict.email_invalido,
       };
     } else if (value.length > 256) {
       return {
         isValid: false,
-        message: 'O e-mail deve ter menos de 256 caracteres.',
+        message: dict.email_menos_256_caracteres,
       };
     }
     else {
@@ -104,7 +108,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     }
     if (value.length < 8 ||
@@ -114,7 +118,7 @@ export function isValidInput(inputID, value) {
       !/[!@#$%^&.*]/.test(value)) {
       return {
         isValid: false,
-        message: 'Senha fraca.'
+        message: dict.senha_fraca
       };
     } else {
       return {
@@ -128,7 +132,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     } else if (value.length < 8 ||
       !/[a-z]/.test(value) ||
@@ -137,7 +141,7 @@ export function isValidInput(inputID, value) {
       !/[!@#$%^&.*]/.test(value)) {
       return {
         isValid: false,
-        message: 'Senha fraca.'
+        message: dict.senha_fraca
       };
     } else {
       return {
@@ -151,13 +155,13 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     }
     else if (value.length > 256) {
       return {
         isValid: false,
-        message: 'A senha deve ter menos de 256 caracteres.',
+        message: dict.menos_256_caracteres,
       };
     }
     else {
@@ -172,7 +176,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     }
     else {
@@ -187,7 +191,7 @@ export function isValidInput(inputID, value) {
     if (value.length === 0) {
       return {
         isValid: false,
-        message: 'Campo Obrigatório.',
+        message: dict.campo_obrigatorio,
       };
     }
     else {

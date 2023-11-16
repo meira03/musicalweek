@@ -91,7 +91,7 @@ export default async function Planos({ params: { lang } }) {
                 {dict.personalizadas}
               </p>
             </div>
-            <EscolherPlano plano={2} active={session.plano == '2'} handleClick={handleClick} />
+            <EscolherPlano plano={2} active={session.plano == '2'} handleClick={handleClick} dict={dict.planos_escolher}/>
           </div>
         </div>
       </div>

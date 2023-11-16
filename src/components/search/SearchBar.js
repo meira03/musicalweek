@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-export const SearchBar = ({link}) => {
+export const SearchBar = ({link, dict}) => {
   const router = useRouter()
   
   function handleChange(event) {
@@ -14,7 +14,7 @@ export const SearchBar = ({link}) => {
     <input
       className="bg-black-100 border focus-visible:outline-none border-neon-blue-100 neon-text uppercase text-white px-2 py-2 my-4 w-full"
       type="text"
-      placeholder="O que você quer compartilhar?"
+      placeholder={dict.mensagem_compartilhar}
       onChange={handleChange}
     />
     <div id="search-error" className="text-red-600 text-center mb-2"></div>

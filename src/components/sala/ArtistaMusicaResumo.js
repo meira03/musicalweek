@@ -4,7 +4,7 @@ import { getMusic } from "@/utils/spotify";
 import { FaChevronDown } from "react-icons/fa6";
 import { Pontuacao } from "@/components/Pontuacao";
 
-export const ArtistaMusicaResumo = ({ musica, data_criacao }) => {
+export const ArtistaMusicaResumo = ({ musica, data_criacao, dict }) => {
   const [expanded, setExpanded] = useState(false);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,11 +31,11 @@ export const ArtistaMusicaResumo = ({ musica, data_criacao }) => {
   }
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>{dict.carregando}</p>;
   }
 
   if (error) {
-    return <p>Ocorreu um erro: {error.message}</p>;
+    return <p>{dict.erro} {error.message}</p>;
   }
 
   return (
@@ -87,7 +87,7 @@ export const ArtistaMusicaResumo = ({ musica, data_criacao }) => {
         {musica.nota_calculada != null && (
           <div className="flex flex-col items-center justify-center">
             <span className="text-sm uppercase text-center mb-2">
-              Pontuação
+              {dict.pontuacao}
             </span>
             <span className="text-6xl">
               <Pontuacao pontuacao={musica.nota_calculada} />
@@ -95,7 +95,7 @@ export const ArtistaMusicaResumo = ({ musica, data_criacao }) => {
           </div>
         )}
         <div className="flex flex-col items-center justify-center">
-          <span className="text-sm uppercase text-center mb-2">Avaliações</span>
+          <span className="text-sm uppercase text-center mb-2">{dict.avaliacoes}</span>
           <span className="text-6xl neon-text">{musica.avaliacoes}</span>
         </div>
       </div>

@@ -2,21 +2,21 @@ import { Pontuacao } from "@/components/Pontuacao";
 import Image from "next/image";
 import { FaXmark } from "react-icons/fa6";
 
-export const ArtistaTopMusicaResumo = ({ musica, tipo }) => {
+export const ArtistaTopMusicaResumo = ({ musica, tipo, dict }) => {
   let title;
   switch (tipo) {
     case "atual":
-      title = "Música Atual";
+      title = dict.musica_atual;
       break;
 
     case "prox":
-      title = "Próxima Música";
+      title = dict.proxima_musica;
       break;
     case "pontuacao":
-      title = "Melhor Pontuação";
+      title = dict.melhor_pontuacao;
       break;
     case "avaliada":
-      title = "Mais Avaliada";
+      title = dict.mais_avaliada;
       break;
   }
   if (musica != undefined) {

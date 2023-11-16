@@ -2,15 +2,15 @@
 
 import { useSession } from "next-auth/react";
 
-export default function EscolherPlano({plano, active, handleClick}) {
+export default function EscolherPlano({plano, active, handleClick, dict}) {
   const { data: session, status, update } = useSession()
   async function clickEvent() {
     await handleClick(plano)
     update({plano: 3})
-    document.getElementsByClassName('button-active')[0].innerHTML = "Escolher Plano" 
-    document.getElementsByClassName('button-active')[1].innerHTML = "Escolher Plano" 
-    document.getElementsByClassName('button-active')[2].innerHTML = "Escolher Plano" 
-    document.getElementsByClassName('button-active')[plano].innerHTML = "Plano Atual" 
+    document.getElementsByClassName('button-active')[0].innerHTML = dict.escolher_plano
+    document.getElementsByClassName('button-active')[1].innerHTML = dict.escolher_plano
+    document.getElementsByClassName('button-active')[2].innerHTML = dict.escolher_plano 
+    document.getElementsByClassName('button-active')[plano].innerHTML = dict.plano_selecionado 
   }
   return (
     <button
@@ -20,7 +20,7 @@ export default function EscolherPlano({plano, active, handleClick}) {
         console.log(session)
       }}
     >
-      {active ? "Plano Atual" : "Escolher Plano"}
+      {active ? dict.plano_selecionado : dict.escolher_plano}
     </button>
   );
 }

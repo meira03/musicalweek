@@ -3,7 +3,7 @@ import React from 'react';
 import { getSession } from 'next-auth/react';
 import { authOption } from "@/app/api/auth/[...nextauth]/route";
 
-const BotaoEntrarSalaArtista = ({ salaId }) => {
+const BotaoEntrarSalaArtista = ({ salaId, dict }) => {
     const cookies = getSession(authOption);
     const handleEntrarSala = async () => {
 
@@ -42,7 +42,7 @@ const BotaoEntrarSalaArtista = ({ salaId }) => {
     return (
         <div>
             <button onClick={handleEntrarSala} className="bg-green-500 hover.bg-green-700 text-white font-bold py-2 px-4 rounded-full">
-                Entrar na Sala do Artista
+                {dict.entrar_sala_artista}
             </button>
         </div>
     );

@@ -40,7 +40,7 @@ export default async function Perfil({ params: { lang } }) {
                           lg:grid-cols-2 lg:w-11/12 lg:gap-[20%] lg:px-2 
                         ">
           <div className="grid grid-row-3 gap-3 overflow-hidden items-center justify-center">
-            <ModalProfile perfil={res} />
+            <ModalProfile perfil={res} dict={dict.components_perfil}/>
             <div className='justify-center'>
               <p className="flex justify-center neon-text text-4xl uppercase font-semibold">{res.nick}</p>
               <p className="flex justify-center ">{tipoPlanoLabel}</p>
@@ -108,7 +108,7 @@ export default async function Perfil({ params: { lang } }) {
                 </button>
               </Link>
 
-              <DeleteAccount></DeleteAccount>
+              <DeleteAccount dict={dict.components_deleta_conta}/>
 
             </div>
 

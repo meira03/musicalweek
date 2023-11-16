@@ -64,10 +64,10 @@ export default async function Page({ params: {  id, params: { lang } } }) {
 
       <div className="flex flex-col sm:flex-row items-start justify-center">
         <div className="sm:w-2/5 grid grid-cols-2 grid-rows-2 gap-7 mb-10 sm:mb-0 sm:mr-32">
-          <ArtistaTopMusicaResumo tipo={"atual"} musica={musicaDia} />
-          <ArtistaTopMusicaResumo tipo={"prox"} musica={proxMusica} />
-          <ArtistaTopMusicaResumo tipo={"pontuacao"} musica={melhorPontuacao} />
-          <ArtistaTopMusicaResumo tipo={"avaliada"} musica={maisAvaliado} />
+          <ArtistaTopMusicaResumo tipo={"atual"} musica={musicaDia} dict={dict.components_artista_musica_resumo}/>
+          <ArtistaTopMusicaResumo tipo={"prox"} musica={proxMusica} dict={dict.components_artista_musica_resumo}/>
+          <ArtistaTopMusicaResumo tipo={"pontuacao"} musica={melhorPontuacao} dict={dict.components_artista_musica_resumo}/>
+          <ArtistaTopMusicaResumo tipo={"avaliada"} musica={maisAvaliado} dict={dict.components_artista_musica_resumo}/>
         </div>
         <div className="sm:w-1/3 grid grid-cols-1 gap-4">
           {res.musicas.map((i, key) => {
@@ -89,6 +89,7 @@ export default async function Page({ params: {  id, params: { lang } } }) {
                 key={key}
                 musica={i}
                 data_criacao={musicDate}
+                dict={dict.components_sala_musica_resumo}
               />
             );
           })}

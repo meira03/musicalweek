@@ -5,7 +5,7 @@ import myContext from '@/app/[lang]/(protected)/artista/search/context/context';
 import Modal from 'react-modal';
 import { FaXmark } from 'react-icons/fa6';
 
-export default function Container({ searchTerm }) {
+export default function Container({ searchTerm, dict }) {
     const { imageUrls, setImageUrls, removeImage } = useContext(myContext);
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -13,13 +13,13 @@ export default function Container({ searchTerm }) {
         document.getElementById("search-error").innerHTML = ""
         
         if (imageUrls.length >= 7) {
-            document.getElementById("search-error").innerHTML = "Você só pode inserir 7 músicas em uma sala"
+            document.getElementById("search-error").innerHTML = dict.adicione_7_musicas
             return
         }
 
         // Verifica se o ID da música já existe na lista
         if (imageUrls.some((imageInfo) => imageInfo[0] === id_musica)) {
-            document.getElementById("search-error").innerHTML = "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra."
+            document.getElementById("search-error").innerHTML = dict.erro_inserir_musica
             return;
         }
 
@@ -69,13 +69,13 @@ export default function Container({ searchTerm }) {
                 overlayClassName="modal-overlay fixed inset-0 bg-black"
             >
                 <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 h-1/2 mx-auto flex flex-col items-center justify-center">
-                    <h2 className="text-4xl font-semibold mb-10 text-black">Parabéns</h2>
-                    <p className="text-2xl mb-10 text-black">Sua sala foi criada com sucesso!</p>
+                    <h2 className="text-4xl font-semibold mb-10 text-black">{dict.parabens}</h2>
+                    <p className="text-2xl mb-10 text-black">{dict.sala_criada}</p>
                     <button
                         className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl"
                         onClick={() => setModalIsOpen(false)}
                     >
-                        OK
+                        {dict.ok}
                     </button>
                 </div>
             </Modal>

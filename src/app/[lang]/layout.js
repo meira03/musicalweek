@@ -4,7 +4,8 @@ import { Menu } from "@/components/Menu";
 import Provider from '@/components/Provider/Provider';
 import { getServerSession } from "next-auth";
 import { authOption } from "@/app/api/auth/[...nextauth]/route";
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+import { getDictionary } from "@/utils/dictionaries";
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
@@ -15,7 +16,9 @@ export const metadata = {
   description: 'MusicalWeek a musical network app',
 }
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({ children, params: { lang } }) {
+  let dict = await getDictionary(lang);
+  
   const session = await getServerSession(authOption)
   
   return (
@@ -23,7 +26,7 @@ export default async function RootLayout({ children }) {
       <body className={`${inter.className} bg-black-100 min-h-screen`}>
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Menu logado={(session != null)} plano={session ? session.plano : 0} />
+            <Menu logado={(session != null)} plano={session ? session.plano : 0} dict={dict.components_menu}/>
             <main className='w-11/12 mx-auto pt-5'>
               {children}
             </main>

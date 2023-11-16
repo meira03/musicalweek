@@ -45,7 +45,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
 
   return (
     <>
-      {res.sala.participante === true && !exibirPontuacao && <Avaliacao id_musica_sala={res.musica.id_musica_sala} />}
+      {res.sala.participante === true && !exibirPontuacao && <Avaliacao id_musica_sala={res.musica.id_musica_sala} dict={dict.components_sala_avaliacao}/>}
       <section className="flex flex-col sm:flex-row justify-center items-center min-h-[calc(100vh-7rem)] sm:max-w-5xl sm:mx-auto sm:pb-12">
         <div className="flex flex-col justify-center items-center">
           <h1 className="uppercase neon-text text-2xl sm:text-4xl text-center sm:mb-5">
@@ -60,7 +60,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
             className="rounded-full w-4/5 border border-neon-blue-200 row-span-2 my-2 mx-auto"
           />
           <div className="mt-3">
-            <BtnSalaArtista participante={res.sala.participante} id_sala={id} />
+            <BtnSalaArtista participante={res.sala.participante} id_sala={id} dict={dict.components_botao_sala_artista}/>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">

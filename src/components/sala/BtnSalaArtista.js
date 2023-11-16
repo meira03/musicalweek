@@ -1,7 +1,7 @@
 "use client";
 import { entraSalaArtista, sairSalaArtista } from "@/utils/artista";
 
-export const BtnSalaArtista = ({ participante, id_sala }) => {
+export const BtnSalaArtista = ({ participante, id_sala, dict }) => {
 
   async function entrarSala() {
     const res = await entraSalaArtista(id_sala);
@@ -18,11 +18,11 @@ export const BtnSalaArtista = ({ participante, id_sala }) => {
     <>
       {!participante ? (
         <button onClick={entrarSala} className="px-3 py-2 bg-neon-blue-200 white-text">
-          Participar da Sala
+          {dict.participar_sala}
         </button>
       ) : (
         <button onClick={() => sairSala(id_sala)} className="px-3 py-2 bg-red-600 white-text">
-          Sair da Sala
+          {dict.sair_sala}
         </button>
       )}
     </>

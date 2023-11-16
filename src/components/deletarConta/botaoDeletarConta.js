@@ -8,7 +8,7 @@ import { signOut } from "next-auth/react";
 
 Modal.setAppElement(null);
 
-export default function DeleteAccount() {
+export default function DeleteAccount({dict}) {
   const [deleting, setDeleting] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
@@ -38,7 +38,7 @@ export default function DeleteAccount() {
         onClick={() => setShowConfirmationModal(true)}
         disabled={deleting}
       >
-        Deletar Conta
+        dict.deletar_conta
       </button>
 
       <Modal
@@ -50,22 +50,22 @@ export default function DeleteAccount() {
         overlayClassName="modal-overlay fixed inset-0 bg-black"
       >
         <div className="bg-zinc-950 p-4 md:p-6 border border-gray-600 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/2 mx-auto flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-semibold mb-6 text-black ">Confirma a Exclusão da Conta?</h2>
-          <p className="text-xl mb-6 text-black">Tem certeza de que deseja excluir sua conta?</p>
+          <h2 className="text-4xl font-semibold mb-6 text-black ">dict.confirmar_exclusao</h2>
+          <p className="text-xl mb-6 text-black">dict.mensagem_excluir_conta</p>
           <div className="flex space-x-4">
             <button
               className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg"
               onClick={handleDeleteAccount}
               disabled={deleting}
             >
-              Excluir
+              dict.excluir
             </button>
             <button
               className="bg-gray-500 hover-bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg"
               onClick={() => setShowConfirmationModal(false)}
               disabled={deleting}
             >
-              Cancelar
+              dict.cancelar
             </button>
           </div>
         </div>

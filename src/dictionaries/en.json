@@ -118,12 +118,7 @@
         "alterar_senha": "Change Password"
     },
     "planos_escolher": {
-        "salas_padroes": "Standard Rooms:",
-        "salas_artistas": "Artist's Rooms:",
-        "criacao_salas_artista": "Creation of Artist's Rooms:",
-        "historico": "History",
-        "estatisticas": "Statistics",
-        "plano_selecionado": "Selected Plan",
+        "plano_selecionado": "Current Plan",
         "escolher_plano": "Choose Plan"
     },
     "planos": {
@@ -188,6 +183,7 @@
         "data_nascimento": "Date of Birth",
         "email": "Email",
         "senha": "Password",
+        "senha_atual": "Current Password",
         "confirmacao_senha": "Password Confirmation",
         "outro": "Other",
         "minimo_8_caracteres": "Minimum of 8 characters",
@@ -207,6 +203,7 @@
         "data_nascimento_invalida": "Invalid date of birth.",
         "email_invalido": "Invalid email. Make sure to use a valid @ and domain.",
         "email_menos_256_caracteres": "Email must be less than 256 characters",
+        "menos_256_caracteres": "Password with less than 256 characters",
         "senha_fraca": "Weak password."
     },
     "components_home_artistas_carrossel": {
@@ -274,6 +271,7 @@
         "fila": "Queue",
         "salas": "Rooms",
         "escolhas_dos_artistas": "Artist's Choices",
+        "minhas_salas": "My Rooms",
         "historico": "History"
     },
     "components_artista_submit": {
@@ -285,7 +283,7 @@
         "mensagem_compartilhar": "What do you want to share?"
     },
     "components_search_artista": {
-        "adicione_7_musicas": "Add 7 different songs to proceed",
+        "adicione_7_musicas": "You can only insert 7 songs into a room",
         "erro_inserir_musica": "You are trying to insert a song that has already been added! Please choose another one.",
         "enviar_musicas": "Send Songs",
         "parabens": "Congratulations",
