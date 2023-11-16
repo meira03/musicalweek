@@ -17,9 +17,10 @@ export const ArtistaSubmit = () => {
     if (res != undefined) {
       document.getElementById("search-error").innerHTML = res;
       document.getElementById("modal-confirma").classList.add("hidden")
-      return false
+      window.location.href = '/artista/sala/${res.id_sala}/resumo'
+      //return false
     }
-    router.replace(`/artista/sala/${res.id_sala}/resumo`)
+    //router.replace(``)
 
   }
 
@@ -39,8 +40,9 @@ export const ArtistaSubmit = () => {
           }
           className="absolute top-0 left-0 z-40 bg-black-900 bg-opacity-70 w-full h-full"
         ></div>
-        <div className="bg-black-900 border border-neon-blue-300 w-fit max-w-5xl flex flex-col justify-center items-center z-50 pb-10 pt-20 overflow-y-auto max-h-screen">
-          <h1 className="neon-text text-3xl my-3">RESUMO DA SALA</h1>
+
+        <div className="bg-black-900 border border-neon-blue-200 w-fit max-w-4xl flex flex-col justify-center items-center z-50 pb-10 py-2">
+          <h1 className="neon-text text-4xl my-4">RESUMO DA SALA</h1>
           <div id="musicas-artista" className="flex flex-wrap justify-center w-4/5 ">
             {imageUrls.map((i, key) => {
               const currentDate = new Date();
@@ -62,7 +64,7 @@ export const ArtistaSubmit = () => {
               );
             })}
           </div>
-          <button onClick={handleClick} className="uppercase text-xl text-white mt-4 px-2 py-2 text-center bg-neon-blue-200">
+          <button onClick={handleClick} className="uppercase text-xl text-white mt-8 px-2 py-2 text-center bg-neon-blue-200 hover:bg-neon-blue-300">
             Iniciar Sala
           </button>
         </div>
@@ -72,8 +74,8 @@ export const ArtistaSubmit = () => {
         className={
           "uppercase text-xl text-white w-full py-2 text-center " +
           (imageUrls.length === 7
-            ? "bg-neon-blue-200"
-            : "bg-zinc-700 opacity-60")
+            ? "bg-neon-blue-200 hover:bg-neon-blue-300"
+            : "hidden")
         }
       >
         Começar Sala

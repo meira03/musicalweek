@@ -10,7 +10,6 @@ export default function Cadastro() {
   const router = useRouter();
   const [message, setMessage] = useState('');
 
-
   async function onRegister(formData) {
     if (document.getElementById("passwordConfirmation").value == "" || document.getElementById("nickname").value == "" || document.getElementById("completeName").value == "" || document.getElementById("email").value == "" || document.getElementById("passwordCadastro").value == "") {
       if (document.getElementById("completeName").value == "") {
@@ -66,47 +65,28 @@ export default function Cadastro() {
   }
 
   return (
-    <main className="min-h-screen h-full flex flex-col justify-center items-center p-4 md:p-8 max-w-screen-md mx-auto">
-      <h1 className="text-neon-blue-200 text-center neon-text text-4xl sm:text-5xl md:text-6xl uppercase font-semibold mb-8">
+    <main className="h-[85vh] flex flex-col justify-center items-center p-4 md:px-18 w-screen-md mx-auto">
+      <h1 className="text-neon-blue-200 text-center neon-text text-4xl sm:text-5xl uppercase font-semibold ">
         CADASTRE-SE
       </h1>
-      <div className="text-red-500 text-center text-sm font-light h-4 my-2">
+      <div className="text-red-500 text-center text-sm font-light h-4 my-5">
         {message}
       </div>
       <form action={onRegister} className="w-full max-w-2xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-auto w-full">
-          <div className="mb-4 sm:col-span-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 mx-auto w-full">
+          <div>
             <Input
               id="completeName"
               type="text"
               name="completeName"
               placeholder="DIGITE SEU NOME COMPLETO"
             />
-          </div>
-          <div className="mb-4 sm:col-span-1">
-            <Input
-              id="nickname"
-              type="text"
-              name="nickname"
-              placeholder="DIGITE SEU NOME DE USUÁRIO"
-            />
-          </div>
-          <div className="mb-4 sm:col-span-1">
             <Input
               id="email"
               type="text"
               name="email"
               placeholder="DIGITE O SEU E-MAIL"
             />
-          </div>
-          <div className="mb-4 sm:col-span-1">
-            <Input
-              id="birthday"
-              type="date"
-              name="birthday"
-            />
-          </div>
-          <div className="mb-4 sm:col-span-1">
             <Input
               id="passwordCadastro"
               type="password"
@@ -114,7 +94,18 @@ export default function Cadastro() {
               placeholder="DIGITE SUA SENHA"
             />
           </div>
-          <div className="mb-4 sm:col-span-1">
+          <div>
+            <Input
+              id="nickname"
+              type="text"
+              name="nickname"
+              placeholder="DIGITE SEU NOME DE USUÁRIO"
+            />
+            <Input
+              id="birthday"
+              type="date"
+              name="birthday"
+            />
             <Input
               id="passwordConfirmation"
               type="password"
@@ -122,16 +113,18 @@ export default function Cadastro() {
               placeholder="CONFIRME SUA SENHA"
             />
           </div>
-          <div className="mb-4 sm:col-span-2 flex justify-center mx-4 sm:mx-auto sm:max-w-sm">
+
+          <div className="sm:col-span-2 flex justify-center mx-4 sm:mx-auto sm:max-w-sm">
             <button
               type="submit"
-              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full mb-4"
+              className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-full"
             >
               CADASTRAR
             </button>
           </div>
         </div>
-        <div className="mt-4 text-center">
+        <div className="mb-4 mt-4 border-t border-white"></div>
+        <div className="text-center">
           <Link
             className="font-bold text-sm text-white hover:text-neon-blue-200 w-full"
             href="/login"

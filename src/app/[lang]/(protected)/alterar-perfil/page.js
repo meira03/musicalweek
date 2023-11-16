@@ -26,7 +26,7 @@ export default async function AlterarPerfil({ params: { lang } }) {
   return (
     <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
       <div>
-        <h1 className="text-neon-blue-200 neon-text text-center text-3xl font-bold uppercase">
+        <h1 className="text-neon-blue-200 neon-text text-center text-4xl font-bold uppercase">
           {dict.alterar_perfil}
         </h1>
         <div className="text-red-500 text-center text-sm font-light h-4 my-2">

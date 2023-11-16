@@ -16,8 +16,8 @@ export default async function Planos({ params: { lang } }) {
   }
 
   return (
-    <div className="flex text-white items-center min-h-screen">
-      <div className="container m-auto py-10 px-8">
+    <div className="flex text-white items-center">
+      <div className="container m-auto px-8">
         <h1 className="neon-text text-4xl uppercase font-semibold mb-6 text-center">
           {dict.planos_precos}
         </h1>
@@ -26,7 +26,7 @@ export default async function Planos({ params: { lang } }) {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}
+            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300 ${session.plano == '0' ? 'bg-gray-800' : ''}`}
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">
@@ -45,8 +45,9 @@ export default async function Planos({ params: { lang } }) {
             </div>
             <EscolherPlano plano={0} active={session.plano == '0'} handleClick={handleClick} />
           </div>
+
           <div
-            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}
+            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300 ${session.plano == '1' ? 'bg-gray-800' : ''}`}
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">
@@ -68,7 +69,7 @@ export default async function Planos({ params: { lang } }) {
             
           </div>
           <div
-            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}
+            className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300 ${session.plano == '2' ? 'bg-gray-800' : ''}`}
           >
             <div>
               <h2 className="text-2xl neon-text uppercase font-medium mb-4">

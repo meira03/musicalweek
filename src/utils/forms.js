@@ -23,6 +23,7 @@ export async function register(formData) {
 
     return await fetch(`https://musicalweek-api.azurewebsites.net/endpoints/usuario/index.php`, {
       method: "POST",
+      cache: 'no-store',
       body: JSON.stringify(body),
     })
       .then((result) => result.json())
@@ -30,7 +31,7 @@ export async function register(formData) {
         if (res.descricao === 'Variável(s) fora do formato') {
           return { message: 'Alguma das informações inseridas é inválida.' }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true && res.email === true) {
-          return { message: 'Já está em uso!' }
+          return { message: 'Usuário já está cadastrado!' }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.email === true) {
           return { message: "O email em questão já está em uso." }
         } else if (res.descricao === 'Variável(s) já está cadastrada' && res.nick === true) {
@@ -111,7 +112,6 @@ export async function cadastroProvider(formData) {
       data_nasc: formData.get("birthday"),
     };
 
-    //Verifica o provider para enviar o token certo
     const provider = cookieStore.get('provider').value;
     if (provider === 'google') {
       body.token_google = cookieStore.get('token_google').value;
@@ -177,14 +177,14 @@ export async function enviarEmail(formData) {
 
     if (response.ok) {
       const data = await response.json();
-      return data; // Retorne os dados da API
+      return data;
     } else {
       console.error("Erro na requisição:", response.status, response.statusText);
-      return null; // Ou lança um erro, dependendo do seu tratamento de erro
+      return null;
     }
   } catch (error) {
     console.error("Erro na requisição:", error);
-    throw error; // Relança o erro para tratamento posterior
+    throw error;
   }
 }
 
