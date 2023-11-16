@@ -31,13 +31,12 @@ export default async function Page({ params: { id, ordem, lang } }) {
     participantes: await pesquisaParticipantes(id),
   };
 
+  console.log(res)
+
   if (res.sala.descricao != null) {
     redirect('/salas')
   }
 
-  if (res.sala.sala_finalizada == true) {
-    redirect(`/sala/${id}/final`)
-  }
   else if (ordem > res.sala.ordem && res.sala.ordem != null) {
     redirect(`/sala/${id}/${res.sala.ordem}`)
   }
@@ -84,7 +83,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
         <div className="text-neon-blue-100">
           {!res.sala.sala_finalizada && (
             <>
-              {res.sala.ordem == 7 ? "{dict.fim_sala}" : "{dict.proxima_musica}"}
+              {res.sala.ordem == 7 ? dict.fim_sala : dict.proxima_musica}
               <FormataData dataTransformar={res.sala.tempo_restante} progressivo={false} formato="hh:mm:ss" />
             </>
           )}

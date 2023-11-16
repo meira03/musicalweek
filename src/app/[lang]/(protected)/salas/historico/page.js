@@ -8,14 +8,13 @@ import Link from "next/link";
 export default async function Page() {
   const salas = await salasUsuario();
   const historico = salas.historico;
-
   return (
     <>
       {historico.map(async (i, key) => {
         const musica = await getMusic(i.id_musica);
         return (
           <Link
-            href={"/sala/" + i.id_sala + "/final"}
+            href={i.tipo_sala == 2 ? `/artista/sala/${i.id_sala}/7` : "/sala/" + i.id_sala + "/final"}
             key={key}
             className="w-full h-24 relative border border-neon-blue-100"
             style={{

@@ -34,12 +34,11 @@ export default async function Page({ params: { id, ordem, lang } }) {
     redirect(`/artista/sala/${id}/resumo`)
   }
 
-  if (ordem > res.sala.ordem) {
+  if (res.sala.ordem != null && ordem > res.sala.ordem) {
     redirect(`/artista/sala/${id}/${res.sala.ordem}`);
   }
 
-  const exibirPontuacao =
-    res.musica.nota_usuario != null || res.sala.sala_finalizada === true;
+  const exibirPontuacao = res.musica.nota_usuario != null || res.sala.sala_finalizada === true;
 
   const musica = await getMusic(res.musica.musica);
 
@@ -120,7 +119,7 @@ export default async function Page({ params: { id, ordem, lang } }) {
               </div>
             </div>
             <Link
-              className={ordem < res.sala.ordem ? "" : "invisible"}
+              className={(res.sala.ordem == null && res.sala.ordem == 7) || ordem < res.sala.ordem ? "" : "invisible"}
               href={
                 ordem < 7
                   ? `/artista/sala/${id}/${parseInt(ordem) + 1}`
