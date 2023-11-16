@@ -17,7 +17,6 @@ export default function Container({ searchTerm }) {
             return
         }
 
-        // Verifica se o ID da música já existe na lista
         if (imageUrls.some((imageInfo) => imageInfo[0] === id_musica)) {
             document.getElementById("search-error").innerHTML = "Você está tentando inserir uma música que já foi adicionada! Por favor, escolha outra."
             return;
@@ -72,7 +71,7 @@ export default function Container({ searchTerm }) {
                     <h2 className="text-4xl font-semibold mb-10 text-black">Parabéns</h2>
                     <p className="text-2xl mb-10 text-black">Sua sala foi criada com sucesso!</p>
                     <button
-                        className="bg-teal-500 hover:bg-teal-600 text-white font-xbold py-3 px-20 rounded-lg text-xl"
+                        className="bg-neon-blue-200 hover:bg-neon-blue-300 text-white font-bold py-3 px-20 rounded-lg text-xl"
                         onClick={() => setModalIsOpen(false)}
                     >
                         OK

@@ -80,7 +80,7 @@ export const ArtistaMusicaResumo = ({ musica, data_criacao }) => {
       </div>
       <div
         className={
-          "relative bottom-0 border-t-0 border border-neon-blue-100 bg-black-0 justify-evenly items-center py-4 " +
+          "relative bottom-0 border-t-0 border border-neon-blue-200 bg-black-0 justify-evenly items-center py-4 " +
           (expanded ? "flex" : "hidden")
         }
       >

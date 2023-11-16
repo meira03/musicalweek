@@ -39,9 +39,9 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen flex justify-center items-center p-4 md:p-8">
-      <div className="shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full sm:w-4/5 lg:w-3/4 xl:w-1/2">
-        <h1 className="text-center text-5xl font-bold mb-6 uppercase text-neon-blue-200 neon-text">
+    <main className="h-[85vh] flex justify-center items-center px-4 md:px-8">
+      <div className="shadow-md rounded px-4 pt-5 sm:px-8 mb-4 w-full sm:w-4/5 lg:w-3/4 xl:w-1/2">
+        <h1 className="text-center text-4xl font-bold mb-6 uppercase text-neon-blue-200 neon-text">
           <span>LOGIN</span>
         </h1>
         <div className="text-red-500 text-center text-sm font-light mb-4">
@@ -87,12 +87,13 @@ export default function Login() {
             </Link>
           </div>
           <div className="mb-4 mt-4 border-t border-white"></div>
-          <div className="flex flex-col sm:flex-row items-center sm:justify-between">
-            <div className="font-bold text-gl text-white sm:ml-16 mb-4 sm:mb-0">
+          {/*  grid grid-cols-2 gap-15*/}
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between"> 
+            <div className="font-bold text-md text-white mb-4 sm:mb-0">
               NÃO TEM UMA CONTA?
             </div>
             <Link
-              className="font-bold text-gl text-white hover:text-neon-blue-200 sm:mr-16"
+              className="font-bold text-md text-white hover:text-neon-blue-200"
               href="/cadastro"
             >
               CRIAR NOVA CONTA
