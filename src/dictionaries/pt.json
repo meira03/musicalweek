@@ -145,10 +145,10 @@
     },
     "sala_id_ordem": {
         "sala": "Sala",
-        "fim_sala": "Fim da sala em:",
-        "proxima_musica": "Próxima música em:",
+        "fim_sala": "Fim da sala em: ",
+        "proxima_musica": "Próxima música em: ",
         "pontuacao": "Pontuação",
-        "nota": "nota"
+        "nota": "Nota:"
     },
     "sala_id_final": {
         "sala_artista": "Sala do Artista",
