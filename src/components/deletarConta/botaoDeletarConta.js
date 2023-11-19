@@ -38,7 +38,7 @@ export default function DeleteAccount({dict}) {
         onClick={() => setShowConfirmationModal(true)}
         disabled={deleting}
       >
-        dict.deletar_conta
+        {dict.deletar_conta}
       </button>
 
       <Modal

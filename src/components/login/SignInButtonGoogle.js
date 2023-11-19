@@ -1,7 +1,7 @@
 "use client"
 import { signIn } from "next-auth/react";
 
-const SignInButtonGoogle = ({dict}) => {
+const SignInButtonGoogle = () => {
 
   return (
     <button
@@ -10,7 +10,7 @@ const SignInButtonGoogle = ({dict}) => {
       onClick={() => signIn("google")}
       id="googleSignIn"
     >
-      {dict.continuar_google}
+      CONTINUAR COM O GOOGLE
     </button>
   );
 };

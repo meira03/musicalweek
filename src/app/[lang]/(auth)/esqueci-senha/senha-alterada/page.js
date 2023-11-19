@@ -5,7 +5,7 @@ import { getDictionary } from "@/utils/dictionaries";
 
 export default async function SenhaAlterada({ params: { lang } }) {
   let dict = await getDictionary(lang);
-  dict = dict.alterar_perfil;
+  dict = dict.senha_alterada;
 
   const router = useRouter();
 

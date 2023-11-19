@@ -22,65 +22,135 @@
     },    
     "alterar_perfil": {
         "alterar_dados": "Change Data",
-        "alterar_perfil": "Change Profile"
+        "alterar_perfil": "Change Profile",
+        "components_button": {
+            "data_nascimento_invalida": "Invalid date of birth",
+            "nome_usuario_cadastrado": "Username already registered",
+            "alterar": "Change"
+        },
+        "components_form_input": {
+            "nome_completo": "Full Name",
+            "nome_usuario": "Username",
+            "data_nascimento": "Date of Birth",
+            "email": "Email",
+            "senha": "Password",
+            "senha_atual": "Current Password",
+            "confirmacao_senha": "Password Confirmation",
+            "outro": "Other",
+            "minimo_8_caracteres": "Minimum of 8 characters",
+            "uma_letra_maiuscula": "At least one uppercase letter",
+            "uma_letra_minuscula": "At least one lowercase letter",
+            "um_numero": "At least one number",
+            "um_caractere_especial": "At least one special character (@ $ ! % * ? & .)",
+            "menos_256_caracteres": "Password with less than 256 characters",
+            "senhas_nao_coincidem": "Passwords do not match!"
+        }
     },
-    "alterar_senha": {
-        "senha_incorreta": "Incorrect Password",
-        "senha_atual_incorreta": "Incorrect Current Password",
-        "alterar_senha": "Change Password",
-        "digite_senha_atual": "Enter Current Password",
-        "digite_nova_senha": "Enter New Password",
-        "confirme_nova_senha": "Confirm New Password"
+    "pagina_alterar_senha": {
+        "alterar_senha": {
+            "senha_incorreta": "Incorrect Password",
+            "senha_atual_incorreta": "Incorrect Current Password",
+            "alterar_senha": "Change Password",
+            "digite_senha_atual": "Enter Current Password",
+            "digite_nova_senha": "Enter New Password",
+            "confirme_nova_senha": "Confirm New Password"
+        }
     },
     "artista_sala_ordem": {
+        "sala": "Room",
+        "fim_sala": "End of the room in:",
+        "proxima_musica": "Next song in:",
+        "pontuacao": "Score:",
+        "nota": "Grade:",
+        "sua_nota": "Your Grade:",
         "sala_artista": "Artist's Room",
         "escolhas": "Choices of",
-        "pontuacao": "Score:",
         "fim_da_sala": "End of the room in",
-        "proxima_musica:": "Next song in:"
+        "components_botao_sala_artista": {
+            "participar_sala": "Join the room",
+            "sair_sala": "Leave the room"
+        },
+        "components_sala_avaliacao": {
+            "avalie": "Rate",
+            "avaliar": "Evaluate"
+        }
     },
     "artista_sala_resumo": {
         "sala_artista": "Artist's Room",
         "resumo": "Summary",
-        "quant_usuarios": "Number of users:"
+        "quant_usuarios": "Number of users:",
+        "components_sala_top_musica_resumo": {
+            "musica_atual": "Current Song",
+            "proxima_musica": "Next Song",
+            "melhor_pontuacao": "Best Score:",
+            "mais_avaliada": "Most Rated"
+        },
+        "components_sala_musica_resumo": {
+            "carregando": "Loading...",
+            "erro": "An error occurred:",
+            "pontuacao": "Score:",
+            "avaliacoes": "Reviews"
+        }
     },
     "artista_search": {
         "criar_sala_artista": "Create Artist's Room",
         "criacao_sala_artista": "Creation of the Artist's Room",
-        "adicione_7_musicas": "Add 7 songs to create your room!"
+        "adicione_7_musicas": "Add 7 songs to create your room!",
+        "components_search_artista": {
+            "adicione_7_musicas": "You can only insert 7 songs into a room",
+            "erro_inserir_musica": "You are trying to insert a song that has already been added! Please choose another one.",
+            "enviar_musicas": "Send Songs",
+            "parabens": "Congratulations",
+            "sala_criada": "Your room has been successfully created!",
+            "ok": "OK"
+        },
+        "components_artista_submit": {
+            "resumo_sala": "Room Summary",
+            "iniciar_sala": "Start the room",
+            "comecar_sala": "Start the room"
+        },
+        "components_search": {
+            "mensagem_compartilhar": "What do you want to share?"
+        }
     },
-    "cadastro": {
-        "campo_obrigatorio": "Mandatory Field",
-        "senhas_nao_coincidem": "Passwords do not match!",
-        "cadastre_se": "Sign Up",
-        "nome_completo": "Enter your full name",
-        "nome_de_usuario": "Enter your username",
-        "email": "Enter your email",
-        "senha": "Enter your password",
-        "confirme_senha": "Confirm your password",
-        "cadastrar": "Register",
-        "login": "Already have an account (Login)"
+    "pagina_cadastro": {
+        "cadastro": {
+            "campo_obrigatorio": "Mandatory Field",
+            "senhas_nao_coincidem": "Passwords do not match!",
+            "cadastre_se": "Sign Up",
+            "nome_completo": "Enter your full name",
+            "nome_de_usuario": "Enter your username",
+            "email": "Enter your email",
+            "senha": "Enter your password",
+            "confirme_senha": "Confirm your password",
+            "cadastrar": "Register",
+            "login": "Already have an account (Login)"
+        }
     },
-    "cadastro_provider": {
-        "campo_obrigatorio": "Mandatory Field",
-        "preencha_valores": "Fill in the values correctly!",
-        "cadastro": "Registration",
-        "nome_completo": "Enter your full name...",
-        "nome_de_usuario": "Enter your username...",
-        "data_de_nascimento": "Enter your date of birth...",
-        "cadastrar": "Register"
+    "pagina_cadastro_provider": {
+        "cadastro_provider": {
+            "campo_obrigatorio": "Mandatory Field",
+            "preencha_valores": "Fill in the values correctly!",
+            "cadastro": "Registration",
+            "nome_completo": "Enter your full name...",
+            "nome_de_usuario": "Enter your username...",
+            "data_de_nascimento": "Enter your date of birth...",
+            "cadastrar": "Register"
+        }
     },
     "confirma_email": {
         "confirmacao_email": "Email Confirmation",
         "email_confirmado": "Your email has been successfully confirmed!",
         "pagina_inicial": "Go to the home page"
     },
-    "esqueci_senha_token": {
-        "cadastre_nova_senha": "Register your new password",
-        "digite_nova_senha": "Enter the new password",
-        "confirme_nova_senha": "Confirm the new password",
-        "recuperar_senha": "Recover Password",
-        "validando_token_aguarde": "Validating token, please wait..."
+    "pagina_esqueci_senha_token": {
+        "esqueci_senha_token": {
+            "cadastre_nova_senha": "Register your new password",
+            "digite_nova_senha": "Enter the new password",
+            "confirme_nova_senha": "Confirm the new password",
+            "recuperar_senha": "Recover Password",
+            "validando_token_aguarde": "Validating token, please wait..."
+        }
     },
     "espera_email": {
         "email_enviado": "Email sent",
@@ -90,21 +160,33 @@
         "senha_alterada": "Password Changed",
         "voltar_login": "Back to login"
     },
-    "esqueci_senha": {
-        "campo_obrigatorio": "Mandatory Field",
-        "esqueci_senha": "Forgot Password",
-        "digite_email": "Enter your email",
-        "recuperar_senha": "Recover Password"
+    "pagina_esqueci_senha": {
+        "esqueci_senha": {
+            "campo_obrigatorio": "Mandatory Field",
+            "esqueci_senha": "Forgot Password",
+            "digite_email": "Enter your email",
+            "recuperar_senha": "Recover Password"
+        }
     },
     "login": {
-        "campo_obrigatorio": "Mandatory Field",
-        "login": "Login",
+        "login_mensagem": "Login",
         "digite_email": "Enter your email...",
         "digite_senha": "Enter your password...",
-        "entrar": "Log In",
         "esqueci_senha": "Forgot my password",
         "sem_conta": "Don't have an account?",
-        "criar_nova_conta": "Create a new account"
+        "criar_nova_conta": "Create a new account",
+        "components_login_google": {
+            "continuar_google": "Continue with Google"
+        },
+        "components_login_spotify": {
+            "continuar_spotify": "Continue with Spotify"
+        },
+        "mensagem": {
+            "campo_obrigatorio": "Mandatory Field"
+        },
+        "botao_login": {
+            "entrar": "Log In"
+        }
     },
     "perfil": {
         "quero_ser_premium": "I want to be Premium",
@@ -115,11 +197,19 @@
         "data_de_nascimento": "Date of Birth",
         "acoes": "Actions",
         "alterar_dados": "Change Data",
-        "alterar_senha": "Change Password"
-    },
-    "planos_escolher": {
-        "plano_selecionado": "Current Plan",
-        "escolher_plano": "Choose Plan"
+        "alterar_senha": "Change Password",
+        "components_deleta_conta": {
+            "deletar_conta": "Delete Account",
+            "confirmar_exclusao": "Confirm account deletion?",
+            "mensagem_excluir_conta": "Are you sure you want to delete your account?",
+            "excluir": "Delete",
+            "cancelar": "Cancel"
+        },
+        "components_perfil": {
+            "editar_icone": "Edit icon",
+            "selecionar_foto": "Select the desired photo",
+            "cancelar": "Cancel"
+        }
     },
     "planos": {
         "planos_precos": "Plans and Pricing",
@@ -136,19 +226,16 @@
         "limite_60_salas": "History: Limit of 60 rooms",
         "limite_1_sala_ativa": "Artist Room Creation: Limit of 1 active room",
         "personalizadas": "Statistics: Customized",
-        "escolha_plano": "Choose the plan that best suits your needs and enjoy the full benefits of our application with our paid plans. Discover a universe of music all in one place."
+        "escolha_plano": "Choose the plan that best suits your needs and enjoy the full benefits of our application with our paid plans. Discover a universe of music all in one place.",
+        "planos_escolher": {
+            "plano_selecionado": "Current Plan",
+            "escolher_plano": "Choose Plan"
+        }
     },    
-    "sala_id_ordem": {
-        "sala": "Room",
-        "fim_sala": "End of the room in:",
-        "proxima_musica": "Next song in:",
-        "pontuacao": "Score",
-        "nota": "grade"
-    },
     "sala_id_final": {
         "sala_artista": "Artist's Room",
         "fim_sala": "End of the Room",
-        "pontuacao": "Score",
+        "pontuacao": "Score:",
         "nota_sala": "Room grade"
     },
     "salas_fila": {
@@ -160,143 +247,26 @@
     "salas": {
         "proxima_em": "Next in:",
         "veja_resultados": "SEE THE RESULTS",
-        "pontuacao": "Score"
+        "pontuacao": "Score:"
     },
-    "components_button": {
-        "data_nascimento_invalida": "Invalid date of birth",
-        "nome_usuario_cadastrado": "Username already registered",
-        "alterar": "Change"
+    "protected_salas_layout": {
+        "components_salas_navegacao": {
+            "fila": "Queue",
+            "salas": "Rooms",
+            "escolhas_dos_artistas": "Artist's Choices",
+            "minhas_salas": "My Rooms",
+            "historico": "History"
+        }
     },
-    "components_deleta_conta": {
-        "deletar_conta": "Delete Account",
-        "confirmar_exclusao": "Confirm account deletion?",
-        "mensagem_excluir_conta": "Are you sure you want to delete your account?",
-        "excluir": "Delete",
-        "cancelar": "Cancel"
-    },
-    "components_entra_sala_artista": {
-        "entrar_sala_artista": "Enter the artist's room"
-    },
-    "components_form_input": {
-        "nome_completo": "Full Name",
-        "nome_usuario": "Username",
-        "data_nascimento": "Date of Birth",
-        "email": "Email",
-        "senha": "Password",
-        "senha_atual": "Current Password",
-        "confirmacao_senha": "Password Confirmation",
-        "outro": "Other",
-        "minimo_8_caracteres": "Minimum of 8 characters",
-        "uma_letra_maiuscula": "At least one uppercase letter",
-        "uma_letra_minuscula": "At least one lowercase letter",
-        "um_numero": "At least one number",
-        "um_caractere_especial": "At least one special character (@ $ ! % * ? & .)",
-        "menos_256_caracteres": "Password with less than 256 characters",
-        "senhas_nao_coincidem": "Passwords do not match!"
-    },
-    "components_form_validation": {
-        "campo_obrigatorio": "Mandatory Field",
-        "nome_menos_64": "Name must be less than 64 characters.",
-        "nome_invalido": "Invalid full name.",
-        "usuario_entre_3_16": "Username must be between 3 and 16 characters.",
-        "acesso_menores_nao_permitido": "Access for minors not allowed.",
-        "data_nascimento_invalida": "Invalid date of birth.",
-        "email_invalido": "Invalid email. Make sure to use a valid @ and domain.",
-        "email_menos_256_caracteres": "Email must be less than 256 characters",
-        "menos_256_caracteres": "Password with less than 256 characters",
-        "senha_fraca": "Weak password."
-    },
-    "components_home_artistas_carrossel": {
-        "carregando": "Loading...",
-        "escolhas_de": "choices of"
-    },
-    "components_home_como_participar": {
-        "passo_1": "Step 1",
-        "escolha_musica": "Choose a song",
-        "para_participar": "to participate",
-        "de_sala": "in a room",
-        "passo_2": "Step 2",
-        "aguarde_outros": "Wait for other",
-        "usuarios_entrarem": "users to enter",
-        "na_sala": "the room",
-        "passo_3": "Step 3",
-        "ouca_e_avalie": "listen and evaluate",
-        "as_musicas": "the songs",
-        "diariamente": "daily"
-    },
-    "components_home_participe": {
-        "participe": "Join now!"
-    },
-    "components_home_top": {
-        "carregando": "Loading...",
-        "da_semana": "Of the week",
-        "do_mes": "Of the month",
-        "top_musicas": "Top songs"
-    },
-    "components_login_google": {
-        "continuar_google": "Continue with Google"
-    },
-    "components_login_spotify": {
-        "continuar_spotify": "Continue with Spotify"
-    },
-    "components_perfil": {
-        "editar_icone": "Edit icon",
-        "selecionar_foto": "Select the desired photo",
-        "cancelar": "Cancel"
-    },
-    "components_sala_musica_resumo": {
-        "carregando": "Loading...",
-        "erro": "An error occurred:",
-        "pontuacao": "Score",
-        "avaliacoes": "Reviews"
-    },
-    "components_sala_artista_musica_resumo": {
-        "musica_atual": "Current Song",
-        "proxima_musica": "Next Song",
-        "melhor_pontuacao": "Best Score",
-        "mais_avaliada": "Most Rated"
-    },
-    "components_sala_avaliacao": {
-        "avalie": "Rate",
-        "avaliar": "Evaluate"
-    },
-    "components_botao_sala_artista": {
-        "participar_sala": "Join the room",
-        "sair_sala": "Leave the room"
-    },
-    "components_sala_artista": {
-        "remover_sala": "Remove the room from your list"
-    },
-    "components_salas_navegacao": {
-        "fila": "Queue",
-        "salas": "Rooms",
-        "escolhas_dos_artistas": "Artist's Choices",
-        "minhas_salas": "My Rooms",
-        "historico": "History"
-    },
-    "components_artista_submit": {
-        "resumo_sala": "Room Summary",
-        "iniciar_sala": "Start the room",
-        "comecar_sala": "Start the room"
-    },
-    "components_search": {
-        "mensagem_compartilhar": "What do you want to share?"
-    },
-    "components_search_artista": {
-        "adicione_7_musicas": "You can only insert 7 songs into a room",
-        "erro_inserir_musica": "You are trying to insert a song that has already been added! Please choose another one.",
-        "enviar_musicas": "Send Songs",
-        "parabens": "Congratulations",
-        "sala_criada": "Your room has been successfully created!",
-        "ok": "OK"
-    },
-    "components_menu": {
-        "logo_musical_week": "Musical Week Logo",
-        "nova_sala": "New Room",
-        "nova_sala_artista": "New Artist's Room",
-        "salas": "Rooms",
-        "perfil": "Profile",
-        "sair": "Logout",
-        "entrar": "Login"
+    "lang_layout": {
+        "components_menu": {
+            "logo_musical_week": "Musical Week Logo",
+            "nova_sala": "New Room",
+            "nova_sala_artista": "New Artist's Room",
+            "salas": "Rooms",
+            "perfil": "Profile",
+            "sair": "Logout",
+            "entrar": "Login"
+        }
     }
 }

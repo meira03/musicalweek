@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export const Button = (props, {dict}) => {
+export const Button = (props) => {
     function sairSala(id_sala) {
         console.log("apertou");
         console.log("ID DA SALA: " + id_sala)
@@ -18,7 +18,7 @@ export const Button = (props, {dict}) => {
                 className="absolute right-4 bg-red-500 hover:bg-red-600 px-2 py-2"
                 onClick={sairSala(props.id)}
             >
-                <p>{dict.remover_sala}</p>
+                <p>Remova a sala da sua lista</p>
             </button>
         </main>
     );
@@ -28,5 +28,5 @@ export const Button = (props, {dict}) => {
     className="absolute right-4 bg-red-500 hover:bg-red-600 px-2 py-2"
     onClick={sairSala()}
 >
-    <p>{dict.remover_sala}</p>
+    <p>Remova a sala da sua lista</p>
 </button>

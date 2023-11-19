@@ -21,7 +21,7 @@ export const metadata = {
   title: 'Sala do Artista',
 }
 
-export default async function Page({ params: { id, ordem, lang } }) {
+export default async function Page({ params: { id, ordem }, params: {lang} }) {
   let dict = await getDictionary(lang);
   dict = dict.artista_sala_ordem;
 
@@ -68,8 +68,8 @@ export default async function Page({ params: { id, ordem, lang } }) {
             {!res.sala.sala_finalizada && (
               <>
                 {res.sala.ordem == 7
-                  ? "FIM DA SALA EM: "
-                  : "PRÓXIMA MÚSICA EM: "}
+                  ? dict.fim_da_sala
+                  : dict.proxima_musica}
                 <FormataData
                   dataTransformar={res.sala.tempo_restante}
                   progressivo={false}
@@ -142,8 +142,8 @@ export default async function Page({ params: { id, ordem, lang } }) {
             {!res.sala.sala_finalizada && (
               <>
                 {res.sala.ordem == 7
-                  ? "{dict.fim_da_sala} "
-                  : "{dict.proxima_musica} "}
+                  ? dict.fim_da_sala
+                  : dict.proxima_musica}
                 <FormataData
                   dataTransformar={res.sala.tempo_restante}
                   progressivo={false}

@@ -3,7 +3,7 @@ import { getDictionary } from "@/utils/dictionaries";
 
 export default async function EsperaEmail ({ params: { lang } }) {
     let dict = await getDictionary(lang);
-    dict = dict.alterar_perfil;
+    dict = dict.espera_email;
     return (
         <main className="mx-auto sm:max-w-7xl px-2 sm:px-6 lg:px-8 min-h-[80vh] flex justify-center items-center">
           <div className="divide-y-2">

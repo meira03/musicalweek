@@ -15,7 +15,7 @@ export const metadata = {
 
 export default async function SalasLayout({ children, params: { lang } }) {
   let dict = await getDictionary(lang);
-  dict = dict.home;
+  dict = dict.protected_salas_layout;
   
   const salas = await salasUsuario();
 

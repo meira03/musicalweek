@@ -18,6 +18,7 @@ export const metadata = {
 
 export default async function RootLayout({ children, params: { lang } }) {
   let dict = await getDictionary(lang);
+  dict = dict.lang_layout
   
   const session = await getServerSession(authOption)
   
