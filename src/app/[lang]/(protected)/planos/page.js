@@ -43,7 +43,7 @@ export default async function Planos({ params: { lang } }) {
                 {dict.limite_5_salas}
               </p>
             </div>
-            <EscolherPlano plano={0} active={session.plano == '0'} handleClick={handleClick} />
+            <EscolherPlano plano={0} active={session.plano == '0'} handleClick={handleClick} dict={dict.planos_escolher}/>
           </div>
           <div
             className={`p-6 border border-gray-600 shadow-md text-center flex flex-col justify-between hover:bg-gray-800 transition duration-300`}
@@ -63,7 +63,7 @@ export default async function Planos({ params: { lang } }) {
                 {dict.limite_10_salas}
               </p>
             </div>
-            <EscolherPlano plano={1} active={session.plano == '1'} handleClick={handleClick} />
+            <EscolherPlano plano={1} active={session.plano == '1'} handleClick={handleClick} dict={dict.planos_escolher}/>
             
             
           </div>
