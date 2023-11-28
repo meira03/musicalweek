@@ -37,7 +37,7 @@ const nextConfig = {
             },
             {
               key: 'Content-Security-Policy',
-              value: "img-src 'self' data: https://i.scdn.co; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';",
+              value: "img-src 'self' data: https://i.scdn.co; script-src 'self'; style-src 'self';",
             },
           ],
         },
