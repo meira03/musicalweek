@@ -43,7 +43,7 @@ export default async function Perfil({ params: { lang } }) {
             <ModalProfile perfil={res} dict={dict.components_perfil}/>
             <div className='justify-center'>
               <p className="flex justify-center neon-text text-4xl uppercase font-semibold">{res.nick}</p>
-              <p className="flex justify-center ">{tipoPlanoLabel}</p>
+              <p className="flex justify-center text-white mt-8">{tipoPlanoLabel}</p>
             </div>
 
             {res.plano === "0" && (
@@ -94,7 +94,7 @@ export default async function Perfil({ params: { lang } }) {
             <div className="grid grid-row-3 gap-4 ">
 
               <div>
-                <h3 className='flex justify-center mb-1'>{dict.acoes}</h3>
+                <h3 className='flex justify-center mb-1 text-white'>{dict.acoes}</h3>
                 <Link href="alterar-perfil/">
                   <button className="bg-teal-500 w-full hover:bg-teal-600 text-white py-1.5">
                     {dict.alterar_dados}

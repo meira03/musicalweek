@@ -71,21 +71,21 @@ export const Menu = ({ logado, plano: propPlano, dict }) => {
               <div id="sidebar" className={(!sideBar && "hidden") + " fixed top-14 right-0 w-full z-50"}>
                 <ul className="w-11/12 mx-auto bg-black-100 bg-opacity-90 h-[calc(100%_-_3.5rem)] relative text-center">
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/search'>{dict.nova_sala}</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80 text-white" href='/search'>{dict.nova_sala}</Link>
                   </li>
                   {plano == 2 && (
                     <li onClick={() => setSideBar(false)}>
-                      <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/artista/search'>{dict.nova_sala_artista}</Link>
+                      <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80 text-white" href='/artista/search'>{dict.nova_sala_artista}</Link>
                     </li>
                   )}
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/salas'>{dict.salas}</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80 text-white" href='/salas'>{dict.salas}</Link>
                   </li>
                   <li onClick={() => setSideBar(false)}>
-                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80" href='/perfil'>{dict.perfil}</Link>
+                    <Link className="pl-2 uppercase text-lg py-2 block hover:text-neon-blue-200 bg-opacity-80 text-white" href='/perfil'>{dict.perfil}</Link>
                   </li>
                   <li onClick={() => setSideBar(false)}>
-                    <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full" onClick={logout}>{dict.sair}</button>
+                    <button className="pl-2 uppercase text-lg py-2 text-red-600 w-full text-white" onClick={logout}>{dict.sair}</button>
                   </li>
                 </ul>
               </div>
